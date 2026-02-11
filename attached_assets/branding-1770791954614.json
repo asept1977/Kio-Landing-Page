@@ -1,0 +1,170 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "DIN 2014",
+      "role": "heading"
+    },
+    {
+      "family": "Segoe UI",
+      "role": "body"
+    },
+    {
+      "family": "Roboto",
+      "role": "body"
+    },
+    {
+      "family": "Ubuntu",
+      "role": "body"
+    },
+    {
+      "family": "Helvetica Neue",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#782D7D",
+    "accent": "#006482",
+    "background": "#FFFFFF",
+    "textPrimary": "#585656",
+    "link": "#006482"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Segoe UI",
+      "heading": "DIN 2014"
+    },
+    "fontStacks": {
+      "heading": [
+        "DIN 2014",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Oxygen-Sans",
+        "Ubuntu",
+        "Cantarell",
+        "Helvetica Neue",
+        "sans-serif"
+      ],
+      "body": [
+        "DIN 2014",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Oxygen-Sans",
+        "Ubuntu",
+        "Cantarell",
+        "Helvetica Neue",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "DIN 2014",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Oxygen-Sans",
+        "Ubuntu",
+        "Cantarell",
+        "Helvetica Neue",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "20.25px",
+      "h2": "29.988px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#782D7D",
+      "textColor": "#FFFFFF",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#585656",
+      "textColor": "#FFFFFF",
+      "borderRadius": "3px",
+      "borderRadiusCorners": {
+        "topLeft": "3px",
+        "topRight": "3px",
+        "bottomRight": "3px",
+        "bottomLeft": "3px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://www.miller-meier.de/wp-content/themes/miller-meier/assets/img/miller-meier-logo.svg",
+    "favicon": "https://www.miller-meier.de/wp-content/themes/miller-meier/assets/appicons/apple-touch-icon.png",
+    "ogImage": "https://www.miller-meier.de/wp-content/uploads/2022/09/motiv-reichstag.jpg",
+    "logoHref": "https://www.miller-meier.de",
+    "logoAlt": "Miller & Meier Consulting"
+  },
+  "__framework_hints": [
+    "WPML ver:4.8.6 stt:1,3;"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Selected #0 because it is visible, located in the header, links to the homepage, and matches the brand name 'Miller & Meier Consulting'.",
+    "confidence": 0.95,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Kontakt",
+      "reasoning": "Button #0 ('Kontakt') uses the brand color #782D7D, is located in a prominent position, and has action-oriented text, making it the primary CTA."
+    },
+    "secondary": {
+      "index": 4,
+      "text": "Individuelle Einstellungen",
+      "reasoning": "Button #4 ('Individuelle Einstellungen') has a different background color (#585656) and serves as a secondary action, offering customization options."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "business professionals and organizations"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 0,
+        "selectedLogoReasoning": "Selected #0 because it is visible, located in the header, links to the homepage, and matches the brand name 'Miller & Meier Consulting'.",
+        "confidence": 0.95
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}

@@ -18,6 +18,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 ### Key Files
 - `client/src/pages/Home.tsx` - Main landing page with all sections
 - `client/src/pages/Verbaende.tsx` - "KIO für Verbände" subpage (German)
+- `client/src/pages/PublicAffairs.tsx` - "KIO für Public Affairs" subpage (German)
 - `client/src/components/Navigation.tsx` - Fixed nav with lang toggle
 - `client/src/components/ContactForm.tsx` - Enterprise lead form
 - `client/src/components/Footer.tsx` - Minimal footer
@@ -29,6 +30,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 ### Routes
 - `/` - Main landing page (bilingual EN/DE)
 - `/verbaende` - "KIO für Verbände" subpage (German only)
+- `/public-affairs` - "KIO für Public Affairs" subpage (German only)
 
 ### Home Page Sections
 1. Hero: "Enterprise Knowledge. Orchestrated."
@@ -38,11 +40,16 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 5. CTA: Contact form for executive briefings
 
 ### Verbände Subpage Sections
-1. Hero: "Komplexität reduzieren. Position stärken. Wissen nutzbar machen."
-2. Warum KIO: 4 bullet points about association challenges
-3. Use Cases: 5 cards with Problem/KIO-Lösung/Wertbeitrag structure
-4. Technische Basis: RAG, GraphRAG, Neo4j, Qdrant, Multi-Agent, MCP
-5. Final CTA: "Executive Briefing planen"
+1. Hero: "Strategische Handlungsfähigkeit."
+2. Use Cases: 3 vertical timeline cards (Problem/Lösung/Impact)
+3. Referenzen: BVS Bayern
+4. Final CTA: "Strategiegespräch vereinbaren"
+
+### Public Affairs Subpage Sections
+1. Hero: "Politische Wirkung."
+2. Use Cases: 3 vertical timeline cards (Legislative Monitoring, Stakeholder-Intelligence, Positionspapiere)
+3. Referenzen: Miller & Meier Consulting, 365Sherpas
+4. Final CTA: "Strategiegespräch vereinbaren"
 
 ## User Preferences
 - Dark enterprise design
