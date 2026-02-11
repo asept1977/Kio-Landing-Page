@@ -22,7 +22,7 @@ export const api = {
       input: insertLeadSchema,
       responses: {
         201: z.custom<typeof leads.$inferSelect>(),
-        409: errorSchemas.conflict, // Email already exists
+        409: errorSchemas.conflict,
         400: errorSchemas.validation,
       },
     },

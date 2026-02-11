@@ -1,0 +1,130 @@
+Build a high-end, enterprise SaaS landing page for “KIO – The Enterprise AI Ecosystem”.
+
+Use pure HTML, CSS and minimal vanilla JavaScript.
+Everything in one index.html file.
+Dark, modern design with subtle gradients.
+Accent colors: orange (#ff6a00) and deep blue (#003366).
+Premium enterprise look. No generic template style.
+
+The website must focus clearly on three target groups:
+
+1) Public Affairs
+2) Associations (Verbände)
+3) Industry & Mittelstand
+
+STRUCTURE:
+
+------------------------------------------------
+1. HERO SECTION
+------------------------------------------------
+
+Headline:
+“Enterprise Knowledge. Orchestrated.”
+
+Subheadline:
+“KIO connects enterprise systems, policy data and internal knowledge into one sovereign AI ecosystem.”
+
+Buttons:
+- Explore Solutions
+- Request Strategy Call
+
+Background: subtle animated gradient.
+
+------------------------------------------------
+2. TARGET GROUP SECTION (3 COLUMNS)
+------------------------------------------------
+
+Create three premium cards with soft glassmorphism effect.
+
+CARD 1 – Public Affairs
+Title:
+“KIO for Public Affairs”
+
+Text:
+Automated monitoring of legislation, stakeholder analysis and position paper alignment.
+Integrates parliamentary data (DIP), lobby registers, internal documents and knowledge graphs.
+
+CTA: Learn More
+
+CARD 2 – Associations
+Title:
+“KIO for Associations”
+
+Text:
+Connect federal structures, policy positions and member knowledge into one intelligent AI layer.
+Hierarchical document structures across federal, regional and specialist associations.
+
+CTA: Learn More
+
+CARD 3 – Industry & Mittelstand
+Title:
+“KIO for Industry & Mittelstand”
+
+Text:
+Secure AI integration across ERP, CRM, SharePoint and technical documentation.
+Accelerate certification processes, compliance workflows and sales intelligence.
+
+CTA: Learn More
+
+------------------------------------------------
+3. HOW KIO WORKS
+------------------------------------------------
+
+Section title:
+“KIO Agent Mesh Architecture”
+
+Create a clean horizontal diagram using styled boxes:
+
+User
+↓
+KIO Assistant Layer
+↓
+Domain Agents (Sales, Policy, HR, ESG, Legal)
+↓
+Tools & AI Logic (RAG, GraphRAG, Multi-Agent)
+↓
+MCP Connectors
+↓
+Enterprise Systems (ERP, CRM, SharePoint, Email, Knowledge Graph)
+
+Keep it minimal, elegant, professional.
+
+------------------------------------------------
+4. DIGITAL SOVEREIGNTY
+------------------------------------------------
+
+Headline:
+“Built for European Digital Sovereignty”
+
+Text:
+GDPR-compliant.
+Hosted in Europe.
+Enterprise-grade access control.
+No uncontrolled data exposure.
+Full integration into existing enterprise environments.
+
+------------------------------------------------
+5. FINAL CTA
+------------------------------------------------
+
+Headline:
+“Turn fragmented knowledge into strategic advantage.”
+
+Button:
+“Schedule Executive Briefing”
+
+------------------------------------------------
+6. FOOTER
+------------------------------------------------
+
+Minimal footer:
+© 2026 KIO Ecosystem
+Enterprise AI made simple.
+
+Technical requirements:
+- Fully responsive
+- Smooth scrolling navigation
+- Modern CSS (Flexbox/Grid)
+- Subtle hover animations
+- Clean and well-commented code
+- No external frameworks
