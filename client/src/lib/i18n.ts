@@ -10,8 +10,8 @@ export const translations = {
     },
     hero: {
       badge: "ENTERPRISE AI ECOSYSTEM",
-      title1Word1: "Enterprise",
-      title2Word2: "Knowledge.",
+      title1Word1: "Knowledge",
+      title2Word2: "Intelligence",
       title2: "Orchestrated.",
       subtitle: "KIO connects enterprise systems, policy data and internal knowledge into one sovereign AI ecosystem.",
       cta1: "Explore Solutions",
@@ -87,8 +87,8 @@ export const translations = {
     },
     hero: {
       badge: "ENTERPRISE KI-\u00d6KOSYSTEM",
-      title1Word1: "Enterprise",
-      title2Word2: "Knowledge.",
+      title1Word1: "Knowledge",
+      title2Word2: "Intelligence",
       title2: "Orchestrated.",
       subtitle: "KIO verbindet Unternehmenssysteme, Policy-Daten und internes Wissen zu einem souver\u00e4nen KI-\u00d6kosystem.",
       cta1: "L\u00f6sungen entdecken",

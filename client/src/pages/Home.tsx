@@ -90,7 +90,8 @@ export default function Home() {
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 leading-[1.05]" data-testid="text-hero-title">
-                <span className="text-[#ff6a00]">{t.hero.title1Word1} </span>
+                <span className="text-[#ff6a00]">{t.hero.title1Word1}</span>
+                <br />
                 <span className="text-[#003366]">{t.hero.title2Word2}</span>
                 <br />
                 <span className="text-foreground">{t.hero.title2}</span>
