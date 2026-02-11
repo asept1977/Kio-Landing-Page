@@ -48,7 +48,7 @@ export function ContactForm({ lang }: ContactFormProps) {
             className="glass-card rounded-md p-10 text-center"
             data-testid="form-success"
           >
-            <div className="w-16 h-16 bg-[#ff6a00]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#ff6a00]">
+            <div className="w-16 h-16 bg-[#c45a1a]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#c45a1a]">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">{t.successTitle}</h3>
@@ -56,7 +56,7 @@ export function ContactForm({ lang }: ContactFormProps) {
             <Button
               variant="ghost"
               onClick={() => window.location.reload()}
-              className="mt-6 text-[#ff6a00]"
+              className="mt-6 text-[#c45a1a]"
               data-testid="button-another-request"
             >
               {t.another}
@@ -83,7 +83,7 @@ export function ContactForm({ lang }: ContactFormProps) {
                           {...field}
                           value={field.value ?? ""}
                           placeholder="name@company.com"
-                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
+                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#c45a1a]/50 focus:ring-[#c45a1a]/20"
                           disabled={isPending}
                           data-testid="input-email"
                         />
@@ -103,7 +103,7 @@ export function ContactForm({ lang }: ContactFormProps) {
                           {...field}
                           value={field.value ?? ""}
                           placeholder="ACME GmbH"
-                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
+                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#c45a1a]/50 focus:ring-[#c45a1a]/20"
                           disabled={isPending}
                           data-testid="input-company"
                         />
@@ -148,7 +148,7 @@ export function ContactForm({ lang }: ContactFormProps) {
                         {...field}
                         value={field.value ?? ""}
                         rows={3}
-                        className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20 resize-none"
+                        className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#c45a1a]/50 focus:ring-[#c45a1a]/20 resize-none"
                         disabled={isPending}
                         data-testid="input-message"
                       />
@@ -161,7 +161,7 @@ export function ContactForm({ lang }: ContactFormProps) {
               <Button
                 type="submit"
                 disabled={isPending}
-                className="w-full bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
+                className="w-full bg-[#c45a1a] border-[#c45a1a] text-white font-semibold"
                 data-testid="button-submit"
               >
                 {isPending ? (
