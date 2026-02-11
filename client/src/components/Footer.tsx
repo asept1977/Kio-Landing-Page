@@ -13,7 +13,7 @@ export function Footer({ lang }: FooterProps) {
     <footer className="border-t border-black/[0.06] py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-6 h-6 bg-gradient-to-br from-[#c45a1a] to-[#d4722e] rounded flex items-center justify-center text-white font-bold text-xs">
+          <div className="w-6 h-6 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded flex items-center justify-center text-white font-bold text-xs">
             K
           </div>
           <span className="font-bold text-lg tracking-tight text-foreground/60">

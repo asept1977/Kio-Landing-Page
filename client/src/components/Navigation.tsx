@@ -43,7 +43,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
         <div className="flex justify-between items-center h-20">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer group" data-testid="link-logo">
-              <div className="w-9 h-9 bg-gradient-to-br from-[#c45a1a] to-[#d4722e] rounded-md flex items-center justify-center text-white font-bold text-lg tracking-tighter">
+              <div className="w-9 h-9 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-lg tracking-tighter">
                 K
               </div>
               <span className="font-bold text-xl tracking-tight text-foreground">
@@ -76,7 +76,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               </Button>
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-[#c45a1a] border-[#c45a1a] text-white font-medium"
+                className="bg-[#ff6a00] border-[#ff6a00] text-white font-medium"
                 data-testid="button-nav-contact"
               >
                 {t.contact}
@@ -119,7 +119,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button onClick={() => scrollToSection("sovereignty")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-sovereignty">
                 {t.sovereignty}
               </button>
-              <Button onClick={() => scrollToSection("contact")} className="w-full bg-[#c45a1a] border-[#c45a1a] text-white" data-testid="button-mobile-contact">
+              <Button onClick={() => scrollToSection("contact")} className="w-full bg-[#ff6a00] border-[#ff6a00] text-white" data-testid="button-mobile-contact">
                 {t.contact}
               </Button>
             </div>

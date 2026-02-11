@@ -40,14 +40,14 @@ export default function Home() {
       icon: <Landmark className="w-7 h-7" />,
       title: t.targets.card1Title,
       desc: t.targets.card1Desc,
-      iconBg: "bg-[#c45a1a]/10 text-[#c45a1a]",
+      iconBg: "bg-[#ff6a00]/10 text-[#ff6a00]",
       link: undefined as string | undefined,
     },
     {
       icon: <Users className="w-7 h-7" />,
       title: t.targets.card2Title,
       desc: t.targets.card2Desc,
-      iconBg: "bg-[#1a2e44]/10 text-slate-600",
+      iconBg: "bg-[#003366]/10 text-[#003366]",
       link: "/verbaende",
     },
     {
@@ -61,15 +61,15 @@ export default function Home() {
 
   const architectureLayers = [
     { label: t.architecture.layer1, sub: "", color: "border-black/[0.08] bg-black/[0.03]", textColor: "text-foreground/80" },
-    { label: t.architecture.layer2, sub: "", color: "border-[#c45a1a]/30 bg-[#c45a1a]/10", textColor: "text-[#c45a1a]" },
-    { label: t.architecture.layer3, sub: t.architecture.layer3Items, color: "border-slate-400/20 bg-slate-400/10", textColor: "text-slate-600" },
+    { label: t.architecture.layer2, sub: "", color: "border-[#ff6a00]/30 bg-[#ff6a00]/10", textColor: "text-[#ff6a00]" },
+    { label: t.architecture.layer3, sub: t.architecture.layer3Items, color: "border-[#003366]/20 bg-[#003366]/10", textColor: "text-[#003366]" },
     { label: t.architecture.layer4, sub: t.architecture.layer4Items, color: "border-black/[0.06] bg-black/[0.03]", textColor: "text-foreground/70" },
-    { label: t.architecture.layer5, sub: "", color: "border-[#c45a1a]/20 bg-[#c45a1a]/5", textColor: "text-[#c45a1a]/80" },
-    { label: t.architecture.layer6, sub: t.architecture.layer6Items, color: "border-[#1a2e44]/30 bg-[#1a2e44]/10", textColor: "text-slate-600" },
+    { label: t.architecture.layer5, sub: "", color: "border-[#ff6a00]/20 bg-[#ff6a00]/5", textColor: "text-[#ff6a00]/80" },
+    { label: t.architecture.layer6, sub: t.architecture.layer6Items, color: "border-[#003366]/30 bg-[#003366]/10", textColor: "text-[#003366]" },
   ];
 
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#c45a1a]/20">
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
       <Navigation lang={lang} setLang={setLang} />
 
       {/* ===== HERO ===== */}
@@ -77,14 +77,14 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '48px 48px' }}
         />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#c45a1a]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#1a2e44]/10 rounded-full blur-[100px]" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#ff6a00]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#003366]/10 rounded-full blur-[100px]" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <motion.div initial="hidden" animate="show" variants={stagger}>
               <motion.div variants={fadeUp}>
-                <span className="inline-block py-1.5 px-4 rounded-full bg-[#c45a1a]/10 text-[#c45a1a] font-semibold text-xs tracking-widest mb-8 border border-[#c45a1a]/20" data-testid="text-hero-badge">
+                <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/10 text-[#ff6a00] font-semibold text-xs tracking-widest mb-8 border border-[#ff6a00]/20" data-testid="text-hero-badge">
                   {t.hero.badge}
                 </span>
               </motion.div>
@@ -102,7 +102,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
-                  className="bg-[#c45a1a] border-[#c45a1a] text-white font-semibold"
+                  className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
                   data-testid="button-explore"
                 >
                   {t.hero.cta1} <ArrowRight className="ml-2 w-4 h-4" />
@@ -165,7 +165,7 @@ export default function Home() {
                 <p className="text-foreground/60 leading-relaxed text-sm mb-6" data-testid={`text-target-desc-${idx}`}>
                   {card.desc}
                 </p>
-                <span className="text-[#c45a1a] text-sm font-semibold flex items-center gap-2 transition-all" data-testid={`link-learn-more-${idx}`}>
+                <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 transition-all" data-testid={`link-learn-more-${idx}`}>
                   {t.targets.cta} <ArrowRight className="w-4 h-4" />
                 </span>
               </motion.div>
@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* ===== ARCHITECTURE ===== */}
       <section id="architecture" className="py-24 lg:py-32 relative border-y border-black/[0.06]" data-testid="section-architecture">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a2e44]/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/5 via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
@@ -231,7 +231,7 @@ export default function Home() {
               viewport={{ once: true }}
               variants={stagger}
             >
-              <motion.div variants={fadeUp} className="w-12 h-1 bg-[#c45a1a] mb-8 rounded-full" />
+              <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
               <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight" data-testid="text-sovereignty-title">
                 {t.sovereignty.title}
               </motion.h2>
@@ -242,8 +242,8 @@ export default function Home() {
               <motion.ul variants={stagger} className="space-y-4">
                 {t.sovereignty.points.map((point, i) => (
                   <motion.li key={i} variants={fadeUp} className="flex items-start gap-4 text-foreground/80" data-testid={`text-sovereignty-point-${i}`}>
-                    <div className="w-6 h-6 rounded-full bg-[#c45a1a]/10 flex items-center justify-center mt-0.5 shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-[#c45a1a]" />
+                    <div className="w-6 h-6 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-[#ff6a00]" />
                     </div>
                     <span className="text-sm font-medium">{point}</span>
                   </motion.li>
@@ -259,7 +259,7 @@ export default function Home() {
               className="relative"
             >
               <div className="glass-card rounded-md p-10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1a2e44]/10 via-transparent to-[#c45a1a]/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/10 via-transparent to-[#ff6a00]/5" />
                 <div className="relative z-10 grid grid-cols-2 gap-6">
                   {[
                     { icon: <Shield className="w-8 h-8" />, label: "GDPR" },
@@ -268,7 +268,7 @@ export default function Home() {
                     { icon: <Database className="w-8 h-8" />, label: "Data Isolation" },
                   ].map((item, i) => (
                     <div key={i} className="flex flex-col items-center gap-3 py-6" data-testid={`sovereignty-icon-${i}`}>
-                      <div className="text-[#c45a1a]/60">{item.icon}</div>
+                      <div className="text-[#ff6a00]/60">{item.icon}</div>
                       <span className="text-xs font-bold text-foreground/50 tracking-widest uppercase">{item.label}</span>
                     </div>
                   ))}
@@ -281,7 +281,7 @@ export default function Home() {
 
       {/* ===== FINAL CTA + FORM ===== */}
       <section id="contact" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-contact">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#c45a1a]/3 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/3 via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"
