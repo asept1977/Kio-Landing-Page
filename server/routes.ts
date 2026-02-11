@@ -11,10 +11,10 @@ export async function registerRoutes(
   app.post(api.leads.create.path, async (req, res) => {
     try {
       const input = api.leads.create.input.parse(req.body);
-      
+
       const existing = await storage.getLeadByEmail(input.email);
       if (existing) {
-        return res.status(409).json({ message: "Email already registered" });
+        return res.status(409).json({ message: "This email is already registered." });
       }
 
       const lead = await storage.createLead(input);
