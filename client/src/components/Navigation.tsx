@@ -76,7 +76,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               </Button>
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-[#ff6a00] text-white font-medium"
+                className="bg-[#ff6a00] border-[#ff6a00] text-white font-medium"
                 data-testid="button-nav-contact"
               >
                 {t.contact}
@@ -119,7 +119,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button onClick={() => scrollToSection("sovereignty")} className="block w-full text-left text-lg font-medium text-white/80" data-testid="button-mobile-sovereignty">
                 {t.sovereignty}
               </button>
-              <Button onClick={() => scrollToSection("contact")} className="w-full bg-[#ff6a00] text-white" data-testid="button-mobile-contact">
+              <Button onClick={() => scrollToSection("contact")} className="w-full bg-[#ff6a00] border-[#ff6a00] text-white" data-testid="button-mobile-contact">
                 {t.contact}
               </Button>
             </div>

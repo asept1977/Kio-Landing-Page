@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import {
   Landmark,
   Users,
@@ -21,6 +22,7 @@ import { translations } from "@/lib/i18n";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('en');
+  const [, navigate] = useLocation();
   const t = translations[lang];
 
   const fadeUp = {
@@ -39,18 +41,21 @@ export default function Home() {
       title: t.targets.card1Title,
       desc: t.targets.card1Desc,
       iconBg: "bg-[#ff6a00]/10 text-[#ff6a00]",
+      link: undefined as string | undefined,
     },
     {
       icon: <Users className="w-7 h-7" />,
       title: t.targets.card2Title,
       desc: t.targets.card2Desc,
       iconBg: "bg-[#003366]/20 text-blue-400",
+      link: "/verbaende",
     },
     {
       icon: <Factory className="w-7 h-7" />,
       title: t.targets.card3Title,
       desc: t.targets.card3Desc,
       iconBg: "bg-white/5 text-white/80",
+      link: undefined as string | undefined,
     },
   ];
 
@@ -97,7 +102,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
-                  className="bg-[#ff6a00] text-white font-semibold"
+                  className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
                   data-testid="button-explore"
                 >
                   {t.hero.cta1} <ArrowRight className="ml-2 w-4 h-4" />
@@ -149,8 +154,9 @@ export default function Home() {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="glass-card glass-card-hover rounded-md p-8 transition-all duration-500 group cursor-default"
+                className={`glass-card glass-card-hover rounded-md p-8 transition-all duration-500 group ${card.link ? "cursor-pointer" : "cursor-default"}`}
                 data-testid={`card-target-${idx}`}
+                onClick={() => card.link && navigate(card.link)}
               >
                 <div className={`w-14 h-14 rounded-md ${card.iconBg} flex items-center justify-center mb-6`}>
                   {card.icon}
@@ -159,7 +165,7 @@ export default function Home() {
                 <p className="text-white/40 leading-relaxed text-sm mb-6" data-testid={`text-target-desc-${idx}`}>
                   {card.desc}
                 </p>
-                <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all" data-testid={`link-learn-more-${idx}`}>
+                <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 transition-all" data-testid={`link-learn-more-${idx}`}>
                   {t.targets.cta} <ArrowRight className="w-4 h-4" />
                 </span>
               </motion.div>

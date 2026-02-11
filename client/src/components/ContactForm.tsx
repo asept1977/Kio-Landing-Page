@@ -161,7 +161,7 @@ export function ContactForm({ lang }: ContactFormProps) {
               <Button
                 type="submit"
                 disabled={isPending}
-                className="w-full bg-[#ff6a00] text-white font-semibold"
+                className="w-full bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
                 data-testid="button-submit"
               >
                 {isPending ? (
