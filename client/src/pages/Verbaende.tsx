@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
+import bvsBayernLogoPath from "@assets/image_1770791016833.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -209,6 +210,50 @@ export default function Verbaende() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-referenzen">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-referenzen-title">
+              Referenzen
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-md mx-auto" data-testid="text-referenzen-desc">
+              Verbände, die bereits auf KIO setzen.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="flex flex-wrap items-center justify-center gap-10"
+          >
+            <motion.a
+              variants={fadeUp}
+              href="https://bvs-bayern.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card rounded-md px-10 py-8 flex items-center justify-center hover-elevate transition-all"
+              data-testid="link-referenz-bvs"
+            >
+              <img
+                src={bvsBayernLogoPath}
+                alt="BVS Bayern - Sportverband für para, reha, inklusion"
+                className="h-12 w-auto"
+                data-testid="img-referenz-bvs"
+              />
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
