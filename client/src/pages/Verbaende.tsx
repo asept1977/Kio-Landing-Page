@@ -203,7 +203,7 @@ export default function Verbaende() {
                     <div className="rounded-md bg-white/[0.03] border border-white/[0.06] p-6 sm:p-8 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a00]/[0.02] to-transparent pointer-events-none" />
                       <div className="relative z-10">
-                        <p className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
+                        <p className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
                           {uc.impactNumber}
                         </p>
                         <p className="text-sm text-white/40 mb-5" data-testid={`text-impact-label-${idx}`}>{uc.impactLabel}</p>

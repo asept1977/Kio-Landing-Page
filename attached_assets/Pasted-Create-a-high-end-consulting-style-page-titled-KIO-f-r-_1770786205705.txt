@@ -1,0 +1,135 @@
+Create a high-end consulting style page titled:
+
+“KIO für Verbände”
+
+Single index.html file.
+Pure HTML + modern CSS + minimal vanilla JS.
+No frameworks.
+Dark premium design.
+Accent color: #ff6a00.
+Very clean, executive look.
+Less text. More hierarchy.
+
+IMPORTANT:
+Reduce text density by 40%.
+Impact must visually dominate.
+Problem and Intervention must be very short.
+
+------------------------------------------------
+STRUCTURE
+------------------------------------------------
+
+1) HERO
+
+Large centered headline:
+“KIO für Verbände”
+
+Subline:
+“Strategische Handlungsfähigkeit unter Zeitdruck.”
+
+Minimal intro (max 2 lines).
+
+Primary CTA button:
+“Executive Briefing”
+
+------------------------------------------------
+2) STRATEGIC FLOW TIMELINE
+------------------------------------------------
+
+Replace heavy 3-column blocks with a vertical strategic flow design.
+
+Each use case should follow this structure:
+
+------------------------------------------------
+USE CASE BLOCK
+------------------------------------------------
+
+Centered section title (large):
+Stellungnahmen in Rekordzeit
+
+Under it:
+A thin vertical timeline line with animated dots.
+
+Then a 3-step vertical flow (stacked, not columns):
+
+STEP 1 – PROBLEM (small uppercase label)
+• Last-Minute-Entwürfe
+• Verteiltes Positionswissen
+• Politischer Zeitdruck
+
+STEP 2 – KIO INTERVENTION (short paragraph, max 2 lines)
+KIO analysiert neue Entwürfe, gleicht sie automatisch mit föderalem Verbandswissen ab und erzeugt belastbare Vorlagen.
+
+STEP 3 – IMPACT (visually dominant card)
+Large number:
+–70 %
+
+Below:
+Recherchezeit
+
+Small bullets:
+Konsistente Argumentation
+Schnellere Reaktionsfähigkeit
+
+Impact box must be:
+- Slightly brighter background
+- Bigger font
+- Subtle glow effect
+
+------------------------------------------------
+SECOND USE CASE
+------------------------------------------------
+
+Policy Monitoring & Stakeholder-Analyse
+
+Same vertical 3-step flow.
+
+Problem (3 bullets max)
+Intervention (2 lines max)
+Impact (3 short benefit bullets)
+
+------------------------------------------------
+DESIGN RULES
+------------------------------------------------
+
+- No long paragraphs
+- No wide 3-column text blocks
+- Everything vertically guided
+- Strong spacing between sections
+- Fade-in animation on scroll (Intersection Observer)
+- Each step animates slightly upward (0.5s ease)
+- Timeline dots glow softly in orange
+
+------------------------------------------------
+TYPOGRAPHY
+------------------------------------------------
+
+- Headings large and confident
+- Labels small and letter-spaced (PROBLEM / INTERVENTION / IMPACT)
+- Impact numbers significantly larger than all other text
+- Lots of whitespace
+
+------------------------------------------------
+FINAL CTA
+------------------------------------------------
+
+Centered strong headline:
+“Vom Dokumentenchaos zur strategischen Position.”
+
+Button:
+“Strategiegespräch vereinbaren”
+
+------------------------------------------------
+GOAL
+------------------------------------------------
+
+The page must feel like:
+- A top-tier consulting firm presentation
+- Minimal
+- Confident
+- Strategic
+- €50M enterprise AI platform
+
+Less explanation.
+More clarity.
+More executive impact.
