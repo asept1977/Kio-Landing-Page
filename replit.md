@@ -17,6 +17,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 
 ### Key Files
 - `client/src/pages/Home.tsx` - Main landing page with all sections
+- `client/src/pages/Verbaende.tsx` - "KIO für Verbände" subpage (German)
 - `client/src/components/Navigation.tsx` - Fixed nav with lang toggle
 - `client/src/components/ContactForm.tsx` - Enterprise lead form
 - `client/src/components/Footer.tsx` - Minimal footer
@@ -25,12 +26,23 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `shared/schema.ts` - Lead model (email, company, interest, message)
 - `server/routes.ts` - POST /api/leads endpoint
 
-### Sections
+### Routes
+- `/` - Main landing page (bilingual EN/DE)
+- `/verbaende` - "KIO für Verbände" subpage (German only)
+
+### Home Page Sections
 1. Hero: "Enterprise Knowledge. Orchestrated."
-2. Target Groups: Public Affairs, Associations, Industry & Mittelstand
+2. Target Groups: Public Affairs, Associations (links to /verbaende), Industry & Mittelstand
 3. Architecture: KIO Agent Mesh diagram
 4. Digital Sovereignty: GDPR, EU hosting, access control
 5. CTA: Contact form for executive briefings
+
+### Verbände Subpage Sections
+1. Hero: "Komplexität reduzieren. Position stärken. Wissen nutzbar machen."
+2. Warum KIO: 4 bullet points about association challenges
+3. Use Cases: 5 cards with Problem/KIO-Lösung/Wertbeitrag structure
+4. Technische Basis: RAG, GraphRAG, Neo4j, Qdrant, Multi-Agent, MCP
+5. Final CTA: "Executive Briefing planen"
 
 ## User Preferences
 - Dark enterprise design
