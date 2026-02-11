@@ -1,79 +1,76 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const stagger = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
-interface TimelineCase {
+interface UseCaseStep {
   headline: string;
-  problem: string[];
+  problemBullets: string[];
   intervention: string;
-  impact: string[];
+  impactNumber: string;
+  impactLabel: string;
+  impactBullets: string[];
 }
 
-const timelineCases: TimelineCase[] = [
+const useCases: UseCaseStep[] = [
   {
     headline: "Stellungnahmen in Rekordzeit",
-    problem: [
+    problemBullets: [
       "Last-Minute-Entwürfe",
-      "Verteilte historische Positionen",
-      "Zeitkritische politische Fristen",
+      "Verteiltes Positionswissen",
+      "Politischer Zeitdruck",
     ],
     intervention:
-      "KIO analysiert neue Entwürfe, gleicht sie mit föderalem Verbandswissen ab, erzeugt konsistente, argumentativ belastbare Vorlagen.",
-    impact: [
-      "\u201370 % Recherchezeit",
-      "Konsistente Argumentationslinie",
+      "KIO analysiert neue Entwürfe, gleicht sie automatisch mit föderalem Verbandswissen ab und erzeugt belastbare Vorlagen.",
+    impactNumber: "\u201370 %",
+    impactLabel: "Recherchezeit",
+    impactBullets: [
+      "Konsistente Argumentation",
       "Schnellere Reaktionsfähigkeit",
     ],
   },
   {
     headline: "Policy Monitoring & Stakeholder-Analyse",
-    problem: [
-      "Gesetzgebungsprozesse intransparent",
-      "Initiativen verteilt über Datenquellen",
-      "Hoher manueller Monitoring-Aufwand",
+    problemBullets: [
+      "Intransparente Gesetzgebung",
+      "Verteilte Datenquellen",
+      "Hoher Monitoring-Aufwand",
     ],
     intervention:
-      "Integration parlamentarischer Daten (z.\u202fB. DIP), Lobbyregister und interner Dokumente. Automatisches Clustering und Frühwarnsystem.",
-    impact: [
-      "Frühere Positionierung",
+      "Integration parlamentarischer Daten, Lobbyregister und interner Dokumente. Automatisches Clustering und Frühwarnsystem.",
+    impactNumber: "3\u00d7",
+    impactLabel: "schnellere Positionierung",
+    impactBullets: [
       "Strategisch fundierte Entscheidungen",
       "Reduzierter Rechercheaufwand",
     ],
   },
   {
     headline: "Föderale Wissensintegration",
-    problem: [
+    problemBullets: [
       "Silostrukturen",
       "Personengebundenes Wissen",
       "Redundante Abstimmungen",
     ],
     intervention:
-      "Hierarchische Wissensarchitektur. Rollenbasierter Zugriff. Gemeinsame semantische Struktur über alle Verbandsebenen.",
-    impact: [
+      "Hierarchische Wissensarchitektur mit rollenbasiertem Zugriff und gemeinsamer semantischer Struktur.",
+    impactNumber: "100 %",
+    impactLabel: "Wissenstransparenz",
+    impactBullets: [
       "Einheitliche Positionierung",
-      "Transparente Dokumentenlage",
       "Nachhaltige Wissenssicherung",
     ],
   },
-];
-
-const techBasis = [
-  "RAG & GraphRAG",
-  "Knowledge Graph",
-  "Multi-Agent Architecture",
-  "MCP-Integration",
-  "DSGVO-konform & europäisch betreibbar",
 ];
 
 export default function Verbaende() {
@@ -96,8 +93,12 @@ export default function Verbaende() {
             <Link href="/">
               <span className="text-sm font-medium text-white/50 cursor-pointer" data-testid="link-nav-home">Home</span>
             </Link>
-            <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active">KIO für Verbände</span>
-            <button onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })} className="text-sm font-medium text-white/50" data-testid="button-nav-kontakt">
+            <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active">Verbände</span>
+            <button
+              onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
+              className="text-sm font-medium text-white/50"
+              data-testid="button-nav-kontakt"
+            >
               Kontakt
             </button>
           </div>
@@ -112,25 +113,26 @@ export default function Verbaende() {
       </nav>
 
       {/* HERO */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero-verbaende">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/8 via-background to-background" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#ff6a00]/3 rounded-full blur-[160px]" />
+      <section className="relative pt-36 pb-28 lg:pt-52 lg:pb-40 overflow-hidden" data-testid="section-hero-verbaende">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/6 via-background to-background" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-[#ff6a00] text-xs font-bold tracking-[0.25em] uppercase mb-10" data-testid="text-badge-verbaende">
+            <motion.p variants={fadeUp} className="text-[#ff6a00] text-[11px] font-bold tracking-[0.3em] uppercase mb-12" data-testid="text-badge-verbaende">
               KIO für Verbände
             </motion.p>
 
-            <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.08] text-white" data-testid="text-hero-title-verbaende">
-              Strategische Handlungsfähigkeit
+            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-white" data-testid="text-hero-title-verbaende">
+              Strategische
               <br />
-              <span className="text-white/40">in komplexen Strukturen.</span>
+              Handlungsfähigkeit
+              <br />
+              <span className="text-white/30">unter Zeitdruck.</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-base md:text-lg text-white/35 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
-              Verbände arbeiten unter Zeitdruck, in föderalen Strukturen und mit verteiltem Wissen.
-              KIO orchestriert dieses Wissen zu strategischer Wirkung.
+            <motion.p variants={fadeUp} className="text-sm md:text-base text-white/30 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
+              KIO orchestriert verteiltes Verbandswissen zu strategischer Wirkung.
             </motion.p>
 
             <motion.div variants={fadeUp}>
@@ -139,75 +141,81 @@ export default function Verbaende() {
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
                 data-testid="button-briefing-hero"
               >
-                Executive Briefing anfragen <ArrowRight className="ml-2 w-4 h-4" />
+                Executive Briefing <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="mt-20">
-              <ChevronDown className="w-5 h-5 text-white/15 mx-auto animate-bounce" />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* TIMELINE */}
+      {/* STRATEGIC FLOW TIMELINE */}
       <section id="timeline" className="py-24 lg:py-36 relative" data-testid="section-timeline">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* vertical line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/8 to-transparent -translate-x-1/2" />
-
-          <div className="space-y-28 lg:space-y-36">
-            {timelineCases.map((uc, idx) => (
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-32 lg:space-y-44">
+            {useCases.map((uc, idx) => (
               <motion.div
                 key={idx}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-80px" }}
                 variants={stagger}
                 className="relative"
                 data-testid={`timeline-step-${idx}`}
               >
-                {/* timeline dot */}
-                <div className="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-3 h-3 rounded-full bg-[#ff6a00] ring-4 ring-[#ff6a00]/10 ring-offset-4 ring-offset-background" />
-                </div>
-
-                {/* headline */}
-                <motion.h3 variants={fadeUp} className="text-2xl md:text-3xl font-bold text-white text-center mb-12 lg:mb-16" data-testid={`text-timeline-title-${idx}`}>
+                {/* Use case headline */}
+                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white text-center mb-16" data-testid={`text-timeline-title-${idx}`}>
                   {uc.headline}
-                </motion.h3>
+                </motion.h2>
 
-                {/* three-column layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
-                  {/* Problem */}
-                  <motion.div variants={fadeUp} className="space-y-4" data-testid={`timeline-problem-${idx}`}>
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/25 mb-4">Problem</p>
-                    <ul className="space-y-3">
-                      {uc.problem.map((p, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0" />
-                          <span className="text-sm text-white/45 leading-relaxed">{p}</span>
+                {/* Vertical flow container */}
+                <div className="relative pl-8 sm:pl-12">
+                  {/* vertical line */}
+                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-white/6 via-white/10 to-white/4" />
+
+                  {/* STEP 1: PROBLEM */}
+                  <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-problem-${idx}`}>
+                    {/* dot */}
+                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-white/20 border border-white/10" />
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/20 mb-3">Problem</p>
+                    <ul className="space-y-1.5">
+                      {uc.problemBullets.map((b, i) => (
+                        <li key={i} className="text-sm text-white/40 flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-white/15 shrink-0" />
+                          {b}
                         </li>
                       ))}
                     </ul>
                   </motion.div>
 
-                  {/* Intervention */}
-                  <motion.div variants={fadeUp} className="space-y-4" data-testid={`timeline-intervention-${idx}`}>
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#ff6a00]/60 mb-4">Intervention</p>
-                    <p className="text-sm text-white/55 leading-relaxed">{uc.intervention}</p>
+                  {/* STEP 2: INTERVENTION */}
+                  <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-intervention-${idx}`}>
+                    {/* dot */}
+                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-[#ff6a00]/40 border border-[#ff6a00]/20" />
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/40 mb-3">Intervention</p>
+                    <p className="text-sm text-white/45 leading-relaxed max-w-lg">{uc.intervention}</p>
                   </motion.div>
 
-                  {/* Impact */}
-                  <motion.div variants={fadeUp} data-testid={`timeline-impact-${idx}`}>
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/25 mb-4">Impact</p>
-                    <div className="rounded-md bg-white/[0.03] border border-white/[0.06] p-5 space-y-3">
-                      {uc.impact.map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]/50 mt-1.5 shrink-0" />
-                          <span className="text-sm text-white/70 font-medium leading-relaxed">{item}</span>
+                  {/* STEP 3: IMPACT */}
+                  <motion.div variants={fadeUp} className="relative" data-testid={`timeline-impact-${idx}`}>
+                    {/* glowing dot */}
+                    <div className="absolute -left-5 sm:-left-7 top-6 w-2.5 h-2.5 rounded-full bg-[#ff6a00] shadow-[0_0_10px_rgba(255,106,0,0.4)]" />
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/20 mb-4">Impact</p>
+                    <div className="rounded-md bg-white/[0.03] border border-white/[0.06] p-6 sm:p-8 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a00]/[0.02] to-transparent pointer-events-none" />
+                      <div className="relative z-10">
+                        <p className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
+                          {uc.impactNumber}
+                        </p>
+                        <p className="text-sm text-white/40 mb-5" data-testid={`text-impact-label-${idx}`}>{uc.impactLabel}</p>
+                        <div className="space-y-2">
+                          {uc.impactBullets.map((b, i) => (
+                            <div key={i} className="flex items-center gap-2.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]/40 shrink-0" />
+                              <span className="text-sm text-white/55 font-medium">{b}</span>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -217,34 +225,9 @@ export default function Verbaende() {
         </div>
       </section>
 
-      {/* TECH BASIS */}
-      <section id="tech" className="py-20 lg:py-28 relative border-t border-white/5" data-testid="section-tech">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-          >
-            <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-white/25 mb-8 text-center" data-testid="text-tech-title">
-              Technologische Basis
-            </motion.p>
-
-            <motion.ul variants={stagger} className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-              {techBasis.map((item, idx) => (
-                <motion.li key={idx} variants={fadeUp} className="flex items-center gap-2.5" data-testid={`tech-item-${idx}`}>
-                  <span className="w-1 h-1 rounded-full bg-[#ff6a00]/40" />
-                  <span className="text-sm text-white/40 font-medium">{item}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
-      <section id="cta-final" className="py-28 lg:py-40 relative" data-testid="section-cta-final">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.02] via-transparent to-transparent" />
+      <section id="cta-final" className="py-32 lg:py-44 relative" data-testid="section-cta-final">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             initial="hidden"
@@ -255,7 +238,7 @@ export default function Verbaende() {
             <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight" data-testid="text-cta-title-verbaende">
               Vom Dokumentenchaos
               <br />
-              <span className="text-white/40">zur strategischen Position.</span>
+              <span className="text-white/30">zur strategischen Position.</span>
             </motion.h2>
             <motion.div variants={fadeUp} className="mt-10">
               <Button
@@ -279,7 +262,7 @@ export default function Verbaende() {
             </div>
             <span className="font-bold text-lg tracking-tight text-white/60">KIO</span>
           </div>
-          <p className="text-sm text-white/30" data-testid="text-copyright-verbaende">&copy; 2026 KIO Ecosystem &mdash; Enterprise AI made simple.</p>
+          <p className="text-sm text-white/25" data-testid="text-copyright-verbaende">&copy; 2026 KIO Ecosystem</p>
         </div>
       </footer>
     </div>
