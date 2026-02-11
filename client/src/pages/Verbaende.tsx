@@ -3,9 +3,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
-import verbaendeHeroImg from "@/assets/images/verbaende-hero.png";
-import teamsIntegrationImg from "@assets/image18.png";
-import sovereigntyIconsImg from "@assets/image14.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -119,49 +116,32 @@ export default function Verbaende() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial="hidden" animate="show" variants={stagger}>
-              <motion.p variants={fadeUp} className="text-[#ff6a00] text-lg md:text-2xl font-bold tracking-[0.25em] uppercase mb-12" data-testid="text-badge-verbaende">
-                KIO FÜR VERBÄNDE
-              </motion.p>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.div initial="hidden" animate="show" variants={stagger}>
+            <motion.p variants={fadeUp} className="text-[#ff6a00] text-lg md:text-2xl font-bold tracking-[0.25em] uppercase mb-12" data-testid="text-badge-verbaende">
+              KIO FÜR VERBÄNDE
+            </motion.p>
 
-              <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.05] text-foreground" data-testid="text-hero-title-verbaende">
-                Strategische
-                <br />
-                <span className="text-foreground/40">Handlungsfähigkeit.</span>
-              </motion.h1>
+            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-foreground" data-testid="text-hero-title-verbaende">
+              Strategische
+              <br />
+              <span className="text-foreground/40">Handlungsfähigkeit.</span>
+            </motion.h1>
 
-              <motion.p variants={fadeUp} className="text-sm md:text-base text-foreground/40 mb-14 max-w-md leading-relaxed" data-testid="text-hero-subtitle-verbaende">
-                KIO orchestriert verteiltes Verbandswissen zu strategischer Wirkung.
-              </motion.p>
+            <motion.p variants={fadeUp} className="text-sm md:text-base text-foreground/40 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
+              KIO orchestriert verteiltes Verbandswissen zu strategischer Wirkung.
+            </motion.p>
 
-              <motion.div variants={fadeUp}>
-                <Button
-                  onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
-                  className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
-                  data-testid="button-briefing-hero"
-                >
-                  Executive Briefing <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </motion.div>
+            <motion.div variants={fadeUp}>
+              <Button
+                onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
+                data-testid="button-briefing-hero"
+              >
+                Executive Briefing <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden lg:block relative"
-            >
-              <img
-                src={verbaendeHeroImg}
-                alt="Verbände Knowledge Network"
-                className="w-full rounded-md opacity-90"
-                data-testid="img-verbaende-hero"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/30 rounded-md" />
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -228,51 +208,6 @@ export default function Verbaende() {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 lg:py-32 relative border-y border-black/[0.06]" data-testid="section-integration-verbaende">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="glass-card rounded-md p-8 overflow-hidden">
-                <img
-                  src={teamsIntegrationImg}
-                  alt="KIO in Microsoft Teams"
-                  className="w-full rounded-md"
-                  data-testid="img-teams-integration"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={stagger}
-            >
-              <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
-              <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight" data-testid="text-integration-title-verbaende">
-                Nahtlose Integration
-              </motion.h2>
-              <motion.p variants={fadeUp} className="text-foreground/60 leading-relaxed mb-8" data-testid="text-integration-desc-verbaende">
-                KIO arbeitet dort, wo Ihr Team bereits arbeitet. Direkt in Microsoft Teams, ohne zusätzliche Software-Installation oder Schulungsaufwand.
-              </motion.p>
-              <motion.div variants={fadeUp} className="glass-card rounded-md p-6 overflow-hidden">
-                <img
-                  src={sovereigntyIconsImg}
-                  alt="DSGVO-konform, Datenschutz, Datensicherheit"
-                  className="w-full rounded-md"
-                  data-testid="img-sovereignty-verbaende"
-                />
-              </motion.div>
-            </motion.div>
           </div>
         </div>
       </section>
