@@ -1,0 +1,87 @@
+Create a clean, modern subpage (single HTML file) titled:
+“KIO für Verbände”
+
+This page is part of a website for “KIO – Enterprise AI Ecosystem”.
+Build it with pure HTML + CSS and minimal vanilla JavaScript. No frameworks. No external libraries.
+Use a premium enterprise look: dark theme, subtle gradients, glassmorphism, high readability.
+Accent colors: orange (#ff6a00) and deep blue (#003366).
+Responsive, fast, production-quality.
+
+GOAL:
+Explain KIO for associations (Verbände) with a strict structure:
+Problem → KIO solution → measurable value contribution.
+No fluffy marketing. Keep it clean and executive-ready.
+
+PAGE STRUCTURE:
+
+1) HERO
+Title: “KIO für Verbände”
+Subtitle: “Komplexität reduzieren. Position stärken. Wissen nutzbar machen.”
+Add a short 2–3 line intro explaining that associations work in federal structures and distributed knowledge and need speed, consistency and transparency.
+Add CTA buttons:
+- “Demo anfragen”
+- “Use Cases ansehen”
+
+2) SECTION: “Warum KIO im Verband?”
+Show 4 bullet points (short, crisp):
+- Föderale Strukturen (Bund / Landes- / Fachverbände)
+- Verteilte Dokumente & Versionen
+- Kurze Fristen für Stellungnahmen
+- Hoher manueller Koordinationsaufwand
+
+3) USE CASES (5 clean cards, each with the same template)
+Each card MUST contain three blocks with headings:
+- Problem
+- KIO-Lösung
+- Wertbeitrag
+
+Use Case 1: “Stellungnahmen in Rekordzeit”
+Problem: last-minute drafts, distributed historical positions, manual search, time pressure
+KIO-Lösung: index positions, hierarchical knowledge structure, draft analysis, alignment with past positions, consistent statement draft
+Wertbeitrag: 60–80% time saving, consistent argumentation, faster reaction, fewer bottlenecks
+
+Use Case 2: “Policy Monitoring & Stakeholder-Analyse”
+Problem: initiatives scattered, processes hard to track, stakeholder opacity, manual monitoring
+KIO-Lösung: integrate external sources (parliamentary data like DIP, lobby register, internal docs), auto clustering, early-warning, stakeholder mapping
+Wertbeitrag: earlier positioning, better strategy, less research effort, higher policy impact
+
+Use Case 3: “Föderale Wissensintegration”
+Problem: parallel work, silos, person-bound knowledge, redundancies
+KIO-Lösung: hierarchical knowledge architecture, role-based access, shared semantic layer, context access per level
+Wertbeitrag: unified positioning, transparency, faster alignment, knowledge retention
+
+Use Case 4: “Mitgliederkommunikation & Service”
+Problem: recurring questions, overload, uneven knowledge levels
+KIO-Lösung: assistant for staff, context answers from association knowledge, summaries, reply suggestions
+Wertbeitrag: faster service, higher member satisfaction, less workload, scalable without hiring
+
+Use Case 5: “Konsistenzprüfung & Compliance”
+Problem: multiple versions, manual transfers to registers, reputation risk
+KIO-Lösung: automatic consistency checks, change analysis, version history, alignment between documents and public entries
+Wertbeitrag: fewer compliance risks, higher trust, professional external appearance
+
+4) SECTION: “Technische Basis (kurz & glaubwürdig)”
+Show a compact list (no long text):
+- RAG + GraphRAG
+- Knowledge Graph (Neo4j)
+- Vector DB (Qdrant)
+- Multi-Agent Architecture
+- MCP Connectors to SharePoint / Email / ERP / CRM
+Mention: “DSGVO-konform, europäisch betreibbar, rollenbasiert.”
+
+5) FINAL CTA
+Headline: “Vom Dokumentenchaos zur Position mit Wirkung.”
+Button: “Executive Briefing planen”
+
+6) FOOTER
+© 2026 KIO Ecosystem – Enterprise AI made simple.
+
+UI/UX requirements:
+- Sticky top navigation with “Home” and “KIO für Verbände” and “Kontakt” anchors
+- Smooth scrolling
+- Subtle hover effects on cards
+- Clear typography, lots of whitespace
+- Add small icons (use inline SVG or simple CSS shapes) but no external icon libraries
+- Provide clean, commented code
+
+Output: a complete index.html for this subpage.
