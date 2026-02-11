@@ -120,7 +120,7 @@ export default function Verbaende() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div initial="hidden" animate="show" variants={stagger}>
             <motion.p variants={fadeUp} className="text-[#ff6a00] text-[11px] font-bold tracking-[0.3em] uppercase mb-12" data-testid="text-badge-verbaende">
-              KIO für Verbände
+              KIO FÜR VERBÄNDE
             </motion.p>
 
             <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-white" data-testid="text-hero-title-verbaende">
