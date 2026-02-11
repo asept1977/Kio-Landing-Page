@@ -1,345 +1,305 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { WaitlistForm } from "@/components/WaitlistForm";
+import { ContactForm } from "@/components/ContactForm";
 import { motion } from "framer-motion";
-import { 
-  Bot, 
-  Zap, 
-  Share2, 
-  Layers, 
-  Cpu, 
+import {
+  Landmark,
+  Users,
+  Factory,
+  ArrowRight,
+  ArrowDown,
+  Shield,
+  Lock,
   Globe2,
-  ArrowRight
+  Database,
+  ChevronDown,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import type { Lang } from "@/lib/i18n";
+import { translations } from "@/lib/i18n";
 
 export default function Home() {
-  const [lang, setLang] = useState<'en' | 'de'>('en');
+  const [lang, setLang] = useState<Lang>('en');
+  const t = translations[lang];
 
-  const content = {
-    en: {
-      future: "THE FUTURE OF INTELLIGENCE",
-      heroTitle: "Your AI Ecosystem",
-      heroSubtitle: "Is Finally Here.",
-      heroDesc: "Connect agents, automate workflows, and unlock true intelligence with KIO. The platform where your digital assistants work together.",
-      joinWaitlist: "Join 2,000+ early adopters. No spam, ever.",
-      featuresTitle: "Intelligence, Connected.",
-      featuresDesc: "KIO isn't just another chatbot. It's a substrate for intelligent agents to collaborate, share context, and execute complex tasks.",
-      features: [
-        {
-          title: "Connected Agents",
-          desc: "Agents that talk to each other. Your Calendar Agent coordinates with your Email Agent automatically."
-        },
-        {
-          title: "Unified Context",
-          desc: "One shared brain. KIO remembers your preferences across every tool and interaction."
-        },
-        {
-          title: "Instant Actions",
-          desc: "Don't just chat—do. KIO executes real actions across your integrated apps securely."
-        }
-      ],
-      visionTitle: "The Operating System",
-      visionFor: "for AGI.",
-      visionDesc1: "Current AI tools are siloed. They're powerful, but lonely. KIO builds the bridges between models, data sources, and execution environments.",
-      visionDesc2: "We are building an ecosystem where specialized agents can be composed into powerful workflows that adapt to your needs in real-time.",
-      visionPoints: [
-        "Model Agnostic - Use GPT-4, Claude, or Llama",
-        "Privacy First - Your data stays yours",
-        "Developer Friendly - Extensible API"
-      ],
-      readManifesto: "Read our Manifesto",
-      ready: "Ready to upgrade your workflow?",
-      waitlistDesc: "Join the waitlist today and get early access to the KIO ecosystem. The future of work is automated, intelligent, and connected.",
-      reserve: "Reserve your spot"
-    },
-    de: {
-      future: "DIE ZUKUNFT DER INTELLIGENZ",
-      heroTitle: "Ihr KI-Ökosystem",
-      heroSubtitle: "ist endlich da.",
-      heroDesc: "Verbinden Sie Agenten, automatisieren Sie Workflows und schalten Sie wahre Intelligenz mit KIO frei. Die Plattform, auf der Ihre digitalen Assistenten zusammenarbeiten.",
-      joinWaitlist: "Schließen Sie sich über 2.000 Early Adopters an. Kein Spam, jemals.",
-      featuresTitle: "Vernetzte Intelligenz.",
-      featuresDesc: "KIO ist nicht nur ein weiterer Chatbot. Es ist eine Basis für intelligente Agenten, um zusammenzuarbeiten, Kontext zu teilen und komplexe Aufgaben auszuführen.",
-      features: [
-        {
-          title: "Vernetzte Agenten",
-          desc: "Agenten, die miteinander sprechen. Ihr Kalender-Agent koordiniert sich automatisch mit Ihrem E-Mail-Agenten."
-        },
-        {
-          title: "Einheitlicher Kontext",
-          desc: "Ein gemeinsames Gehirn. KIO merkt sich Ihre Vorlieben über jedes Tool und jede Interaktion hinweg."
-        },
-        {
-          title: "Sofortige Aktionen",
-          desc: "Nicht nur chatten – handeln. KIO führt echte Aktionen in Ihren integrierten Apps sicher aus."
-        }
-      ],
-      visionTitle: "Das Betriebssystem",
-      visionFor: "für AGI.",
-      visionDesc1: "Aktuelle KI-Tools sind isoliert. Sie sind mächtig, aber einsam. KIO baut die Brücken zwischen Modellen, Datenquellen und Ausführungsumgebungen.",
-      visionDesc2: "Wir bauen ein Ökosystem auf, in dem spezialisierte Agenten zu leistungsstarken Workflows zusammengesetzt werden können, die sich in Echtzeit an Ihre Bedürfnisse anpassen.",
-      visionPoints: [
-        "Modell-agnostisch - Nutzen Sie GPT-4, Claude oder Llama",
-        "Datenschutz zuerst - Ihre Daten bleiben Ihre",
-        "Entwicklerfreundlich - Erweiterbare API"
-      ],
-      readManifesto: "Unser Manifest lesen",
-      ready: "Bereit, Ihren Workflow zu verbessern?",
-      waitlistDesc: "Melden Sie sich noch heute für die Warteliste an und erhalten Sie frühen Zugang zum KIO-Ökosystem. Die Zukunft der Arbeit ist automatisiert, intelligent und vernetzt.",
-      reserve: "Reservieren Sie Ihren Platz"
-    }
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const t = content[lang];
-
-  const container = {
+  const stagger = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
+  const targetCards = [
+    {
+      icon: <Landmark className="w-7 h-7" />,
+      title: t.targets.card1Title,
+      desc: t.targets.card1Desc,
+      iconBg: "bg-[#ff6a00]/10 text-[#ff6a00]",
+    },
+    {
+      icon: <Users className="w-7 h-7" />,
+      title: t.targets.card2Title,
+      desc: t.targets.card2Desc,
+      iconBg: "bg-[#003366]/20 text-blue-400",
+    },
+    {
+      icon: <Factory className="w-7 h-7" />,
+      title: t.targets.card3Title,
+      desc: t.targets.card3Desc,
+      iconBg: "bg-white/5 text-white/80",
+    },
+  ];
+
+  const architectureLayers = [
+    { label: t.architecture.layer1, sub: "", color: "border-white/20 bg-white/5", textColor: "text-white/80" },
+    { label: t.architecture.layer2, sub: "", color: "border-[#ff6a00]/30 bg-[#ff6a00]/10", textColor: "text-[#ff6a00]" },
+    { label: t.architecture.layer3, sub: t.architecture.layer3Items, color: "border-blue-500/20 bg-blue-500/10", textColor: "text-blue-400" },
+    { label: t.architecture.layer4, sub: t.architecture.layer4Items, color: "border-white/10 bg-white/5", textColor: "text-white/70" },
+    { label: t.architecture.layer5, sub: "", color: "border-[#ff6a00]/20 bg-[#ff6a00]/5", textColor: "text-[#ff6a00]/80" },
+    { label: t.architecture.layer6, sub: t.architecture.layer6Items, color: "border-[#003366]/30 bg-[#003366]/20", textColor: "text-blue-300" },
+  ];
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-accent/30 selection:text-black">
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
       <Navigation lang={lang} setLang={setLang} />
 
-      {/* HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        {/* Abstract Background Elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block py-1 px-3 rounded-full bg-accent/20 text-yellow-700 font-bold text-sm tracking-wide mb-6 border border-accent/20">
-                {t.future}
-              </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
-                {t.heroTitle} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
-                  {t.heroSubtitle}
+      {/* ===== HERO ===== */}
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden animated-gradient" data-testid="section-hero">
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '48px 48px' }}
+        />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#ff6a00]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#003366]/10 rounded-full blur-[100px]" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <motion.div initial="hidden" animate="show" variants={stagger}>
+              <motion.div variants={fadeUp}>
+                <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/10 text-[#ff6a00] font-semibold text-xs tracking-widest mb-8 border border-[#ff6a00]/20" data-testid="text-hero-badge">
+                  {t.hero.badge}
                 </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-                {t.heroDesc}
-              </p>
-              
-              <div className="flex flex-col items-center gap-4">
-                <WaitlistForm lang={lang} />
-                <p className="text-sm text-gray-400 mt-4">
-                  {t.joinWaitlist}
-                </p>
-              </div>
+              </motion.div>
+
+              <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 leading-[1.05]" data-testid="text-hero-title">
+                <span className="text-white">{t.hero.title1}</span>
+                <br />
+                <span className="text-gradient">{t.hero.title2}</span>
+              </motion.h1>
+
+              <motion.p variants={fadeUp} className="text-lg md:text-xl text-white/40 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+                {t.hero.subtitle}
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
+                  className="bg-[#ff6a00] text-white font-semibold"
+                  data-testid="button-explore"
+                >
+                  {t.hero.cta1} <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                  className="border-white/10 text-white/70"
+                  data-testid="button-strategy"
+                >
+                  {t.hero.cta2}
+                </Button>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="mt-16">
+                <ChevronDown className="w-5 h-5 text-white/20 mx-auto animate-bounce" />
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FEATURES SECTION */}
-      <section id="features" className="py-24 bg-gray-50/50 border-y border-gray-100">
+      {/* ===== TARGET GROUPS ===== */}
+      <section id="solutions" className="py-24 lg:py-32 relative" data-testid="section-solutions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-              {t.featuresTitle}
-            </h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              {t.featuresDesc}
-            </p>
-          </div>
-
-          <motion.div 
-            variants={container}
+          <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
           >
-            {[
-              {
-                icon: <Share2 className="w-8 h-8 text-primary" />,
-                ...t.features[0]
-              },
-              {
-                icon: <Layers className="w-8 h-8 text-accent" />,
-                ...t.features[1]
-              },
-              {
-                icon: <Zap className="w-8 h-8 text-blue-400" />,
-                ...t.features[2]
-              }
-            ].map((feature, idx) => (
-              <motion.div 
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-solutions-title">
+              {t.targets.sectionTitle}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-white/40 max-w-xl mx-auto" data-testid="text-solutions-desc">
+              {t.targets.sectionDesc}
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {targetCards.map((card, idx) => (
+              <motion.div
                 key={idx}
-                variants={item}
-                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 group"
+                variants={fadeUp}
+                className="glass-card glass-card-hover rounded-md p-8 transition-all duration-500 group cursor-default"
+                data-testid={`card-target-${idx}`}
               >
-                <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-sm">
-                  {feature.icon}
+                <div className={`w-14 h-14 rounded-md ${card.iconBg} flex items-center justify-center mb-6`}>
+                  {card.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-gray-500 leading-relaxed">
-                  {feature.desc}
+                <h3 className="text-xl font-bold text-white mb-3" data-testid={`text-target-title-${idx}`}>{card.title}</h3>
+                <p className="text-white/40 leading-relaxed text-sm mb-6" data-testid={`text-target-desc-${idx}`}>
+                  {card.desc}
                 </p>
+                <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all" data-testid={`link-learn-more-${idx}`}>
+                  {t.targets.cta} <ArrowRight className="w-4 h-4" />
+                </span>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ABOUT / VISION SECTION */}
-      <section id="about" className="py-24 lg:py-32 overflow-hidden">
+      {/* ===== ARCHITECTURE ===== */}
+      <section id="architecture" className="py-24 lg:py-32 relative border-y border-white/5" data-testid="section-architecture">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/5 via-transparent to-transparent" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-architecture-title">
+              {t.architecture.sectionTitle}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-white/40 max-w-xl mx-auto" data-testid="text-architecture-desc">
+              {t.architecture.sectionDesc}
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="flex flex-col items-center gap-0"
+          >
+            {architectureLayers.map((layer, idx) => (
+              <motion.div key={idx} variants={fadeUp} className="w-full flex flex-col items-center">
+                <div className={`w-full max-w-lg border ${layer.color} rounded-md p-5 text-center`} data-testid={`arch-layer-${idx}`}>
+                  <div className={`font-bold text-sm tracking-wide ${layer.textColor}`}>
+                    {layer.label}
+                  </div>
+                  {layer.sub && (
+                    <div className="text-xs text-white/30 mt-1.5 tracking-wide">{layer.sub}</div>
+                  )}
+                </div>
+                {idx < architectureLayers.length - 1 && (
+                  <div className="py-2">
+                    <ArrowDown className="w-4 h-4 text-white/15" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ===== SOVEREIGNTY ===== */}
+      <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-1 bg-accent mb-8" />
-                <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight">
-                  {t.visionTitle} <br/>
-                  <span className="text-gray-400">{t.visionFor}</span>
-                </h2>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  {t.visionDesc1}
-                </p>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  {t.visionDesc2}
-                </p>
-                
-                <ul className="space-y-4 mb-10">
-                  {t.visionPoints.map((point, i) => (
-                    <li key={i} className="flex items-center gap-3 font-medium text-gray-800">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                      </div>
-                      {point}
-                    </li>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={stagger}
+            >
+              <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+              <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-sovereignty-title">
+                {t.sovereignty.title}
+              </motion.h2>
+              <motion.p variants={fadeUp} className="text-lg text-white/40 mb-10 leading-relaxed" data-testid="text-sovereignty-desc">
+                {t.sovereignty.desc}
+              </motion.p>
+
+              <motion.ul variants={stagger} className="space-y-4">
+                {t.sovereignty.points.map((point, i) => (
+                  <motion.li key={i} variants={fadeUp} className="flex items-start gap-4 text-white/70" data-testid={`text-sovereignty-point-${i}`}>
+                    <div className="w-6 h-6 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-[#ff6a00]" />
+                    </div>
+                    <span className="text-sm font-medium">{point}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="glass-card rounded-md p-10 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/20 via-transparent to-[#ff6a00]/5" />
+                <div className="relative z-10 grid grid-cols-2 gap-6">
+                  {[
+                    { icon: <Shield className="w-8 h-8" />, label: "GDPR" },
+                    { icon: <Globe2 className="w-8 h-8" />, label: "EU Hosted" },
+                    { icon: <Lock className="w-8 h-8" />, label: "Access Control" },
+                    { icon: <Database className="w-8 h-8" />, label: "Data Isolation" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex flex-col items-center gap-3 py-6" data-testid={`sovereignty-icon-${i}`}>
+                      <div className="text-[#ff6a00]/60">{item.icon}</div>
+                      <span className="text-xs font-bold text-white/40 tracking-widest uppercase">{item.label}</span>
+                    </div>
                   ))}
-                </ul>
-
-                <button className="text-primary font-bold flex items-center gap-2 group hover:gap-3 transition-all">
-                  {t.readManifesto} <ArrowRight className="w-5 h-5 group-hover:text-accent transition-colors" />
-                </button>
-              </motion.div>
-            </div>
-
-            <div className="relative">
-              {/* Decorative Tech Illustration */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative aspect-square rounded-3xl bg-gray-900 p-8 shadow-2xl overflow-hidden"
-              >
-                {/* Abstract UI Mockup */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" />
-                
-                {/* Grid Pattern */}
-                <div className="absolute inset-0 opacity-20" 
-                     style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} 
-                />
-
-                {/* Floating Elements */}
-                <motion.div 
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                  className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-2xl"
-                />
-                
-                <div className="relative z-10 flex flex-col gap-6 h-full justify-center">
-                  {/* Card 1 */}
-                  <div className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl w-3/4 self-end transform translate-x-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
-                        <Bot className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="h-2 w-20 bg-white/20 rounded" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="h-2 w-full bg-white/10 rounded" />
-                      <div className="h-2 w-2/3 bg-white/10 rounded" />
-                    </div>
-                  </div>
-
-                  {/* Card 2 (Center) */}
-                  <div className="bg-white/15 backdrop-blur-xl border border-white/20 p-6 rounded-2xl w-full shadow-2xl">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                          <Cpu className="w-6 h-6 text-gray-900" />
-                        </div>
-                        <div>
-                          <div className="h-3 w-24 bg-white/90 rounded mb-1" />
-                          <div className="h-2 w-16 bg-white/40 rounded" />
-                        </div>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
-                    </div>
-                    <div className="h-24 rounded-lg bg-black/20 border border-white/5 mb-4 relative overflow-hidden">
-                       <div className="absolute top-1/2 left-4 right-4 h-1 bg-white/10 rounded overflow-hidden">
-                          <motion.div 
-                            className="h-full bg-primary"
-                            initial={{ width: "0%" }}
-                            whileInView={{ width: "70%" }}
-                            transition={{ duration: 1.5, delay: 0.5 }}
-                          />
-                       </div>
-                    </div>
-                  </div>
-
-                  {/* Card 3 */}
-                  <div className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl w-3/4 transform -translate-x-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded bg-blue-400 flex items-center justify-center">
-                        <Globe2 className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="h-2 w-20 bg-white/20 rounded" />
-                    </div>
-                  </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section id="join" className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" 
-             style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '20px 20px' }} 
-        />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+      {/* ===== FINAL CTA + FORM ===== */}
+      <section id="contact" className="py-24 lg:py-32 relative border-t border-white/5" data-testid="section-contact">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/3 via-transparent to-transparent" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center mb-12"
+          >
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-cta-title">
+              {t.cta.title}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-white/40 max-w-xl mx-auto" data-testid="text-cta-desc">
+              {t.cta.desc}
+            </motion.p>
+          </motion.div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            {t.ready}
-          </h2>
-          <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-            {t.waitlistDesc}
-          </p>
-          
-          <div className="max-w-md mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-2xl">
-            <h3 className="text-lg font-medium mb-6">{t.reserve}</h3>
-            <WaitlistForm lang={lang} />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-lg mx-auto glass-card rounded-md p-8 sm:p-10"
+          >
+            <ContactForm lang={lang} />
+          </motion.div>
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { api, type InsertLead } from "@shared/routes";
+import { api } from "@shared/routes";
+import type { InsertLead } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 
 export function useCreateLead() {
@@ -16,7 +17,7 @@ export function useCreateLead() {
 
       if (!res.ok) {
         if (res.status === 409) {
-          throw new Error("This email is already on the waitlist!");
+          throw new Error("This email is already registered.");
         }
         if (res.status === 400) {
           throw new Error("Please check your email address.");
@@ -28,15 +29,14 @@ export function useCreateLead() {
     },
     onSuccess: () => {
       toast({
-        title: "Welcome to KIO!",
-        description: "You've successfully joined the waitlist.",
+        title: "Welcome to KIO",
+        description: "We will be in touch shortly.",
         variant: "default",
-        className: "bg-primary text-primary-foreground border-none",
       });
     },
     onError: (error) => {
       toast({
-        title: "Unable to join",
+        title: "Unable to register",
         description: error.message,
         variant: "destructive",
       });
