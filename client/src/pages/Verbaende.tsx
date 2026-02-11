@@ -126,9 +126,7 @@ export default function Verbaende() {
             <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-white" data-testid="text-hero-title-verbaende">
               Strategische
               <br />
-              Handlungsfähigkeit
-              <br />
-              <span className="text-white/30">unter Zeitdruck.</span>
+              <span className="text-white/30">Handlungsfähigkeit.</span>
             </motion.h1>
 
             <motion.p variants={fadeUp} className="text-sm md:text-base text-white/30 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
