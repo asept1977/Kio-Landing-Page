@@ -174,11 +174,11 @@ export default function Verbaende() {
                   <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-problem-${idx}`}>
                     {/* dot */}
                     <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-white/20 border border-white/10" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/20 mb-3">Problem</p>
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/30 mb-3">Problem</p>
                     <ul className="space-y-1.5">
                       {uc.problemBullets.map((b, i) => (
-                        <li key={i} className="text-sm text-white/40 flex items-center gap-2">
-                          <span className="w-1 h-1 rounded-full bg-white/15 shrink-0" />
+                        <li key={i} className="text-sm text-white/55 flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-white/25 shrink-0" />
                           {b}
                         </li>
                       ))}
