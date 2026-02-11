@@ -119,15 +119,15 @@ export default function Verbaende() {
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-[#ff6a00] text-[11px] font-bold tracking-[0.3em] uppercase mb-12" data-testid="text-badge-verbaende">
-              KIO FÜR VERBÄNDE
-            </motion.p>
-
             <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-white" data-testid="text-hero-title-verbaende">
-              Strategische
+              KIO FÜR
               <br />
-              <span className="text-white/30">Handlungsfähigkeit.</span>
+              <span className="text-white/30">VERBÄNDE</span>
             </motion.h1>
+
+            <motion.p variants={fadeUp} className="text-sm md:text-base text-white/40 font-medium tracking-wide mb-8" data-testid="text-badge-verbaende">
+              Strategische Handlungsfähigkeit.
+            </motion.p>
 
             <motion.p variants={fadeUp} className="text-sm md:text-base text-white/30 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
               KIO orchestriert verteiltes Verbandswissen zu strategischer Wirkung.
