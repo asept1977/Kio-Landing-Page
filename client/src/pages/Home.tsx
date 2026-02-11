@@ -11,8 +11,88 @@ import {
   Globe2,
   ArrowRight
 } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [lang, setLang] = useState<'en' | 'de'>('en');
+
+  const content = {
+    en: {
+      future: "THE FUTURE OF INTELLIGENCE",
+      heroTitle: "Your AI Ecosystem",
+      heroSubtitle: "Is Finally Here.",
+      heroDesc: "Connect agents, automate workflows, and unlock true intelligence with KIO. The platform where your digital assistants work together.",
+      joinWaitlist: "Join 2,000+ early adopters. No spam, ever.",
+      featuresTitle: "Intelligence, Connected.",
+      featuresDesc: "KIO isn't just another chatbot. It's a substrate for intelligent agents to collaborate, share context, and execute complex tasks.",
+      features: [
+        {
+          title: "Connected Agents",
+          desc: "Agents that talk to each other. Your Calendar Agent coordinates with your Email Agent automatically."
+        },
+        {
+          title: "Unified Context",
+          desc: "One shared brain. KIO remembers your preferences across every tool and interaction."
+        },
+        {
+          title: "Instant Actions",
+          desc: "Don't just chat—do. KIO executes real actions across your integrated apps securely."
+        }
+      ],
+      visionTitle: "The Operating System",
+      visionFor: "for AGI.",
+      visionDesc1: "Current AI tools are siloed. They're powerful, but lonely. KIO builds the bridges between models, data sources, and execution environments.",
+      visionDesc2: "We are building an ecosystem where specialized agents can be composed into powerful workflows that adapt to your needs in real-time.",
+      visionPoints: [
+        "Model Agnostic - Use GPT-4, Claude, or Llama",
+        "Privacy First - Your data stays yours",
+        "Developer Friendly - Extensible API"
+      ],
+      readManifesto: "Read our Manifesto",
+      ready: "Ready to upgrade your workflow?",
+      waitlistDesc: "Join the waitlist today and get early access to the KIO ecosystem. The future of work is automated, intelligent, and connected.",
+      reserve: "Reserve your spot"
+    },
+    de: {
+      future: "DIE ZUKUNFT DER INTELLIGENZ",
+      heroTitle: "Ihr KI-Ökosystem",
+      heroSubtitle: "ist endlich da.",
+      heroDesc: "Verbinden Sie Agenten, automatisieren Sie Workflows und schalten Sie wahre Intelligenz mit KIO frei. Die Plattform, auf der Ihre digitalen Assistenten zusammenarbeiten.",
+      joinWaitlist: "Schließen Sie sich über 2.000 Early Adopters an. Kein Spam, jemals.",
+      featuresTitle: "Vernetzte Intelligenz.",
+      featuresDesc: "KIO ist nicht nur ein weiterer Chatbot. Es ist eine Basis für intelligente Agenten, um zusammenzuarbeiten, Kontext zu teilen und komplexe Aufgaben auszuführen.",
+      features: [
+        {
+          title: "Vernetzte Agenten",
+          desc: "Agenten, die miteinander sprechen. Ihr Kalender-Agent koordiniert sich automatisch mit Ihrem E-Mail-Agenten."
+        },
+        {
+          title: "Einheitlicher Kontext",
+          desc: "Ein gemeinsames Gehirn. KIO merkt sich Ihre Vorlieben über jedes Tool und jede Interaktion hinweg."
+        },
+        {
+          title: "Sofortige Aktionen",
+          desc: "Nicht nur chatten – handeln. KIO führt echte Aktionen in Ihren integrierten Apps sicher aus."
+        }
+      ],
+      visionTitle: "Das Betriebssystem",
+      visionFor: "für AGI.",
+      visionDesc1: "Aktuelle KI-Tools sind isoliert. Sie sind mächtig, aber einsam. KIO baut die Brücken zwischen Modellen, Datenquellen und Ausführungsumgebungen.",
+      visionDesc2: "Wir bauen ein Ökosystem auf, in dem spezialisierte Agenten zu leistungsstarken Workflows zusammengesetzt werden können, die sich in Echtzeit an Ihre Bedürfnisse anpassen.",
+      visionPoints: [
+        "Modell-agnostisch - Nutzen Sie GPT-4, Claude oder Llama",
+        "Datenschutz zuerst - Ihre Daten bleiben Ihre",
+        "Entwicklerfreundlich - Erweiterbare API"
+      ],
+      readManifesto: "Unser Manifest lesen",
+      ready: "Bereit, Ihren Workflow zu verbessern?",
+      waitlistDesc: "Melden Sie sich noch heute für die Warteliste an und erhalten Sie frühen Zugang zum KIO-Ökosystem. Die Zukunft der Arbeit ist automatisiert, intelligent und vernetzt.",
+      reserve: "Reservieren Sie Ihren Platz"
+    }
+  };
+
+  const t = content[lang];
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -30,7 +110,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-accent/30 selection:text-black">
-      <Navigation />
+      <Navigation lang={lang} setLang={setLang} />
 
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -46,22 +126,22 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-accent/20 text-yellow-700 font-bold text-sm tracking-wide mb-6 border border-accent/20">
-                THE FUTURE OF INTELLIGENCE
+                {t.future}
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
-                Your AI Ecosystem <br />
+                {t.heroTitle} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
-                  Is Finally Here.
+                  {t.heroSubtitle}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Connect agents, automate workflows, and unlock true intelligence with KIO. The platform where your digital assistants work together.
+                {t.heroDesc}
               </p>
               
               <div className="flex flex-col items-center gap-4">
-                <WaitlistForm />
+                <WaitlistForm lang={lang} />
                 <p className="text-sm text-gray-400 mt-4">
-                  Join 2,000+ early adopters. No spam, ever.
+                  {t.joinWaitlist}
                 </p>
               </div>
             </motion.div>
@@ -74,10 +154,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-              Intelligence, Connected.
+              {t.featuresTitle}
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              KIO isn't just another chatbot. It's a substrate for intelligent agents to collaborate, share context, and execute complex tasks.
+              {t.featuresDesc}
             </p>
           </div>
 
@@ -91,18 +171,15 @@ export default function Home() {
             {[
               {
                 icon: <Share2 className="w-8 h-8 text-primary" />,
-                title: "Connected Agents",
-                desc: "Agents that talk to each other. Your Calendar Agent coordinates with your Email Agent automatically."
+                ...t.features[0]
               },
               {
                 icon: <Layers className="w-8 h-8 text-accent" />,
-                title: "Unified Context",
-                desc: "One shared brain. KIO remembers your preferences across every tool and interaction."
+                ...t.features[1]
               },
               {
                 icon: <Zap className="w-8 h-8 text-blue-400" />,
-                title: "Instant Actions",
-                desc: "Don't just chat—do. KIO executes real actions across your integrated apps securely."
+                ...t.features[2]
               }
             ].map((feature, idx) => (
               <motion.div 
@@ -136,33 +213,29 @@ export default function Home() {
               >
                 <div className="w-12 h-1 bg-accent mb-8" />
                 <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight">
-                  The Operating System <br/>
-                  <span className="text-gray-400">for AGI.</span>
+                  {t.visionTitle} <br/>
+                  <span className="text-gray-400">{t.visionFor}</span>
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Current AI tools are siloed. They're powerful, but lonely. KIO builds the bridges between models, data sources, and execution environments.
+                  {t.visionDesc1}
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  We are building an ecosystem where specialized agents can be composed into powerful workflows that adapt to your needs in real-time.
+                  {t.visionDesc2}
                 </p>
                 
                 <ul className="space-y-4 mb-10">
-                  {[
-                    "Model Agnostic - Use GPT-4, Claude, or Llama",
-                    "Privacy First - Your data stays yours",
-                    "Developer Friendly - Extensible API",
-                  ].map((item, i) => (
+                  {t.visionPoints.map((point, i) => (
                     <li key={i} className="flex items-center gap-3 font-medium text-gray-800">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      {item}
+                      {point}
                     </li>
                   ))}
                 </ul>
 
                 <button className="text-primary font-bold flex items-center gap-2 group hover:gap-3 transition-all">
-                  Read our Manifesto <ArrowRight className="w-5 h-5 group-hover:text-accent transition-colors" />
+                  {t.readManifesto} <ArrowRight className="w-5 h-5 group-hover:text-accent transition-colors" />
                 </button>
               </motion.div>
             </div>
@@ -257,21 +330,20 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            Ready to upgrade your workflow?
+            {t.ready}
           </h2>
           <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-            Join the waitlist today and get early access to the KIO ecosystem. 
-            The future of work is automated, intelligent, and connected.
+            {t.waitlistDesc}
           </p>
           
           <div className="max-w-md mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-2xl">
-            <h3 className="text-lg font-medium mb-6">Reserve your spot</h3>
-            <WaitlistForm />
+            <h3 className="text-lg font-medium mb-6">{t.reserve}</h3>
+            <WaitlistForm lang={lang} />
           </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 }

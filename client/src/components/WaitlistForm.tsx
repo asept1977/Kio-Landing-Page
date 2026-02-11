@@ -7,7 +7,11 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function WaitlistForm() {
+interface WaitlistFormProps {
+  lang: 'en' | 'de';
+}
+
+export function WaitlistForm({ lang }: WaitlistFormProps) {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<InsertLead>({
     resolver: zodResolver(insertLeadSchema),
   });
@@ -19,6 +23,25 @@ export function WaitlistForm() {
       onSuccess: () => reset(),
     });
   };
+
+  const formContent = {
+    en: {
+      successTitle: "You're on the list!",
+      successDesc: "Thanks for joining the KIO ecosystem. We'll be in touch soon.",
+      another: "Register another email",
+      placeholder: "enter@email.com",
+      btn: "Join Waitlist"
+    },
+    de: {
+      successTitle: "Sie sind auf der Liste!",
+      successDesc: "Danke, dass Sie dem KIO-Ökosystem beigetreten sind. Wir melden uns bald.",
+      another: "Weitere E-Mail registrieren",
+      placeholder: "e-mail@beispiel.de",
+      btn: "Warteliste beitreten"
+    }
+  };
+
+  const t = formContent[lang];
 
   return (
     <div className="w-full max-w-md mx-auto">
@@ -33,14 +56,14 @@ export function WaitlistForm() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-green-800 mb-2">You're on the list!</h3>
-            <p className="text-green-700">Thanks for joining the KIO ecosystem. We'll be in touch soon.</p>
+            <h3 className="text-xl font-bold text-green-800 mb-2">{t.successTitle}</h3>
+            <p className="text-green-700">{t.successDesc}</p>
             <Button 
               variant="ghost" 
               onClick={() => window.location.reload()} 
               className="mt-4 text-green-700 hover:text-green-800 hover:bg-green-100"
             >
-              Register another email
+              {t.another}
             </Button>
           </motion.div>
         ) : (
@@ -55,7 +78,7 @@ export function WaitlistForm() {
               <div className="relative flex-grow">
                 <Input
                   {...register("email")}
-                  placeholder="enter@email.com"
+                  placeholder={t.placeholder}
                   className="h-14 pl-6 pr-4 rounded-full border-2 border-gray-200 bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 text-lg transition-all"
                   disabled={isPending}
                 />
@@ -74,7 +97,7 @@ export function WaitlistForm() {
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <>
-                    Join Waitlist <ArrowRight className="ml-2 w-5 h-5" />
+                    {t.btn} <ArrowRight className="ml-2 w-5 h-5" />
                   </>
                 )}
               </Button>
