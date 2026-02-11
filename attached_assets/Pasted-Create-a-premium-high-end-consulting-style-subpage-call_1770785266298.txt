@@ -1,0 +1,160 @@
+Create a premium, high-end consulting style subpage called:
+
+“KIO für Verbände”
+
+This page must use:
+- Pure HTML
+- Modern CSS (flexbox/grid)
+- Minimal vanilla JavaScript
+- Everything in one single index.html
+- No frameworks
+- No external libraries
+
+Design direction:
+- Executive consulting look (McKinsey / BCG / Strategy&)
+- Dark elegant background (deep navy / black gradient)
+- Accent color: subtle orange (#ff6a00)
+- Lots of whitespace
+- Strong typography hierarchy
+- Clean, calm, premium
+
+MAIN CONCEPT:
+Animated vertical timeline structure.
+Each use case unfolds as a strategic flow:
+Problem → Intervention → Impact.
+
+---------------------------------------
+1. HERO SECTION
+---------------------------------------
+
+Title:
+“KIO für Verbände”
+
+Subtitle:
+“Strategische Handlungsfähigkeit in komplexen Strukturen.”
+
+Short intro (max 3 lines):
+Verbände arbeiten unter Zeitdruck, in föderalen Strukturen und mit verteiltem Wissen.
+KIO orchestriert dieses Wissen zu strategischer Wirkung.
+
+Primary Button:
+“Executive Briefing anfragen”
+
+---------------------------------------
+2. TIMELINE SECTION (Animated on Scroll)
+---------------------------------------
+
+Create a vertical timeline in the center of the page.
+Each timeline step appears with fade-in + slight upward motion when scrolling.
+
+Each use case is structured like this:
+
+---------------------------------------
+USE CASE 1
+---------------------------------------
+
+Headline:
+Stellungnahmen in Rekordzeit
+
+Left side (Problem):
+- Last-Minute-Entwürfe
+- Verteilte historische Positionen
+- Zeitkritische politische Fristen
+
+Center (Intervention):
+KIO analysiert neue Entwürfe,
+gleicht sie mit föderalem Verbandswissen ab,
+erzeugt konsistente, argumentativ belastbare Vorlagen.
+
+Right side (Impact – visually emphasized):
+–70 % Recherchezeit
+Konsistente Argumentationslinie
+Schnellere Reaktionsfähigkeit
+
+Impact block must be highlighted visually (slightly brighter background).
+
+---------------------------------------
+USE CASE 2
+---------------------------------------
+
+Headline:
+Policy Monitoring & Stakeholder-Analyse
+
+Problem:
+- Gesetzgebungsprozesse intransparent
+- Initiativen verteilt über Datenquellen
+- Hoher manueller Monitoring-Aufwand
+
+Intervention:
+Integration parlamentarischer Daten (z.B. DIP),
+Lobbyregister und interner Dokumente.
+Automatisches Clustering und Frühwarnsystem.
+
+Impact:
+Frühere Positionierung
+Strategisch fundierte Entscheidungen
+Reduzierter Rechercheaufwand
+
+---------------------------------------
+USE CASE 3
+---------------------------------------
+
+Headline:
+Föderale Wissensintegration
+
+Problem:
+- Silostrukturen
+- Personengebundenes Wissen
+- Redundante Abstimmungen
+
+Intervention:
+Hierarchische Wissensarchitektur
+Rollenbasierter Zugriff
+Gemeinsame semantische Struktur
+
+Impact:
+Einheitliche Positionierung
+Transparente Dokumentenlage
+Nachhaltige Wissenssicherung
+
+---------------------------------------
+3. STRATEGIC FOUNDATION SECTION
+---------------------------------------
+
+Minimal section titled:
+“Technologische Basis”
+
+Show as clean bullet list (no long text):
+
+- RAG & GraphRAG
+- Knowledge Graph
+- Multi-Agent Architecture
+- MCP-Integration
+- DSGVO-konform & europäisch betreibbar
+
+Keep it visually understated.
+
+---------------------------------------
+4. FINAL STRATEGIC CTA
+---------------------------------------
+
+Headline:
+“Vom Dokumentenchaos zur strategischen Position.”
+
+Button:
+“Strategiegespräch vereinbaren”
+
+---------------------------------------
+TECHNICAL REQUIREMENTS
+---------------------------------------
+
+- Smooth scroll behavior
+- Intersection Observer for scroll animation
+- Timeline line drawn vertically with CSS
+- Clean, well-commented code
+- Subtle animation timing (0.4s – 0.6s)
+- No flashy effects
+- Enterprise ready look
+
+Make it feel like a €50M enterprise AI platform.
+Minimal. Confident. Strategic.
