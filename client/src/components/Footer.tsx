@@ -1,5 +1,6 @@
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
+import aixLogoPath from "@assets/image6.png";
 
 interface FooterProps {
   lang: Lang;
@@ -21,6 +22,11 @@ export function Footer({ lang }: FooterProps) {
         </div>
         <p className="text-sm text-foreground/40" data-testid="text-copyright">{t.copy}</p>
         <p className="text-xs text-foreground/30 mt-1">{t.tagline}</p>
+        <div className="mt-6 flex items-center justify-center gap-2">
+          <a href="https://ai-xperience.io" target="_blank" rel="noopener noreferrer" data-testid="link-aix-logo" className="inline-block opacity-60 hover:opacity-100 transition-opacity">
+            <img src={aixLogoPath} alt="AI-Xperience" className="h-8 w-auto" />
+          </a>
+        </div>
       </div>
     </footer>
   );

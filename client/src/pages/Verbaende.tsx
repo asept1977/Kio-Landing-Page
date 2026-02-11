@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import aixLogoPath from "@assets/image6.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -247,6 +248,11 @@ export default function Verbaende() {
             <span className="font-bold text-lg tracking-tight text-foreground/60">KIO</span>
           </div>
           <p className="text-sm text-foreground/30" data-testid="text-copyright-verbaende">&copy; 2026 KIO Ecosystem</p>
+          <div className="mt-6 flex items-center justify-center gap-2">
+            <a href="https://ai-xperience.io" target="_blank" rel="noopener noreferrer" data-testid="link-aix-logo-verbaende" className="inline-block opacity-60 hover:opacity-100 transition-opacity">
+              <img src={aixLogoPath} alt="AI-Xperience" className="h-8 w-auto" />
+            </a>
+          </div>
         </div>
       </footer>
     </div>
