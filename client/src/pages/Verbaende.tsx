@@ -78,25 +78,24 @@ export default function Verbaende() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
-      {/* NAV */}
-      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-white/5" data-testid="nav-verbaende">
+      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-black/[0.06]" data-testid="nav-verbaende">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer" data-testid="link-logo-verbaende">
               <div className="w-8 h-8 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-base tracking-tighter">
                 K
               </div>
-              <span className="font-bold text-lg tracking-tight text-white/90">KIO</span>
+              <span className="font-bold text-lg tracking-tight text-foreground">KIO</span>
             </div>
           </Link>
           <div className="hidden sm:flex items-center gap-6">
             <Link href="/">
-              <span className="text-sm font-medium text-white/50 cursor-pointer" data-testid="link-nav-home">Home</span>
+              <span className="text-sm font-medium text-foreground/50 cursor-pointer" data-testid="link-nav-home">Home</span>
             </Link>
             <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active">Verbände</span>
             <button
               onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-sm font-medium text-white/50"
+              className="text-sm font-medium text-foreground/50"
               data-testid="button-nav-kontakt"
             >
               Kontakt
@@ -104,7 +103,7 @@ export default function Verbaende() {
           </div>
           <div className="sm:hidden">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="text-white/50 gap-1" data-testid="button-back-home">
+              <Button variant="ghost" size="sm" className="text-foreground/50 gap-1" data-testid="button-back-home">
                 <ArrowLeft className="w-4 h-4" /> Home
               </Button>
             </Link>
@@ -112,9 +111,8 @@ export default function Verbaende() {
         </div>
       </nav>
 
-      {/* HERO */}
       <section className="relative pt-36 pb-28 lg:pt-52 lg:pb-40 overflow-hidden" data-testid="section-hero-verbaende">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/6 via-background to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -123,13 +121,13 @@ export default function Verbaende() {
               KIO FÜR VERBÄNDE
             </motion.p>
 
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-white" data-testid="text-hero-title-verbaende">
+            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-foreground" data-testid="text-hero-title-verbaende">
               Strategische
               <br />
-              <span className="text-white/30">Handlungsfähigkeit.</span>
+              <span className="text-foreground/40">Handlungsfähigkeit.</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-sm md:text-base text-white/30 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
+            <motion.p variants={fadeUp} className="text-sm md:text-base text-foreground/40 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
               KIO orchestriert verteiltes Verbandswissen zu strategischer Wirkung.
             </motion.p>
 
@@ -146,7 +144,6 @@ export default function Verbaende() {
         </div>
       </section>
 
-      {/* STRATEGIC FLOW TIMELINE */}
       <section id="timeline" className="py-24 lg:py-36 relative" data-testid="section-timeline">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-32 lg:space-y-44">
@@ -160,56 +157,47 @@ export default function Verbaende() {
                 className="relative"
                 data-testid={`timeline-step-${idx}`}
               >
-                {/* Use case headline */}
-                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white text-center mb-16" data-testid={`text-timeline-title-${idx}`}>
+                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16" data-testid={`text-timeline-title-${idx}`}>
                   {uc.headline}
                 </motion.h2>
 
-                {/* Vertical flow container */}
                 <div className="relative pl-8 sm:pl-12">
-                  {/* vertical line */}
-                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-white/6 via-white/10 to-white/4" />
+                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-black/[0.04] via-black/[0.08] to-black/[0.03]" />
 
-                  {/* STEP 1: PROBLEM */}
                   <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-problem-${idx}`}>
-                    {/* dot */}
-                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-white/20 border border-white/10" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/30 mb-3">Problem</p>
+                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-foreground/20 border border-black/[0.08]" />
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-3">Problem</p>
                     <ul className="space-y-1.5">
                       {uc.problemBullets.map((b, i) => (
-                        <li key={i} className="text-sm text-white/55 flex items-center gap-2">
-                          <span className="w-1 h-1 rounded-full bg-white/25 shrink-0" />
+                        <li key={i} className="text-sm text-foreground/60 flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-foreground/30 shrink-0" />
                           {b}
                         </li>
                       ))}
                     </ul>
                   </motion.div>
 
-                  {/* STEP 2: INTERVENTION */}
                   <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-intervention-${idx}`}>
-                    {/* dot */}
                     <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-[#ff6a00]/40 border border-[#ff6a00]/20" />
                     <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/40 mb-3">Lösung</p>
-                    <p className="text-sm text-white/45 leading-relaxed max-w-lg">{uc.intervention}</p>
+                    <p className="text-sm text-foreground/50 leading-relaxed max-w-lg">{uc.intervention}</p>
                   </motion.div>
 
-                  {/* STEP 3: IMPACT */}
                   <motion.div variants={fadeUp} className="relative" data-testid={`timeline-impact-${idx}`}>
-                    {/* glowing dot */}
                     <div className="absolute -left-5 sm:-left-7 top-6 w-2.5 h-2.5 rounded-full bg-[#ff6a00] shadow-[0_0_10px_rgba(255,106,0,0.4)]" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/20 mb-4">Impact</p>
-                    <div className="rounded-md bg-white/[0.03] border border-white/[0.06] p-6 sm:p-8 relative overflow-hidden">
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/25 mb-4">Impact</p>
+                    <div className="rounded-md bg-black/[0.02] border border-black/[0.06] p-6 sm:p-8 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a00]/[0.02] to-transparent pointer-events-none" />
                       <div className="relative z-10">
-                        <p className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
+                        <p className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
                           {uc.impactNumber}
                         </p>
-                        <p className="text-sm text-white/40 mb-5" data-testid={`text-impact-label-${idx}`}>{uc.impactLabel}</p>
+                        <p className="text-sm text-foreground/50 mb-5" data-testid={`text-impact-label-${idx}`}>{uc.impactLabel}</p>
                         <div className="space-y-2">
                           {uc.impactBullets.map((b, i) => (
                             <div key={i} className="flex items-center gap-2.5">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]/40 shrink-0" />
-                              <span className="text-sm text-white/55 font-medium">{b}</span>
+                              <span className="text-sm text-foreground/60 font-medium">{b}</span>
                             </div>
                           ))}
                         </div>
@@ -223,7 +211,6 @@ export default function Verbaende() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section id="cta-final" className="py-32 lg:py-44 relative" data-testid="section-cta-final">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -233,10 +220,10 @@ export default function Verbaende() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight" data-testid="text-cta-title-verbaende">
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight" data-testid="text-cta-title-verbaende">
               Vom Dokumentenchaos
               <br />
-              <span className="text-white/30">zur strategischen Position.</span>
+              <span className="text-foreground/40">zur strategischen Position.</span>
             </motion.h2>
             <motion.div variants={fadeUp} className="mt-10">
               <Button
@@ -251,16 +238,15 @@ export default function Verbaende() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-white/5 py-10" data-testid="footer-verbaende">
+      <footer className="border-t border-black/[0.06] py-10" data-testid="footer-verbaende">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="w-6 h-6 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded flex items-center justify-center text-white font-bold text-xs">
               K
             </div>
-            <span className="font-bold text-lg tracking-tight text-white/60">KIO</span>
+            <span className="font-bold text-lg tracking-tight text-foreground/60">KIO</span>
           </div>
-          <p className="text-sm text-white/25" data-testid="text-copyright-verbaende">&copy; 2026 KIO Ecosystem</p>
+          <p className="text-sm text-foreground/30" data-testid="text-copyright-verbaende">&copy; 2026 KIO Ecosystem</p>
         </div>
       </footer>
     </div>

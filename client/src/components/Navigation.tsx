@@ -35,7 +35,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
       data-testid="navigation"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-white/5"
+          ? "bg-background/90 backdrop-blur-xl border-b border-black/[0.06]"
           : "bg-transparent"
       }`}
     >
@@ -46,29 +46,29 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <div className="w-9 h-9 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-lg tracking-tighter">
                 K
               </div>
-              <span className="font-bold text-xl tracking-tight text-white/90">
+              <span className="font-bold text-xl tracking-tight text-foreground">
                 KIO
               </span>
             </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <button data-testid="button-nav-solutions" onClick={() => scrollToSection("solutions")} className="text-sm font-medium text-white/50 hover:text-white/90 transition-colors">
+            <button data-testid="button-nav-solutions" onClick={() => scrollToSection("solutions")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
               {t.solutions}
             </button>
-            <button data-testid="button-nav-architecture" onClick={() => scrollToSection("architecture")} className="text-sm font-medium text-white/50 hover:text-white/90 transition-colors">
+            <button data-testid="button-nav-architecture" onClick={() => scrollToSection("architecture")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
               {t.architecture}
             </button>
-            <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className="text-sm font-medium text-white/50 hover:text-white/90 transition-colors">
+            <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
               {t.sovereignty}
             </button>
 
-            <div className="flex items-center gap-3 border-l border-white/10 pl-8">
+            <div className="flex items-center gap-3 border-l border-black/[0.08] pl-8">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-                className="text-xs font-bold text-white/50 gap-1.5"
+                className="text-xs font-bold text-foreground/50 gap-1.5"
                 data-testid="button-lang-toggle"
               >
                 <Globe className="w-3.5 h-3.5" />
@@ -89,13 +89,13 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               variant="ghost"
               size="sm"
               onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-              className="text-xs font-bold text-white/50 gap-1"
+              className="text-xs font-bold text-foreground/50 gap-1"
               data-testid="button-lang-toggle-mobile"
             >
               {lang === 'en' ? 'DE' : 'EN'}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} data-testid="button-mobile-menu">
-              {mobileMenuOpen ? <X className="text-white/60" /> : <Menu className="text-white/60" />}
+              {mobileMenuOpen ? <X className="text-foreground/60" /> : <Menu className="text-foreground/60" />}
             </Button>
           </div>
         </div>
@@ -107,16 +107,16 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-black/[0.06] overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              <button onClick={() => scrollToSection("solutions")} className="block w-full text-left text-lg font-medium text-white/80" data-testid="button-mobile-solutions">
+              <button onClick={() => scrollToSection("solutions")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-solutions">
                 {t.solutions}
               </button>
-              <button onClick={() => scrollToSection("architecture")} className="block w-full text-left text-lg font-medium text-white/80" data-testid="button-mobile-architecture">
+              <button onClick={() => scrollToSection("architecture")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-architecture">
                 {t.architecture}
               </button>
-              <button onClick={() => scrollToSection("sovereignty")} className="block w-full text-left text-lg font-medium text-white/80" data-testid="button-mobile-sovereignty">
+              <button onClick={() => scrollToSection("sovereignty")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-sovereignty">
                 {t.sovereignty}
               </button>
               <Button onClick={() => scrollToSection("contact")} className="w-full bg-[#ff6a00] border-[#ff6a00] text-white" data-testid="button-mobile-contact">

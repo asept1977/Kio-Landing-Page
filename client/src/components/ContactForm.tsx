@@ -51,8 +51,8 @@ export function ContactForm({ lang }: ContactFormProps) {
             <div className="w-16 h-16 bg-[#ff6a00]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#ff6a00]">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{t.successTitle}</h3>
-            <p className="text-white/60">{t.successDesc}</p>
+            <h3 className="text-xl font-bold text-foreground mb-2">{t.successTitle}</h3>
+            <p className="text-foreground/60">{t.successDesc}</p>
             <Button
               variant="ghost"
               onClick={() => window.location.reload()}
@@ -77,13 +77,13 @@ export function ContactForm({ lang }: ContactFormProps) {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white/40">{t.email} *</FormLabel>
+                      <FormLabel className="text-foreground/50">{t.email} *</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           value={field.value ?? ""}
                           placeholder="name@company.com"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
+                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
                           disabled={isPending}
                           data-testid="input-email"
                         />
@@ -97,13 +97,13 @@ export function ContactForm({ lang }: ContactFormProps) {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white/40">{t.company}</FormLabel>
+                      <FormLabel className="text-foreground/50">{t.company}</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           value={field.value ?? ""}
                           placeholder="ACME GmbH"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
+                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
                           disabled={isPending}
                           data-testid="input-company"
                         />
@@ -119,14 +119,14 @@ export function ContactForm({ lang }: ContactFormProps) {
                 name="interest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white/40">{t.interest}</FormLabel>
+                    <FormLabel className="text-foreground/50">{t.interest}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value ?? ""}>
                       <FormControl>
-                        <SelectTrigger className="bg-white/5 border-white/10 text-white" data-testid="select-interest">
+                        <SelectTrigger className="bg-black/[0.03] border-black/[0.08] text-foreground" data-testid="select-interest">
                           <SelectValue placeholder={t.interestPlaceholder} />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-card border-white/10">
+                      <SelectContent className="bg-card border-black/[0.08]">
                         <SelectItem value="Public Affairs" data-testid="option-public-affairs">{t.interestOptions.publicAffairs}</SelectItem>
                         <SelectItem value="Associations" data-testid="option-associations">{t.interestOptions.associations}</SelectItem>
                         <SelectItem value="Industry" data-testid="option-industry">{t.interestOptions.industry}</SelectItem>
@@ -142,13 +142,13 @@ export function ContactForm({ lang }: ContactFormProps) {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white/40">{t.message}</FormLabel>
+                    <FormLabel className="text-foreground/50">{t.message}</FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}
                         value={field.value ?? ""}
                         rows={3}
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20 resize-none"
+                        className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20 resize-none"
                         disabled={isPending}
                         data-testid="input-message"
                       />

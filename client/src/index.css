@@ -2,54 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE - Dark enterprise theme by default */
+/* LIGHT MODE - White enterprise theme */
 :root {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(0, 0, 0, .08);
+  --badge-outline: rgba(0, 0, 0, .05);
 
-  --opaque-button-border-intensity: 9;
+  --opaque-button-border-intensity: -5;
 
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(0, 0, 0, .03);
+  --elevate-2: rgba(0, 0, 0, .06);
 
-  --background: 216 50% 6%;
-  --foreground: 210 40% 96%;
+  --background: 0 0% 100%;
+  --foreground: 216 30% 15%;
 
-  --border: 216 30% 15%;
+  --border: 220 13% 90%;
 
-  --card: 216 45% 9%;
-  --card-foreground: 210 40% 96%;
-  --card-border: 216 30% 15%;
+  --card: 220 14% 97%;
+  --card-foreground: 216 30% 15%;
+  --card-border: 220 13% 90%;
 
-  --sidebar: 216 50% 7%;
-  --sidebar-foreground: 210 40% 96%;
-  --sidebar-border: 216 30% 15%;
+  --sidebar: 220 14% 96%;
+  --sidebar-foreground: 216 30% 15%;
+  --sidebar-border: 220 13% 90%;
   --sidebar-primary: 24 100% 50%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 216 45% 14%;
-  --sidebar-accent-foreground: 210 40% 96%;
+  --sidebar-accent: 220 14% 92%;
+  --sidebar-accent-foreground: 216 30% 15%;
   --sidebar-ring: 24 100% 50%;
 
-  --popover: 216 45% 9%;
-  --popover-foreground: 210 40% 96%;
-  --popover-border: 216 30% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 216 30% 15%;
+  --popover-border: 220 13% 90%;
 
   --primary: 24 100% 50%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 216 45% 14%;
-  --secondary-foreground: 210 40% 90%;
+  --secondary: 220 14% 94%;
+  --secondary-foreground: 216 30% 25%;
 
-  --muted: 216 30% 15%;
-  --muted-foreground: 215 16% 57%;
+  --muted: 220 14% 95%;
+  --muted-foreground: 215 16% 47%;
 
   --accent: 210 100% 20%;
-  --accent-foreground: 210 40% 96%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 216 30% 18%;
+  --input: 220 13% 90%;
   --ring: 24 100% 50%;
   --chart-1: 24 100% 50%;
   --chart-2: 210 100% 40%;
@@ -63,14 +63,14 @@
   --font-serif: Georgia, serif;
   --font-mono: 'JetBrains Mono', Menlo, monospace;
   --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(24 100% 50% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(24 100% 50% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(24 100% 50% / 0.00), 0px 1px 2px -1px hsl(24 100% 50% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(24 100% 50% / 0.00), 0px 1px 2px -1px hsl(24 100% 50% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(24 100% 50% / 0.00), 0px 2px 4px -1px hsl(24 100% 50% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(24 100% 50% / 0.00), 0px 4px 6px -1px hsl(24 100% 50% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(24 100% 50% / 0.00), 0px 8px 10px -1px hsl(24 100% 50% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(24 100% 50% / 0.00);
+  --shadow-2xs: 0 1px 2px rgba(0,0,0,.04);
+  --shadow-xs: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.06), 0 2px 4px -1px rgba(0,0,0,.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.06), 0 4px 6px -2px rgba(0,0,0,.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.06), 0 10px 10px -5px rgba(0,0,0,.03);
+  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,.12);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -176,22 +176,22 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(24 100% 50%), hsl(24 100% 65%), hsl(40 95% 55%));
+    background-image: linear-gradient(135deg, hsl(24 100% 50%), hsl(24 100% 40%), hsl(15 90% 45%));
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.02);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .glass-card-hover:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 106, 0, 0.2);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(255, 106, 0, 0.25);
   }
 
   .animated-gradient {
-    background: linear-gradient(135deg, hsl(216 50% 6%) 0%, hsl(210 100% 12%) 30%, hsl(216 50% 6%) 60%, hsl(24 60% 10%) 100%);
+    background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 30% 97%) 30%, hsl(0 0% 100%) 60%, hsl(24 30% 97%) 100%);
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
   }

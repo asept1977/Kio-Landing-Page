@@ -47,25 +47,25 @@ export default function Home() {
       icon: <Users className="w-7 h-7" />,
       title: t.targets.card2Title,
       desc: t.targets.card2Desc,
-      iconBg: "bg-[#003366]/20 text-blue-400",
+      iconBg: "bg-[#003366]/10 text-blue-600",
       link: "/verbaende",
     },
     {
       icon: <Factory className="w-7 h-7" />,
       title: t.targets.card3Title,
       desc: t.targets.card3Desc,
-      iconBg: "bg-white/5 text-white/80",
+      iconBg: "bg-black/[0.03] text-foreground/80",
       link: undefined as string | undefined,
     },
   ];
 
   const architectureLayers = [
-    { label: t.architecture.layer1, sub: "", color: "border-white/20 bg-white/5", textColor: "text-white/80" },
+    { label: t.architecture.layer1, sub: "", color: "border-black/[0.08] bg-black/[0.03]", textColor: "text-foreground/80" },
     { label: t.architecture.layer2, sub: "", color: "border-[#ff6a00]/30 bg-[#ff6a00]/10", textColor: "text-[#ff6a00]" },
-    { label: t.architecture.layer3, sub: t.architecture.layer3Items, color: "border-blue-500/20 bg-blue-500/10", textColor: "text-blue-400" },
-    { label: t.architecture.layer4, sub: t.architecture.layer4Items, color: "border-white/10 bg-white/5", textColor: "text-white/70" },
+    { label: t.architecture.layer3, sub: t.architecture.layer3Items, color: "border-blue-500/20 bg-blue-500/10", textColor: "text-blue-600" },
+    { label: t.architecture.layer4, sub: t.architecture.layer4Items, color: "border-black/[0.06] bg-black/[0.03]", textColor: "text-foreground/70" },
     { label: t.architecture.layer5, sub: "", color: "border-[#ff6a00]/20 bg-[#ff6a00]/5", textColor: "text-[#ff6a00]/80" },
-    { label: t.architecture.layer6, sub: t.architecture.layer6Items, color: "border-[#003366]/30 bg-[#003366]/20", textColor: "text-blue-300" },
+    { label: t.architecture.layer6, sub: t.architecture.layer6Items, color: "border-[#003366]/30 bg-[#003366]/10", textColor: "text-blue-600" },
   ];
 
   return (
@@ -75,7 +75,7 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden animated-gradient" data-testid="section-hero">
         <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '48px 48px' }}
+          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '48px 48px' }}
         />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#ff6a00]/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#003366]/10 rounded-full blur-[100px]" />
@@ -90,12 +90,12 @@ export default function Home() {
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 leading-[1.05]" data-testid="text-hero-title">
-                <span className="text-white">{t.hero.title1}</span>
+                <span className="text-foreground">{t.hero.title1}</span>
                 <br />
                 <span className="text-gradient">{t.hero.title2}</span>
               </motion.h1>
 
-              <motion.p variants={fadeUp} className="text-lg md:text-xl text-white/40 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+              <motion.p variants={fadeUp} className="text-lg md:text-xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
                 {t.hero.subtitle}
               </motion.p>
 
@@ -110,7 +110,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="border-white/10 text-white/70"
+                  className="border-black/[0.08] text-foreground/70"
                   data-testid="button-strategy"
                 >
                   {t.hero.cta2}
@@ -118,7 +118,7 @@ export default function Home() {
               </motion.div>
 
               <motion.div variants={fadeUp} className="mt-16">
-                <ChevronDown className="w-5 h-5 text-white/20 mx-auto animate-bounce" />
+                <ChevronDown className="w-5 h-5 text-foreground/20 mx-auto animate-bounce" />
               </motion.div>
             </motion.div>
           </div>
@@ -135,10 +135,10 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-solutions-title">
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-solutions-title">
               {t.targets.sectionTitle}
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-white/40 max-w-xl mx-auto" data-testid="text-solutions-desc">
+            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-solutions-desc">
               {t.targets.sectionDesc}
             </motion.p>
           </motion.div>
@@ -161,8 +161,8 @@ export default function Home() {
                 <div className={`w-14 h-14 rounded-md ${card.iconBg} flex items-center justify-center mb-6`}>
                   {card.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3" data-testid={`text-target-title-${idx}`}>{card.title}</h3>
-                <p className="text-white/40 leading-relaxed text-sm mb-6" data-testid={`text-target-desc-${idx}`}>
+                <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-target-title-${idx}`}>{card.title}</h3>
+                <p className="text-foreground/60 leading-relaxed text-sm mb-6" data-testid={`text-target-desc-${idx}`}>
                   {card.desc}
                 </p>
                 <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 transition-all" data-testid={`link-learn-more-${idx}`}>
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* ===== ARCHITECTURE ===== */}
-      <section id="architecture" className="py-24 lg:py-32 relative border-y border-white/5" data-testid="section-architecture">
+      <section id="architecture" className="py-24 lg:py-32 relative border-y border-black/[0.06]" data-testid="section-architecture">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/5 via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -185,10 +185,10 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-architecture-title">
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-architecture-title">
               {t.architecture.sectionTitle}
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-white/40 max-w-xl mx-auto" data-testid="text-architecture-desc">
+            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-architecture-desc">
               {t.architecture.sectionDesc}
             </motion.p>
           </motion.div>
@@ -207,12 +207,12 @@ export default function Home() {
                     {layer.label}
                   </div>
                   {layer.sub && (
-                    <div className="text-xs text-white/30 mt-1.5 tracking-wide">{layer.sub}</div>
+                    <div className="text-xs text-foreground/40 mt-1.5 tracking-wide">{layer.sub}</div>
                   )}
                 </div>
                 {idx < architectureLayers.length - 1 && (
                   <div className="py-2">
-                    <ArrowDown className="w-4 h-4 text-white/15" />
+                    <ArrowDown className="w-4 h-4 text-foreground/20" />
                   </div>
                 )}
               </motion.div>
@@ -232,16 +232,16 @@ export default function Home() {
               variants={stagger}
             >
               <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
-              <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-sovereignty-title">
+              <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight" data-testid="text-sovereignty-title">
                 {t.sovereignty.title}
               </motion.h2>
-              <motion.p variants={fadeUp} className="text-lg text-white/40 mb-10 leading-relaxed" data-testid="text-sovereignty-desc">
+              <motion.p variants={fadeUp} className="text-lg text-foreground/60 mb-10 leading-relaxed" data-testid="text-sovereignty-desc">
                 {t.sovereignty.desc}
               </motion.p>
 
               <motion.ul variants={stagger} className="space-y-4">
                 {t.sovereignty.points.map((point, i) => (
-                  <motion.li key={i} variants={fadeUp} className="flex items-start gap-4 text-white/70" data-testid={`text-sovereignty-point-${i}`}>
+                  <motion.li key={i} variants={fadeUp} className="flex items-start gap-4 text-foreground/80" data-testid={`text-sovereignty-point-${i}`}>
                     <div className="w-6 h-6 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
                       <div className="w-2 h-2 rounded-full bg-[#ff6a00]" />
                     </div>
@@ -259,7 +259,7 @@ export default function Home() {
               className="relative"
             >
               <div className="glass-card rounded-md p-10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/20 via-transparent to-[#ff6a00]/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/10 via-transparent to-[#ff6a00]/5" />
                 <div className="relative z-10 grid grid-cols-2 gap-6">
                   {[
                     { icon: <Shield className="w-8 h-8" />, label: "GDPR" },
@@ -269,7 +269,7 @@ export default function Home() {
                   ].map((item, i) => (
                     <div key={i} className="flex flex-col items-center gap-3 py-6" data-testid={`sovereignty-icon-${i}`}>
                       <div className="text-[#ff6a00]/60">{item.icon}</div>
-                      <span className="text-xs font-bold text-white/40 tracking-widest uppercase">{item.label}</span>
+                      <span className="text-xs font-bold text-foreground/50 tracking-widest uppercase">{item.label}</span>
                     </div>
                   ))}
                 </div>
@@ -280,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* ===== FINAL CTA + FORM ===== */}
-      <section id="contact" className="py-24 lg:py-32 relative border-t border-white/5" data-testid="section-contact">
+      <section id="contact" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-contact">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/3 via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -290,10 +290,10 @@ export default function Home() {
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-cta-title">
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight" data-testid="text-cta-title">
               {t.cta.title}
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-white/40 max-w-xl mx-auto" data-testid="text-cta-desc">
+            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-cta-desc">
               {t.cta.desc}
             </motion.p>
           </motion.div>
