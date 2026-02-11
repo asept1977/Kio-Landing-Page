@@ -189,7 +189,7 @@ export default function Verbaende() {
                   <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-intervention-${idx}`}>
                     {/* dot */}
                     <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-[#ff6a00]/40 border border-[#ff6a00]/20" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/40 mb-3">Intervention</p>
+                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/40 mb-3">Lösung</p>
                     <p className="text-sm text-white/45 leading-relaxed max-w-lg">{uc.intervention}</p>
                   </motion.div>
 
