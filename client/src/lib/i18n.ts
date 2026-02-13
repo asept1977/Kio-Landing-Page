@@ -4,7 +4,7 @@ export const translations = {
   en: {
     nav: {
       solutions: "Solutions",
-      architecture: "Architecture",
+      roi: "ROI Calculator",
       sovereignty: "Sovereignty",
       contact: "Request Strategy Call",
     },
@@ -105,9 +105,9 @@ export const translations = {
   },
   de: {
     nav: {
-      solutions: "L\u00f6sungen",
-      architecture: "Architektur",
-      sovereignty: "Souver\u00e4nit\u00e4t",
+      solutions: "Lösungen",
+      roi: "ROI-Berechnung",
+      sovereignty: "Souveränität",
       contact: "Strategiegespr\u00e4ch",
     },
     hero: {

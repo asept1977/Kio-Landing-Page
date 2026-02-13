@@ -56,8 +56,8 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             <button data-testid="button-nav-solutions" onClick={() => scrollToSection("solutions")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
               {t.solutions}
             </button>
-            <button data-testid="button-nav-architecture" onClick={() => scrollToSection("architecture")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
-              {t.architecture}
+            <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
+              {t.roi}
             </button>
             <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
               {t.sovereignty}
@@ -113,8 +113,8 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button onClick={() => scrollToSection("solutions")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-solutions">
                 {t.solutions}
               </button>
-              <button onClick={() => scrollToSection("architecture")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-architecture">
-                {t.architecture}
+              <button onClick={() => scrollToSection("roi")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-roi">
+                {t.roi}
               </button>
               <button onClick={() => scrollToSection("sovereignty")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-sovereignty">
                 {t.sovereignty}
