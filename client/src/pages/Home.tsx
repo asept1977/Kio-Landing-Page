@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
+import { RoiCalculator } from "@/components/RoiCalculator";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -280,6 +281,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ===== ROI CALCULATOR ===== */}
+      <RoiCalculator lang={lang} />
 
       {/* ===== FINAL CTA + FORM ===== */}
       <section id="contact" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-contact">
