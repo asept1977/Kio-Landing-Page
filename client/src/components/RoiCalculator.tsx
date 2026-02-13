@@ -133,7 +133,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                       data-testid={`radio-license-${price}`}
                     />
                     <span className={selectedLicense === price ? "text-[#ff6a00]" : "text-foreground/60"}>
-                      {price} \u20ac{t.licensePerUser}
+                      {price} €{t.licensePerUser}
                     </span>
                   </label>
                 ))}
@@ -177,8 +177,8 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                 data-testid="slider-personnel-cost"
               />
               <div className="flex justify-between mt-1.5 text-xs text-foreground/30">
-                <span>20 \u20ac</span>
-                <span>150 \u20ac</span>
+                <span>20 €</span>
+                <span>150 €</span>
               </div>
             </div>
 
