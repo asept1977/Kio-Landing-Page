@@ -120,7 +120,7 @@ export const translations = {
       cta2: "Strategiegespr\u00e4ch anfragen",
     },
     targets: {
-      sectionTitle: "L\u00f6sungen f\u00fcr Entscheider",
+      sectionTitle: "Mehrwert für Entscheider",
       sectionDesc: "Drei Vertikalen. Eine intelligente Plattform.",
       card1Title: "KIO f\u00fcr Public Affairs",
       card1Desc: "Automatisiertes Monitoring von Gesetzgebung, Stakeholder-Analyse und Positionspapier-Abgleich. Integriert Parlamentsdaten (DIP), Lobbyregister, interne Dokumente und Wissensgraphen.",
