@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
+import { RoiCalculator } from "@/components/RoiCalculator";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -175,6 +176,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ===== ROI CALCULATOR ===== */}
+      <RoiCalculator lang={lang} />
 
       {/* ===== SOVEREIGNTY ===== */}
       <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
