@@ -72,6 +72,10 @@ export const translations = {
       breakEvenImmediate: "Immediate",
       chartKioCost: "KIO Cost (cumulative)",
       chartSavings: "Savings (cumulative)",
+      summaryPositive: (users: number, license: number, savings: string, annual: string, breakEven: string) =>
+        `With ${users} users at ${license} €/month, your organization saves ${savings} per month – that's ${annual} per year. The investment pays for itself ${breakEven}.`,
+      summaryNegative: (users: number, license: number, savings: string, cost: string) =>
+        `With ${users} users at ${license} €/month, the efficiency savings of ${savings} do not yet cover the monthly KIO cost of ${cost}. Consider increasing the number of users or the expected efficiency gain.`,
     },
     cta: {
       title: "Turn fragmented knowledge into strategic advantage.",
@@ -170,6 +174,10 @@ export const translations = {
       breakEvenImmediate: "Sofort",
       chartKioCost: "KIO Kosten (kumuliert)",
       chartSavings: "Einsparung (kumuliert)",
+      summaryPositive: (users: number, license: number, savings: string, annual: string, breakEven: string) =>
+        `Bei ${users} Anwendern zu je ${license} €/Monat spart Ihre Organisation monatlich ${savings} – das sind ${annual} pro Jahr. Die Investition amortisiert sich ${breakEven}.`,
+      summaryNegative: (users: number, license: number, savings: string, cost: string) =>
+        `Bei ${users} Anwendern zu je ${license} €/Monat deckt die Effizienz-Einsparung von ${savings} die monatlichen KIO-Kosten von ${cost} noch nicht. Erhöhen Sie die Anwenderzahl oder die erwartete Effizienzsteigerung.`,
     },
     cta: {
       title: "Fragmentiertes Wissen in strategischen Vorteil verwandeln.",

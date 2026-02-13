@@ -81,6 +81,34 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
     }).format(val);
   };
 
+  const summaryText = useMemo(() => {
+    if (calc.netMonthly > 0) {
+      const breakEvenLabel =
+        calc.breakEvenPoint === 1
+          ? lang === "de" ? "sofort" : "immediately"
+          : calc.breakEvenPoint > 1
+            ? lang === "de"
+              ? `nach ${calc.breakEvenPoint} Monaten`
+              : `after ${calc.breakEvenPoint} months`
+            : lang === "de"
+              ? "nach mehr als 12 Monaten"
+              : "after more than 12 months";
+      return t.summaryPositive(
+        numUsers,
+        selectedLicense,
+        formatCurrency(calc.monthlySavings),
+        formatCurrency(calc.netAnnual),
+        breakEvenLabel,
+      );
+    }
+    return t.summaryNegative(
+      numUsers,
+      selectedLicense,
+      formatCurrency(calc.monthlySavings),
+      formatCurrency(calc.monthlyKioCost),
+    );
+  }, [calc, numUsers, selectedLicense, lang, t]);
+
   return (
     <section id="roi" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-roi">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -233,6 +261,10 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                   </p>
                 </div>
               </div>
+            </div>
+
+            <div className="glass-card rounded-md p-5" data-testid="roi-summary">
+              <p className="text-sm text-foreground/70 leading-relaxed">{summaryText}</p>
             </div>
 
             <div className="glass-card rounded-md p-6" data-testid="roi-chart">
