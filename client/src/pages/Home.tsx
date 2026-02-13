@@ -55,7 +55,7 @@ export default function Home() {
       title: t.targets.card3Title,
       desc: t.targets.card3Desc,
       iconBg: "bg-black/[0.03] text-foreground/80",
-      link: undefined as string | undefined,
+      link: "/industrie",
     },
   ];
 

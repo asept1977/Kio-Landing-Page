@@ -1,0 +1,117 @@
+Create a premium subpage:
+
+“KIO für Industrie & Mittelstand”
+
+Focus strongly on ERP and CRM operational use cases.
+Single index.html
+Pure HTML + CSS + minimal JS
+No frameworks
+Dark enterprise design
+Accent color #ff6a00
+High-trust consulting appearance
+
+Goal:
+Show operational efficiency improvement in daily workflows, not abstract AI capabilities.
+
+------------------------------------------------
+HERO
+------------------------------------------------
+
+Title:
+“KIO für Industrie & Mittelstand”
+
+Subtitle:
+“Operatives Wissen genau dann verfügbar, wenn Entscheidungen getroffen werden.”
+
+Short intro:
+KIO verbindet ERP, CRM und Kommunikation zu einem intelligenten Arbeitsassistenten.
+
+CTA:
+“Demo anfragen”
+
+------------------------------------------------
+USE CASE FLOW (vertical sections)
+------------------------------------------------
+
+Each section structured:
+Problem → KIO → Impact
+Short text only.
+
+------------------------------------------------
+USE CASE 1 — Außendienst-Briefing
+------------------------------------------------
+
+Problem
+• Kundenhistorie verteilt über CRM, Angebote und Service
+• Vorbereitung zeitaufwendig
+
+KIO
+Automatisches Kunden-Briefing aus CRM, ERP, Tickets und Kommunikation.
+
+Impact
+–80 % Vorbereitungszeit
+Gezieltere Gespräche
+Höhere Abschlussquote
+
+------------------------------------------------
+USE CASE 2 — Angebotserstellung aus ERP
+------------------------------------------------
+
+Problem
+• Angebote werden neu aufgebaut
+• Kalkulation schwer vergleichbar
+
+KIO
+Analyse früherer Angebote und Stücklisten aus ERP zur Vorschlagserstellung.
+
+Impact
+Schnelleres Angebot
+Konsistente Preise
+Höhere Marge
+
+------------------------------------------------
+USE CASE 3 — Service & Reklamationen
+------------------------------------------------
+
+Problem
+• Unvollständige Maschinenhistorie
+• Mehrere Rückfragen nötig
+
+KIO
+Automatische Zusammenfassung der Kunden- und Maschinenakte.
+
+Impact
+Schnellere Lösung
+Zufriedenere Kunden
+
+------------------------------------------------
+USE CASE 4 — Projektwissen wiederverwenden
+------------------------------------------------
+
+Problem
+• Erfahrung geht verloren
+• Doppelarbeit im Engineering
+
+KIO
+Findet ähnliche Projekte und Entscheidungen aus Unternehmensdaten.
+
+Impact
+Weniger Aufwand
+Schnellere Umsetzung
+
+------------------------------------------------
+TECH SECTION
+
+ERP Integration
+CRM Integration
+E-Mail & Dokumente
+Knowledge Graph
+DSGVO-konform betreibbar
+
+------------------------------------------------
+FINAL CTA
+
+“Vom Systembestand zum Wettbewerbsvorteil.”
+
+Button:
+“Strategiegespräch”
