@@ -112,20 +112,30 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               <label className="text-sm font-bold text-foreground/70 tracking-wide uppercase mb-4 block" data-testid="label-license">
                 {t.license}
               </label>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-3">
                 {LICENSE_OPTIONS.map((price) => (
-                  <button
+                  <label
                     key={price}
-                    onClick={() => setSelectedLicense(price)}
-                    className={`px-5 py-3 rounded-md text-sm font-bold transition-all ${
+                    className={`flex items-center gap-3 px-5 py-3 rounded-md text-sm font-bold cursor-pointer transition-all ${
                       selectedLicense === price
-                        ? "bg-[#ff6a00] text-white shadow-[0_0_15px_rgba(255,106,0,0.3)]"
-                        : "bg-black/[0.03] text-foreground/60 border border-black/[0.06]"
+                        ? "bg-[#ff6a00]/10 border border-[#ff6a00]/40"
+                        : "bg-black/[0.03] border border-black/[0.06]"
                     }`}
-                    data-testid={`button-license-${price}`}
+                    data-testid={`label-license-${price}`}
                   >
-                    {price} \u20ac{t.licensePerUser}
-                  </button>
+                    <input
+                      type="radio"
+                      name="license"
+                      value={price}
+                      checked={selectedLicense === price}
+                      onChange={() => setSelectedLicense(price)}
+                      className="accent-[#ff6a00] w-4 h-4"
+                      data-testid={`radio-license-${price}`}
+                    />
+                    <span className={selectedLicense === price ? "text-[#ff6a00]" : "text-foreground/60"}>
+                      {price} \u20ac{t.licensePerUser}
+                    </span>
+                  </label>
                 ))}
               </div>
             </div>
