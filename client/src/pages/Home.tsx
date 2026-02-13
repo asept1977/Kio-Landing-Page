@@ -15,14 +15,17 @@ import {
   Globe2,
   Database,
   ChevronDown,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import eventThumbnail from "@assets/image_1770977933273.png";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('de');
+  const [videoPlaying, setVideoPlaying] = useState(false);
   const [, navigate] = useLocation();
   const t = translations[lang];
 
@@ -235,6 +238,71 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== AKTUELLES ===== */}
+      <section id="aktuelles" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-aktuelles">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center mb-12"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-aktuelles-title">
+              {lang === "de" ? "Aktuelles" : "Latest News"}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-aktuelles-desc">
+              {lang === "de"
+                ? "Veranstaltungen, Vorträge und aktuelle Beiträge rund um KIO."
+                : "Events, talks and latest contributions around KIO."}
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div
+              className="relative w-full rounded-md overflow-hidden cursor-pointer group"
+              style={{ aspectRatio: "16/9" }}
+              onClick={() => setVideoPlaying(true)}
+              data-testid="video-aktuelles"
+            >
+              {videoPlaying ? (
+                <iframe
+                  src="https://www.youtube.com/embed/TXhoBCy25uE?autoplay=1&rel=0"
+                  title="Mission KI: Sicher. Smart. Souverän."
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              ) : (
+                <>
+                  <img
+                    src={eventThumbnail}
+                    alt="Mission KI: Sicher. Smart. Souverän. – Online Live-Event mit André Sept / AI XPERIENCE"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-colors group-hover:bg-black/40">
+                    <div className="w-16 h-16 rounded-full bg-[#ff6a00] flex items-center justify-center shadow-[0_0_30px_rgba(255,106,0,0.4)] transition-transform group-hover:scale-110">
+                      <Play className="w-7 h-7 text-white ml-1" fill="white" />
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+            <p className="mt-4 text-sm text-foreground/50 text-center" data-testid="text-aktuelles-caption">
+              {lang === "de"
+                ? "Mission KI: Sicher. Smart. Souverän. – Online Live-Event mit André Sept / AI XPERIENCE"
+                : "Mission AI: Secure. Smart. Sovereign. – Online Live Event with André Sept / AI XPERIENCE"}
+            </p>
+          </motion.div>
         </div>
       </section>
 
