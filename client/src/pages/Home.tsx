@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
-import { RoiCalculator } from "@/components/RoiCalculator";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -177,53 +176,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ARCHITECTURE ===== */}
-      <section id="architecture" className="py-24 lg:py-32 relative border-y border-black/[0.06]" data-testid="section-architecture">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/5 via-transparent to-transparent" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-architecture-title">
-              {t.architecture.sectionTitle}
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-architecture-desc">
-              {t.architecture.sectionDesc}
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="flex flex-col items-center gap-0"
-          >
-            {architectureLayers.map((layer, idx) => (
-              <motion.div key={idx} variants={fadeUp} className="w-full flex flex-col items-center">
-                <div className={`w-full max-w-lg border ${layer.color} rounded-md p-5 text-center`} data-testid={`arch-layer-${idx}`}>
-                  <div className={`font-bold text-sm tracking-wide ${layer.textColor}`}>
-                    {layer.label}
-                  </div>
-                  {layer.sub && (
-                    <div className="text-xs text-foreground/40 mt-1.5 tracking-wide">{layer.sub}</div>
-                  )}
-                </div>
-                {idx < architectureLayers.length - 1 && (
-                  <div className="py-2">
-                    <ArrowDown className="w-4 h-4 text-foreground/20" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* ===== SOVEREIGNTY ===== */}
       <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -282,8 +234,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ROI CALCULATOR ===== */}
-      <RoiCalculator lang={lang} />
+      {/* ===== ARCHITECTURE ===== */}
+      <section id="architecture" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-architecture">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/5 via-transparent to-transparent" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-architecture-title">
+              {t.architecture.sectionTitle}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-architecture-desc">
+              {t.architecture.sectionDesc}
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="flex flex-col items-center gap-0"
+          >
+            {architectureLayers.map((layer, idx) => (
+              <motion.div key={idx} variants={fadeUp} className="w-full flex flex-col items-center">
+                <div className={`w-full max-w-lg border ${layer.color} rounded-md p-5 text-center`} data-testid={`arch-layer-${idx}`}>
+                  <div className={`font-bold text-sm tracking-wide ${layer.textColor}`}>
+                    {layer.label}
+                  </div>
+                  {layer.sub && (
+                    <div className="text-xs text-foreground/40 mt-1.5 tracking-wide">{layer.sub}</div>
+                  )}
+                </div>
+                {idx < architectureLayers.length - 1 && (
+                  <div className="py-2">
+                    <ArrowDown className="w-4 h-4 text-foreground/20" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* ===== FINAL CTA + FORM ===== */}
       <section id="contact" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-contact">
