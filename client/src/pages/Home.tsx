@@ -22,7 +22,7 @@ import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLang] = useState<Lang>('de');
   const [, navigate] = useLocation();
   const t = translations[lang];
 
