@@ -128,14 +128,14 @@ export default function Verbaende() {
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-foreground text-center" data-testid="text-hero-title-verbaende">
-              Verbandsarbeit braucht kein weiteres Portal
+              Große Verbände haben kein Wissensproblem
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-foreground text-center" data-testid="text-hero-subheadline-verbaende">
-              sondern ein Arbeitsgedächtnis
+              sondern verteilte Wissensinseln
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-verbaende">
-              KIO verbindet Mitgliederwissen, Positionen und Dokumente zu nutzbarem Arbeitswissen.
+              KIO verbindet Gremienwissen, Mitgliederpositionen und Dokumente zu gemeinsam nutzbarem Arbeitswissen.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex justify-center">
