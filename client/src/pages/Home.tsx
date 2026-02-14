@@ -94,6 +94,17 @@ export default function Home() {
             />
           ))}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+          <div className="absolute bottom-8 right-8 z-10">
+            {["Positionspapier", "Briefing", "Stellungnahme"].map((label, i) => (
+              <span
+                key={label}
+                className={`absolute bottom-0 right-0 text-white/40 text-sm md:text-base font-medium tracking-widest uppercase transition-opacity duration-700 whitespace-nowrap ${activeVideo === i ? 'opacity-100' : 'opacity-0'}`}
+                data-testid={`text-video-label-${i}`}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
