@@ -15,6 +15,7 @@ import {
   Database,
   ChevronDown,
 } from "lucide-react";
+import kioEngineImage from "@assets/image-img_01khekewpjf7waz7zdenhr836g_1771090469476.png";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
@@ -176,6 +177,26 @@ export default function Home() {
                 </span>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ===== KIO ENGINE VISUAL ===== */}
+      <section className="py-24 lg:py-32 relative" data-testid="section-engine">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
+            className="rounded-md overflow-hidden border border-black/[0.06]"
+          >
+            <img
+              src={kioEngineImage}
+              alt="KIO Operational Value Engine – connecting Email, ERP, CRM to Compliance, Sales, Operations, Risk, Knowledge for Faster Decisions, Automated Workflows, Risk Alerts, Strategic Insights"
+              className="w-full h-auto"
+              data-testid="img-kio-engine"
+            />
           </motion.div>
         </div>
       </section>
