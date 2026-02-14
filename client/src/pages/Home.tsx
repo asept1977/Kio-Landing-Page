@@ -86,8 +86,8 @@ export default function Home() {
                   KIO
                 </h1>
                 <span className="inline-flex items-center gap-3 py-1.5 px-4 rounded-full bg-[#ff6a00]/10 font-semibold text-xs tracking-widest border border-[#ff6a00]/20 mt-4" data-testid="text-hero-subheadline">
-                  <span className="text-[#ff6a00]">Knowledge</span>
-                  <span className="text-[#003366]">Intelligence</span>
+                  <span className="text-[#003366]">Knowledge</span>
+                  <span className="text-[#ff6a00]">Intelligence</span>
                   <span className="text-foreground/70">Orchestrated</span>
                 </span>
               </motion.div>
