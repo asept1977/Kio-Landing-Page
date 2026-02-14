@@ -121,7 +121,7 @@ export const translations = {
     },
     targets: {
       sectionTitle: "Mehrwert für Entscheider",
-      sectionDesc: "Drei Vertikalen. Eine intelligente Plattform.",
+      sectionDesc: "KIO arbeitet in verschiedenen Branchen mit unterschiedlichem Wissen und unterschiedlichen Anforderungen.",
       card1Title: "KIO f\u00fcr Public Affairs",
       card1Desc: "Beobachtet Gesetzgebung, analysiert Stakeholder und gleicht Positionen ab. Bindet Parlamentsdaten (DIP), Lobbyregister und interne Dokumente ein und unterstützt bei Briefings, Positionspapieren und Stellungnahmen.",
       card2Title: "KIO f\u00fcr Verb\u00e4nde",
