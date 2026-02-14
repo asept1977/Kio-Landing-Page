@@ -48,14 +48,14 @@ export default function Home() {
       icon: <Users className="w-7 h-7" />,
       title: t.targets.card2Title,
       desc: t.targets.card2Desc,
-      iconBg: "bg-[#003366]/10 text-[#003366]",
+      iconBg: "bg-[#5b9bd5]/15 text-[#5b9bd5]",
       link: "/verbaende",
     },
     {
       icon: <Factory className="w-7 h-7" />,
       title: t.targets.card3Title,
       desc: t.targets.card3Desc,
-      iconBg: "bg-black/[0.03] text-foreground/80",
+      iconBg: "bg-white/[0.08] text-white/80",
       link: "/industrie",
     },
   ];
@@ -185,7 +185,7 @@ export default function Home() {
       <RoiCalculator lang={lang} />
 
       {/* ===== SOVEREIGNTY ===== */}
-      <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
+      <section id="sovereignty" className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-sovereignty">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -243,8 +243,8 @@ export default function Home() {
       </section>
 
       {/* ===== FINAL CTA + FORM ===== */}
-      <section id="contact" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-contact">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/3 via-transparent to-transparent" />
+      <section id="contact" className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-contact">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.03] via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="hidden"

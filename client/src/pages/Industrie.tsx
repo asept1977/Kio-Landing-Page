@@ -99,24 +99,24 @@ export default function Industrie() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
-      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-black/[0.06]" data-testid="nav-industrie">
+      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-white/[0.08]" data-testid="nav-industrie">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer" data-testid="link-logo-industrie">
               <div className="w-8 h-8 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-base tracking-tighter">
                 K
               </div>
-              <span className="font-bold text-lg tracking-tight text-foreground">KIO</span>
+              <span className="font-bold text-lg tracking-tight text-white">KIO</span>
             </div>
           </Link>
           <div className="hidden sm:flex items-center gap-6">
             <Link href="/">
-              <span className="text-sm font-medium text-foreground/50 cursor-pointer" data-testid="link-nav-home">Home</span>
+              <span className="text-sm font-medium text-white/50 cursor-pointer hover:text-white/80 transition-colors" data-testid="link-nav-home">Home</span>
             </Link>
             <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active">Industrie & Mittelstand</span>
             <button
               onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-sm font-medium text-foreground/50"
+              className="text-sm font-medium text-white/50 hover:text-white/80 transition-colors"
               data-testid="button-nav-kontakt"
             >
               Kontakt
@@ -124,7 +124,7 @@ export default function Industrie() {
           </div>
           <div className="sm:hidden">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="text-foreground/50 gap-1" data-testid="button-back-home">
+              <Button variant="ghost" size="sm" className="text-white/50 gap-1" data-testid="button-back-home">
                 <ArrowLeft className="w-4 h-4" /> Home
               </Button>
             </Link>
@@ -183,10 +183,10 @@ export default function Industrie() {
                 </motion.h2>
 
                 <div className="relative pl-8 sm:pl-12">
-                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-black/[0.04] via-black/[0.08] to-black/[0.03]" />
+                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-white/[0.04] via-white/[0.08] to-white/[0.03]" />
 
                   <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-problem-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-foreground/20 border border-black/[0.08]" />
+                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-foreground/20 border border-white/[0.1]" />
                     <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-3">Problem</p>
                     <ul className="space-y-1.5">
                       {uc.problemBullets.map((b, i) => (
@@ -207,7 +207,7 @@ export default function Industrie() {
                   <motion.div variants={fadeUp} className="relative" data-testid={`timeline-impact-${idx}`}>
                     <div className="absolute -left-5 sm:-left-7 top-6 w-2.5 h-2.5 rounded-full bg-[#ff6a00] shadow-[0_0_10px_rgba(255,106,0,0.4)]" />
                     <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/25 mb-4">Impact</p>
-                    <div className="rounded-md bg-black/[0.02] border border-black/[0.06] p-6 sm:p-8 relative overflow-hidden">
+                    <div className="rounded-md bg-white/[0.03] border border-white/[0.06] p-6 sm:p-8 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a00]/[0.02] to-transparent pointer-events-none" />
                       <div className="relative z-10">
                         <p className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
@@ -232,7 +232,7 @@ export default function Industrie() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-tech">
+      <section className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-tech">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -299,7 +299,7 @@ export default function Industrie() {
         </div>
       </section>
 
-      <footer className="border-t border-black/[0.06] py-10" data-testid="footer-industrie">
+      <footer className="border-t border-white/[0.06] py-10" data-testid="footer-industrie">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="w-6 h-6 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded flex items-center justify-center text-white font-bold text-xs">

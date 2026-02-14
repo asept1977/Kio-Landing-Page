@@ -83,7 +83,7 @@ export function ContactForm({ lang }: ContactFormProps) {
                           {...field}
                           value={field.value ?? ""}
                           placeholder="name@company.com"
-                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
+                          className="bg-white/[0.05] border-white/[0.1] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
                           disabled={isPending}
                           data-testid="input-email"
                         />
@@ -103,7 +103,7 @@ export function ContactForm({ lang }: ContactFormProps) {
                           {...field}
                           value={field.value ?? ""}
                           placeholder="ACME GmbH"
-                          className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
+                          className="bg-white/[0.05] border-white/[0.1] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20"
                           disabled={isPending}
                           data-testid="input-company"
                         />
@@ -122,11 +122,11 @@ export function ContactForm({ lang }: ContactFormProps) {
                     <FormLabel className="text-foreground/50">{t.interest}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value ?? ""}>
                       <FormControl>
-                        <SelectTrigger className="bg-black/[0.03] border-black/[0.08] text-foreground" data-testid="select-interest">
+                        <SelectTrigger className="bg-white/[0.05] border-white/[0.1] text-foreground" data-testid="select-interest">
                           <SelectValue placeholder={t.interestPlaceholder} />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-card border-black/[0.08]">
+                      <SelectContent className="bg-card border-white/[0.1]">
                         <SelectItem value="Public Affairs" data-testid="option-public-affairs">{t.interestOptions.publicAffairs}</SelectItem>
                         <SelectItem value="Associations" data-testid="option-associations">{t.interestOptions.associations}</SelectItem>
                         <SelectItem value="Industry" data-testid="option-industry">{t.interestOptions.industry}</SelectItem>
@@ -148,7 +148,7 @@ export function ContactForm({ lang }: ContactFormProps) {
                         {...field}
                         value={field.value ?? ""}
                         rows={3}
-                        className="bg-black/[0.03] border-black/[0.08] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20 resize-none"
+                        className="bg-white/[0.05] border-white/[0.1] text-foreground placeholder:text-foreground/30 focus:border-[#ff6a00]/50 focus:ring-[#ff6a00]/20 resize-none"
                         disabled={isPending}
                         data-testid="input-message"
                       />
