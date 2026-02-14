@@ -18,13 +18,28 @@ import {
 import heroBgVideo from "@/assets/videos/hero-bg.mp4";
 import heroBgVideo2 from "@/assets/videos/hero-bg-2.mp4";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('de');
   const [, navigate] = useLocation();
+  const [activeVideo, setActiveVideo] = useState(0);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+  const heroVideos = [heroBgVideo, heroBgVideo2];
+
+  const handleVideoEnd = useCallback(() => {
+    const next = activeVideo === 0 ? 1 : 0;
+    setActiveVideo(next);
+    if (next === 0) {
+      video1Ref.current?.play();
+    } else {
+      video2Ref.current?.play();
+    }
+  }, [activeVideo]);
+
   const t = translations[lang];
 
   const fadeUp = {
@@ -70,12 +85,22 @@ export default function Home() {
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0">
           <video
+            ref={video1Ref}
             src={heroBgVideo}
             autoPlay
-            loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            onEnded={handleVideoEnd}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
+            aria-hidden="true"
+          />
+          <video
+            ref={video2Ref}
+            src={heroBgVideo2}
+            muted
+            playsInline
+            onEnded={handleVideoEnd}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
             aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
@@ -137,35 +162,6 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ===== SECOND VIDEO ===== */}
-      <section className="relative h-[400px] lg:h-[500px] overflow-hidden" data-testid="section-video-2">
-        <video
-          src={heroBgVideo2}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center max-w-2xl px-6"
-          >
-            <p className="text-white/80 text-lg md:text-2xl font-medium leading-relaxed" data-testid="text-video-2-caption">
-              {lang === "de"
-                ? "Weniger suchen. Mehr entscheiden."
-                : "Less searching. More deciding."}
-            </p>
-          </motion.div>
         </div>
       </section>
 
