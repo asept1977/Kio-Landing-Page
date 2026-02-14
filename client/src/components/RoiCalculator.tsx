@@ -264,7 +264,13 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
             </div>
 
             <div className="glass-card rounded-md p-5" data-testid="roi-summary">
-              <p className="text-sm text-foreground/70 leading-relaxed">{summaryText}</p>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                {lang === "de" ? (
+                  <>Bei <span className="font-bold text-foreground">{numUsers} Mitarbeitenden</span> erzeugt der Einsatz von KIO einen monatlichen Wertbeitrag von <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Hochgerechnet ergibt sich ein jährlicher Ergebnisbeitrag von <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>. Die Wirkung beginnt ab dem ersten Monat.</>
+                ) : (
+                  <>With <span className="font-bold text-foreground">{numUsers} employees</span>, KIO generates a monthly value contribution of <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Projected annually, this results in a yearly contribution of <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>. The impact starts from month one.</>
+                )}
+              </p>
               <p className="text-xs text-foreground/35 mt-3 leading-relaxed" data-testid="roi-disclaimer">
                 {lang === "de"
                   ? "Hinweis: Der Rechner zeigt den finanziellen Effekt aus Zeitersparnis. Zusätzlich verbessert KI die Qualifikation der Mitarbeitenden und stabilisiert die Marge bei fallenden Marktpreisen."
