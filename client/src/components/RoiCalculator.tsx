@@ -273,43 +273,6 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               </p>
             </div>
 
-            <div className="mt-12 md:mt-16" data-testid="roi-strategy-section">
-              <p className="text-sm font-bold text-foreground mb-1" data-testid="text-roi-strategy-title">
-                {lang === "de"
-                  ? "Warum sich KI langfristig rechnet"
-                  : "Why AI pays off in the long run"}
-              </p>
-              <p className="text-xs text-foreground/50 mb-6" data-testid="text-roi-strategy-sub">
-                {lang === "de"
-                  ? "Nicht nur Kosten sparen — sondern Unternehmen stabiler machen."
-                  : "Not just saving costs — making businesses more resilient."}
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-1">
-                  <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
-                    {lang === "de" ? "KI spart Zeit – Menschen bleiben wichtig" : "AI saves time – people remain essential"}
-                  </p>
-                  <p className="text-xs text-foreground/50 leading-relaxed">
-                    {lang === "de"
-                      ? "KI übernimmt Routinearbeit und schafft freie Zeit. Diese Zeit wird genutzt, um Mitarbeitende weiterzubilden und mehr Verantwortung zu geben. So entsteht kein Abbau, sondern bessere Arbeit."
-                      : "AI takes over routine work and creates free time. This time is used to upskill employees and give them more responsibility. The result is not downsizing, but better work."}
-                  </p>
-                </div>
-                <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-2">
-                  <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
-                    {lang === "de" ? "Preise sinken – Gewinn bleibt" : "Prices drop – profit stays"}
-                  </p>
-                  <p className="text-xs text-foreground/50 leading-relaxed">
-                    {lang === "de"
-                      ? "Durch KI wird die Leistung günstiger zu erstellen. Der Markt senkt irgendwann den Preis. Weil die Kosten schneller sinken, bleibt der Gewinn erhalten oder wächst."
-                      : "AI makes services cheaper to deliver. The market will eventually lower prices. Because costs fall faster, profit is preserved or grows."}
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <div className="glass-card rounded-md p-6" data-testid="roi-chart">
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4">{t.resultTitle}</p>
               <ResponsiveContainer width="100%" height={240}>
@@ -391,6 +354,43 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#ff6a00]" />
                   <span className="text-xs text-foreground/50">{t.chartSavings}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 md:mt-16" data-testid="roi-strategy-section">
+              <p className="text-sm font-bold text-foreground mb-1" data-testid="text-roi-strategy-title">
+                {lang === "de"
+                  ? "Warum sich KI langfristig rechnet"
+                  : "Why AI pays off in the long run"}
+              </p>
+              <p className="text-xs text-foreground/50 mb-6" data-testid="text-roi-strategy-sub">
+                {lang === "de"
+                  ? "Nicht nur Kosten sparen — sondern Unternehmen stabiler machen."
+                  : "Not just saving costs — making businesses more resilient."}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-1">
+                  <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
+                    {lang === "de" ? "KI spart Zeit – Menschen bleiben wichtig" : "AI saves time – people remain essential"}
+                  </p>
+                  <p className="text-xs text-foreground/50 leading-relaxed">
+                    {lang === "de"
+                      ? "KI übernimmt Routinearbeit und schafft freie Zeit. Diese Zeit wird genutzt, um Mitarbeitende weiterzubilden und mehr Verantwortung zu geben. So entsteht kein Abbau, sondern bessere Arbeit."
+                      : "AI takes over routine work and creates free time. This time is used to upskill employees and give them more responsibility. The result is not downsizing, but better work."}
+                  </p>
+                </div>
+                <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-2">
+                  <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
+                    {lang === "de" ? "Preise sinken – Gewinn bleibt" : "Prices drop – profit stays"}
+                  </p>
+                  <p className="text-xs text-foreground/50 leading-relaxed">
+                    {lang === "de"
+                      ? "Durch KI wird die Leistung günstiger zu erstellen. Der Markt senkt irgendwann den Preis. Weil die Kosten schneller sinken, bleibt der Gewinn erhalten oder wächst."
+                      : "AI makes services cheaper to deliver. The market will eventually lower prices. Because costs fall faster, profit is preserved or grows."}
+                  </p>
                 </div>
               </div>
             </div>
