@@ -15,7 +15,7 @@ import {
   Database,
   ChevronDown,
 } from "lucide-react";
-import heroBgImage from "@/assets/images/hero-bg.png";
+import heroBgVideo from "@/assets/videos/hero-bg.mp4";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
@@ -68,7 +68,15 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0">
-          <img src={heroBgImage} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+          <video
+            src={heroBgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
         </div>
 
