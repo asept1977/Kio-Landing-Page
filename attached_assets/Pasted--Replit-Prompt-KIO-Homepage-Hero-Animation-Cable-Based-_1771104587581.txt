@@ -1,0 +1,128 @@
+## Replit Prompt — KIO Homepage Hero Animation (Cable-Based Data Flow)
+
+Build a fullscreen animated hero background for the KIO homepage.
+
+This is NOT a particle animation.
+It must look like a structured enterprise data infrastructure diagram where all systems are physically connected using visible data lines (cables).
+
+The goal: immediately communicate that KIO is infrastructure orchestration, not a chatbot.
+
+---
+
+### General Style
+
+* Dark background: `#0b1d2c`
+* Premium enterprise consulting aesthetic
+* Calm, slow animation
+* No flickering, no randomness
+* Everything deterministic and readable
+* Smooth 60fps
+* Seamless 10s loop
+* Responsive scaling
+* Reduce animation complexity on mobile
+
+Use **Three.js** (preferred) with Canvas fallback.
+
+---
+
+### Central Element (Bottom Center)
+
+Create a glass-like cube or sphere labeled:
+
+KIO
+
+Appearance:
+
+* subtle glow `#ff6a1a`
+* soft breathing pulse
+* internal rotating rings or routing paths (slow motion)
+* cables must visibly plug into the object (no floating connections)
+
+This object represents the orchestration core.
+
+---
+
+### Left Side — Internal Systems (vertical descending stack)
+
+Nodes:
+ERP
+CRM
+Miro
+Outlook
+SharePoint
+Teams
+Atlassian
+Database
+
+Style:
+
+* rectangular nodes
+* blue color `#4da3ff`
+* thin curved cable from each node to KIO
+* cables always visible
+
+Animation:
+
+* small light pulses travel through the cable toward KIO every 1–2 seconds
+* equal speed across all internal systems
+  Meaning: operational company data
+
+---
+
+### Right Side — External Intelligence Sources
+
+Nodes:
+North Data
+Statista
+DIP
+Lobbyregister
+Dun & Bradstreet
+
+Style:
+
+* same geometry but violet `#9b7bff`
+* cables slightly thicker
+* slower pulse movement
+* sometimes two signals merge into one before entering KIO
+
+Meaning: external intelligence & signals
+
+---
+
+### Processing Visualization
+
+When pulses reach KIO:
+
+1. signal enters core
+2. inside routing circle distributes signals
+3. a single clean white line exits upward
+4. fades near headline area
+
+Color of decision line: white with soft glow
+
+---
+
+### Cable Behavior
+
+* Use bezier curves
+* Lines must stay visible permanently
+* Pulses move inside the cable (like electricity in fiber)
+* No floating particles anywhere
+
+---
+
+### Performance
+
+* Pause heavy animation when tab inactive
+* Reduce node count on small screens
+* Maintain visual readability at all sizes
+
+---
+
+### Visual Keywords
+
+enterprise architecture diagram
+data backbone
+network topology
+consulting visualization
+calm intelligence
