@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
@@ -11,15 +11,33 @@ interface NavigationProps {
   setLang: (lang: Lang) => void;
 }
 
+const branchLinks = [
+  { href: "/public-affairs", labelDe: "Public Affairs", labelEn: "Public Affairs" },
+  { href: "/verbaende", labelDe: "Verbände", labelEn: "Associations" },
+  { href: "/industrie", labelDe: "Industrie & Mittelstand", labelEn: "Industry & SME" },
+];
+
 export function Navigation({ lang, setLang }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [branchenOpen, setBranchenOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const t = translations[lang].nav;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setBranchenOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -53,9 +71,31 @@ export function Navigation({ lang, setLang }: NavigationProps) {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <button data-testid="button-nav-solutions" onClick={() => scrollToSection("solutions")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
-              {t.solutions}
-            </button>
+            <div className="relative" ref={dropdownRef}>
+              <button
+                data-testid="button-nav-solutions"
+                onClick={() => setBranchenOpen(!branchenOpen)}
+                className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors flex items-center gap-1"
+              >
+                {t.solutions}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${branchenOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {branchenOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-black/[0.06] rounded-md shadow-lg py-2" data-testid="dropdown-branchen">
+                  {branchLinks.map((link) => (
+                    <Link key={link.href} href={link.href}>
+                      <span
+                        className="block px-4 py-2.5 text-sm text-foreground/60 hover:text-foreground hover:bg-black/[0.03] transition-colors cursor-pointer"
+                        data-testid={`link-branch-${link.href.replace('/', '')}`}
+                        onClick={() => setBranchenOpen(false)}
+                      >
+                        {lang === "de" ? link.labelDe : link.labelEn}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
               {t.roi}
             </button>
@@ -110,9 +150,18 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             className="md:hidden bg-background/95 backdrop-blur-xl border-b border-black/[0.06] overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              <button onClick={() => scrollToSection("solutions")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-solutions">
-                {t.solutions}
-              </button>
+              <p className="text-xs font-bold text-foreground/30 tracking-widest uppercase">{t.solutions}</p>
+              {branchLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <span
+                    className="block w-full text-left text-base font-medium text-foreground/80 pl-3 cursor-pointer"
+                    data-testid={`button-mobile-branch-${link.href.replace('/', '')}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {lang === "de" ? link.labelDe : link.labelEn}
+                  </span>
+                </Link>
+              ))}
               <button onClick={() => scrollToSection("roi")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-roi">
                 {t.roi}
               </button>

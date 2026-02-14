@@ -3,7 +3,7 @@ export type Lang = 'en' | 'de';
 export const translations = {
   en: {
     nav: {
-      solutions: "Solutions",
+      solutions: "Industries",
       roi: "ROI Calculator",
       sovereignty: "Sovereignty",
       contact: "Request Strategy Call",
@@ -105,7 +105,7 @@ export const translations = {
   },
   de: {
     nav: {
-      solutions: "Lösungen",
+      solutions: "Branchen",
       roi: "ROI-Berechnung",
       sovereignty: "Souveränität",
       contact: "Strategiegespr\u00e4ch",

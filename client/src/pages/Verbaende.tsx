@@ -91,7 +91,7 @@ export default function Verbaende() {
             <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-verbaende">
               <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
               <span>/</span>
-              <span>Lösungen</span>
+              <span>Branchen</span>
               <span>/</span>
               <span className="text-[#ff6a00] font-medium">Verbände</span>
             </motion.div>
