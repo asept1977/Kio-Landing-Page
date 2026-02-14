@@ -82,7 +82,7 @@ export default function Home() {
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-foreground" data-testid="text-hero-title">
-                {lang === "de" ? "KIO Ökosystem" : "KIO Ecosystem"}
+                KIO
               </motion.h1>
               <motion.p variants={fadeUp} className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-foreground/50" data-testid="text-hero-subheadline">
                 Knowledge Intelligence Orchestrated
