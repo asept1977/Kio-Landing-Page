@@ -15,6 +15,7 @@ import {
   Database,
   ChevronDown,
 } from "lucide-react";
+import heroBgImage from "@/assets/images/hero-bg.png";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
@@ -65,40 +66,39 @@ export default function Home() {
       <Navigation lang={lang} setLang={setLang} />
 
       {/* ===== HERO ===== */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden animated-gradient" data-testid="section-hero">
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '48px 48px' }}
-        />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#ff6a00]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#003366]/10 rounded-full blur-[100px]" />
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero">
+        <div className="absolute inset-0">
+          <img src={heroBgImage} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+        </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <motion.div initial="hidden" animate="show" variants={stagger}>
               <motion.div variants={fadeUp}>
-                <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/10 text-[#ff6a00] font-semibold text-xs tracking-widest mb-8 border border-[#ff6a00]/20" data-testid="text-hero-badge">
+                <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/20 text-[#ff6a00] font-semibold text-xs tracking-widest mb-8 border border-[#ff6a00]/30" data-testid="text-hero-badge">
                   {t.hero.badge}
                 </span>
               </motion.div>
 
               <motion.div variants={fadeUp} className="inline-block text-center">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-foreground" data-testid="text-hero-title">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-white" data-testid="text-hero-title">
                   KIO
                 </h1>
-                <span className="inline-flex items-center gap-3 py-1.5 px-4 rounded-full bg-[#ff6a00]/10 font-semibold text-xs tracking-widest border border-[#ff6a00]/20 mt-4" data-testid="text-hero-subheadline">
-                  <span className="text-[#003366]">Knowledge</span>
+                <span className="inline-flex items-center gap-3 py-1.5 px-4 rounded-full bg-white/10 font-semibold text-xs tracking-widest border border-white/20 mt-4 backdrop-blur-sm" data-testid="text-hero-subheadline">
+                  <span className="text-[#5b9bd5]">Knowledge</span>
                   <span className="text-[#ff6a00]">Intelligence</span>
-                  <span className="text-foreground/70">Orchestrated</span>
+                  <span className="text-white/70">Orchestrated</span>
                 </span>
               </motion.div>
 
               <motion.div variants={fadeUp} className="max-w-3xl mx-auto text-center mb-12 mt-6 md:mt-8">
-                <p className="text-base md:text-lg font-bold text-foreground leading-relaxed" data-testid="text-hero-definition">
+                <p className="text-base md:text-lg font-bold text-white/90 leading-relaxed" data-testid="text-hero-definition">
                   {lang === "de"
                     ? "KIO verbindet internes und externes Wissen mit Systemen und Aufgaben, damit Entscheidungen schneller und sicherer getroffen werden."
                     : "KIO connects internal and external knowledge with systems and tasks so decisions are made faster and with greater confidence."}
                 </p>
-                <p className="text-sm text-foreground/50 mt-2" data-testid="text-hero-definition-sub">
+                <p className="text-sm text-white/50 mt-2" data-testid="text-hero-definition-sub">
                   {lang === "de"
                     ? "KIO wirkt im Hintergrund – damit Mitarbeitende im Alltag weniger suchen und mehr entscheiden."
                     : "KIO works in the background – so employees spend less time searching and more time deciding."}
@@ -116,7 +116,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="border-black/[0.08] text-foreground/70"
+                  className="border-white/20 text-white/80 bg-white/5 backdrop-blur-sm"
                   data-testid="button-strategy"
                 >
                   {t.hero.cta2}
@@ -124,7 +124,7 @@ export default function Home() {
               </motion.div>
 
               <motion.div variants={fadeUp} className="mt-16">
-                <ChevronDown className="w-5 h-5 text-foreground/20 mx-auto animate-bounce" />
+                <ChevronDown className="w-5 h-5 text-white/30 mx-auto animate-bounce" />
               </motion.div>
             </motion.div>
           </div>
