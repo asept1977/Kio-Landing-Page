@@ -91,18 +91,18 @@ export default function PublicAffairs() {
               <span className="text-[#ff6a00] font-medium">Public Affairs</span>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-foreground" data-testid="text-hero-title-pa">
+            <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-foreground text-center" data-testid="text-hero-title-pa">
               Politische Beratung braucht kein weiteres Tool
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-foreground" data-testid="text-hero-subheadline-pa">
+            <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-foreground text-center" data-testid="text-hero-subheadline-pa">
               sondern ein Arbeitsgedächtnis
             </motion.p>
 
-            <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed" data-testid="text-hero-subtitle-pa">
+            <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-pa">
               KIO verbindet politische Quellen, Mandate und Dokumente zu nutzbarem Arbeitswissen.
             </motion.p>
 
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex justify-center">
               <Button
                 onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
