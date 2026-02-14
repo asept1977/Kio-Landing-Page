@@ -271,11 +271,6 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                   <>With <span className="font-bold text-foreground">{numUsers} employees</span>, KIO generates a monthly value contribution of <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Projected annually, this results in a yearly contribution of <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>. The impact starts from month one.</>
                 )}
               </p>
-              <p className="text-xs text-foreground/35 mt-3 leading-relaxed" data-testid="roi-disclaimer">
-                {lang === "de"
-                  ? "Hinweis: Der Rechner zeigt den finanziellen Effekt aus Zeitersparnis. Zusätzlich verbessert KI die Qualifikation der Mitarbeitenden und stabilisiert die Marge bei fallenden Marktpreisen."
-                  : "Note: This calculator shows the financial effect of time savings. Additionally, AI improves employee qualifications and stabilizes margins when market prices decline."}
-              </p>
             </div>
 
             <div className="mt-12 md:mt-16" data-testid="roi-strategy-section">
