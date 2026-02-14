@@ -15,8 +15,9 @@ import {
   Database,
   ChevronDown,
 } from "lucide-react";
-import heroBgVideo from "@/assets/videos/hero-bg.mp4";
-import heroBgVideo2 from "@/assets/videos/hero-bg-2.mp4";
+import heroV1 from "@/assets/videos/hero-v1.mp4";
+import heroV2 from "@/assets/videos/hero-v2.mp4";
+import heroV3 from "@/assets/videos/hero-v3.mp4";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useCallback } from "react";
 import type { Lang } from "@/lib/i18n";
@@ -26,18 +27,13 @@ export default function Home() {
   const [lang, setLang] = useState<Lang>('de');
   const [, navigate] = useLocation();
   const [activeVideo, setActiveVideo] = useState(0);
-  const video1Ref = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
-  const heroVideos = [heroBgVideo, heroBgVideo2];
+  const videoRefs = [useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)];
+  const heroVideos = [heroV1, heroV2, heroV3];
 
   const handleVideoEnd = useCallback(() => {
-    const next = activeVideo === 0 ? 1 : 0;
+    const next = (activeVideo + 1) % 3;
     setActiveVideo(next);
-    if (next === 0) {
-      video1Ref.current?.play();
-    } else {
-      video2Ref.current?.play();
-    }
+    videoRefs[next].current?.play();
   }, [activeVideo]);
 
   const t = translations[lang];
@@ -84,25 +80,19 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0">
-          <video
-            ref={video1Ref}
-            src={heroBgVideo}
-            autoPlay
-            muted
-            playsInline
-            onEnded={handleVideoEnd}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
-            aria-hidden="true"
-          />
-          <video
-            ref={video2Ref}
-            src={heroBgVideo2}
-            muted
-            playsInline
-            onEnded={handleVideoEnd}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
-            aria-hidden="true"
-          />
+          {heroVideos.map((src, i) => (
+            <video
+              key={i}
+              ref={videoRefs[i]}
+              src={src}
+              autoPlay={i === 0}
+              muted
+              playsInline
+              onEnded={handleVideoEnd}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === i ? 'opacity-100' : 'opacity-0'}`}
+              aria-hidden="true"
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
         </div>
 
