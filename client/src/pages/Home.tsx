@@ -89,9 +89,22 @@ export default function Home() {
                 <span className="text-foreground">{t.hero.title2}</span>
               </motion.h1>
 
-              <motion.p variants={fadeUp} className="text-lg md:text-xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+              <motion.p variants={fadeUp} className="text-lg md:text-xl text-foreground/60 mb-6 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
                 {t.hero.subtitle}
               </motion.p>
+
+              <motion.div variants={fadeUp} className="max-w-3xl mx-auto text-center mb-12 mt-6 md:mt-8">
+                <p className="text-base md:text-lg font-bold text-foreground leading-relaxed" data-testid="text-hero-definition">
+                  {lang === "de"
+                    ? "KIO verbindet Wissen, Systeme und Aufgaben, damit Entscheidungen schneller und sicherer getroffen werden."
+                    : "KIO connects knowledge, systems and tasks so decisions are made faster and with greater confidence."}
+                </p>
+                <p className="text-sm text-foreground/50 mt-2" data-testid="text-hero-definition-sub">
+                  {lang === "de"
+                    ? "KIO wirkt im Hintergrund – damit Mitarbeitende im Alltag weniger suchen und mehr entscheiden."
+                    : "KIO works in the background – so employees spend less time searching and more time deciding."}
+                </p>
+              </motion.div>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
