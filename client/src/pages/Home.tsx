@@ -86,11 +86,11 @@ export default function Home() {
                   KIO
                 </h1>
                 <div className="text-xl md:text-3xl lg:text-4xl tracking-tight mb-4 leading-tight" data-testid="text-hero-subheadline">
-                  <span className="text-[#ff6a00]"><span className="font-bold">K</span>nowledge</span>
+                  <span className="text-[#ff6a00]">Knowledge</span>
                   <br />
-                  <span className="text-[#003366]"><span className="font-bold">I</span>ntelligence</span>
+                  <span className="text-[#003366]">Intelligence</span>
                   <br />
-                  <span className="text-foreground/70"><span className="font-bold">O</span>rchestrated</span>
+                  <span className="text-foreground/70">Orchestrated</span>
                 </div>
               </motion.div>
 
