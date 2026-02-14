@@ -1,9 +1,10 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, FileText, MessageCircleQuestion, CalendarCheck, RefreshCw, TrendingUp, Award, ShieldCheck } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
 import bvsBayernLogoPath from "@assets/image_1770791016833.png";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -15,68 +16,36 @@ const stagger = {
   show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
-interface UseCaseStep {
-  headline: string;
-  problemBullets: string[];
-  intervention: string;
-  impactNumber: string;
-  impactLabel: string;
-  impactBullets: string[];
-}
+const realitaetSteps = [
+  { label: "Positionen liegen in Arbeitskreisen", desc: "Wissen bleibt in Gremien gebunden und ist für andere Abteilungen nicht zugänglich." },
+  { label: "Landesverbände kommunizieren separat", desc: "Jede Einheit arbeitet mit eigenen Systemen und Dokumenten — ohne gemeinsamen Wissensraum." },
+  { label: "Referate stimmen sich mehrfach ab", desc: "Gleiche Fragen werden in unterschiedlichen Kontexten immer wieder neu geklärt." },
+  { label: "Beschlüsse werden immer wieder neu recherchiert", desc: "Vergangene Entscheidungen sind schwer auffindbar und werden nicht systematisch genutzt." },
+];
 
-const useCases: UseCaseStep[] = [
-  {
-    headline: "Stellungnahmen in Rekordzeit",
-    problemBullets: [
-      "Last-Minute-Entwürfe",
-      "Verteiltes Positionswissen",
-      "Politischer Zeitdruck",
-    ],
-    intervention:
-      "KIO analysiert neue Entwürfe, gleicht sie automatisch mit föderalem Verbandswissen ab und erzeugt belastbare Vorlagen.",
-    impactNumber: "\u201370 %",
-    impactLabel: "Recherchezeit",
-    impactBullets: [
-      "Konsistente Argumentation",
-      "Schnellere Reaktionsfähigkeit",
-    ],
-  },
-  {
-    headline: "Policy Monitoring & Stakeholder-Analyse",
-    problemBullets: [
-      "Intransparente Gesetzgebung",
-      "Verteilte Datenquellen",
-      "Hoher Monitoring-Aufwand",
-    ],
-    intervention:
-      "Integration parlamentarischer Daten, Lobbyregister und interner Dokumente. Automatisches Clustering und Frühwarnsystem.",
-    impactNumber: "3\u00d7",
-    impactLabel: "schnellere Positionierung",
-    impactBullets: [
-      "Strategisch fundierte Entscheidungen",
-      "Reduzierter Rechercheaufwand",
-    ],
-  },
-  {
-    headline: "Föderale Wissensintegration",
-    problemBullets: [
-      "Silostrukturen",
-      "Personengebundenes Wissen",
-      "Redundante Abstimmungen",
-    ],
-    intervention:
-      "Hierarchische Wissensarchitektur mit rollenbasiertem Zugriff und gemeinsamer semantischer Struktur.",
-    impactNumber: "100 %",
-    impactLabel: "Wissenstransparenz",
-    impactBullets: [
-      "Einheitliche Positionierung",
-      "Nachhaltige Wissenssicherung",
-    ],
-  },
+const mitKioSteps = [
+  { label: "Beschlüsse sind sofort auffindbar", desc: "KIO macht alle Beschlüsse und Positionen über eine zentrale Suche zugänglich." },
+  { label: "Argumente bleiben konsistent", desc: "Frühere Positionen werden automatisch berücksichtigt — der Verband spricht mit einer Stimme." },
+  { label: "Abstimmungen werden seltener", desc: "Weil vorhandenes Wissen direkt verfügbar ist, sinkt der Koordinationsaufwand." },
+  { label: "Neue Mitarbeitende sind sofort arbeitsfähig", desc: "Das Arbeitsgedächtnis des Verbands ist unabhängig von Einzelpersonen jederzeit nutzbar." },
+];
+
+const useCaseCards = [
+  { icon: FileText, title: "Positionspapier erstellen", hover: "KIO liefert bestehende Beschlüsse, Argumentationslinien und Referenzdokumente — das Papier steht in Minuten statt Tagen." },
+  { icon: MessageCircleQuestion, title: "Mitgliederanfrage beantworten", hover: "Sofortiger Zugriff auf relevante Positionen, Beschlüsse und Kontextinformationen für konsistente Antworten." },
+  { icon: CalendarCheck, title: "Terminbriefing vorbereiten", hover: "Automatische Zusammenstellung von Agenda, Stakeholder-Profilen und relevanten Vorgängen — bereit in Minuten." },
+  { icon: RefreshCw, title: "Stellungnahme aktualisieren", hover: "KIO erkennt veränderte Rahmenbedingungen und schlägt Anpassungen auf Basis bisheriger Positionen vor." },
+];
+
+const impactStatements = [
+  { icon: TrendingUp, statement: "Schnellere Positionierung", desc: "Durch sofort verfügbares Gremienwissen reagiert der Verband in Stunden statt Wochen." },
+  { icon: Award, statement: "Konsistente Außenwirkung", desc: "Unabhängig von Person oder Landesverband — die Argumentation bleibt einheitlich." },
+  { icon: ShieldCheck, statement: "Kein Wissensverlust", desc: "Erfahrung bleibt im System, nicht im Kopf einzelner Mitarbeiter." },
 ];
 
 export default function Verbaende() {
   const [, navigate] = useLocation();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
@@ -113,11 +82,11 @@ export default function Verbaende() {
         </div>
       </nav>
 
-      <section className="relative pt-36 pb-28 lg:pt-52 lg:pb-40 overflow-hidden" data-testid="section-hero-verbaende">
+      <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 overflow-hidden" data-testid="section-hero-verbaende">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="show" variants={stagger}>
             <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-verbaende">
               <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
@@ -151,70 +120,231 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="timeline" className="py-24 lg:py-36 relative" data-testid="section-timeline">
+      <section id="realitaet" className="py-24 lg:py-32 relative" data-testid="section-realitaet-verbaende">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-32 lg:space-y-44">
-            {useCases.map((uc, idx) => (
-              <motion.div
-                key={idx}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-80px" }}
-                variants={stagger}
-                className="relative"
-                data-testid={`timeline-step-${idx}`}
-              >
-                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16" data-testid={`text-timeline-title-${idx}`}>
-                  {uc.headline}
-                </motion.h2>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-realitaet-title-verbaende">
+              Realität in großen Verbänden
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-lg" data-testid="text-realitaet-desc-verbaende">
+              Typische Herausforderungen im Verbandsalltag — vor KIO.
+            </motion.p>
+          </motion.div>
 
-                <div className="relative pl-8 sm:pl-12">
-                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-black/[0.04] via-black/[0.08] to-black/[0.03]" />
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="relative"
+          >
+            <div className="absolute left-5 top-6 bottom-6 w-px bg-gradient-to-b from-[#ff6a00]/20 via-[#ff6a00]/10 to-transparent" />
 
-                  <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-problem-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-foreground/20 border border-black/[0.08]" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-3">Problem</p>
-                    <ul className="space-y-1.5">
-                      {uc.problemBullets.map((b, i) => (
-                        <li key={i} className="text-sm text-foreground/60 flex items-center gap-2">
-                          <span className="w-1 h-1 rounded-full bg-foreground/30 shrink-0" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-
-                  <motion.div variants={fadeUp} className="relative mb-12" data-testid={`timeline-intervention-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-[#ff6a00]/40 border border-[#ff6a00]/20" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/40 mb-3">Lösung</p>
-                    <p className="text-sm text-foreground/50 leading-relaxed max-w-lg">{uc.intervention}</p>
-                  </motion.div>
-
-                  <motion.div variants={fadeUp} className="relative" data-testid={`timeline-impact-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-6 w-2.5 h-2.5 rounded-full bg-[#ff6a00] shadow-[0_0_10px_rgba(255,106,0,0.4)]" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/25 mb-4">Impact</p>
-                    <div className="rounded-md bg-black/[0.02] border border-black/[0.06] p-6 sm:p-8 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a00]/[0.02] to-transparent pointer-events-none" />
-                      <div className="relative z-10">
-                        <p className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-1" data-testid={`text-impact-number-${idx}`}>
-                          {uc.impactNumber}
-                        </p>
-                        <p className="text-sm text-foreground/50 mb-5" data-testid={`text-impact-label-${idx}`}>{uc.impactLabel}</p>
-                        <div className="space-y-2">
-                          {uc.impactBullets.map((b, i) => (
-                            <div key={i} className="flex items-center gap-2.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]/40 shrink-0" />
-                              <span className="text-sm text-foreground/60 font-medium">{b}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+            <div className="space-y-10">
+              {realitaetSteps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="relative pl-14"
+                  data-testid={`verbaende-realitaet-step-${idx}`}
+                >
+                  <div className="absolute left-3 top-1.5 flex items-center justify-center">
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${idx === realitaetSteps.length - 1 ? 'border-[#ff6a00] bg-[#ff6a00]' : 'border-[#ff6a00]/30 bg-background'}`}>
+                      {idx === realitaetSteps.length - 1 && (
+                        <div className="w-2 h-2 rounded-full bg-white" />
+                      )}
                     </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                  </div>
+                  <p className="text-base font-semibold text-foreground mb-1" data-testid={`text-verbaende-realitaet-label-${idx}`}>
+                    {step.label}
+                  </p>
+                  <p className="text-sm text-foreground/50 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="mit-kio" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-mitkio-verbaende">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-mitkio-title-verbaende">
+              Mit KIO
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-lg" data-testid="text-mitkio-desc-verbaende">
+              Derselbe Verband — mit organisationalem Arbeitsgedächtnis.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="relative"
+          >
+            <div className="absolute left-5 top-6 bottom-6 w-px bg-gradient-to-b from-[#ff6a00]/20 via-[#ff6a00]/10 to-transparent" />
+
+            <div className="space-y-10">
+              {mitKioSteps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="relative pl-14"
+                  data-testid={`verbaende-mitkio-step-${idx}`}
+                >
+                  <div className="absolute left-3 top-1.5 flex items-center justify-center">
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${idx === mitKioSteps.length - 1 ? 'border-[#ff6a00] bg-[#ff6a00]' : 'border-[#ff6a00]/30 bg-background'}`}>
+                      {idx === mitKioSteps.length - 1 && (
+                        <div className="w-2 h-2 rounded-full bg-white" />
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-base font-semibold text-foreground mb-1" data-testid={`text-verbaende-mitkio-label-${idx}`}>
+                    {step.label}
+                  </p>
+                  <p className="text-sm text-foreground/50 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="beispiele" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-beispiele-verbaende">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-beispiele-title-verbaende">
+              Anwendungsfälle
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-md mx-auto" data-testid="text-beispiele-desc-verbaende">
+              Wie KIO den Verbandsalltag im Alltag transformiert.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {useCaseCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-6 relative group cursor-default min-h-[180px] flex flex-col"
+                  data-testid={`verbaende-usecase-card-${idx}`}
+                  onMouseEnter={() => setHoveredCard(idx)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className={`transition-opacity duration-300 ${hoveredCard === idx ? 'opacity-0' : 'opacity-100'}`}>
+                    <div className="w-12 h-12 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-base font-bold text-foreground" data-testid={`text-verbaende-usecase-title-${idx}`}>
+                      {card.title}
+                    </h3>
+                  </div>
+                  <div className={`absolute inset-0 p-6 flex items-center transition-opacity duration-300 ${hoveredCard === idx ? 'opacity-100' : 'opacity-0'}`}>
+                    <p className="text-sm text-foreground/60 leading-relaxed" data-testid={`text-verbaende-usecase-hover-${idx}`}>
+                      {card.hover}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="wirkung" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-wirkung-verbaende">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-wirkung-title-verbaende">
+              Organisatorischer Impact
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          >
+            {impactStatements.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-8 text-center"
+                  data-testid={`verbaende-impact-card-${idx}`}
+                >
+                  <div className="w-14 h-14 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-5 mx-auto">
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2" data-testid={`text-verbaende-impact-statement-${idx}`}>
+                    {item.statement}
+                  </h3>
+                  <p className="text-sm text-foreground/50 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center"
+          >
+            <motion.h3 variants={fadeUp} className="text-xl md:text-2xl font-bold text-foreground mb-2" data-testid="text-verbaende-wirkung-headline">
+              Der Effekt ist nicht schnelleres Schreiben
+            </motion.h3>
+            <motion.p variants={fadeUp} className="text-base text-foreground/50 max-w-lg mx-auto leading-relaxed" data-testid="text-verbaende-wirkung-summary">
+              sondern abgestimmtes Handeln. Der Verband spricht mit einer Stimme.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -272,9 +402,9 @@ export default function Verbaende() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight" data-testid="text-cta-title-verbaende">
-              Vom Dokumentenchaos
+              Erfahrung wird nur wertvoll,
               <br />
-              <span className="text-foreground/40">zur strategischen Position.</span>
+              <span className="text-foreground/40">wenn sie verfügbar ist.</span>
             </motion.h2>
             <motion.div variants={fadeUp} className="mt-10">
               <Button
