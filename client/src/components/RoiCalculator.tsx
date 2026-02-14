@@ -232,7 +232,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-col justify-center">
+          <motion.div variants={fadeUp} className="flex flex-col justify-end">
             <div className="glass-card rounded-md p-6" data-testid="roi-chart">
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4">{t.resultTitle}</p>
               <ResponsiveContainer width="100%" height={240}>
