@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, Database, Users, Mail, Share2, Shield } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
-import kioEngineImage from "@assets/image-img_01khekewpjf7waz7zdenhr836g_1771090469476.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -162,25 +161,6 @@ export default function Industrie() {
                 Demo anfragen <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="py-24 lg:py-32 relative" data-testid="section-engine-industrie">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
-            className="rounded-md overflow-hidden border border-black/[0.06]"
-          >
-            <img
-              src={kioEngineImage}
-              alt="KIO Operational Value Engine – ERP, CRM, E-Mail verbunden mit Compliance, Sales, Operations, Risk, Knowledge"
-              className="w-full h-auto"
-              data-testid="img-kio-engine-industrie"
-            />
           </motion.div>
         </div>
       </section>
