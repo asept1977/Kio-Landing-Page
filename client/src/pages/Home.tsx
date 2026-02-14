@@ -100,8 +100,8 @@ export default function Home() {
           <div className="text-center">
             <motion.div initial="hidden" animate="show" variants={stagger}>
               <motion.div variants={fadeUp}>
-                <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/20 text-[#ff6a00] font-semibold text-xs tracking-widest mb-8 border border-[#ff6a00]/30" data-testid="text-hero-badge">
-                  {t.hero.badge}
+                <span className="inline-block py-2 px-5 rounded-full bg-[#ff6a00]/20 text-[#ff6a00] font-semibold text-sm tracking-widest mb-8 border border-[#ff6a00]/30 uppercase" data-testid="text-hero-badge">
+                  Enterprise KI-Ökosystem
                 </span>
               </motion.div>
 
@@ -109,7 +109,7 @@ export default function Home() {
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-white" data-testid="text-hero-title">
                   KIO
                 </h1>
-                <span className="inline-flex items-center gap-3 py-1.5 px-4 rounded-full bg-white/10 font-semibold text-xs tracking-widest border border-white/20 mt-4 backdrop-blur-sm" data-testid="text-hero-subheadline">
+                <span className="inline-flex items-center gap-4 py-2 px-6 rounded-full bg-white/10 font-semibold text-sm md:text-base tracking-widest border border-white/20 mt-4 backdrop-blur-sm" data-testid="text-hero-subheadline">
                   <span className="text-[#5b9bd5]">Knowledge</span>
                   <span className="text-[#ff6a00]">Intelligence</span>
                   <span className="text-white/70">Orchestrated</span>
