@@ -1,0 +1,24 @@
+Du arbeitest in meinem bestehenden KIO-Website-Projekt (React/Next.js + Tailwind, mobile-first).
+Auf der Pricing/ROI-Seite gibt es bereits:
+- Lizenz-Auswahl (69/89/119 € / Nutzer / Monat)
+- Slider: Anzahl Anwender
+- Slider: Brutto-Personalkosten €/Stunde
+- Slider: Effizienzsteigerung %
+- Ergebnis-Kacheln: KIO Monatskosten, Monatliche Einsparung, Jährlicher Netto-Vorteil, Break-even
+- Eine Ergebnis-Zusammenfassung als Fließtext
+
+Aufgabe:
+1) Füge DIREKT UNTER den Ergebnis-Kacheln und VOR dem Chart eine neue Section ein:
+   - Section-Headline: "Warum KI sich rechnet – auch wenn Preise fallen"
+   - Subline: "KI schafft Effizienz. Gute Führung macht daraus Kompetenz und stabile Marge."
+2) Layout: zwei gleich breite Cards (Desktop 2 Spalten, Mobile 1 Spalte), clean wie die bestehenden Kacheln:
+   - Card 1 Titel: "Effizienzgewinn ohne Stellenabbau"
+     Text:
+     "KI reduziert Routinetätigkeiten und schafft freie Zeit. Diese Zeit ist im Unternehmensinteresse vorrangig für Qualifizierung zu nutzen, damit Mitarbeitende im KI-Zeitalter produktiv bleiben. Führung stellt sicher, dass Effizienzgewinne nicht in Arbeitsplatzabbau, WIFIS minus und kurzfristige Kosteneffekte münden, sondern in neue Verantwortungsbereiche und Skills. So wird aus Automatisierung nachhaltige Leistungsfähigkeit."
+   - Card 2 Titel: "Preisdruck abfedern, Marge sichern"
+     Text:
+     "Märkte passen Preise an – besonders bei stundennaher Beratung oder frei kalkulierten Produkten. KI schützt nicht den Preis, sondern die Marge: Wenn interne Kosten schneller sinken als der Marktpreis, bleibt die Profitabilität stabil oder wächst. Effizienz entkoppelt Ergebnis und Aufwand – und macht Preisdruck beherrschbar."
+3) Ergänze unter dem bestehenden Ergebnis-Fließtext einen kurzen Hinweis (kleine Schrift, dezentes Grau):
+   "Hinweis: Der Rechner zeigt den Effekt aus Zeitersparnis × Personalkosten. Zusätzlich wirkt KI strategisch: Kompetenzaufbau statt Abbau und Marge sichern trotz Preisdruck."
+4) Achte auf konsistente Typografie, Abstände und Farben (KIO-Orange für Akzente).
+5) Bitte liefere den finalen Code-Change in der entsprechenden Page/Component-Datei inkl. sauberer Komponentenstruktur.
