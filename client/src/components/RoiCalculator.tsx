@@ -285,7 +285,8 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-1">
-                  <p className="text-sm font-bold text-foreground mb-2">
+                  <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
                     {lang === "de" ? "KI spart Zeit – Menschen bleiben wichtig" : "AI saves time – people remain essential"}
                   </p>
                   <p className="text-xs text-foreground/50 leading-relaxed">
@@ -295,7 +296,8 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                   </p>
                 </div>
                 <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-2">
-                  <p className="text-sm font-bold text-foreground mb-2">
+                  <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
                     {lang === "de" ? "Preise sinken – Gewinn bleibt" : "Prices drop – profit stays"}
                   </p>
                   <p className="text-xs text-foreground/50 leading-relaxed">
