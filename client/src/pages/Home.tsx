@@ -94,10 +94,6 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              <motion.p variants={fadeUp} className="text-lg md:text-xl text-foreground/60 mb-6 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-                {t.hero.subtitle}
-              </motion.p>
-
               <motion.div variants={fadeUp} className="max-w-3xl mx-auto text-center mb-12 mt-6 md:mt-8">
                 <p className="text-base md:text-lg font-bold text-foreground leading-relaxed" data-testid="text-hero-definition">
                   {lang === "de"
