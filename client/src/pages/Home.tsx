@@ -81,16 +81,16 @@ export default function Home() {
                 </span>
               </motion.div>
 
-              <motion.div variants={fadeUp} className="inline-block text-left">
+              <motion.div variants={fadeUp} className="inline-block text-center">
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-foreground" data-testid="text-hero-title">
                   KIO
                 </h1>
                 <div className="text-xl md:text-3xl lg:text-4xl tracking-tight mb-4 leading-tight" data-testid="text-hero-subheadline">
-                  <span className="text-[#ff6a00]">Knowledge</span>
+                  <span className="text-[#ff6a00]"><span className="font-bold">K</span>nowledge</span>
                   <br />
-                  <span className="text-[#003366]">Intelligence</span>
+                  <span className="text-[#003366]"><span className="font-bold">I</span>ntelligence</span>
                   <br />
-                  <span className="text-foreground/70">Orchestrated</span>
+                  <span className="text-foreground/70"><span className="font-bold">O</span>rchestrated</span>
                 </div>
               </motion.div>
 
