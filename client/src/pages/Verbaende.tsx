@@ -17,24 +17,24 @@ const stagger = {
 };
 
 const realitaetSteps = [
-  { label: "Positionen liegen in Arbeitskreisen", desc: "Wissen bleibt in Gremien gebunden und ist für andere Abteilungen nicht zugänglich." },
-  { label: "Landesverbände kommunizieren separat", desc: "Jede Einheit arbeitet mit eigenen Systemen und Dokumenten — ohne gemeinsamen Wissensraum." },
-  { label: "Referate stimmen sich mehrfach ab", desc: "Gleiche Fragen werden in unterschiedlichen Kontexten immer wieder neu geklärt." },
-  { label: "Beschlüsse werden immer wieder neu recherchiert", desc: "Vergangene Entscheidungen sind schwer auffindbar und werden nicht systematisch genutzt." },
+  { label: "Referentenentwurf kommt kurzfristig", desc: "Neue Entwürfe treffen oft mit wenigen Tagen Vorlauf ein — die fachliche Bewertung beginnt unter Zeitdruck." },
+  { label: "Fachreferate bewerten parallel", desc: "Mehrere Abteilungen arbeiten gleichzeitig an Einschätzungen, ohne voneinander zu wissen." },
+  { label: "Landesverbände melden Einwände", desc: "Regionale Positionen fließen separat ein und müssen manuell konsolidiert werden." },
+  { label: "Presse fragt vor Abschluss der Abstimmung", desc: "Medienanfragen kommen, bevor eine abgestimmte Position vorliegt." },
 ];
 
 const mitKioSteps = [
-  { label: "Beschlüsse sind sofort auffindbar", desc: "KIO macht alle Beschlüsse und Positionen über eine zentrale Suche zugänglich." },
-  { label: "Argumente bleiben konsistent", desc: "Frühere Positionen werden automatisch berücksichtigt — der Verband spricht mit einer Stimme." },
-  { label: "Abstimmungen werden seltener", desc: "Weil vorhandenes Wissen direkt verfügbar ist, sinkt der Koordinationsaufwand." },
-  { label: "Neue Mitarbeitende sind sofort arbeitsfähig", desc: "Das Arbeitsgedächtnis des Verbands ist unabhängig von Einzelpersonen jederzeit nutzbar." },
+  { label: "Bekannte Argumente werden sofort vorgeschlagen", desc: "KIO erkennt thematische Bezüge und liefert passende Argumentationslinien aus dem Verbandsgedächtnis." },
+  { label: "Frühere Beschlüsse werden automatisch berücksichtigt", desc: "Bestehende Positionen fließen direkt in die Entwurfserstellung ein — ohne manuelle Recherche." },
+  { label: "Abstimmung erfolgt entlang vorhandener Positionen", desc: "Statt bei null zu beginnen, wird auf Grundlage abgestimmter Standpunkte weitergearbeitet." },
+  { label: "Antworten sind am selben Tag möglich", desc: "Der Verband kann innerhalb von Stunden reagieren — fundiert, konsistent und abgestimmt." },
 ];
 
 const useCaseCards = [
-  { icon: FileText, title: "Positionspapier erstellen", hover: "KIO liefert bestehende Beschlüsse, Argumentationslinien und Referenzdokumente — das Papier steht in Minuten statt Tagen." },
-  { icon: MessageCircleQuestion, title: "Mitgliederanfrage beantworten", hover: "Sofortiger Zugriff auf relevante Positionen, Beschlüsse und Kontextinformationen für konsistente Antworten." },
-  { icon: CalendarCheck, title: "Terminbriefing vorbereiten", hover: "Automatische Zusammenstellung von Agenda, Stakeholder-Profilen und relevanten Vorgängen — bereit in Minuten." },
-  { icon: RefreshCw, title: "Stellungnahme aktualisieren", hover: "KIO erkennt veränderte Rahmenbedingungen und schlägt Anpassungen auf Basis bisheriger Positionen vor." },
+  { icon: FileText, title: "Stellungnahme vorbereiten", hover: "KIO liefert bestehende Beschlüsse, Argumentationslinien und Referenzdokumente — die Stellungnahme steht in Minuten statt Tagen." },
+  { icon: MessageCircleQuestion, title: "Talking Points erzeugen", hover: "Kontextbasierte Gesprächspunkte auf Basis interner Positionen, aktueller Entwicklungen und Stakeholder-Profilen." },
+  { icon: CalendarCheck, title: "Mitgliederinformation erstellen", hover: "Relevante Sachverhalte, Verbandspositionen und Handlungsempfehlungen in einem konsistenten Dokument — sofort versandfertig." },
+  { icon: RefreshCw, title: "Terminbriefing erzeugen", hover: "Automatische Zusammenstellung von Agenda, Stakeholder-Profilen und relevanten Vorgängen — bereit in Minuten." },
 ];
 
 const impactStatements = [
@@ -97,14 +97,14 @@ export default function Verbaende() {
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-foreground text-center" data-testid="text-hero-title-verbaende">
-              Große Verbände haben kein Wissensproblem
+              Verbände haben selten zu wenig Information
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-foreground text-center" data-testid="text-hero-subheadline-verbaende">
-              sondern verteilte Wissensinseln
+              sondern zu wenig Zeit zur Abstimmung
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-verbaende">
-              KIO verbindet Gremienwissen, Mitgliederpositionen und Dokumente zu gemeinsam nutzbarem Arbeitswissen.
+              KIO macht aus verteilt liegendem Wissen sofort handlungsfähige Positionen.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex justify-center">
@@ -171,6 +171,18 @@ export default function Verbaende() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mt-12 pl-14"
+          >
+            <p className="text-sm font-semibold text-foreground/40 italic" data-testid="text-realitaet-fazit">
+              Ergebnis: Reaktion statt Position.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -339,10 +351,10 @@ export default function Verbaende() {
             className="text-center"
           >
             <motion.h3 variants={fadeUp} className="text-xl md:text-2xl font-bold text-foreground mb-2" data-testid="text-verbaende-wirkung-headline">
-              Der Effekt ist nicht schnelleres Schreiben
+              Der Unterschied ist nicht schneller schreiben
             </motion.h3>
             <motion.p variants={fadeUp} className="text-base text-foreground/50 max-w-lg mx-auto leading-relaxed" data-testid="text-verbaende-wirkung-summary">
-              sondern abgestimmtes Handeln. Der Verband spricht mit einer Stimme.
+              sondern rechtzeitig sprechen. Der Verband wird gestaltend statt reagierend.
             </motion.p>
           </motion.div>
         </div>
