@@ -81,12 +81,18 @@ export default function Home() {
                 </span>
               </motion.div>
 
-              <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-foreground" data-testid="text-hero-title">
-                KIO
-              </motion.h1>
-              <motion.p variants={fadeUp} className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-foreground/50" data-testid="text-hero-subheadline">
-                Knowledge Intelligence Orchestrated
-              </motion.p>
+              <motion.div variants={fadeUp} className="inline-block text-left">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-foreground" data-testid="text-hero-title">
+                  KIO
+                </h1>
+                <div className="text-xl md:text-3xl lg:text-4xl tracking-tight mb-4 leading-tight" data-testid="text-hero-subheadline">
+                  <span className="text-[#ff6a00]">Knowledge</span>
+                  <br />
+                  <span className="text-[#003366]">Intelligence</span>
+                  <br />
+                  <span className="text-foreground/70">Orchestrated</span>
+                </div>
+              </motion.div>
 
               <motion.p variants={fadeUp} className="text-lg md:text-xl text-foreground/60 mb-6 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
                 {t.hero.subtitle}
