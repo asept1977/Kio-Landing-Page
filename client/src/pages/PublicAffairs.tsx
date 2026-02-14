@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, CalendarCheck, UserSearch, MessageSquareQuote, Radio, BookOpenCheck, Lightbulb, TrendingUp, Award, ShieldCheck } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
-import stellungnahmeVideo from "@/assets/videos/stellungnahme-scene.mp4";
-import { useState } from "react";
+import heroV1 from "@/assets/videos/hero-v1.mp4";
+import heroV2 from "@/assets/videos/hero-v2.mp4";
+import heroV3 from "@/assets/videos/hero-v3.mp4";
+import { useState, useRef, useCallback } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -42,6 +44,15 @@ const impactStatements = [
 export default function PublicAffairs() {
   const [, navigate] = useLocation();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const videoRefs = [useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)];
+  const heroVideos = [heroV1, heroV2, heroV3];
+
+  const handleVideoEnd = useCallback(() => {
+    const next = (activeVideo + 1) % 3;
+    setActiveVideo(next);
+    videoRefs[next].current?.play();
+  }, [activeVideo]);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
@@ -79,27 +90,41 @@ export default function PublicAffairs() {
       </nav>
 
       <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 overflow-hidden" data-testid="section-hero-pa">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
+        <div className="absolute inset-0">
+          {heroVideos.map((src, i) => (
+            <video
+              key={i}
+              ref={videoRefs[i]}
+              src={src}
+              autoPlay={i === 0}
+              muted
+              playsInline
+              onEnded={handleVideoEnd}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === i ? 'opacity-100' : 'opacity-0'}`}
+              aria-hidden="true"
+            />
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+        </div>
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-pa">
-              <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-white/50 mb-10" data-testid="breadcrumb-pa">
+              <Link href="/"><span className="cursor-pointer hover:text-white/70 transition-colors">KIO</span></Link>
               <span>/</span>
               <span>Branchen</span>
               <span>/</span>
               <span className="text-[#ff6a00] font-medium">Public Affairs</span>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-foreground text-center" data-testid="text-hero-title-pa">
+            <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-white text-center" data-testid="text-hero-title-pa">
               Politische Beratung braucht kein weiteres Tool
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-foreground text-center" data-testid="text-hero-subheadline-pa">
+            <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-white text-center" data-testid="text-hero-subheadline-pa">
               sondern ein Arbeitsgedächtnis
             </motion.p>
 
-            <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-pa">
+            <motion.p variants={fadeUp} className="text-base md:text-lg text-white/60 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-pa">
               KIO verbindet politische Quellen, Mandate und Dokumente zu nutzbarem Arbeitswissen.
             </motion.p>
 
@@ -113,31 +138,6 @@ export default function PublicAffairs() {
               </Button>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      <section className="relative h-[400px] lg:h-[500px] overflow-hidden" data-testid="section-video-pa">
-        <video
-          src={stellungnahmeVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-white/80 text-lg md:text-2xl font-medium text-center max-w-2xl px-6 leading-relaxed"
-            data-testid="text-video-caption-pa"
-          >
-            Gemeinsam an Stellungnahmen arbeiten — mit dem gesamten Wissensbestand im Hintergrund.
-          </motion.p>
         </div>
       </section>
 

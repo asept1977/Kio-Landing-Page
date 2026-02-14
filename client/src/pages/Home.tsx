@@ -15,26 +15,14 @@ import {
   Database,
   ChevronDown,
 } from "lucide-react";
-import heroV1 from "@/assets/videos/hero-v1.mp4";
-import heroV2 from "@/assets/videos/hero-v2.mp4";
-import heroV3 from "@/assets/videos/hero-v3.mp4";
 import { Button } from "@/components/ui/button";
-import { useState, useRef, useCallback } from "react";
+import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('de');
   const [, navigate] = useLocation();
-  const [activeVideo, setActiveVideo] = useState(0);
-  const videoRefs = [useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)];
-  const heroVideos = [heroV1, heroV2, heroV3];
-
-  const handleVideoEnd = useCallback(() => {
-    const next = (activeVideo + 1) % 3;
-    setActiveVideo(next);
-    videoRefs[next].current?.play();
-  }, [activeVideo]);
 
   const t = translations[lang];
 
@@ -80,20 +68,9 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0">
-          {heroVideos.map((src, i) => (
-            <video
-              key={i}
-              ref={videoRefs[i]}
-              src={src}
-              autoPlay={i === 0}
-              muted
-              playsInline
-              onEnded={handleVideoEnd}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${activeVideo === i ? 'opacity-100' : 'opacity-0'}`}
-              aria-hidden="true"
-            />
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#003366] via-[#001a33] to-black" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,106,0,0.08)_0%,_transparent_60%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
