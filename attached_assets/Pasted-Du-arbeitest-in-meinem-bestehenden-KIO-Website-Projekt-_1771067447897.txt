@@ -1,0 +1,104 @@
+Du arbeitest in meinem bestehenden KIO Website Projekt (React/Next.js + Tailwind, mobile-first Layout).
+Es existiert bereits eine ROI / Pricing / Calculator Seite mit folgenden Elementen:
+
+- Lizenz-Auswahl (69 / 89 / 119 € pro Nutzer / Monat)
+- Slider: Anzahl Nutzer
+- Slider: Brutto Personalkosten €/Stunde
+- Slider: Effizienzsteigerung %
+- KPI-Kacheln:
+    - KIO Monatskosten
+    - Monatliche Einsparung
+    - Jährlicher Nettovorteil
+    - Break-even
+- Ergebnistext unter den Kacheln
+- Danach folgt ein Diagramm
+
+Ziel:
+Die Seite soll stärker unternehmerisch argumentieren (nicht nur Kosten sparen),
+sondern Kompetenzaufbau + Margenstabilität erklären.
+
+--------------------------------------------------
+1) KPI BEZEICHNUNGEN ANPASSEN
+--------------------------------------------------
+
+Ersetze die Beschriftungen der KPI-Kacheln:
+
+"Monatliche Einsparung"  →  "Monatlicher Produktivitätsgewinn"
+"Jährlicher Nettovorteil" →  "Jährlicher Unternehmensgewinn"
+
+Die Berechnung bleibt identisch — nur die Labels ändern.
+Alle Referenzen (Tooltips, mobile labels, aria-labels, summary text) ebenfalls anpassen.
+
+--------------------------------------------------
+2) NEUE ARGUMENTATIONS-SECTION UNTER KPI-KACHELN
+--------------------------------------------------
+
+Direkt UNTER den KPI-Kacheln und VOR dem Diagramm eine neue Section einfügen.
+
+Layout:
+- max-width wie Calculator
+- Abstand nach oben: großzügig (mt-16 desktop / mt-12 mobile)
+- 2 Cards nebeneinander (grid md:grid-cols-2 gap-6)
+- mobile: untereinander
+- gleiche Optik wie KPI Cards (rounded-xl, soft shadow, light background)
+
+SECTION HEADLINE:
+"Warum sich KI langfristig rechnet"
+
+SUBLINE:
+"Nicht nur Kosten sparen — sondern Unternehmen stabiler machen."
+
+--------------------------------------------------
+CARD 1
+--------------------------------------------------
+
+TITLE:
+"KI spart Zeit – Menschen bleiben wichtig"
+
+TEXT:
+"KI übernimmt Routinearbeit und schafft freie Zeit.
+Diese Zeit wird genutzt, um Mitarbeitende weiterzubilden und mehr Verantwortung zu geben.
+So entsteht kein Abbau, sondern bessere Arbeit."
+
+--------------------------------------------------
+CARD 2
+--------------------------------------------------
+
+TITLE:
+"Preise sinken – Gewinn bleibt"
+
+TEXT:
+"Durch KI wird die Leistung günstiger zu erstellen.
+Der Markt senkt irgendwann den Preis.
+Weil die Kosten schneller sinken, bleibt der Gewinn erhalten oder wächst."
+
+--------------------------------------------------
+3) MICROCOPY UNTER DEM ERGEBNISTEXT
+--------------------------------------------------
+
+Unterhalb der bestehenden Ergebnis-Zusammenfassung (kleine graue Schrift):
+
+"Hinweis: Der Rechner zeigt den finanziellen Effekt aus Zeitersparnis.
+Zusätzlich verbessert KI die Qualifikation der Mitarbeitenden und stabilisiert die Marge bei fallenden Marktpreisen."
+
+Style:
+text-sm text-gray-500 mt-4 max-w-2xl
+
+--------------------------------------------------
+4) DESIGNREGELN
+--------------------------------------------------
+
+- Keine neue Farbwelt einführen
+- Akzentfarbe weiterhin KIO-Orange
+- Cards identisch zu bestehenden Komponenten aufbauen
+- Bestehende Komponentenstruktur wiederverwenden (keine Inline-Komponenten duplizieren)
+- Mobile readability priorisieren (Zeilenlänge begrenzen)
+
+--------------------------------------------------
+OUTPUT
+--------------------------------------------------
+
+Gib den vollständigen aktualisierten Code der betroffenen Page/Component aus.
+Keine Platzhaltertexte.
+Keine Kommentare wie "example text".
+Produktionsreifer Code.

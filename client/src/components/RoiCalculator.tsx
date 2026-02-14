@@ -267,43 +267,43 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               <p className="text-sm text-foreground/70 leading-relaxed">{summaryText}</p>
               <p className="text-xs text-foreground/35 mt-3 leading-relaxed" data-testid="roi-disclaimer">
                 {lang === "de"
-                  ? "Hinweis: Der Rechner zeigt den Effekt aus Zeitersparnis \u00d7 Personalkosten. Zusätzlich wirkt KI strategisch: Kompetenzaufbau statt Abbau und Marge sichern trotz Preisdruck."
-                  : "Note: This calculator shows the effect of time savings \u00d7 personnel costs. Additionally, AI works strategically: building competence instead of cutting jobs, and securing margins despite price pressure."}
+                  ? "Hinweis: Der Rechner zeigt den finanziellen Effekt aus Zeitersparnis. Zusätzlich verbessert KI die Qualifikation der Mitarbeitenden und stabilisiert die Marge bei fallenden Marktpreisen."
+                  : "Note: This calculator shows the financial effect of time savings. Additionally, AI improves employee qualifications and stabilizes margins when market prices decline."}
               </p>
             </div>
 
-            <div data-testid="roi-strategy-section">
+            <div className="mt-12 md:mt-16" data-testid="roi-strategy-section">
               <p className="text-sm font-bold text-foreground mb-1" data-testid="text-roi-strategy-title">
                 {lang === "de"
-                  ? "Warum KI sich rechnet \u2013 auch wenn Preise fallen"
-                  : "Why AI pays off \u2013 even when prices drop"}
+                  ? "Warum sich KI langfristig rechnet"
+                  : "Why AI pays off in the long run"}
               </p>
-              <p className="text-xs text-foreground/50 mb-4" data-testid="text-roi-strategy-sub">
+              <p className="text-xs text-foreground/50 mb-6" data-testid="text-roi-strategy-sub">
                 {lang === "de"
-                  ? "KI schafft Effizienz. Gute Führung macht daraus Kompetenz und stabile Marge."
-                  : "AI creates efficiency. Good leadership turns that into competence and stable margins."}
+                  ? "Nicht nur Kosten sparen — sondern Unternehmen stabiler machen."
+                  : "Not just saving costs — making businesses more resilient."}
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-1">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#ff6a00] mb-3" />
                   <p className="text-sm font-bold text-foreground mb-2">
-                    {lang === "de" ? "Effizienzgewinn ohne Stellenabbau" : "Efficiency gains without job cuts"}
+                    {lang === "de" ? "KI spart Zeit – Menschen bleiben wichtig" : "AI saves time – people remain essential"}
                   </p>
                   <p className="text-xs text-foreground/50 leading-relaxed">
                     {lang === "de"
-                      ? "KI reduziert Routinetätigkeiten und schafft freie Zeit. Diese Zeit ist im Unternehmensinteresse vorrangig für Qualifizierung zu nutzen, damit Mitarbeitende im KI-Zeitalter produktiv bleiben. Führung stellt sicher, dass Effizienzgewinne nicht in Arbeitsplatzabbau und kurzfristige Kosteneffekte münden, sondern in neue Verantwortungsbereiche und Skills. So wird aus Automatisierung nachhaltige Leistungsfähigkeit."
-                      : "AI reduces routine tasks and creates free time. This time should primarily be used for upskilling so employees remain productive in the AI era. Leadership ensures that efficiency gains lead to new responsibilities and skills rather than job cuts and short-term cost effects. This turns automation into sustainable performance."}
+                      ? "KI übernimmt Routinearbeit und schafft freie Zeit. Diese Zeit wird genutzt, um Mitarbeitende weiterzubilden und mehr Verantwortung zu geben. So entsteht kein Abbau, sondern bessere Arbeit."
+                      : "AI takes over routine work and creates free time. This time is used to upskill employees and give them more responsibility. The result is not downsizing, but better work."}
                   </p>
                 </div>
                 <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#ff6a00] mb-3" />
                   <p className="text-sm font-bold text-foreground mb-2">
-                    {lang === "de" ? "Preisdruck abfedern, Marge sichern" : "Absorb price pressure, secure margins"}
+                    {lang === "de" ? "Preise sinken – Gewinn bleibt" : "Prices drop – profit stays"}
                   </p>
                   <p className="text-xs text-foreground/50 leading-relaxed">
                     {lang === "de"
-                      ? "Märkte passen Preise an \u2013 besonders bei stundennaher Beratung oder frei kalkulierten Produkten. KI schützt nicht den Preis, sondern die Marge: Wenn interne Kosten schneller sinken als der Marktpreis, bleibt die Profitabilität stabil oder wächst. Effizienz entkoppelt Ergebnis und Aufwand \u2013 und macht Preisdruck beherrschbar."
-                      : "Markets adjust prices \u2013 especially for hourly consulting or freely priced products. AI doesn't protect the price, but the margin: when internal costs fall faster than market prices, profitability stays stable or grows. Efficiency decouples results from effort \u2013 making price pressure manageable."}
+                      ? "Durch KI wird die Leistung günstiger zu erstellen. Der Markt senkt irgendwann den Preis. Weil die Kosten schneller sinken, bleibt der Gewinn erhalten oder wächst."
+                      : "AI makes services cheaper to deliver. The market will eventually lower prices. Because costs fall faster, profit is preserved or grows."}
                   </p>
                 </div>
               </div>
