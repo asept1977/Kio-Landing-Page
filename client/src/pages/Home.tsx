@@ -85,8 +85,10 @@ export default function Home() {
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-foreground" data-testid="text-hero-title">
                   KIO
                 </h1>
-                <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/10 text-[#ff6a00] font-semibold text-xs tracking-widest border border-[#ff6a00]/20 mt-4" data-testid="text-hero-subheadline">
-                  KNOWLEDGE INTELLIGENCE ORCHESTRATED
+                <span className="inline-flex items-center gap-3 py-1.5 px-4 rounded-full bg-[#ff6a00]/10 font-semibold text-xs tracking-widest border border-[#ff6a00]/20 mt-4" data-testid="text-hero-subheadline">
+                  <span className="text-[#ff6a00]">Knowledge</span>
+                  <span className="text-[#003366]">Intelligence</span>
+                  <span className="text-foreground/70">Orchestrated</span>
                 </span>
               </motion.div>
 
