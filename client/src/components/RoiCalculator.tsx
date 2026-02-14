@@ -232,37 +232,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="glass-card rounded-md p-5" data-testid="roi-kio-monthly">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.kioMonthly}</p>
-                <p className="text-xl font-bold text-foreground">{formatCurrency(calc.monthlyKioCost)}</p>
-              </div>
-              <div className="glass-card rounded-md p-5" data-testid="roi-savings-monthly">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.savingsMonthly}</p>
-                <p className="text-xl font-bold text-[#ff6a00]">{formatCurrency(calc.monthlySavings)}</p>
-              </div>
-              <div className="glass-card rounded-md p-5" data-testid="roi-net-annual">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.netAnnual}</p>
-                <p className={`text-xl font-bold ${calc.netAnnual >= 0 ? "text-green-600" : "text-red-500"}`}>
-                  {formatCurrency(calc.netAnnual)}
-                </p>
-              </div>
-              <div className="glass-card rounded-md p-5" data-testid="roi-break-even">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.breakEven}</p>
-                <div className="flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-[#ff6a00]" />
-                  <p className="text-xl font-bold text-foreground">
-                    {calc.breakEvenPoint === 1
-                      ? t.breakEvenImmediate
-                      : calc.breakEvenPoint > 1
-                        ? calc.breakEvenPoint + " " + t.breakEvenMonths
-                        : "> 12 " + t.breakEvenMonths}
-                  </p>
-                </div>
-              </div>
-            </div>
-
+          <motion.div variants={fadeUp} className="flex flex-col justify-center">
             <div className="glass-card rounded-md p-6" data-testid="roi-chart">
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4">{t.resultTitle}</p>
               <ResponsiveContainer width="100%" height={240}>
@@ -348,6 +318,49 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               </div>
             </div>
 
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="mt-10"
+        >
+          <motion.div variants={fadeUp}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="glass-card rounded-md p-5" data-testid="roi-kio-monthly">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.kioMonthly}</p>
+                <p className="text-xl font-bold text-foreground">{formatCurrency(calc.monthlyKioCost)}</p>
+              </div>
+              <div className="glass-card rounded-md p-5" data-testid="roi-savings-monthly">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.savingsMonthly}</p>
+                <p className="text-xl font-bold text-[#ff6a00]">{formatCurrency(calc.monthlySavings)}</p>
+              </div>
+              <div className="glass-card rounded-md p-5" data-testid="roi-net-annual">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.netAnnual}</p>
+                <p className={`text-xl font-bold ${calc.netAnnual >= 0 ? "text-green-600" : "text-red-500"}`}>
+                  {formatCurrency(calc.netAnnual)}
+                </p>
+              </div>
+              <div className="glass-card rounded-md p-5" data-testid="roi-break-even">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.breakEven}</p>
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-[#ff6a00]" />
+                  <p className="text-xl font-bold text-foreground">
+                    {calc.breakEvenPoint === 1
+                      ? t.breakEvenImmediate
+                      : calc.breakEvenPoint > 1
+                        ? calc.breakEvenPoint + " " + t.breakEvenMonths
+                        : "> 12 " + t.breakEvenMonths}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="mt-6">
             <div className="glass-card rounded-md p-5" data-testid="roi-summary">
               <p className="text-sm text-foreground/70 leading-relaxed">
                 {lang === "de" ? (
@@ -357,7 +370,6 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                 )}
               </p>
             </div>
-
           </motion.div>
         </motion.div>
 
