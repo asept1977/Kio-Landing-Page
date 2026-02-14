@@ -1,8 +1,9 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, CalendarCheck, UserSearch, MessageSquareQuote, Radio, BookOpenCheck, Lightbulb, TrendingUp, Award, ShieldCheck } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -14,68 +15,32 @@ const stagger = {
   show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
-interface UseCaseStep {
-  headline: string;
-  problemBullets: string[];
-  intervention: string;
-  impactNumber: string;
-  impactLabel: string;
-  impactBullets: string[];
-}
+const workflowSteps = [
+  { label: "Termin angekündigt", desc: "Ein politischer Termin wird im Kalender erkannt oder manuell erfasst." },
+  { label: "Stakeholder automatisch geladen", desc: "KIO identifiziert relevante Akteure, Positionen und Beziehungshistorie." },
+  { label: "Argumentationslinien vorgeschlagen", desc: "Passende Talking Points und Gegenargumente werden aus dem Wissensbestand generiert." },
+  { label: "Termin durchgeführt", desc: "Das Beratungsgespräch findet statt — vorbereitet, nicht improvisiert." },
+  { label: "Wissen gespeichert", desc: "Ergebnisse, Kontakte und Erkenntnisse fließen zurück ins KIO-Wissensgedächtnis." },
+];
 
-const useCases: UseCaseStep[] = [
-  {
-    headline: "Legislative Monitoring & Frühwarnung",
-    problemBullets: [
-      "Komplexe Gesetzgebungsprozesse",
-      "Verteilte Informationsquellen (DIP, EU, Lobbyregister)",
-      "Reaktive statt proaktive Positionierung",
-    ],
-    intervention:
-      "KIO aggregiert parlamentarische Daten, Ausschussprotokolle und Regulierungsentwürfe in Echtzeit. Automatische Relevanzanalyse und Frühwarnung bei kritischen Entwicklungen.",
-    impactNumber: "24/7",
-    impactLabel: "politisches Monitoring",
-    impactBullets: [
-      "Proaktive Positionierung statt Reaktion",
-      "Keine blinden Flecken mehr",
-    ],
-  },
-  {
-    headline: "Stakeholder-Intelligence & Netzwerkanalyse",
-    problemBullets: [
-      "Fragmentierte Stakeholder-Daten",
-      "Personengebundenes Beziehungswissen",
-      "Unklare Einflussnetzwerke",
-    ],
-    intervention:
-      "KIO kartiert Beziehungsnetzwerke, analysiert Abstimmungsverhalten und identifiziert relevante Entscheider. GraphRAG-basierte Stakeholder-Analyse über Fraktions- und Ausschussgrenzen hinweg.",
-    impactNumber: "3\u00d7",
-    impactLabel: "präzisere Stakeholder-Ansprache",
-    impactBullets: [
-      "Datenbasierte Engagement-Strategien",
-      "Nachhaltige Beziehungspflege",
-    ],
-  },
-  {
-    headline: "Positionspapiere & Argumentationshilfen",
-    problemBullets: [
-      "Zeitdruck bei Stellungnahmen",
-      "Inkonsistente Argumentation",
-      "Hoher Rechercheaufwand pro Mandat",
-    ],
-    intervention:
-      "KIO generiert aus internem Wissen, Mandantenposition und regulatorischem Kontext belastbare Entwürfe für Positionspapiere, Talking Points und Briefings.",
-    impactNumber: "\u201370 %",
-    impactLabel: "Vorbereitungszeit pro Mandat",
-    impactBullets: [
-      "Konsistente Mandantenkommunikation",
-      "Skalierbare Beratungsqualität",
-    ],
-  },
+const useCaseCards = [
+  { icon: CalendarCheck, title: "Terminbriefing Ministerium", hover: "Automatische Zusammenstellung von Agenda, Stakeholder-Profilen und relevanten Vorgängen. Bereit in Minuten statt Stunden." },
+  { icon: UserSearch, title: "Stakeholder Mapping", hover: "Dynamische Netzwerkanalyse über Fraktions-, Ausschuss- und Ländergrenzen hinweg. Beziehungswissen wird strukturiert sichtbar." },
+  { icon: BookOpenCheck, title: "Positionshistorie", hover: "Chronologische Darstellung aller bisherigen Positionen, Stellungnahmen und Kommunikationslinien eines Mandats." },
+  { icon: Radio, title: "Politikmonitoring", hover: "Echtzeit-Tracking von Gesetzgebungsprozessen, Ausschussaktivitäten und regulatorischen Entwicklungen mit automatischer Relevanzfilterung." },
+  { icon: MessageSquareQuote, title: "Mandatshistorie Kunde", hover: "Vollständige Mandantenakte mit allen vergangenen Beratungen, Entscheidungen und Kontaktpunkten — sofort abrufbar." },
+  { icon: Lightbulb, title: "Argumentationsvorschläge", hover: "KIO generiert kontextbasierte Argumentationslinien aus internem Wissen, Mandantenposition und aktuellem Regulierungsstand." },
+];
+
+const impactStatements = [
+  { icon: TrendingUp, statement: "Mehr Mandate pro Berater", desc: "Durch systematisierte Vorbereitung steigt die Kapazität, ohne die Qualität zu senken." },
+  { icon: Award, statement: "Gleichbleibende Qualität", desc: "Unabhängig von Person, Tagesform oder Personalwechsel — das Niveau bleibt konstant." },
+  { icon: ShieldCheck, statement: "Kein Wissensverlust", desc: "Erfahrung bleibt im System, nicht im Kopf einzelner Mitarbeiter." },
 ];
 
 export default function PublicAffairs() {
   const [, navigate] = useLocation();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
@@ -112,103 +77,210 @@ export default function PublicAffairs() {
         </div>
       </nav>
 
-      <section className="relative pt-36 pb-28 lg:pt-52 lg:pb-40 overflow-hidden" data-testid="section-hero-pa">
+      <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 overflow-hidden" data-testid="section-hero-pa">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-[#ff6a00] text-lg md:text-2xl font-bold tracking-[0.25em] uppercase mb-12" data-testid="text-badge-pa">
-              KIO FÜR PUBLIC AFFAIRS
-            </motion.p>
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-pa">
+              <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
+              <span>/</span>
+              <span>Lösungen</span>
+              <span>/</span>
+              <span className="text-[#ff6a00] font-medium">Public Affairs</span>
+            </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-foreground" data-testid="text-hero-title-pa">
-              Politische
+            <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-foreground" data-testid="text-hero-title-pa">
+              Politische Beratung braucht kein weiteres Tool
               <br />
-              <span className="text-foreground/40">Wirkung.</span>
+              <span className="text-foreground/40">— sondern Erinnerung</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-sm md:text-base text-foreground/40 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-pa">
-              KIO verwandelt politische Komplexität in strategischen Vorsprung für Ihre Mandanten.
+            <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed" data-testid="text-hero-subtitle-pa">
+              KIO verbindet politische Quellen, Mandate und Dokumente zu nutzbarem Arbeitswissen.
             </motion.p>
 
             <motion.div variants={fadeUp}>
               <Button
                 onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
-                data-testid="button-briefing-hero-pa"
+                data-testid="button-demo-hero-pa"
               >
-                Executive Briefing <ArrowRight className="ml-2 w-4 h-4" />
+                Demo anfragen <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <section id="timeline" className="py-24 lg:py-36 relative" data-testid="section-timeline-pa">
+      <section id="workflow" className="py-24 lg:py-32 relative" data-testid="section-workflow-pa">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-32 lg:space-y-44">
-            {useCases.map((uc, idx) => (
-              <motion.div
-                key={idx}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-80px" }}
-                variants={stagger}
-                className="relative"
-                data-testid={`pa-timeline-step-${idx}`}
-              >
-                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16" data-testid={`text-pa-timeline-title-${idx}`}>
-                  {uc.headline}
-                </motion.h2>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-workflow-title-pa">
+              Vom Termin zum Wissensvorsprung
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-lg" data-testid="text-workflow-desc-pa">
+              Ein typischer Beratungsworkflow — unterstützt durch KIO.
+            </motion.p>
+          </motion.div>
 
-                <div className="relative pl-8 sm:pl-12">
-                  <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-px bg-gradient-to-b from-black/[0.04] via-black/[0.08] to-black/[0.03]" />
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="relative"
+          >
+            <div className="absolute left-5 top-6 bottom-6 w-px bg-gradient-to-b from-[#ff6a00]/20 via-[#ff6a00]/10 to-transparent" />
 
-                  <motion.div variants={fadeUp} className="relative mb-12" data-testid={`pa-timeline-problem-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-foreground/20 border border-black/[0.08]" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-3">Problem</p>
-                    <ul className="space-y-1.5">
-                      {uc.problemBullets.map((b, i) => (
-                        <li key={i} className="text-sm text-foreground/60 flex items-center gap-2">
-                          <span className="w-1 h-1 rounded-full bg-foreground/30 shrink-0" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-
-                  <motion.div variants={fadeUp} className="relative mb-12" data-testid={`pa-timeline-intervention-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-1 w-2.5 h-2.5 rounded-full bg-[#ff6a00]/40 border border-[#ff6a00]/20" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/40 mb-3">Lösung</p>
-                    <p className="text-sm text-foreground/50 leading-relaxed max-w-lg">{uc.intervention}</p>
-                  </motion.div>
-
-                  <motion.div variants={fadeUp} className="relative" data-testid={`pa-timeline-impact-${idx}`}>
-                    <div className="absolute -left-5 sm:-left-7 top-6 w-2.5 h-2.5 rounded-full bg-[#ff6a00] shadow-[0_0_10px_rgba(255,106,0,0.4)]" />
-                    <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/25 mb-4">Impact</p>
-                    <div className="rounded-md bg-black/[0.02] border border-black/[0.06] p-6 sm:p-8 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a00]/[0.02] to-transparent pointer-events-none" />
-                      <div className="relative z-10">
-                        <p className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-1" data-testid={`text-pa-impact-number-${idx}`}>
-                          {uc.impactNumber}
-                        </p>
-                        <p className="text-sm text-foreground/50 mb-5" data-testid={`text-pa-impact-label-${idx}`}>{uc.impactLabel}</p>
-                        <div className="space-y-2">
-                          {uc.impactBullets.map((b, i) => (
-                            <div key={i} className="flex items-center gap-2.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]/40 shrink-0" />
-                              <span className="text-sm text-foreground/60 font-medium">{b}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+            <div className="space-y-10">
+              {workflowSteps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="relative pl-14"
+                  data-testid={`pa-workflow-step-${idx}`}
+                >
+                  <div className="absolute left-3 top-1.5 flex items-center justify-center">
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${idx === workflowSteps.length - 1 ? 'border-[#ff6a00] bg-[#ff6a00]' : 'border-[#ff6a00]/30 bg-background'}`}>
+                      {idx === workflowSteps.length - 1 && (
+                        <div className="w-2 h-2 rounded-full bg-white" />
+                      )}
                     </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                  </div>
+                  <p className="text-base font-semibold text-foreground mb-1" data-testid={`text-pa-workflow-label-${idx}`}>
+                    {step.label}
+                  </p>
+                  <p className="text-sm text-foreground/50 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="usecases" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-usecases-pa">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-usecases-title-pa">
+              Anwendungsfälle
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-md mx-auto" data-testid="text-usecases-desc-pa">
+              Wie KIO politische Beratung im Alltag transformiert.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {useCaseCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-6 relative group cursor-default min-h-[180px] flex flex-col"
+                  data-testid={`pa-usecase-card-${idx}`}
+                  onMouseEnter={() => setHoveredCard(idx)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className={`transition-opacity duration-300 ${hoveredCard === idx ? 'opacity-0' : 'opacity-100'}`}>
+                    <div className="w-12 h-12 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-base font-bold text-foreground" data-testid={`text-pa-usecase-title-${idx}`}>
+                      {card.title}
+                    </h3>
+                  </div>
+                  <div className={`absolute inset-0 p-6 flex items-center transition-opacity duration-300 ${hoveredCard === idx ? 'opacity-100' : 'opacity-0'}`}>
+                    <p className="text-sm text-foreground/60 leading-relaxed" data-testid={`text-pa-usecase-hover-${idx}`}>
+                      {card.hover}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="impact" className="py-24 lg:py-32 relative border-t border-black/[0.06]" data-testid="section-impact-pa">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-impact-title-pa">
+              Organisatorischer Impact
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          >
+            {impactStatements.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-8 text-center"
+                  data-testid={`pa-impact-card-${idx}`}
+                >
+                  <div className="w-14 h-14 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-5 mx-auto">
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2" data-testid={`text-pa-impact-statement-${idx}`}>
+                    {item.statement}
+                  </h3>
+                  <p className="text-sm text-foreground/50 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center"
+          >
+            <p className="text-base text-foreground/50 max-w-lg mx-auto leading-relaxed" data-testid="text-pa-impact-summary">
+              KIO repliziert Erfahrung statt Personal zu erhöhen.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -278,17 +350,17 @@ export default function PublicAffairs() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight" data-testid="text-cta-title-pa">
-              Von Komplexität
+              Erfahrung wird nur wertvoll,
               <br />
-              <span className="text-foreground/40">zu politischer Wirkung.</span>
+              <span className="text-foreground/40">wenn sie verfügbar ist.</span>
             </motion.h2>
             <motion.div variants={fadeUp} className="mt-10">
               <Button
                 onClick={() => navigate("/")}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
-                data-testid="button-executive-briefing-pa"
+                data-testid="button-demo-cta-pa"
               >
-                Strategiegespräch vereinbaren <ArrowRight className="ml-2 w-4 h-4" />
+                Demo anfragen <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
           </motion.div>

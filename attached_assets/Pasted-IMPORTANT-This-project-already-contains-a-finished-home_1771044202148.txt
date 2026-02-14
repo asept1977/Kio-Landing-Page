@@ -1,0 +1,113 @@
+IMPORTANT: This project already contains a finished homepage and styling.
+DO NOT redesign, refactor, rename CSS classes, or change layout behavior.
+You must EXTEND the existing site — not recreate it.
+
+Goal:
+Add the Public Affairs subpage to the existing KIO website while preserving the exact visual style.
+
+Rules you must follow strictly:
+
+1. Reuse existing CSS classes from global.css
+2. Do not introduce a new design system
+3. Do not modify index.html
+4. Do not change header or navigation structure
+5. Only add new sections consistent with current spacing and typography
+6. If unsure which styling to use → copy an existing section and adapt content
+
+You are working inside an already designed consulting-style website.
+
+--------------------------------------------------
+TASK
+
+Create a new file:
+
+/public-affairs.html
+
+The page must visually look like it was always part of the site.
+
+Import the same CSS and JS as index.html.
+Reuse header and footer by copying their structure exactly.
+
+--------------------------------------------------
+CONTENT LOGIC (no marketing text)
+
+This page explains how KIO works for political advisory workflows.
+
+Do NOT explain what KIO is in general.
+Only explain impact inside this domain.
+
+--------------------------------------------------
+SECTIONS
+
+1) Intro Section
+Small breadcrumb above headline:
+KIO → Lösungen → Public Affairs
+
+Headline:
+Politische Beratung braucht kein weiteres Tool — sondern Erinnerung
+
+Short paragraph:
+KIO verbindet politische Quellen, Mandate und Dokumente zu nutzbarem Arbeitswissen.
+
+--------------------------------------------------
+
+2) Workflow Section
+Show a linear workflow (use same card or step components already used on homepage)
+
+Termin angekündigt
+Stakeholder automatisch geladen
+Argumentationslinien vorgeschlagen
+Termin durchgeführt
+Wissen gespeichert
+
+Each step one short sentence.
+
+--------------------------------------------------
+
+3) Use Case Grid
+Reuse existing grid/card component.
+
+Cards:
+Terminbriefing Ministerium
+Stakeholder Mapping
+Positionshistorie
+Politikmonitoring
+Mandatshistorie Kunde
+Argumentationsvorschläge
+
+Hover text max 2 sentences.
+
+--------------------------------------------------
+
+4) Organizational Impact
+3 statements using same highlight component as homepage:
+
+Mehr Mandate pro Berater
+Gleichbleibende Qualität
+Kein Wissensverlust
+
+Short description below:
+KIO repliziert Erfahrung statt Personal zu erhöhen.
+
+--------------------------------------------------
+
+5) CTA
+Use same CTA style as homepage.
+
+Headline:
+Erfahrung wird nur wertvoll, wenn sie verfügbar ist.
+
+Button:
+Demo anfragen
+
+--------------------------------------------------
+
+Technical requirements:
+- responsive
+- identical spacing rhythm as existing sections
+- no new fonts
+- no inline styles
+- no framework code
+- no placeholder lorem ipsum
+
+Return only the new file and minimal CSS additions if absolutely necessary.
