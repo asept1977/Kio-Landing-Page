@@ -64,7 +64,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <div className="w-9 h-9 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-lg tracking-tighter">
                 K
               </div>
-              <span className="font-bold text-xl tracking-tight text-foreground">
+              <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${scrolled ? 'text-foreground' : 'text-white'}`}>
                 KIO
               </span>
             </div>
@@ -75,7 +75,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button
                 data-testid="button-nav-solutions"
                 onClick={() => setBranchenOpen(!branchenOpen)}
-                className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors flex items-center gap-1"
+                className={`text-sm font-medium transition-colors flex items-center gap-1 ${scrolled ? 'text-foreground/50 hover:text-foreground' : 'text-white/70 hover:text-white'}`}
               >
                 {t.solutions}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${branchenOpen ? 'rotate-180' : ''}`} />
@@ -96,19 +96,19 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                 </div>
               )}
             </div>
-            <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
+            <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className={`text-sm font-medium transition-colors ${scrolled ? 'text-foreground/50 hover:text-foreground' : 'text-white/70 hover:text-white'}`}>
               {t.roi}
             </button>
-            <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className="text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
+            <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className={`text-sm font-medium transition-colors ${scrolled ? 'text-foreground/50 hover:text-foreground' : 'text-white/70 hover:text-white'}`}>
               {t.sovereignty}
             </button>
 
-            <div className="flex items-center gap-3 border-l border-black/[0.08] pl-8">
+            <div className={`flex items-center gap-3 border-l pl-8 transition-colors duration-300 ${scrolled ? 'border-black/[0.08]' : 'border-white/20'}`}>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-                className="text-xs font-bold text-foreground/50 gap-1.5"
+                className={`text-xs font-bold gap-1.5 ${scrolled ? 'text-foreground/50' : 'text-white/70'}`}
                 data-testid="button-lang-toggle"
               >
                 <Globe className="w-3.5 h-3.5" />
@@ -129,13 +129,13 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               variant="ghost"
               size="sm"
               onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-              className="text-xs font-bold text-foreground/50 gap-1"
+              className={`text-xs font-bold gap-1 ${scrolled ? 'text-foreground/50' : 'text-white/70'}`}
               data-testid="button-lang-toggle-mobile"
             >
               {lang === 'en' ? 'DE' : 'EN'}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} data-testid="button-mobile-menu">
-              {mobileMenuOpen ? <X className="text-foreground/60" /> : <Menu className="text-foreground/60" />}
+              {mobileMenuOpen ? <X className={scrolled ? "text-foreground/60" : "text-white/70"} /> : <Menu className={scrolled ? "text-foreground/60" : "text-white/70"} />}
             </Button>
           </div>
         </div>
