@@ -117,23 +117,28 @@ export default function Verbaende() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#ff6a00]/[0.03] rounded-full blur-[140px]" />
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-[#ff6a00] text-lg md:text-2xl font-bold tracking-[0.25em] uppercase mb-12" data-testid="text-badge-verbaende">
-              KIO FÜR VERBÄNDE
-            </motion.p>
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-verbaende">
+              <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
+              <span>/</span>
+              <span>Lösungen</span>
+              <span>/</span>
+              <span className="text-[#ff6a00] font-medium">Verbände</span>
+            </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-foreground" data-testid="text-hero-title-verbaende">
-              Strategische
-              <br />
-              <span className="text-foreground/40">Handlungsfähigkeit.</span>
+            <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-foreground text-center" data-testid="text-hero-title-verbaende">
+              Verbandsarbeit braucht kein weiteres Portal
             </motion.h1>
-
-            <motion.p variants={fadeUp} className="text-sm md:text-base text-foreground/40 mb-14 max-w-md mx-auto leading-relaxed" data-testid="text-hero-subtitle-verbaende">
-              KIO orchestriert verteiltes Verbandswissen zu strategischer Wirkung.
+            <motion.p variants={fadeUp} className="text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-6 text-foreground text-center" data-testid="text-hero-subheadline-verbaende">
+              sondern ein Arbeitsgedächtnis
             </motion.p>
 
-            <motion.div variants={fadeUp}>
+            <motion.p variants={fadeUp} className="text-base md:text-lg text-foreground/50 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-verbaende">
+              KIO verbindet Mitgliederwissen, Positionen und Dokumente zu nutzbarem Arbeitswissen.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="flex justify-center">
               <Button
                 onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
