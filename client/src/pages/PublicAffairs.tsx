@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, CalendarCheck, UserSearch, MessageSquareQuote, Radio, BookOpenCheck, Lightbulb, TrendingUp, Award, ShieldCheck } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
+import stellungnahmeVideo from "@/assets/videos/stellungnahme-scene.mp4";
 import { useState } from "react";
 
 const fadeUp = {
@@ -112,6 +113,31 @@ export default function PublicAffairs() {
               </Button>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="relative h-[400px] lg:h-[500px] overflow-hidden" data-testid="section-video-pa">
+        <video
+          src={stellungnahmeVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-white/80 text-lg md:text-2xl font-medium text-center max-w-2xl px-6 leading-relaxed"
+            data-testid="text-video-caption-pa"
+          >
+            Gemeinsam an Stellungnahmen arbeiten — mit dem gesamten Wissensbestand im Hintergrund.
+          </motion.p>
         </div>
       </section>
 
