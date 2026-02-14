@@ -123,7 +123,7 @@ export const translations = {
       sectionTitle: "Mehrwert für Entscheider",
       sectionDesc: "Drei Vertikalen. Eine intelligente Plattform.",
       card1Title: "KIO f\u00fcr Public Affairs",
-      card1Desc: "Automatisiertes Monitoring von Gesetzgebung, Stakeholder-Analyse und Positionspapier-Abgleich. Integriert Parlamentsdaten (DIP), Lobbyregister, interne Dokumente und Wissensgraphen.",
+      card1Desc: "Überwacht Gesetzgebung, analysiert Stakeholder und gleicht Positionen automatisch ab. Integriert Parlamentsdaten (DIP), Lobbyregister, interne Dokumente und Wissensgraphen und unterstützt Mitarbeitende bei der Erstellung von Briefings, Positionspapieren und Stellungnahmen.",
       card2Title: "KIO f\u00fcr Verb\u00e4nde",
       card2Desc: "Verbinden Sie Bundesstrukturen, Positionen und Mitgliederwissen in einer intelligenten KI-Schicht. Hierarchische Dokumentstrukturen \u00fcber Bundes-, Landes- und Fachverb\u00e4nde.",
       card3Title: "KIO f\u00fcr Industrie & Mittelstand",
