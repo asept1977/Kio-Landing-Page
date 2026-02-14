@@ -7,6 +7,9 @@ interface NodeDef {
   y: number;
   color: string;
   side: "left" | "right";
+  iconPath?: string;
+  iconViewBox?: number;
+  customIcon?: (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) => void;
 }
 
 const LEFT_COLOR = "#4da3ff";
@@ -14,23 +17,190 @@ const RIGHT_COLOR = "#9b7bff";
 const CORE_COLOR = "#ff6a1a";
 const BG_COLOR = "#0b1d2c";
 
-const LEFT_NODES: Omit<NodeDef, "x" | "y" | "side">[] = [
-  { label: "ERP", color: LEFT_COLOR },
-  { label: "CRM", color: LEFT_COLOR },
-  { label: "Miro", color: LEFT_COLOR },
-  { label: "Outlook", color: LEFT_COLOR },
-  { label: "SharePoint", color: LEFT_COLOR },
-  { label: "Teams", color: LEFT_COLOR },
-  { label: "Atlassian", color: LEFT_COLOR },
-  { label: "Database", color: LEFT_COLOR },
+const ICON_PATHS: Record<string, { path: string; viewBox: number }> = {
+  Miro: {
+    path: "M17.392 0H13.9L17 4.808 10.444 0H6.949l3.102 6.3L3.494 0H0l3.05 8.131L0 24h3.494L10.05 6.985 6.949 24h3.494L17 5.494 13.899 24h3.493L24 3.672 17.392 0z",
+    viewBox: 24,
+  },
+  Atlassian: {
+    path: "M7.12 11.084a.683.683 0 00-1.16.126L.075 22.974a.703.703 0 00.63 1.018h8.19a.678.678 0 00.63-.39c1.767-3.65.696-9.203-2.406-12.52zM11.434.386a15.515 15.515 0 00-.906 15.317l3.95 7.9a.703.703 0 00.628.388h8.19a.703.703 0 00.63-1.017L12.63.38a.664.664 0 00-1.196.006z",
+    viewBox: 24,
+  },
+  Statista: {
+    path: "M.8597 0a.84.84 0 0 0-.8404.8404v15.2165H.14s3.6114-.0681 5.1428-.8739a10.89 10.89 0 0 0 3.337-3.0513l.903-1.2746.2857-.4062c.0343-.04.1821-.2571.2678-.3828s.4581-.6506.8181-1.1764a16.94 16.94 0 0 1 5.2623-4.7433c3.3371-1.7142 7.76-1.5424 7.76-1.5424h.0681V.8917A.84.84 0 0 0 23.1455 0Zm23.1195 7.9487a.9.9 0 0 1-.2166.029s-3.6054.068-5.154.8794a10.86 10.86 0 0 0-3.3382 3.0458l-.885 1.2801c-.1314.1829-.257.3652-.2913.4052l-.269.3828-.817 1.1774s-2.1776 3.1433-5.2633 4.7433c-3.2 1.6629-7.3882 1.5539-7.731 1.5425v1.7142A.84.84 0 0 0 .8541 24h22.2857a.84.84 0 0 0 .8393-.8404z",
+    viewBox: 24,
+  },
+};
+
+function drawMicrosoftLogo(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, _color: string) {
+  const s = size / 2;
+  const gap = size * 0.06;
+  ctx.fillStyle = "#f25022";
+  ctx.fillRect(cx - s, cy - s, s - gap, s - gap);
+  ctx.fillStyle = "#7fba00";
+  ctx.fillRect(cx + gap, cy - s, s - gap, s - gap);
+  ctx.fillStyle = "#00a4ef";
+  ctx.fillRect(cx - s, cy + gap, s - gap, s - gap);
+  ctx.fillStyle = "#ffb900";
+  ctx.fillRect(cx + gap, cy + gap, s - gap, s - gap);
+}
+
+function drawERPIcon(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) {
+  const s = size * 0.45;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.fillStyle = `${color}30`;
+  ctx.beginPath();
+  ctx.moveTo(cx - s, cy + s * 0.6);
+  ctx.lineTo(cx - s, cy - s * 0.4);
+  ctx.lineTo(cx, cy - s);
+  ctx.lineTo(cx + s, cy - s * 0.4);
+  ctx.lineTo(cx + s, cy + s * 0.6);
+  ctx.lineTo(cx, cy + s);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx - s, cy - s * 0.4);
+  ctx.lineTo(cx, cy + s * 0.15);
+  ctx.lineTo(cx + s, cy - s * 0.4);
+  ctx.strokeStyle = `${color}60`;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx, cy + s * 0.15);
+  ctx.lineTo(cx, cy + s);
+  ctx.stroke();
+}
+
+function drawCRMIcon(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) {
+  const s = size * 0.4;
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(cx, cy - s * 0.35, s * 0.4, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.ellipse(cx, cy + s * 0.55, s * 0.7, s * 0.45, 0, Math.PI, 0, true);
+  ctx.fill();
+}
+
+function drawDatabaseIcon(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) {
+  const w = size * 0.45;
+  const h = size * 0.45;
+  const ey = h * 0.25;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.fillStyle = `${color}20`;
+  ctx.beginPath();
+  ctx.ellipse(cx, cy - h + ey, w, ey, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx - w, cy - h + ey);
+  ctx.lineTo(cx - w, cy + h - ey);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx + w, cy - h + ey);
+  ctx.lineTo(cx + w, cy + h - ey);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.ellipse(cx, cy + h - ey, w, ey, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, w, ey, 0, 0, Math.PI, false);
+  ctx.strokeStyle = `${color}60`;
+  ctx.stroke();
+}
+
+function drawGlobeIcon(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) {
+  const r = size * 0.4;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, r * 0.45, r, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx - r, cy);
+  ctx.lineTo(cx + r, cy);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - r);
+  ctx.lineTo(cx, cy + r);
+  ctx.stroke();
+}
+
+function drawDocIcon(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) {
+  const w = size * 0.32;
+  const h = size * 0.42;
+  const fold = size * 0.12;
+  ctx.fillStyle = `${color}20`;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(cx - w, cy - h);
+  ctx.lineTo(cx + w - fold, cy - h);
+  ctx.lineTo(cx + w, cy - h + fold);
+  ctx.lineTo(cx + w, cy + h);
+  ctx.lineTo(cx - w, cy + h);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx + w - fold, cy - h);
+  ctx.lineTo(cx + w - fold, cy - h + fold);
+  ctx.lineTo(cx + w, cy - h + fold);
+  ctx.stroke();
+  for (let i = 0; i < 3; i++) {
+    const ly = cy - h * 0.3 + i * h * 0.35;
+    ctx.beginPath();
+    ctx.moveTo(cx - w * 0.6, ly);
+    ctx.lineTo(cx + w * 0.4, ly);
+    ctx.strokeStyle = `${color}50`;
+    ctx.stroke();
+  }
+}
+
+function drawSearchIcon(ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) {
+  const r = size * 0.28;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.8;
+  ctx.beginPath();
+  ctx.arc(cx - size * 0.08, cy - size * 0.08, r, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx + r * 0.55, cy + r * 0.55);
+  ctx.lineTo(cx + size * 0.35, cy + size * 0.35);
+  ctx.stroke();
+}
+
+interface NodeConfig {
+  label: string;
+  color: string;
+  iconPath?: string;
+  iconViewBox?: number;
+  customIcon?: (ctx: CanvasRenderingContext2D, cx: number, cy: number, size: number, color: string) => void;
+}
+
+const LEFT_NODES: NodeConfig[] = [
+  { label: "ERP", color: LEFT_COLOR, customIcon: drawERPIcon },
+  { label: "CRM", color: LEFT_COLOR, customIcon: drawCRMIcon },
+  { label: "Miro", color: LEFT_COLOR, ...ICON_PATHS.Miro },
+  { label: "Outlook", color: LEFT_COLOR, customIcon: drawMicrosoftLogo },
+  { label: "SharePoint", color: LEFT_COLOR, customIcon: drawMicrosoftLogo },
+  { label: "Teams", color: LEFT_COLOR, customIcon: drawMicrosoftLogo },
+  { label: "Atlassian", color: LEFT_COLOR, ...ICON_PATHS.Atlassian },
+  { label: "Database", color: LEFT_COLOR, customIcon: drawDatabaseIcon },
 ];
 
-const RIGHT_NODES: Omit<NodeDef, "x" | "y" | "side">[] = [
-  { label: "North Data", color: RIGHT_COLOR },
-  { label: "Statista", color: RIGHT_COLOR },
-  { label: "DIP", color: RIGHT_COLOR },
-  { label: "Lobbyregister", color: RIGHT_COLOR },
-  { label: "Dun & Bradstreet", color: RIGHT_COLOR },
+const RIGHT_NODES: NodeConfig[] = [
+  { label: "North Data", color: RIGHT_COLOR, customIcon: drawGlobeIcon },
+  { label: "Statista", color: RIGHT_COLOR, ...ICON_PATHS.Statista },
+  { label: "DIP", color: RIGHT_COLOR, customIcon: drawDocIcon },
+  { label: "Lobbyregister", color: RIGHT_COLOR, customIcon: drawDocIcon },
+  { label: "Dun & Bradstreet", color: RIGHT_COLOR, customIcon: drawSearchIcon },
 ];
 
 function isWebGLAvailable(): boolean {
@@ -45,7 +215,18 @@ function isWebGLAvailable(): boolean {
   }
 }
 
-function createTextTexture(text: string, color: string, w: number, h: number): THREE.Texture {
+function drawSvgPath(ctx: CanvasRenderingContext2D, pathStr: string, cx: number, cy: number, size: number, viewBox: number, color: string) {
+  const scale = size / viewBox;
+  ctx.save();
+  ctx.translate(cx - (viewBox * scale) / 2, cy - (viewBox * scale) / 2);
+  ctx.scale(scale, scale);
+  const path2d = new Path2D(pathStr);
+  ctx.fillStyle = color;
+  ctx.fill(path2d);
+  ctx.restore();
+}
+
+function createNodeTexture(node: NodeConfig, w: number, h: number): THREE.Texture {
   const canvas = document.createElement("canvas");
   canvas.width = w;
   canvas.height = h;
@@ -54,10 +235,11 @@ function createTextTexture(text: string, color: string, w: number, h: number): T
   ctx.fillStyle = "rgba(0,0,0,0)";
   ctx.fillRect(0, 0, w, h);
 
-  const borderColor = color;
-  const bgColor = `${color}18`;
+  const color = node.color;
+  const bgColor = `${color}12`;
+  const borderColor = `${color}60`;
 
-  const r = 6;
+  const r = 8;
   ctx.beginPath();
   ctx.moveTo(r, 0);
   ctx.lineTo(w - r, 0);
@@ -73,14 +255,25 @@ function createTextTexture(text: string, color: string, w: number, h: number): T
   ctx.fillStyle = bgColor;
   ctx.fill();
   ctx.strokeStyle = borderColor;
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1.5;
   ctx.stroke();
 
-  ctx.font = "bold 28px Inter, system-ui, sans-serif";
-  ctx.textAlign = "center";
+  const iconSize = h * 0.52;
+  const iconCx = h * 0.55;
+  const iconCy = h / 2;
+
+  if (node.customIcon) {
+    node.customIcon(ctx, iconCx, iconCy, iconSize, color);
+  } else if (node.iconPath && node.iconViewBox) {
+    drawSvgPath(ctx, node.iconPath, iconCx, iconCy, iconSize, node.iconViewBox, color);
+  }
+
+  const textX = iconCx + iconSize * 0.55 + 8;
+  ctx.font = "bold 22px Inter, system-ui, sans-serif";
+  ctx.textAlign = "left";
   ctx.textBaseline = "middle";
   ctx.fillStyle = color;
-  ctx.fillText(text, w / 2, h / 2);
+  ctx.fillText(node.label, textX, h / 2);
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.needsUpdate = true;
@@ -157,6 +350,7 @@ function Canvas2DFallback() {
       color: string;
       x: number;
       y: number;
+      config: NodeConfig;
     }
 
     interface FallbackPulse {
@@ -189,10 +383,10 @@ function Canvas2DFallback() {
 
       nodes = [];
       leftList.forEach((n, i) => {
-        nodes.push({ label: n.label, color: n.color, x: leftX, y: startY + i * spacingL });
+        nodes.push({ label: n.label, color: n.color, x: leftX, y: startY + i * spacingL, config: n });
       });
       rightList.forEach((n, i) => {
-        nodes.push({ label: n.label, color: n.color, x: rightX, y: startY + i * spacingR });
+        nodes.push({ label: n.label, color: n.color, x: rightX, y: startY + i * spacingR, config: n });
       });
 
       pulses = [];
@@ -248,24 +442,33 @@ function Canvas2DFallback() {
       }
 
       nodes.forEach((node) => {
-        const tw = ctx.measureText(node.label).width + 20;
+        const iconSize = 16;
+        const textWidth = ctx.measureText(node.label).width;
+        const tw = iconSize + 8 + textWidth + 20;
         const th = 26;
         const rx = node.x - tw / 2;
         const ry = node.y - th / 2;
 
-        ctx.fillStyle = `${node.color}18`;
-        ctx.strokeStyle = node.color;
+        ctx.fillStyle = `${node.color}12`;
+        ctx.strokeStyle = `${node.color}60`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.roundRect(rx, ry, tw, th, 4);
         ctx.fill();
         ctx.stroke();
 
+        const iconCx = rx + 10 + iconSize / 2;
+        if (node.config.customIcon) {
+          node.config.customIcon(ctx, iconCx, node.y, iconSize, node.color);
+        } else if (node.config.iconPath && node.config.iconViewBox) {
+          drawSvgPath(ctx, node.config.iconPath, iconCx, node.y, iconSize, node.config.iconViewBox, node.color);
+        }
+
         ctx.font = "bold 11px Inter, system-ui, sans-serif";
-        ctx.textAlign = "center";
+        ctx.textAlign = "left";
         ctx.textBaseline = "middle";
         ctx.fillStyle = node.color;
-        ctx.fillText(node.label, node.x, node.y);
+        ctx.fillText(node.label, iconCx + iconSize / 2 + 6, node.y);
       });
 
       const coreRadius = 40;
@@ -455,11 +658,12 @@ export function HeroAnimation() {
     const nodeScale = layout.isMobile ? 0.7 : 0.85;
 
     allNodes.forEach((node) => {
-      const tex = createTextTexture(node.label, node.color, 256, 64);
+      const nodeConfig = [...LEFT_NODES, ...RIGHT_NODES].find(n => n.label === node.label)!;
+      const tex = createNodeTexture(nodeConfig, 320, 72);
       const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
       const sprite = new THREE.Sprite(mat);
       sprite.position.set(node.x, node.y, 0);
-      sprite.scale.set(2.2 * nodeScale, 0.55 * nodeScale, 1);
+      sprite.scale.set(2.8 * nodeScale, 0.63 * nodeScale, 1);
       scene.add(sprite);
 
       const cpX = node.x + (coreX - node.x) * 0.5;
