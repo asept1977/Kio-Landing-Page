@@ -105,7 +105,7 @@ export default function Preise() {
   const isEnterprise = knowledgeLevel === 4;
 
   const prices = useMemo(() => {
-    const basePricePerUser = 29;
+    const basePricePerUser = 39;
     const activitySurcharge = ACTIVITY_LEVELS[activityLevel].surcharge;
     const knowledgeCost = isEnterprise ? 0 : KNOWLEDGE_LEVELS[knowledgeLevel].cost;
 
@@ -352,7 +352,7 @@ export default function Preise() {
           >
             <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#ff6a00] mb-4">KIO Access</p>
             <p className="text-4xl md:text-5xl font-bold text-foreground mb-2" data-testid="text-entry-price-value">
-              ab 29 €
+              ab 39 €
             </p>
             <p className="text-sm text-foreground/50 mb-8">/ User / Monat</p>
             <ul className="space-y-3 text-left max-w-xs mx-auto mb-8">
