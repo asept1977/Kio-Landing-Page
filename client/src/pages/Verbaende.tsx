@@ -49,24 +49,24 @@ export default function Verbaende() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
-      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-white/[0.08]" data-testid="nav-verbaende">
+      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-border" data-testid="nav-verbaende">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer" data-testid="link-logo-verbaende">
               <div className="w-8 h-8 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-base tracking-tighter">
                 K
               </div>
-              <span className="font-bold text-lg tracking-tight text-white">KIO</span>
+              <span className="font-bold text-lg tracking-tight text-foreground">KIO</span>
             </div>
           </Link>
           <div className="hidden sm:flex items-center gap-6">
             <Link href="/">
-              <span className="text-sm font-medium text-white/50 cursor-pointer hover:text-white/80 transition-colors" data-testid="link-nav-home">Home</span>
+              <span className="text-sm font-medium text-foreground/50 cursor-pointer hover:text-foreground/80 transition-colors" data-testid="link-nav-home">Home</span>
             </Link>
             <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active">Verbände</span>
             <button
               onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-sm font-medium text-white/50 hover:text-white/80 transition-colors"
+              className="text-sm font-medium text-foreground/50 hover:text-foreground/80 transition-colors"
               data-testid="button-nav-kontakt"
             >
               Kontakt
@@ -74,7 +74,7 @@ export default function Verbaende() {
           </div>
           <div className="sm:hidden">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="text-white/50 gap-1" data-testid="button-back-home">
+              <Button variant="ghost" size="sm" className="text-foreground/50 gap-1" data-testid="button-back-home">
                 <ArrowLeft className="w-4 h-4" /> Home
               </Button>
             </Link>
@@ -187,7 +187,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="mit-kio" className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-mitkio-verbaende">
+      <section id="mit-kio" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-mitkio-verbaende">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -242,7 +242,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="beispiele" className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-beispiele-verbaende">
+      <section id="beispiele" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-beispiele-verbaende">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -298,7 +298,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="wirkung" className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-wirkung-verbaende">
+      <section id="wirkung" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-wirkung-verbaende">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -360,7 +360,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-referenzen">
+      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-referenzen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -431,7 +431,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <footer className="border-t border-white/[0.06] py-10" data-testid="footer-verbaende">
+      <footer className="border-t border-border py-10" data-testid="footer-verbaende">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="w-6 h-6 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded flex items-center justify-center text-white font-bold text-xs">

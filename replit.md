@@ -56,6 +56,8 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - **KIO Data Flow SVG**: Three.js/Canvas visualization with KIO core in center, internal tools (ERP, CRM, Miro, Outlook, SharePoint, Teams, Atlassian, Database) on the left in blue, external sources (North Data, Statista, DIP, Lobbyregister, Dun & Bradstreet) on the right in violet. Bezier cables connect nodes to KIO core with animated pulses. Includes brand logos (Microsoft, Miro, Atlassian, Statista SVG paths). Component at `client/src/components/HeroAnimation.tsx`. Currently NOT used on homepage but kept for future use.
 
 ## User Preferences
-- Dark enterprise design
-- Orange (#ff6a00) and deep blue (#003366) accents
+- Light/white background with dark text for content sections
+- Dark blue (#05284F / #003366) hero sections with white text
+- Orange (#ff6a00) accents throughout
+- Navigation adapts: white text over hero, dark text when scrolled
 - Bilingual German/English

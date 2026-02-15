@@ -253,7 +253,7 @@ export default function Preise() {
       </section>
 
       {/* ===== 2) PRICING LOGIC ===== */}
-      <section className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-pricing-logic">
+      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-pricing-logic">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -327,7 +327,7 @@ export default function Preise() {
       </section>
 
       {/* ===== 3) ENTRY PRICE ===== */}
-      <section className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-entry-price">
+      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-entry-price">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -369,7 +369,7 @@ export default function Preise() {
       </section>
 
       {/* ===== 4) CONFIGURATOR ===== */}
-      <section id="configurator" className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-configurator">
+      <section id="configurator" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-configurator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -441,7 +441,7 @@ export default function Preise() {
                       className={`rounded-md px-4 py-3 text-sm font-bold transition-all ${
                         activityLevel === idx
                           ? "bg-[#ff6a00]/10 border border-[#ff6a00]/40 text-[#ff6a00]"
-                          : "bg-white/[0.04] border border-white/[0.08] text-foreground/60"
+                          : "bg-card border border-border text-foreground/60"
                       }`}
                       data-testid={`button-activity-${idx}`}
                     >
@@ -474,7 +474,7 @@ export default function Preise() {
                       className={`w-full rounded-md px-5 py-3 text-left text-sm font-bold transition-all flex items-center justify-between gap-4 ${
                         knowledgeLevel === idx
                           ? "bg-[#ff6a00]/10 border border-[#ff6a00]/40 text-[#ff6a00]"
-                          : "bg-white/[0.04] border border-white/[0.08] text-foreground/60"
+                          : "bg-card border border-border text-foreground/60"
                       }`}
                       data-testid={`button-knowledge-${idx}`}
                     >
@@ -523,7 +523,7 @@ export default function Preise() {
                   </div>
                 </div>
 
-                <div className="border-t border-white/[0.06] pt-6 mb-2">
+                <div className="border-t border-border pt-6 mb-2">
                   <div className="flex items-center justify-between text-sm mb-1">
                     <span className="text-foreground/60">Preis / User / Monat</span>
                     <span className="font-bold text-foreground" data-testid="text-price-per-user">{prices.perUserTotal} €</span>
@@ -540,7 +540,7 @@ export default function Preise() {
                   )}
                 </div>
 
-                <div className="border-t border-white/[0.06] pt-6 mb-6">
+                <div className="border-t border-border pt-6 mb-6">
                   {isEnterprise ? (
                     <div className="text-center">
                       <p className="text-2xl font-bold text-[#ff6a00]" data-testid="text-total-price">Enterprise</p>
@@ -559,7 +559,7 @@ export default function Preise() {
                 <Button
                   onClick={handleCopySummary}
                   variant="outline"
-                  className="w-full border-white/20 text-white/80"
+                  className="w-full border-border text-foreground/80"
                   data-testid="button-copy-summary"
                 >
                   <Copy className="w-4 h-4 mr-2" /> Zusammenfassung kopieren
@@ -571,7 +571,7 @@ export default function Preise() {
       </section>
 
       {/* ===== 5) ADD-ONS ===== */}
-      <section className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-addons">
+      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-addons">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -592,7 +592,7 @@ export default function Preise() {
               className={`rounded-md px-5 py-2.5 text-sm font-bold transition-all ${
                 addonTab === "external"
                   ? "bg-[#ff6a00]/10 border border-[#ff6a00]/40 text-[#ff6a00]"
-                  : "bg-white/[0.04] border border-white/[0.08] text-foreground/60"
+                  : "bg-card border border-border text-foreground/60"
               }`}
               data-testid="tab-external"
             >
@@ -604,7 +604,7 @@ export default function Preise() {
               className={`rounded-md px-5 py-2.5 text-sm font-bold transition-all ${
                 addonTab === "connectors"
                   ? "bg-[#ff6a00]/10 border border-[#ff6a00]/40 text-[#ff6a00]"
-                  : "bg-white/[0.04] border border-white/[0.08] text-foreground/60"
+                  : "bg-card border border-border text-foreground/60"
               }`}
               data-testid="tab-connectors"
             >
@@ -636,7 +636,7 @@ export default function Preise() {
                   </div>
                   <div
                     className={`w-10 h-6 rounded-full transition-all flex items-center ${
-                      externalAddons[addon.id] ? "bg-[#ff6a00] justify-end" : "bg-white/10 justify-start"
+                      externalAddons[addon.id] ? "bg-[#ff6a00] justify-end" : "bg-muted justify-start"
                     }`}
                   >
                     <div className="w-4 h-4 rounded-full bg-white mx-1" />
@@ -670,7 +670,7 @@ export default function Preise() {
                   </div>
                   <div
                     className={`w-10 h-6 rounded-full transition-all flex items-center ${
-                      connectorAddons[cat.category] ? "bg-[#ff6a00] justify-end" : "bg-white/10 justify-start"
+                      connectorAddons[cat.category] ? "bg-[#ff6a00] justify-end" : "bg-muted justify-start"
                     }`}
                   >
                     <div className="w-4 h-4 rounded-full bg-white mx-1" />
@@ -683,7 +683,7 @@ export default function Preise() {
       </section>
 
       {/* ===== 6) FAQ ===== */}
-      <section className="py-24 lg:py-32 relative border-t border-white/[0.06]" data-testid="section-faq">
+      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-faq">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -733,7 +733,7 @@ export default function Preise() {
       </section>
 
       {/* ===== 7) CTA FOOTER ===== */}
-      <section id="cta-footer" className="py-32 lg:py-44 relative border-t border-white/[0.06]" data-testid="section-cta-footer">
+      <section id="cta-footer" className="py-32 lg:py-44 relative border-t border-border" data-testid="section-cta-footer">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
@@ -762,7 +762,7 @@ export default function Preise() {
               <Button
                 variant="outline"
                 onClick={() => navigate("/")}
-                className="border-white/20 text-white/80 bg-white/5 backdrop-blur-sm"
+                className="border-border text-foreground/80 bg-card backdrop-blur-sm"
                 data-testid="button-kontakt-cta"
               >
                 Kontakt

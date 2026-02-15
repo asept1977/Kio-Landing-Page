@@ -27,6 +27,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -54,7 +55,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
       data-testid="navigation"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-white/[0.08]"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -65,7 +66,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <div className="w-9 h-9 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-lg tracking-tighter">
                 K
               </div>
-              <span className="font-bold text-xl tracking-tight text-white">
+              <span className={`font-bold text-xl tracking-tight ${scrolled ? "text-foreground" : "text-white"}`}>
                 KIO
               </span>
             </div>
@@ -76,17 +77,17 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button
                 data-testid="button-nav-solutions"
                 onClick={() => setBranchenOpen(!branchenOpen)}
-                className="text-sm font-medium transition-colors flex items-center gap-1 text-white/70 hover:text-white"
+                className={`text-sm font-medium transition-colors flex items-center gap-1 ${scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"}`}
               >
                 {t.solutions}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${branchenOpen ? 'rotate-180' : ''}`} />
               </button>
               {branchenOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-white/[0.1] rounded-md shadow-lg py-2" data-testid="dropdown-branchen">
+                <div className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border rounded-md shadow-lg py-2" data-testid="dropdown-branchen">
                   {branchLinks.map((link) => (
                     <Link key={link.href} href={link.href}>
                       <span
-                        className="block px-4 py-2.5 text-sm text-white/60 hover:text-white hover:bg-white/[0.05] transition-colors cursor-pointer"
+                        className="block px-4 py-2.5 text-sm text-foreground/60 hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer"
                         data-testid={`link-branch-${link.href.replace('/', '')}`}
                         onClick={() => setBranchenOpen(false)}
                       >
@@ -98,23 +99,23 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               )}
             </div>
             <Link href="/preise">
-              <span data-testid="button-nav-preise" className={`text-sm font-medium transition-colors cursor-pointer ${location === "/preise" ? "text-white" : "text-white/70 hover:text-white"}`}>
+              <span data-testid="button-nav-preise" className={`text-sm font-medium transition-colors cursor-pointer ${location === "/preise" ? (scrolled ? "text-foreground" : "text-white") : (scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white")}`}>
                 {lang === "de" ? "Preise" : "Pricing"}
               </span>
             </Link>
-            <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className="text-sm font-medium transition-colors text-white/70 hover:text-white">
+            <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className={`text-sm font-medium transition-colors ${scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"}`}>
               {t.roi}
             </button>
-            <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className="text-sm font-medium transition-colors text-white/70 hover:text-white">
+            <button data-testid="button-nav-sovereignty" onClick={() => scrollToSection("sovereignty")} className={`text-sm font-medium transition-colors ${scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"}`}>
               {t.sovereignty}
             </button>
 
-            <div className="flex items-center gap-3 border-l border-white/20 pl-8">
+            <div className={`flex items-center gap-3 border-l ${scrolled ? "border-border" : "border-white/20"} pl-8`}>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-                className="text-xs font-bold gap-1.5 text-white/70"
+                className={`text-xs font-bold gap-1.5 ${scrolled ? "text-foreground/60" : "text-white/70"}`}
                 data-testid="button-lang-toggle"
               >
                 <Globe className="w-3.5 h-3.5" />
@@ -135,13 +136,13 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               variant="ghost"
               size="sm"
               onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-              className="text-xs font-bold gap-1 text-white/70"
+              className={`text-xs font-bold gap-1 ${scrolled ? "text-foreground/60" : "text-white/70"}`}
               data-testid="button-lang-toggle-mobile"
             >
               {lang === 'en' ? 'DE' : 'EN'}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} data-testid="button-mobile-menu">
-              {mobileMenuOpen ? <X className="text-white/70" /> : <Menu className="text-white/70" />}
+              {mobileMenuOpen ? <X className={scrolled ? "text-foreground/60" : "text-white/70"} /> : <Menu className={scrolled ? "text-foreground/60" : "text-white/70"} />}
             </Button>
           </div>
         </div>
@@ -153,7 +154,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/[0.08] overflow-hidden"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
               <p className="text-xs font-bold text-foreground/30 tracking-widest uppercase">{t.solutions}</p>
