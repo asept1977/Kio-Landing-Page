@@ -695,9 +695,42 @@ export default function Preise() {
 
       <Footer lang={lang} />
 
-      {/* Fixed Price Summary - Bottom Right */}
+      {/* Fixed Price Summary - Bottom */}
+      {/* Mobile: full-width compact bar */}
       <div
-        className="fixed bottom-6 right-6 z-50 w-80 bg-background border border-border rounded-md shadow-lg p-6"
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3"
+        data-testid="configurator-price-box-mobile"
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              {isEnterprise ? (
+                <span className="text-lg font-bold text-[#ff6a00]" data-testid="text-total-price-mobile">Enterprise</span>
+              ) : (
+                <span className="text-lg font-bold text-[#ff6a00]" data-testid="text-total-price-mobile">
+                  {prices.totalMonthly.toLocaleString("de-DE")} €<span className="text-xs font-normal text-foreground/40 ml-1">/ Monat</span>
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-foreground/50 mt-0.5">
+              {prices.perUserTotal} € / User &middot; {userCount} User
+            </p>
+          </div>
+          <Button
+            onClick={handleCopySummary}
+            variant="outline"
+            size="sm"
+            className="border-border text-foreground/80 shrink-0"
+            data-testid="button-copy-summary-mobile"
+          >
+            <Copy className="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Desktop: card fixed bottom-right */}
+      <div
+        className="fixed bottom-6 right-6 z-50 w-80 bg-background border border-border rounded-md shadow-lg p-6 hidden md:block"
         data-testid="configurator-price-box"
       >
         <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-4">
