@@ -1,0 +1,113 @@
+DU BIST REPLIT AI UND SOLLST MEINE BESTEHENDE KIO-WEBSITE ERWEITERN.
+WICHTIG: NICHTS am bestehenden Look&Feel, an Farben, Typografie, Komponenten, Navigation oder bestehenden Seiten verändern. KEIN Redesign. Nur eine neue Unterseite hinzufügen und sauber in die Navigation integrieren.
+
+AUFGABE
+Erstelle eine neue Unterseite mit dem Namen/Slug:
+- Titel: "Preise"
+- Route/URL: "/preise"
+- Menüpunkt in der Top-Navigation: "Preise" (zwischen "Use Cases" und "Kontakt" falls vorhanden, sonst passend einfügen)
+- Seite muss responsiv sein (Desktop + Mobile) und exakt den bestehenden Style der Website wiederverwenden (bestehende CSS/Komponenten nutzen).
+
+INHALTLICHE STRUKTUR DER SEITE /PREISE
+1) HERO (oben)
+- H1: "Preise, die mit deinem Nutzen wachsen"
+- Subline: "Starte klein — erweitere KIO um Wissen, Datenquellen und Automatisierung, sobald es sich lohnt."
+- 2 CTAs:
+  - Primär: "Demo buchen"
+  - Sekundär: "Angebot konfigurieren"
+- Kurz-Trustline darunter (klein): "DSGVO-konform • Enterprise Security • EU/Sovereign Optionen"
+
+2) PREISLOGIK (kurz & verständlich, KEIN technisches Blabla)
+- Abschnittstitel: "So setzt sich der Preis zusammen"
+- Zeige 3 verständliche Bausteine als Cards (im bestehenden Card/Box-Stil, mit dezentem KIO-Orange als Akzent):
+  A) "User" – "Wie viele Menschen mit KIO arbeiten"
+  B) "Wissen" – "Wie viel KIO über dein Unternehmen versteht"
+  C) "Intelligence Add-ons" – "Welche externen Quellen KIO zusätzlich nutzt"
+- Jede Card hat 2–3 Bulletpoints (max. 10 Wörter je Bullet).
+
+3) EINSTIEGSPREIS (niedrige Einstiegshürde)
+- Abschnittstitel: "Einstieg"
+- Zeige eine Preis-Card:
+  - "KIO Access" – "ab 29 € / User / Monat"
+  - Enthält: "Q&A über interne Dokumente", "M365/Files optional", "Sichere Arbeitsoberfläche"
+- Hinweis (klein, elegant): "Erweiterungen jederzeit aktivierbar."
+
+4) KONFIGURATOR (interaktiver Bereich, aber simpel)
+- Abschnittstitel: "Konfiguriere dein Setup"
+- Links: 3 Regler/Inputs, rechts: Live-Preisbox (wie ein Angebot)
+  INPUTS:
+  - Anzahl User (Stepper)
+  - "Wie aktiv soll KIO arbeiten?" (4-stufige Auswahl als Buttons):
+    1 Antworten
+    2 Vorbereiten
+    3 Erledigen
+    4 Überwachen
+  - "Wie viel Wissen soll KIO verstehen?" (Schieberegler mit 5 Stufen, KEINE GB anzeigen):
+    1 "Nur aktuelle Dokumente"
+    2 "Team-Wissen"
+    3 "Unternehmenswissen"
+    4 "Organisationsgedächtnis"
+    5 "Vollarchiv"
+  RECHTS: Live-Preisbox zeigt:
+  - Preis pro User
+  - Plattform/Knowledge Capacity Zuschlag (als "Wissenskapazität")
+  - Add-ons Summe
+  - Gesamtsumme / Monat
+  - Button: "Zusammenfassung kopieren"
+- Preismodell (für Demo realistisch, aber nicht final juristisch):
+  - Basis: 29 € pro User/Monat
+  - Aktivitätslevel Aufpreis pro User:
+    Antworten +0
+    Vorbereiten +40
+    Erledigen +90
+    Überwachen +160
+  - Wissens-Stufen (monatlich als "Wissenskapazität"):
+    Stufe 1 +0
+    Stufe 2 +190
+    Stufe 3 +490
+    Stufe 4 +990
+    Stufe 5: zeige "Enterprise" statt Preis + Hinweis "Individuelles Setup"
+- Alles rein clientseitig (kein Backend), sofortiges Update beim Klicken.
+
+5) ADD-ONS (als saubere, verständliche Liste mit Toggle)
+- Abschnittstitel: "Intelligence Add-ons"
+- Unterteilung in 2 Gruppen mit Tabs oder Accordion:
+  A) "Externe Wissensquellen"
+     - North Data (+39 €/User)
+     - DIP Bundestag (+35 €/User)
+     - Lobbyregister (+30 €/User)
+     - Statista (+49 €/User)
+  B) "Interne Systeme (Connectoren)"
+     - HR: Personio, Clockodo (zeige "ab +20 €/User" als Sammelpreis)
+     - ERP: SAP, ProAlpha (zeige "ab +40 €/User")
+     - CRM: HubSpot, Salesforce (zeige "ab +40 €/User")
+     - Wiki/Work: Jira, Confluence (zeige "ab +20 €/User")
+- Wichtig: Bei "Interne Systeme" NICHT jedes System einzeln bepreisen, sondern als Kategorie-Toggle (HR/ERP/CRM/Wiki). Beim Toggle den Sammelpreis addieren.
+
+6) FAQ (max. 6 Fragen, kurz)
+- "Warum startet KIO günstig?"
+- "Speichert KIO alle E-Mails?"
+- "Kann ich Add-ons später aktivieren?"
+- "Wie funktioniert Wissenskapazität?"
+- "Gibt es Enterprise / Sovereign Optionen?"
+- "Welche Vertragslaufzeiten gibt es?"
+Antworten kurz, business-orientiert.
+
+7) CTA-Footer
+- "Lass uns dein Setup in 20 Minuten konfigurieren."
+- Button: "Demo buchen" + "Kontakt"
+
+TECHNISCHE ANFORDERUNGEN
+- Nutze das bestehende Routing/Framework der Website automatisch:
+  - Wenn Next.js: erstelle pages/preise.tsx oder app/preise/page.tsx (je nach Struktur).
+  - Wenn React Router: Route hinzufügen.
+  - Wenn Astro/Svelte/…: entsprechend integrieren.
+- Nutze vorhandene Komponenten (Button, Card, Container, Section, Accordion), falls vorhanden. Wenn nicht vorhanden, baue minimal neue Komponenten, die exakt wie bestehende aussehen.
+- Keine externen UI-Libs hinzufügen.
+- Keine Breaking Changes.
+- Menü-Link "Preise" muss aktiv markiert werden, wenn man auf /preise ist.
+
+OUTPUT
+- Implementiere die Seite vollständig.
+- Stelle sicher, dass Build/Preview ohne Fehler läuft.
+- Zeige mir am Ende kurz, welche Dateien du geändert/neu angelegt hast.

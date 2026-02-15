@@ -31,6 +31,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `/` - Main landing page (bilingual EN/DE)
 - `/verbaende` - "KIO für Verbände" subpage (German only)
 - `/public-affairs` - "KIO für Public Affairs" subpage (German only)
+- `/preise` - Pricing page with interactive configurator (German only)
 
 ### Home Page Sections
 1. Hero: "Enterprise Knowledge. Orchestrated."

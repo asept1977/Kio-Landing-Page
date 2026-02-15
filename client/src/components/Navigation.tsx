@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
@@ -22,6 +22,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [branchenOpen, setBranchenOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [location] = useLocation();
   const t = translations[lang].nav;
 
   useEffect(() => {
@@ -96,6 +97,11 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                 </div>
               )}
             </div>
+            <Link href="/preise">
+              <span data-testid="button-nav-preise" className={`text-sm font-medium transition-colors cursor-pointer ${location === "/preise" ? "text-white" : "text-white/70 hover:text-white"}`}>
+                {lang === "de" ? "Preise" : "Pricing"}
+              </span>
+            </Link>
             <button data-testid="button-nav-roi" onClick={() => scrollToSection("roi")} className="text-sm font-medium transition-colors text-white/70 hover:text-white">
               {t.roi}
             </button>
@@ -162,6 +168,15 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                   </span>
                 </Link>
               ))}
+              <Link href="/preise">
+                <span
+                  className="block w-full text-left text-lg font-medium text-foreground/80 cursor-pointer"
+                  data-testid="button-mobile-preise"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {lang === "de" ? "Preise" : "Pricing"}
+                </span>
+              </Link>
               <button onClick={() => scrollToSection("roi")} className="block w-full text-left text-lg font-medium text-foreground/80" data-testid="button-mobile-roi">
                 {t.roi}
               </button>

@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import Verbaende from "@/pages/Verbaende";
 import PublicAffairs from "@/pages/PublicAffairs";
 import Industrie from "@/pages/Industrie";
+import Preise from "@/pages/Preise";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/verbaende" component={Verbaende} />
         <Route path="/public-affairs" component={PublicAffairs} />
         <Route path="/industrie" component={Industrie} />
+        <Route path="/preise" component={Preise} />
         <Route component={NotFound} />
       </Switch>
     </>
