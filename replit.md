@@ -51,6 +51,9 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 3. Referenzen: Miller & Meier Consulting, 365Sherpas
 4. Final CTA: "Strategiegespräch vereinbaren"
 
+## Saved Concepts
+- **KIO Data Flow SVG**: Three.js/Canvas visualization with KIO core in center, internal tools (ERP, CRM, Miro, Outlook, SharePoint, Teams, Atlassian, Database) on the left in blue, external sources (North Data, Statista, DIP, Lobbyregister, Dun & Bradstreet) on the right in violet. Bezier cables connect nodes to KIO core with animated pulses. Includes brand logos (Microsoft, Miro, Atlassian, Statista SVG paths). Component at `client/src/components/HeroAnimation.tsx`. Currently NOT used on homepage but kept for future use.
+
 ## User Preferences
 - Dark enterprise design
 - Orange (#ff6a00) and deep blue (#003366) accents

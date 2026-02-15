@@ -2,7 +2,6 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { RoiCalculator } from "@/components/RoiCalculator";
-import { HeroAnimation } from "@/components/HeroAnimation";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -67,11 +66,11 @@ export default function Home() {
       <Navigation lang={lang} setLang={setLang} />
 
       {/* ===== HERO ===== */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero" style={{ minHeight: "100vh" }}>
-        <div className="absolute inset-0" style={{ backgroundColor: "#0b1d2c" }}>
-          <HeroAnimation />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,106,0,0.06)_0%,_transparent_50%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0b1d2c]/60" />
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden" data-testid="section-hero">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#003366] via-[#001a33] to-black" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,106,0,0.08)_0%,_transparent_60%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
