@@ -384,8 +384,8 @@ export default function Preise() {
             </motion.h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-            <div className="lg:col-span-3 space-y-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-8">
               {/* User Count */}
               <motion.div
                 initial="hidden"
@@ -485,85 +485,6 @@ export default function Preise() {
                     </button>
                   ))}
                 </div>
-              </motion.div>
-            </div>
-
-            {/* Price Summary - Sticky */}
-            <div className="lg:col-span-2 lg:sticky lg:top-24 z-40">
-              <motion.div
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="glass-card rounded-md p-8"
-                data-testid="configurator-price-box"
-              >
-                <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-6">
-                  Preisübersicht
-                </p>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-foreground/60">Basispreis / User</span>
-                    <span className="font-bold text-foreground" data-testid="text-price-base">{prices.basePricePerUser} €</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-foreground/60">Aktivitätszuschlag / User</span>
-                    <span className="font-bold text-foreground" data-testid="text-price-activity">+{prices.activitySurcharge} €</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-foreground/60">Wissenskapazität</span>
-                    <span className="font-bold text-foreground" data-testid="text-price-knowledge">
-                      {isEnterprise ? "Enterprise" : `+${prices.knowledgeCost} €`}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-foreground/60">Add-ons / User</span>
-                    <span className="font-bold text-foreground" data-testid="text-price-addons">+{prices.addonsPerUser} €</span>
-                  </div>
-                </div>
-
-                <div className="border-t border-border pt-6 mb-2">
-                  <div className="flex items-center justify-between text-sm mb-1">
-                    <span className="text-foreground/60">Preis / User / Monat</span>
-                    <span className="font-bold text-foreground" data-testid="text-price-per-user">{prices.perUserTotal} €</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm mb-1">
-                    <span className="text-foreground/60">User</span>
-                    <span className="font-bold text-foreground">× {userCount}</span>
-                  </div>
-                  {!isEnterprise && prices.knowledgeCost > 0 && (
-                    <div className="flex items-center justify-between text-sm mb-1">
-                      <span className="text-foreground/60">Wissenskapazität</span>
-                      <span className="font-bold text-foreground">+ {prices.knowledgeCost} €</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="border-t border-border pt-6 mb-6">
-                  {isEnterprise ? (
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-[#ff6a00]" data-testid="text-total-price">Enterprise</p>
-                      <p className="text-xs text-foreground/40 mt-1">Individuelles Setup</p>
-                    </div>
-                  ) : (
-                    <div className="text-center">
-                      <p className="text-3xl font-bold text-[#ff6a00]" data-testid="text-total-price">
-                        {prices.totalMonthly.toLocaleString("de-DE")} €
-                      </p>
-                      <p className="text-xs text-foreground/40 mt-1">pro Monat</p>
-                    </div>
-                  )}
-                </div>
-
-                <Button
-                  onClick={handleCopySummary}
-                  variant="outline"
-                  className="w-full border-border text-foreground/80"
-                  data-testid="button-copy-summary"
-                >
-                  <Copy className="w-4 h-4 mr-2" /> Zusammenfassung kopieren
-                </Button>
               </motion.div>
             </div>
           </div>
@@ -773,6 +694,80 @@ export default function Preise() {
       </section>
 
       <Footer lang={lang} />
+
+      {/* Fixed Price Summary - Bottom Right */}
+      <div
+        className="fixed bottom-6 right-6 z-50 w-80 bg-background border border-border rounded-md shadow-lg p-6"
+        data-testid="configurator-price-box"
+      >
+        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-4">
+          Preisübersicht
+        </p>
+
+        <div className="space-y-3 mb-4">
+          <div className="flex items-center justify-between gap-2 text-sm">
+            <span className="text-foreground/60">Basispreis / User</span>
+            <span className="font-bold text-foreground" data-testid="text-price-base">{prices.basePricePerUser} €</span>
+          </div>
+          <div className="flex items-center justify-between gap-2 text-sm">
+            <span className="text-foreground/60">Aktivitätszuschlag</span>
+            <span className="font-bold text-foreground" data-testid="text-price-activity">+{prices.activitySurcharge} €</span>
+          </div>
+          <div className="flex items-center justify-between gap-2 text-sm">
+            <span className="text-foreground/60">Wissenskapazität</span>
+            <span className="font-bold text-foreground" data-testid="text-price-knowledge">
+              {isEnterprise ? "Enterprise" : `+${prices.knowledgeCost} €`}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-2 text-sm">
+            <span className="text-foreground/60">Add-ons / User</span>
+            <span className="font-bold text-foreground" data-testid="text-price-addons">+{prices.addonsPerUser} €</span>
+          </div>
+        </div>
+
+        <div className="border-t border-border pt-4 mb-4">
+          <div className="flex items-center justify-between gap-2 text-sm mb-1">
+            <span className="text-foreground/60">Pro User / Monat</span>
+            <span className="font-bold text-foreground" data-testid="text-price-per-user">{prices.perUserTotal} €</span>
+          </div>
+          <div className="flex items-center justify-between gap-2 text-sm">
+            <span className="text-foreground/60">User</span>
+            <span className="font-bold text-foreground">× {userCount}</span>
+          </div>
+          {!isEnterprise && prices.knowledgeCost > 0 && (
+            <div className="flex items-center justify-between gap-2 text-sm mt-1">
+              <span className="text-foreground/60">Wissenskapazität</span>
+              <span className="font-bold text-foreground">+ {prices.knowledgeCost} €</span>
+            </div>
+          )}
+        </div>
+
+        <div className="border-t border-border pt-4 mb-4">
+          {isEnterprise ? (
+            <div className="text-center">
+              <p className="text-xl font-bold text-[#ff6a00]" data-testid="text-total-price">Enterprise</p>
+              <p className="text-xs text-foreground/40 mt-1">Individuelles Setup</p>
+            </div>
+          ) : (
+            <div className="text-center">
+              <p className="text-2xl font-bold text-[#ff6a00]" data-testid="text-total-price">
+                {prices.totalMonthly.toLocaleString("de-DE")} €
+              </p>
+              <p className="text-xs text-foreground/40 mt-1">pro Monat</p>
+            </div>
+          )}
+        </div>
+
+        <Button
+          onClick={handleCopySummary}
+          variant="outline"
+          className="w-full border-border text-foreground/80"
+          size="sm"
+          data-testid="button-copy-summary"
+        >
+          <Copy className="w-4 h-4 mr-2" /> Zusammenfassung kopieren
+        </Button>
+      </div>
     </div>
   );
 }
