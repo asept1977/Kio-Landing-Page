@@ -695,111 +695,37 @@ export default function Preise() {
 
       <Footer lang={lang} />
 
-      {/* Fixed Price Summary - Bottom */}
-      {/* Mobile: full-width compact bar */}
+      {/* Fixed Price Bar - Bottom full width, single line */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3"
-        data-testid="configurator-price-box-mobile"
-      >
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-baseline gap-2 flex-wrap">
-              {isEnterprise ? (
-                <span className="text-lg font-bold text-[#ff6a00]" data-testid="text-total-price-mobile">Enterprise</span>
-              ) : (
-                <span className="text-lg font-bold text-[#ff6a00]" data-testid="text-total-price-mobile">
-                  {prices.totalMonthly.toLocaleString("de-DE")} €<span className="text-xs font-normal text-foreground/40 ml-1">/ Monat</span>
-                </span>
-              )}
-            </div>
-            <p className="text-xs text-foreground/50 mt-0.5">
-              {prices.perUserTotal} € / User &middot; {userCount} User
-            </p>
-          </div>
-          <Button
-            onClick={handleCopySummary}
-            variant="outline"
-            size="sm"
-            className="border-border text-foreground/80 shrink-0"
-            data-testid="button-copy-summary-mobile"
-          >
-            <Copy className="w-4 h-4" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Desktop: card fixed bottom-right */}
-      <div
-        className="fixed bottom-6 right-6 z-50 w-80 bg-background border border-border rounded-md shadow-lg p-6 hidden md:block"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
         data-testid="configurator-price-box"
       >
-        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-foreground/40 mb-4">
-          Preisübersicht
-        </p>
-
-        <div className="space-y-3 mb-4">
-          <div className="flex items-center justify-between gap-2 text-sm">
-            <span className="text-foreground/60">Basispreis / User</span>
-            <span className="font-bold text-foreground" data-testid="text-price-base">{prices.basePricePerUser} €</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap min-w-0">
+            <span className="text-xs text-foreground/50 hidden sm:inline">{prices.perUserTotal} € / User</span>
+            <span className="text-xs text-foreground/50 hidden sm:inline">{userCount} User</span>
+            <span className="text-xs text-foreground/50 sm:hidden">{prices.perUserTotal} € &times; {userCount}</span>
           </div>
-          <div className="flex items-center justify-between gap-2 text-sm">
-            <span className="text-foreground/60">Aktivitätszuschlag</span>
-            <span className="font-bold text-foreground" data-testid="text-price-activity">+{prices.activitySurcharge} €</span>
-          </div>
-          <div className="flex items-center justify-between gap-2 text-sm">
-            <span className="text-foreground/60">Wissenskapazität</span>
-            <span className="font-bold text-foreground" data-testid="text-price-knowledge">
-              {isEnterprise ? "Enterprise" : `+${prices.knowledgeCost} €`}
-            </span>
-          </div>
-          <div className="flex items-center justify-between gap-2 text-sm">
-            <span className="text-foreground/60">Add-ons / User</span>
-            <span className="font-bold text-foreground" data-testid="text-price-addons">+{prices.addonsPerUser} €</span>
+          <div className="flex items-center gap-4 shrink-0">
+            {isEnterprise ? (
+              <span className="text-lg sm:text-xl font-bold text-[#ff6a00]" data-testid="text-total-price">Enterprise</span>
+            ) : (
+              <span className="text-lg sm:text-xl font-bold text-[#ff6a00]" data-testid="text-total-price">
+                {prices.totalMonthly.toLocaleString("de-DE")} €<span className="text-xs font-normal text-foreground/40 ml-1">/ Monat</span>
+              </span>
+            )}
+            <Button
+              onClick={handleCopySummary}
+              variant="outline"
+              size="sm"
+              className="border-border text-foreground/80"
+              data-testid="button-copy-summary"
+            >
+              <Copy className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Kopieren</span>
+            </Button>
           </div>
         </div>
-
-        <div className="border-t border-border pt-4 mb-4">
-          <div className="flex items-center justify-between gap-2 text-sm mb-1">
-            <span className="text-foreground/60">Pro User / Monat</span>
-            <span className="font-bold text-foreground" data-testid="text-price-per-user">{prices.perUserTotal} €</span>
-          </div>
-          <div className="flex items-center justify-between gap-2 text-sm">
-            <span className="text-foreground/60">User</span>
-            <span className="font-bold text-foreground">× {userCount}</span>
-          </div>
-          {!isEnterprise && prices.knowledgeCost > 0 && (
-            <div className="flex items-center justify-between gap-2 text-sm mt-1">
-              <span className="text-foreground/60">Wissenskapazität</span>
-              <span className="font-bold text-foreground">+ {prices.knowledgeCost} €</span>
-            </div>
-          )}
-        </div>
-
-        <div className="border-t border-border pt-4 mb-4">
-          {isEnterprise ? (
-            <div className="text-center">
-              <p className="text-xl font-bold text-[#ff6a00]" data-testid="text-total-price">Enterprise</p>
-              <p className="text-xs text-foreground/40 mt-1">Individuelles Setup</p>
-            </div>
-          ) : (
-            <div className="text-center">
-              <p className="text-2xl font-bold text-[#ff6a00]" data-testid="text-total-price">
-                {prices.totalMonthly.toLocaleString("de-DE")} €
-              </p>
-              <p className="text-xs text-foreground/40 mt-1">pro Monat</p>
-            </div>
-          )}
-        </div>
-
-        <Button
-          onClick={handleCopySummary}
-          variant="outline"
-          className="w-full border-border text-foreground/80"
-          size="sm"
-          data-testid="button-copy-summary"
-        >
-          <Copy className="w-4 h-4 mr-2" /> Zusammenfassung kopieren
-        </Button>
       </div>
     </div>
   );
