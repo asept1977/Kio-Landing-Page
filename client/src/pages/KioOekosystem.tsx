@@ -2,10 +2,12 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Footer } from "@/components/Footer";
+import { Navigation } from "@/components/Navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Database, Bot, Wrench, Users, Link2, Brain, Play, Shield, Lock, Server, KeyRound } from "lucide-react";
+import { ArrowRight, Database, Bot, Wrench, Users, Link2, Brain, Play, Shield, Lock, Server, KeyRound } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import type { Lang } from "@/lib/i18n";
 import updatesData from "@/data/updates.json";
 
 const fadeUp = {
@@ -30,10 +32,10 @@ const latestUpdates = [...updatesData]
   .slice(0, 3);
 
 export default function KioOekosystem() {
-  const lang = "de" as const;
+  const [lang, setLang] = useState<Lang>('de');
 
   useEffect(() => {
-    document.title = "KI Ökosystem — KIO | Enterprise AI Ecosystem";
+    document.title = "KIO Plattform — KIO | Enterprise AI Ecosystem";
   }, []);
 
   const howItWorks = [
@@ -93,34 +95,7 @@ export default function KioOekosystem() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
-      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-border" data-testid="nav-oekosystem">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer" data-testid="link-logo-oekosystem">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-base tracking-tighter">
-                K
-              </div>
-              <span className="font-bold text-lg tracking-tight text-foreground">KIO</span>
-            </div>
-          </Link>
-          <div className="hidden sm:flex items-center gap-6 flex-wrap">
-            <Link href="/">
-              <span className="text-sm font-medium text-foreground/50 cursor-pointer transition-colors" data-testid="link-nav-home-oeko">Home</span>
-            </Link>
-            <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active-oeko">KI Ökosystem</span>
-            <Link href="/kio-oekosystem/updates">
-              <span className="text-sm font-medium text-foreground/50 cursor-pointer transition-colors" data-testid="link-nav-updates">Updates</span>
-            </Link>
-          </div>
-          <div className="sm:hidden">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="text-foreground/50 gap-1" data-testid="button-back-home-oeko">
-                <ArrowLeft className="w-4 h-4" /> Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation lang={lang} setLang={setLang} forceScrolled />
 
       <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 overflow-hidden" data-testid="section-hero-oekosystem">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
@@ -131,7 +106,7 @@ export default function KioOekosystem() {
             <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-oekosystem">
               <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
               <span>/</span>
-              <span className="text-[#ff6a00] font-medium">KI Ökosystem</span>
+              <span className="text-[#ff6a00] font-medium">KIO Plattform</span>
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-foreground text-center" data-testid="text-hero-title-oekosystem">

@@ -19,10 +19,10 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `client/src/pages/Home.tsx` - Main landing page with all sections
 - `client/src/pages/Verbaende.tsx` - "KIO für Verbände" subpage (German)
 - `client/src/pages/PublicAffairs.tsx` - "KIO für Public Affairs" subpage (German)
-- `client/src/pages/KioOekosystem.tsx` - KI Ökosystem overview page (German)
+- `client/src/pages/KioOekosystem.tsx` - KIO Plattform overview page (German)
 - `client/src/pages/KioUpdates.tsx` - Filterable product updates page (German)
 - `client/src/data/updates.json` - Product update entries (add new updates here without code changes)
-- `client/src/components/Navigation.tsx` - Fixed nav with lang toggle, two dropdowns (Branchen + KI Ökosystem)
+- `client/src/components/Navigation.tsx` - Fixed nav with lang toggle, two dropdowns (Branchen + KIO Plattform)
 - `client/src/components/ContactForm.tsx` - Enterprise lead form
 - `client/src/components/Footer.tsx` - Minimal footer
 - `client/src/lib/i18n.ts` - Translations (EN/DE)
@@ -35,7 +35,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `/verbaende` - "KIO für Verbände" subpage (German only)
 - `/public-affairs` - "KIO für Public Affairs" subpage (German only)
 - `/preise` - Pricing page with interactive configurator (German only)
-- `/kio-oekosystem` - KI Ökosystem overview with hero, how-it-works, architecture, updates teaser, security
+- `/kio-oekosystem` - KIO Plattform overview with hero, how-it-works, architecture, updates teaser, security
 - `/kio-oekosystem/updates` - Filterable product development log (data from updates.json)
 
 ### Home Page Sections

@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, Database, Users, Mail, Share2, Shield } from "lucide-react";
+import { ArrowRight, Database, Users, Mail, Share2, Shield } from "lucide-react";
+import { Navigation } from "@/components/Navigation";
+import type { Lang } from "@/lib/i18n";
 import aixLogoPath from "@assets/image6.png";
 
 const fadeUp = {
@@ -95,42 +98,12 @@ const techFeatures = [
 ];
 
 export default function Industrie() {
+  const [lang, setLang] = useState<Lang>('de');
   const [, navigate] = useLocation();
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
-      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-border" data-testid="nav-industrie">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer" data-testid="link-logo-industrie">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-base tracking-tighter">
-                K
-              </div>
-              <span className="font-bold text-lg tracking-tight text-foreground">KIO</span>
-            </div>
-          </Link>
-          <div className="hidden sm:flex items-center gap-6">
-            <Link href="/">
-              <span className="text-sm font-medium text-foreground/50 cursor-pointer hover:text-foreground/80 transition-colors" data-testid="link-nav-home">Home</span>
-            </Link>
-            <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active">Industrie & Mittelstand</span>
-            <button
-              onClick={() => document.getElementById("cta-final")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-sm font-medium text-foreground/50 hover:text-foreground/80 transition-colors"
-              data-testid="button-nav-kontakt"
-            >
-              Kontakt
-            </button>
-          </div>
-          <div className="sm:hidden">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="text-foreground/50 gap-1" data-testid="button-back-home">
-                <ArrowLeft className="w-4 h-4" /> Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation lang={lang} setLang={setLang} forceScrolled />
 
       <section className="relative pt-36 pb-28 lg:pt-52 lg:pb-40 overflow-hidden" data-testid="section-hero-industrie">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />

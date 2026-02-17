@@ -9,6 +9,7 @@ import { translations } from "@/lib/i18n";
 interface NavigationProps {
   lang: Lang;
   setLang: (lang: Lang) => void;
+  forceScrolled?: boolean;
 }
 
 const branchLinks = [
@@ -24,8 +25,8 @@ const oekosystemLinks = [
   { href: "/kio-oekosystem/updates", labelDe: "Updates", labelEn: "Updates" },
 ];
 
-export function Navigation({ lang, setLang }: NavigationProps) {
-  const [scrolled, setScrolled] = useState(false);
+export function Navigation({ lang, setLang, forceScrolled = false }: NavigationProps) {
+  const [scrolled, setScrolled] = useState(forceScrolled);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [branchenOpen, setBranchenOpen] = useState(false);
   const [oekosystemOpen, setOekosystemOpen] = useState(false);
@@ -35,11 +36,15 @@ export function Navigation({ lang, setLang }: NavigationProps) {
   const t = translations[lang].nav;
 
   useEffect(() => {
+    if (forceScrolled) {
+      setScrolled(true);
+      return;
+    }
     const handleScroll = () => setScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceScrolled]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -121,7 +126,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                     : (scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white")
                 }`}
               >
-                {lang === "de" ? "KI Ökosystem" : "AI Ecosystem"}
+                {lang === "de" ? "KIO Plattform" : "KIO Platform"}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${oekosystemOpen ? 'rotate-180' : ''}`} />
               </button>
               {oekosystemOpen && (
@@ -213,7 +218,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                 </Link>
               ))}
 
-              <p className="text-xs font-bold text-foreground/30 tracking-widest uppercase pt-2">{lang === "de" ? "KI Ökosystem" : "AI Ecosystem"}</p>
+              <p className="text-xs font-bold text-foreground/30 tracking-widest uppercase pt-2">{lang === "de" ? "KIO Plattform" : "KIO Platform"}</p>
               {oekosystemLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <span

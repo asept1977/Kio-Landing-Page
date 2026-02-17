@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Footer } from "@/components/Footer";
+import { Navigation } from "@/components/Navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
 import { useState, useEffect } from "react";
+import type { Lang } from "@/lib/i18n";
 import updatesData from "@/data/updates.json";
 
 const fadeUp = {
@@ -34,7 +35,7 @@ const sortedUpdates = [...updatesData].sort(
 
 export default function KioUpdates() {
   const [activeFilter, setActiveFilter] = useState<Category>("Alle");
-  const lang = "de" as const;
+  const [lang, setLang] = useState<Lang>('de');
 
   useEffect(() => {
     document.title = "Produktentwicklung — KIO | Enterprise AI Ecosystem";
@@ -47,34 +48,7 @@ export default function KioUpdates() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-[#ff6a00]/20">
-      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-border" data-testid="nav-updates">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer" data-testid="link-logo-updates">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#ff6a00] to-[#ff8533] rounded-md flex items-center justify-center text-white font-bold text-base tracking-tighter">
-                K
-              </div>
-              <span className="font-bold text-lg tracking-tight text-foreground">KIO</span>
-            </div>
-          </Link>
-          <div className="hidden sm:flex items-center gap-6 flex-wrap">
-            <Link href="/">
-              <span className="text-sm font-medium text-foreground/50 cursor-pointer transition-colors" data-testid="link-nav-home-updates">Home</span>
-            </Link>
-            <Link href="/kio-oekosystem">
-              <span className="text-sm font-medium text-foreground/50 cursor-pointer transition-colors" data-testid="link-nav-oeko">KI Ökosystem</span>
-            </Link>
-            <span className="text-sm font-bold text-[#ff6a00]" data-testid="text-nav-active-updates">Updates</span>
-          </div>
-          <div className="sm:hidden">
-            <Link href="/kio-oekosystem">
-              <Button variant="ghost" size="sm" className="text-foreground/50 gap-1" data-testid="button-back-oeko">
-                <ArrowLeft className="w-4 h-4" /> Ökosystem
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation lang={lang} setLang={setLang} forceScrolled />
 
       <section className="relative pt-36 pb-14 lg:pt-44 lg:pb-16 overflow-hidden" data-testid="section-hero-updates">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366]/[0.03] via-background to-background" />
@@ -85,7 +59,7 @@ export default function KioUpdates() {
             <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-foreground/40 mb-10" data-testid="breadcrumb-updates">
               <Link href="/"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO</span></Link>
               <span>/</span>
-              <Link href="/kio-oekosystem"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KI Ökosystem</span></Link>
+              <Link href="/kio-oekosystem"><span className="cursor-pointer hover:text-foreground/60 transition-colors">KIO Plattform</span></Link>
               <span>/</span>
               <span className="text-[#ff6a00] font-medium">Updates</span>
             </motion.div>
