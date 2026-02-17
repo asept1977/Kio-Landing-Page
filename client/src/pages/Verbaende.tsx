@@ -120,7 +120,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="realitaet" className="py-14 lg:py-20 relative" data-testid="section-realitaet-verbaende">
+      <section id="realitaet" className="pt-14 pb-8 lg:pt-20 lg:pb-10 relative" data-testid="section-realitaet-verbaende">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -187,7 +187,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="mit-kio" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-mitkio-verbaende">
+      <section id="mit-kio" className="pt-8 pb-14 lg:pt-10 lg:pb-20 relative border-t border-border" data-testid="section-mitkio-verbaende">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
