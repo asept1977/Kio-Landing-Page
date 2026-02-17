@@ -165,7 +165,7 @@ export default function Industrie() {
         </div>
       </section>
 
-      <section id="timeline" className="py-24 lg:py-36 relative" data-testid="section-timeline">
+      <section id="timeline" className="py-14 lg:py-20 relative" data-testid="section-timeline">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-32 lg:space-y-44">
             {useCases.map((uc, idx) => (
@@ -178,7 +178,7 @@ export default function Industrie() {
                 className="relative"
                 data-testid={`timeline-step-${idx}`}
               >
-                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16" data-testid={`text-timeline-title-${idx}`}>
+                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-10" data-testid={`text-timeline-title-${idx}`}>
                   {uc.headline}
                 </motion.h2>
 
@@ -232,16 +232,16 @@ export default function Industrie() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-tech">
+      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-tech">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-tech-title">
               Technologie
             </motion.h2>
@@ -272,7 +272,7 @@ export default function Industrie() {
         </div>
       </section>
 
-      <section id="cta-final" className="py-32 lg:py-44 relative" data-testid="section-cta-final">
+      <section id="cta-final" className="py-20 lg:py-28 relative" data-testid="section-cta-final">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div

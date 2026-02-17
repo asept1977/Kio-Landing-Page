@@ -141,16 +141,16 @@ export default function PublicAffairs() {
         </div>
       </section>
 
-      <section id="workflow" className="py-24 lg:py-32 relative" data-testid="section-workflow-pa">
+      <section id="workflow" className="pt-14 pb-8 lg:pt-20 lg:pb-10 relative" data-testid="section-workflow-pa">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="mb-16"
+            className="mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-workflow-title-pa">
               Vom Termin zum Wissensvorsprung
             </motion.h2>
@@ -196,16 +196,16 @@ export default function PublicAffairs() {
         </div>
       </section>
 
-      <section id="usecases" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-usecases-pa">
+      <section id="usecases" className="pt-8 pb-14 lg:pt-10 lg:pb-20 relative border-t border-border" data-testid="section-usecases-pa">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-usecases-title-pa">
               Anwendungsfälle
             </motion.h2>
@@ -252,16 +252,16 @@ export default function PublicAffairs() {
         </div>
       </section>
 
-      <section id="impact" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-impact-pa">
+      <section id="impact" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-impact-pa">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-impact-title-pa">
               Organisatorischer Impact
             </motion.h2>
@@ -311,16 +311,16 @@ export default function PublicAffairs() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-referenzen-pa">
+      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-referenzen-pa">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-referenzen-title-pa">
               Referenzen
             </motion.h2>
@@ -367,7 +367,7 @@ export default function PublicAffairs() {
         </div>
       </section>
 
-      <section id="cta-final" className="py-32 lg:py-44 relative" data-testid="section-cta-final-pa">
+      <section id="cta-final" className="py-20 lg:py-28 relative" data-testid="section-cta-final-pa">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
