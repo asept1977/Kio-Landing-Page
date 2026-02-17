@@ -120,16 +120,16 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="realitaet" className="py-24 lg:py-32 relative" data-testid="section-realitaet-verbaende">
+      <section id="realitaet" className="py-14 lg:py-20 relative" data-testid="section-realitaet-verbaende">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="mb-16"
+            className="mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-realitaet-title-verbaende">
               Realität in großen Verbänden
             </motion.h2>
@@ -187,16 +187,16 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="mit-kio" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-mitkio-verbaende">
+      <section id="mit-kio" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-mitkio-verbaende">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="mb-16"
+            className="mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-mitkio-title-verbaende">
               Mit KIO
             </motion.h2>
@@ -242,16 +242,16 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="beispiele" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-beispiele-verbaende">
+      <section id="beispiele" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-beispiele-verbaende">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-beispiele-title-verbaende">
               Anwendungsfälle
             </motion.h2>
@@ -298,16 +298,16 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="wirkung" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-wirkung-verbaende">
+      <section id="wirkung" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-wirkung-verbaende">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-wirkung-title-verbaende">
               Organisatorischer Impact
             </motion.h2>
@@ -360,16 +360,16 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 relative border-t border-border" data-testid="section-referenzen">
+      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-referenzen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-referenzen-title">
               Referenzen
             </motion.h2>
@@ -404,7 +404,7 @@ export default function Verbaende() {
         </div>
       </section>
 
-      <section id="cta-final" className="py-32 lg:py-44 relative" data-testid="section-cta-final">
+      <section id="cta-final" className="py-20 lg:py-28 relative" data-testid="section-cta-final">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
