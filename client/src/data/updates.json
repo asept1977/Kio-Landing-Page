@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2026-02-14",
+    "category": "Fähigkeit",
+    "title": "Automatische Stellungnahmen-Analyse",
+    "description": "KIO erkennt jetzt automatisch Kernargumente in eingehenden Stellungnahmen und ordnet sie bestehenden Verbandspositionen zu.",
+    "modules": ["Policy", "Research"]
+  },
+  {
+    "date": "2026-02-10",
+    "category": "Integration",
+    "title": "Microsoft 365 Connector erweitert",
+    "description": "SharePoint-Bibliotheken und Teams-Kanäle können jetzt als Wissensquelle konfiguriert werden — inklusive automatischer Synchronisation.",
+    "modules": ["Plattform"]
+  },
+  {
+    "date": "2026-02-05",
+    "category": "Plattform",
+    "title": "Neues Dashboard für Administratoren",
+    "description": "Übersicht über Nutzungsstatistiken, aktive Agenten und Datenquellen-Status auf einen Blick.",
+    "modules": ["Plattform"]
+  },
+  {
+    "date": "2026-01-29",
+    "category": "Sicherheit",
+    "title": "Rollenbasierte Zugriffskontrolle erweitert",
+    "description": "Neue granulare Berechtigungen für Datenquellen, Agenten und Assistenten. Zugriffe können jetzt pro Team und Projekt konfiguriert werden.",
+    "modules": ["Plattform", "Sicherheit"]
+  },
+  {
+    "date": "2026-01-22",
+    "category": "Fähigkeit",
+    "title": "Multi-Dokument-Vergleich",
+    "description": "KIO kann jetzt mehrere Dokumente gleichzeitig vergleichen und Unterschiede in Argumentation, Fakten und Positionen hervorheben.",
+    "modules": ["Policy", "Research", "Legal"]
+  },
+  {
+    "date": "2026-01-15",
+    "category": "Integration",
+    "title": "DIP-Parlamentsdaten live angebunden",
+    "description": "Gesetzgebungsverfahren des Bundestags werden automatisch überwacht. Relevante Vorgänge lösen Benachrichtigungen und Briefing-Entwürfe aus.",
+    "modules": ["Policy"]
+  },
+  {
+    "date": "2026-01-08",
+    "category": "Plattform",
+    "title": "Verbesserte Suchqualität",
+    "description": "GraphRAG-Algorithmus optimiert: Genauere Ergebnisse bei komplexen Fachfragen durch erweiterte Kontextfenster und Quellengewichtung.",
+    "modules": ["Research", "Sales"]
+  },
+  {
+    "date": "2025-12-18",
+    "category": "Fähigkeit",
+    "title": "Automatische Terminbriefings",
+    "description": "Vor geplanten Terminen erstellt KIO automatisch Briefings mit relevanten Vorgängen, Stakeholder-Profilen und offenen Punkten.",
+    "modules": ["Policy", "Sales", "HR"]
+  },
+  {
+    "date": "2025-12-10",
+    "category": "Sicherheit",
+    "title": "SOC 2 Type II Zertifizierung",
+    "description": "KIO hat die SOC 2 Type II Zertifizierung erfolgreich abgeschlossen. Alle Sicherheits- und Verfügbarkeitskontrollen wurden bestätigt.",
+    "modules": ["Sicherheit"]
+  },
+  {
+    "date": "2025-12-01",
+    "category": "Integration",
+    "title": "CRM-Synchronisation für Salesforce",
+    "description": "Kontakte, Opportunities und Aktivitäten fließen jetzt bidirektional zwischen Salesforce und KIO.",
+    "modules": ["Sales"]
+  }
+]

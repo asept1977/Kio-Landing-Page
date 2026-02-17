@@ -1,0 +1,149 @@
+Erweitere die bestehende Website um einen neuen Hauptbereich „KIO KI Ökosystem“.
+
+WICHTIG:
+- Bestehendes Design, Farben, Typografie und Layout dürfen NICHT verändert werden
+- Gleiche Komponenten wiederverwenden
+- Keine neue Design-Sprache einführen
+- Wir erweitern nur die bestehende Journey
+
+--------------------------------------------------
+NEUER NAVIGATIONSPUNKT
+--------------------------------------------------
+
+Füge im Hauptmenü einen neuen Punkt hinzu:
+
+KIO KI Ökosystem
+
+Dropdown:
+- Plattform
+- Integrationen
+- Sicherheit
+- Updates
+
+--------------------------------------------------
+SEITE: /kio-oekosystem (HAUPTSEITE)
+--------------------------------------------------
+
+Diese Seite erklärt das Gesamtsystem — nicht Marketing, sondern Strukturverständnis.
+
+SECTION 1 — HERO
+Titel:
+Das Betriebssystem für Organisationswissen
+
+Subline:
+KIO verbindet Datenquellen, Dokumente und Kommunikation zu einer arbeitsfähigen Wissensbasis.
+
+Keine Call-to-Action hier.
+
+Visual:
+Nutze bestehende Grafik-Komponenten (Linien / Datenflüsse / Nodes) falls vorhanden.
+
+
+SECTION 2 — WIE KIO ARBEITET
+3 nebeneinanderliegende Blöcke:
+
+1. Verbinden
+KIO integriert bestehende Systeme statt sie zu ersetzen.
+
+2. Verstehen
+Informationen werden strukturiert, zugeordnet und kontextualisiert.
+
+3. Ausführen
+Ergebnisse entstehen direkt im Arbeitskontext — nicht in einem separaten Tool.
+
+
+SECTION 3 — ARCHITEKTURLOGIK
+Titel:
+Keine einzelne KI — sondern ein koordiniertes System
+
+Vier Karten:
+
+Datenquellen  
+ERP, CRM, Dateien, E-Mails, politische Quellen
+
+Agenten  
+Spezialisierte Aufgabenlogiken je nach Fachbereich
+
+Werkzeuge  
+Analysieren, Schreiben, Strukturieren, Überwachen
+
+Assistenten  
+Direkte Zusammenarbeit im Arbeitsalltag
+
+
+--------------------------------------------------
+WICHTIGER VERTRAUENSBLOCK (UPDATES TEASER)
+--------------------------------------------------
+
+SECTION 4 — KIO ENTWICKELT SICH KONTINUIERLICH
+Diese Section MUSS zwischen Architektur und Sicherheit erscheinen.
+
+Titel:
+KIO wird jede Woche weiterentwickelt
+
+Darunter drei automatisch pflegbare Update-Karten:
+
+Karte enthält:
+- Datum
+- Kategorie (Fähigkeit / Integration / Plattform / Sicherheit)
+- Kurze Beschreibung (max 2 Zeilen)
+
+Darunter Button:
+Alle Updates ansehen → /kio-oekosystem/updates
+
+
+SECTION 5 — SICHERHEIT
+Titel:
+Für sensible Organisationen gebaut
+
+Stichpunkte:
+- Kein Training auf Kundendaten
+- Kontrollierte Datenflüsse
+- Europäische Hostingoptionen
+- Rollenbasierte Zugriffe
+
+
+--------------------------------------------------
+UNTERSEITE: /kio-oekosystem/updates
+--------------------------------------------------
+
+Dies ist KEIN Blog.
+Dies ist ein Produktentwicklungsprotokoll.
+
+Ganz oben:
+Titel: Produktentwicklung transparent gemacht
+Text: KIO wird laufend erweitert und verbessert.
+
+FILTER-LEISTE:
+Buttons:
+Alle
+Fähigkeiten
+Integrationen
+Plattform
+Sicherheit
+
+UPDATE-EINTRÄGE (Kartenliste)
+Struktur:
+
+Datum
+Kategorie Badge
+Titel
+Beschreibung (max 4 Zeilen)
+
+Optional:
+"betrifft Module: Policy, Research, Sales, HR"
+
+KEINE Kommentare
+KEINE Autoren
+KEINE Blogoptik
+
+
+--------------------------------------------------
+TECHNISCHE ANFORDERUNGEN
+--------------------------------------------------
+
+- Updates aus separater JSON Datei laden (updates.json)
+- Neue Updates sollen ohne Codeänderung hinzufügbar sein
+- Karten automatisch sortiert nach Datum
+- Wiederverwendbare Card-Komponente nutzen
+- Responsive Layout beibehalten
