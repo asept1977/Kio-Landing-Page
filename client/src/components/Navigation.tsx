@@ -17,11 +17,20 @@ const branchLinks = [
   { href: "/industrie", labelDe: "Industrie & Mittelstand", labelEn: "Industry & SME" },
 ];
 
+const oekosystemLinks = [
+  { href: "/kio-oekosystem", labelDe: "Plattform", labelEn: "Platform" },
+  { href: "/kio-oekosystem#architecture", labelDe: "Architektur", labelEn: "Architecture" },
+  { href: "/kio-oekosystem#security", labelDe: "Sicherheit", labelEn: "Security" },
+  { href: "/kio-oekosystem/updates", labelDe: "Updates", labelEn: "Updates" },
+];
+
 export function Navigation({ lang, setLang }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [branchenOpen, setBranchenOpen] = useState(false);
+  const [oekosystemOpen, setOekosystemOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const oekosystemRef = useRef<HTMLDivElement>(null);
   const [location] = useLocation();
   const t = translations[lang].nav;
 
@@ -36,6 +45,9 @@ export function Navigation({ lang, setLang }: NavigationProps) {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setBranchenOpen(false);
+      }
+      if (oekosystemRef.current && !oekosystemRef.current.contains(e.target as Node)) {
+        setOekosystemOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -76,7 +88,7 @@ export function Navigation({ lang, setLang }: NavigationProps) {
             <div className="relative" ref={dropdownRef}>
               <button
                 data-testid="button-nav-solutions"
-                onClick={() => setBranchenOpen(!branchenOpen)}
+                onClick={() => { setBranchenOpen(!branchenOpen); setOekosystemOpen(false); }}
                 className={`text-sm font-medium transition-colors flex items-center gap-1 ${scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"}`}
               >
                 {t.solutions}
@@ -98,6 +110,37 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                 </div>
               )}
             </div>
+
+            <div className="relative" ref={oekosystemRef}>
+              <button
+                data-testid="button-nav-oekosystem"
+                onClick={() => { setOekosystemOpen(!oekosystemOpen); setBranchenOpen(false); }}
+                className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                  location.startsWith("/kio-oekosystem")
+                    ? (scrolled ? "text-foreground" : "text-white")
+                    : (scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white")
+                }`}
+              >
+                {lang === "de" ? "KI Ökosystem" : "AI Ecosystem"}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${oekosystemOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {oekosystemOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border rounded-md shadow-lg py-2" data-testid="dropdown-oekosystem">
+                  {oekosystemLinks.map((link) => (
+                    <Link key={link.href} href={link.href}>
+                      <span
+                        className="block px-4 py-2.5 text-sm text-foreground/60 hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer"
+                        data-testid={`link-oeko-${link.labelEn.toLowerCase()}`}
+                        onClick={() => setOekosystemOpen(false)}
+                      >
+                        {lang === "de" ? link.labelDe : link.labelEn}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link href="/preise">
               <span data-testid="button-nav-preise" className={`text-sm font-medium transition-colors cursor-pointer ${location === "/preise" ? (scrolled ? "text-foreground" : "text-white") : (scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white")}`}>
                 {lang === "de" ? "Preise" : "Pricing"}
@@ -169,6 +212,20 @@ export function Navigation({ lang, setLang }: NavigationProps) {
                   </span>
                 </Link>
               ))}
+
+              <p className="text-xs font-bold text-foreground/30 tracking-widest uppercase pt-2">{lang === "de" ? "KI Ökosystem" : "AI Ecosystem"}</p>
+              {oekosystemLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <span
+                    className="block w-full text-left text-base font-medium text-foreground/80 pl-3 cursor-pointer"
+                    data-testid={`button-mobile-oeko-${link.labelEn.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {lang === "de" ? link.labelDe : link.labelEn}
+                  </span>
+                </Link>
+              ))}
+
               <Link href="/preise">
                 <span
                   className="block w-full text-left text-lg font-medium text-foreground/80 cursor-pointer"
