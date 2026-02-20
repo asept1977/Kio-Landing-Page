@@ -1,0 +1,135 @@
+Create a modern interactive pricing configurator webpage for a SaaS product called "KIO".
+
+Goal:
+The visitor should understand the price logically by making business decisions.
+No technical language like tokens, GPU, or context window.
+Always explain price in plain business language.
+
+Tech:
+Single page app
+Pure HTML, CSS and Vanilla JavaScript
+No frameworks
+Responsive layout
+Clean enterprise design (white background, lots of whitespace, subtle grey borders, accent color #ff6a00)
+
+Layout:
+Left side = configuration panel
+Right side = live summary + price explanation
+
+Top headline:
+"Configure how KIO should work in your organization"
+Subheadline:
+"The price depends on how KIO supports your daily work."
+
+--------------------------------------------------
+STEP 1 – Employees
+--------------------------------------------------
+Title: "How many people will use KIO?"
+
+Slider:
+Range: 1 – 500
+Default: 10
+
+Display below slider:
+"10 employees work with KIO"
+
+Price logic:
+Base price per user = 49 €
+
+--------------------------------------------------
+STEP 2 – Working Mode
+--------------------------------------------------
+Title: "How intensively should KIO work?"
+
+Two selectable cards (radio buttons):
+
+Card 1:
+Title: "Daily Assistance"
+Description: "KIO answers questions and supports daily tasks"
+Price: 49 € per user
+
+Card 2:
+Title: "Knowledge Work"
+Description: "KIO analyzes extensive documents and prepares results"
+Price: 119 € per user
+
+Switching changes price per user.
+
+--------------------------------------------------
+STEP 3 – Company Knowledge
+--------------------------------------------------
+Title: "How much company knowledge should KIO know?"
+
+Slider with steps:
+100 MB
+1 GB
+10 GB
+50 GB
+200 GB
+500 GB
+1 TB
+
+Price mapping:
+100 MB = 0 €
+1 GB = 9 €
+10 GB = 29 €
+50 GB = 79 €
+200 GB = 149 €
+500 GB = 249 €
+1 TB = 399 €
+
+Display dynamic explanation text depending on selection:
+small → "individual documents"
+medium → "central knowledge base"
+large → "organizational memory"
+
+--------------------------------------------------
+STEP 4 – Additional Knowledge (Checkboxes)
+--------------------------------------------------
+Title: "Additional knowledge sources"
+
+Checkboxes:
+[ ] Company data (e.g. firm structures) +19 € per user
+[ ] Market & regulatory data +29 € per user
+[ ] Continuous monitoring +39 € per user
+
+--------------------------------------------------
+RIGHT SIDE – LIVE SUMMARY
+--------------------------------------------------
+Show a dynamic paragraph describing the configuration:
+
+Example output:
+"18 employees use KIO daily.
+KIO analyzes extensive documents and knows your central knowledge base.
+Additional company data is included."
+
+Below that show large price:
+
+Monthly price: XXXX €
+
+Also show breakdown:
+
+Users: €
+Knowledge: €
+Additional data: €
+
+--------------------------------------------------
+CALCULATION RULE
+--------------------------------------------------
+Monthly total =
+(number_of_users × selected_user_price)
++ knowledge_price
++ (number_of_users × sum_of_selected_addons)
+
+--------------------------------------------------
+UX REQUIREMENTS
+--------------------------------------------------
+Price updates instantly when changing any value.
+Animate number transitions smoothly.
+Use large readable typography.
+No technical wording anywhere.
+
+At the bottom add small note:
+"No token billing. No request limits. The price depends on how KIO is used."
+
+Make the UI visually clean and professional.
