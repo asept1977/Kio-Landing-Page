@@ -123,7 +123,7 @@ export const translations = {
       sectionTitle: "Mehrwert für Entscheider",
       sectionDesc: "KIO arbeitet in verschiedenen Branchen mit unterschiedlichem Wissen und unterschiedlichen Anforderungen.",
       card1Title: "KIO für Professionelle Interessenvertretung",
-      card1Desc: "Beobachtet Gesetzgebung, analysiert Stakeholder und gleicht Positionen ab. Bindet Parlamentsdaten (DIP), Lobbyregister und interne Dokumente ein und unterstützt bei Briefings, Positionspapieren und Stellungnahmen.",
+      card1Desc: "Verknüpft externe Entwicklungen mit internen Positionen und schafft eine belastbare Grundlage für Entscheidungen und Stellungnahmen.",
       card2Title: "KIO f\u00fcr Verb\u00e4nde",
       card2Desc: "Verbinden Sie Bundesstrukturen, Positionen und Mitgliederwissen in einer intelligenten KI-Schicht. Hierarchische Dokumentstrukturen \u00fcber Bundes-, Landes- und Fachverb\u00e4nde.",
       card3Title: "KIO f\u00fcr Industrie & Mittelstand",
