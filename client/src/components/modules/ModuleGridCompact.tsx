@@ -49,23 +49,15 @@ function CompactCard({ mod }: { mod: ModuleDef }) {
   return (
     <Link href={`/module/${mod.slug}`}>
       <Card
-        className={`group relative rounded-2xl cursor-pointer transition-all duration-200 h-full min-h-[170px] border ${
-          isEnterprise
-            ? "bg-[#0a0f1a] border-white/[0.08] shadow-sm hover:shadow-lg hover:-translate-y-0.5"
-            : "bg-white border-neutral-200/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-neutral-300/70"
-        }`}
+        className="group relative glass-card glass-card-hover rounded-2xl cursor-pointer transition-all duration-200 h-full min-h-[170px] shadow-sm hover:shadow-md hover:-translate-y-0.5"
         data-testid={`module-card-${mod.slug}`}
       >
-        <div className={`absolute top-0 left-5 right-5 h-[3px] rounded-b-full ${
-          isEnterprise
-            ? "bg-gradient-to-r from-[#ff6a00] via-[#ff8533] to-[#ff6a00]/50"
-            : "bg-[#ff6a00]"
-        }`} />
+        <div className="absolute top-0 left-5 right-5 h-[3px] rounded-b-full bg-[#ff6a00]" />
 
         {isEnterprise && (
           <Badge
             variant="outline"
-            className="absolute top-3.5 right-4 text-[8px] font-bold tracking-[0.15em] uppercase text-[#ff6a00] bg-[#ff6a00]/[0.08] border-[#ff6a00]/15 px-1.5 py-0 h-5 rounded-full no-default-active-elevate"
+            className="absolute top-3.5 right-4 text-[8px] font-bold tracking-[0.15em] uppercase text-[#ff6a00] bg-[#ff6a00]/[0.08] border-[#ff6a00]/15 px-1.5 py-0 h-5 rounded-full"
             data-testid={`badge-enterprise-${mod.slug}`}
           >
             Enterprise
@@ -74,33 +66,21 @@ function CompactCard({ mod }: { mod: ModuleDef }) {
 
         <CardHeader className="pb-0 pt-5 px-5">
           <div className="flex items-center gap-3">
-            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-              isEnterprise
-                ? "bg-[#ff6a00]/10"
-                : "bg-[#ff6a00]/[0.06]"
-            }`}>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-[#ff6a00]/[0.07]">
               <Icon className="w-4 h-4 text-[#ff6a00]" />
             </div>
-            <CardTitle className={`text-sm font-bold leading-snug ${
-              isEnterprise ? "text-white" : "text-foreground"
-            }`} data-testid={`text-module-title-${mod.slug}`}>
+            <CardTitle className="text-sm font-bold leading-snug text-foreground" data-testid={`text-module-title-${mod.slug}`}>
               {mod.title}
             </CardTitle>
           </div>
         </CardHeader>
 
         <CardContent className="px-5 pb-5 pt-3 flex flex-col flex-1">
-          <p className={`text-[13px] leading-relaxed line-clamp-2 flex-1 ${
-            isEnterprise ? "text-white/55" : "text-foreground/45"
-          }`} data-testid={`text-module-desc-${mod.slug}`}>
+          <p className="text-[13px] leading-relaxed line-clamp-2 flex-1 text-foreground/50" data-testid={`text-module-desc-${mod.slug}`}>
             {mod.claim}
           </p>
 
-          <span className={`text-xs font-semibold flex items-center gap-1.5 mt-4 group-hover:gap-2.5 transition-all ${
-            isEnterprise
-              ? "text-[#ff6a00]/80 group-hover:text-[#ff6a00]"
-              : "text-[#ff6a00] group-hover:underline"
-          }`} data-testid={`link-module-${mod.slug}`}>
+          <span className="text-xs font-semibold flex items-center gap-1.5 mt-4 group-hover:gap-2.5 transition-all text-[#ff6a00]" data-testid={`link-module-${mod.slug}`}>
             Mehr erfahren <ArrowRight className="w-3 h-3" />
           </span>
         </CardContent>
