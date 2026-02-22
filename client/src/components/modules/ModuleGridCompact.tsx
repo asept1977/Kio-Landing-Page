@@ -137,9 +137,9 @@ export default function ModuleGridCompact() {
         </motion.div>
 
         <motion.div
+          key={activeFilter}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="show"
           variants={stagger}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
           data-testid="module-grid"
