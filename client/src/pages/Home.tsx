@@ -165,10 +165,12 @@ export default function Home() {
                 data-testid={`card-target-${idx}`}
                 onClick={() => card.link && navigate(card.link)}
               >
-                <div className={`w-14 h-14 rounded-md ${card.iconBg} flex items-center justify-center mb-6`}>
-                  {card.icon}
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`w-12 h-12 rounded-md ${card.iconBg} flex items-center justify-center shrink-0`}>
+                    {card.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground leading-snug" data-testid={`text-target-title-${idx}`}>{card.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-target-title-${idx}`}>{card.title}</h3>
                 <p className="text-foreground/60 leading-relaxed text-sm mb-6 flex-1" data-testid={`text-target-desc-${idx}`}>
                   {card.desc}
                 </p>
