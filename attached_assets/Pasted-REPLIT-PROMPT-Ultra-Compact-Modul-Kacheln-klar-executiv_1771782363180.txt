@@ -1,0 +1,132 @@
+REPLIT PROMPT (Ultra-Compact Modul-Kacheln – klar & executive)
+Stack: React (Vite) + Tailwind + shadcn/ui + Framer Motion + wouter (client-side)
+
+Ziel
+Mache den Modulbereich auf der Landingpage „Industrie & Mittelstand“ deutlich kompakter.
+Auf der Landingpage stehen nur:
+- Modulname
+- 1 prägnanter Satz (max. ~8–10 Wörter)
+- Link „Mehr erfahren →“
+Keine Bulletpoints, keine Featurelisten (Details sind in den Unterseiten).
+
+Umsetzung
+1) Erstelle/ersetze den Modulbereich als neue Komponente:
+   src/components/modules/ModuleGridCompact.tsx
+
+2) Nutze shadcn/ui:
+   Card, CardHeader, CardTitle, CardContent
+   Badge (für ENTERPRISE)
+
+3) Routing via wouter:
+   import { Link } from "wouter";
+   Jede Card verlinkt auf /module/:slug (z.B. /module/sales)
+
+4) Animation via Framer Motion (subtil):
+   - Fade-in on scroll:
+     initial { opacity: 0, y: 8 }
+     whileInView { opacity: 1, y: 0 }
+     viewport { once: true, amount: 0.2 }
+   - Hover möglichst über Tailwind (transform) statt Motion, um es clean zu halten.
+
+Section-Text (Landingpage)
+- id="module"
+- Headline: „KIO Module für Industrie & Mittelstand“
+- Subheadline (kurz): „Aktiviere die Bausteine, die du brauchst – integriert in Teams, verbunden mit ERP/CRM.“
+
+Layout (kompakt & executive)
+- Grid: mobile 1, md 2, xl 3 Spalten
+- Gap: 6
+- Card: rounded-2xl, shadow-sm, border-neutral-200/60
+- Gleich hohe Cards: h-full + min-h-[170px] (kompakt)
+- Hover: translate-y-[-2px] + shadow-md + border-neutral-300/70
+- Oben in jeder Card: dünne Akzentlinie (3px) in Orange (Core) bzw. Gradient/Orange (Enterprise)
+- Icon optional: sehr klein und dezent (24px) ODER weglassen (executive). Wenn Icon drin: nur 1 Farbe.
+
+Enterprise-Hierarchie (sichtbar, aber nicht schrill)
+- Enterprise Cards: dunkler Hintergrund (neutral-900 / slate-950)
+- Text: text-white/85
+- Border: border-white/10
+- Badge oben rechts: „ENTERPRISE“ klein (tracking-wide, uppercase)
+- Hover: shadow-lg dezent, kein Glow-Overkill
+
+Copy (ultra-compact, exakt so verwenden)
+
+CORE
+1) KIO-Marketing
+Claim: „Marktsignale in Wirkung übersetzen.“
+Slug: marketing
+
+2) KIO-Sales
+Claim: „Jeden Kundentermin datenbasiert führen.“
+Slug: sales
+
+3) KIO-Service
+Claim: „Serviceprozesse intelligent steuern.“
+Slug: service
+
+4) KIO-Products
+Claim: „Produktwissen strukturiert nutzbar machen.“
+Slug: products
+
+5) KIO-HR
+Claim: „HR-Prozesse automatisiert unterstützen.“
+Slug: hr
+
+ENTERPRISE
+6) KIO-ESG
+Claim: „Regulatorik strukturiert und auditfähig managen.“
+Slug: esg
+Badge: ENTERPRISE
+
+7) KIO-Finance
+Claim: „Unternehmenssteuerung mit Szenarien absichern.“
+Slug: finance
+Badge: ENTERPRISE
+
+8) KIO-Procurement
+Claim: „Lieferkettenrisiken frühzeitig erkennen.“
+Slug: procurement
+Badge: ENTERPRISE
+
+9) KIO-Operations
+Claim: „Produktionsprozesse transparent optimieren.“
+Slug: operations
+Badge: ENTERPRISE
+
+10) KIO-Executive
+Claim: „Gesamtunternehmens-Risiken im Blick behalten.“
+Slug: executive
+Badge: ENTERPRISE
+
+CTA innerhalb der Card
+- Unten links: Link „Mehr erfahren →“
+- Style:
+  - Core: text-orange-600 hover:underline
+  - Enterprise: text-orange-300 hover:underline
+
+Card Klickbarkeit (clean)
+- Ganze Card klickbar (preferred):
+  - Wrap Card-Inhalt mit <Link href="...">
+  - oder onClick navigate, plus tabIndex/keyboard support.
+- Wenn ganze Card klickbar: Link „Mehr erfahren“ bleibt trotzdem drin (UX).
+
+Unterseiten /module/:slug
+- Falls noch nicht vorhanden: lege eine generische ModulePage an:
+  src/pages/ModulePage.tsx
+- ModulePage liest slug aus wouter params und rendert:
+  - Titel (KIO-XYZ)
+  - kurze Intro-Zeile
+  - CTA „Demo anfragen“
+  - (Optional) Placeholder „Inhalte folgen“
+- Keine langen Inhalte nötig (werden später ergänzt).
+
+Qualitätskriterien
+- Cards sind spürbar kompakter (keine Bulletpoints)
+- Copy bleibt 1 Zeile, notfalls line-clamp-2
+- Enterprise visuell eindeutig, aber seriös
+- Mobile sauber, keine Textlawinen, keine Layout-Shifts
+
+Lieferumfang
+- Neue Komponente ModuleGridCompact
+- Integration in Industrie & Mittelstand Landingpage an Stelle des alten Grids
+- Sicherstellen, dass /module/:slug Route funktioniert (placeholder ok)
