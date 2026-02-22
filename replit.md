@@ -5,6 +5,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 
 ## Recent Changes
 - 2026-02-22: New consolidated "Interessenvertretung" overview page with IHK section, security tiers, onboarding, pricing model
+- 2026-02-22: Industrie page rebuilt with KIO Module grid (10 modules, filter chips, responsive cards, enterprise badges, placeholder detail pages)
 - 2026-02-22: Navigation updated with Interessenvertretung in Branchen dropdown; Verbände/PublicAffairs now serve as deep-dive subpages
 - 2026-02-20: Rebuilt pricing page (/preise) with interactive configurator: 4-step left panel + sticky live summary, animated price transitions
 - 2026-02-11: Built enterprise landing page with all sections
@@ -23,6 +24,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `client/src/pages/Interessenvertretung.tsx` - "Professionelle Interessenvertretung" overview page (German)
 - `client/src/pages/Verbaende.tsx` - "KIO für Verbände" deep-dive subpage (German)
 - `client/src/pages/PublicAffairs.tsx` - "KIO für Public Affairs" deep-dive subpage (German)
+- `client/src/pages/ModulePage.tsx` - Dynamic module detail page for /module/:slug routes (German)
 - `client/src/pages/KioOekosystem.tsx` - KIO Plattform overview page (German)
 - `client/src/pages/KioUpdates.tsx` - Filterable product updates page (German)
 - `client/src/data/updates.json` - Product update entries (add new updates here without code changes)
@@ -39,6 +41,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `/interessenvertretung` - Consolidated overview: Interessenvertretung (Verbände, Public Affairs, IHK) with security tiers, onboarding, pricing
 - `/verbaende` - "KIO für Verbände" deep-dive subpage (German only, links back to /interessenvertretung)
 - `/public-affairs` - "KIO für Public Affairs" deep-dive subpage (German only, links back to /interessenvertretung)
+- `/module/:slug` - Dynamic module detail pages (marketing, sales, service, products, hr, esg, finance, procurement, operations, executive)
 - `/preise` - Interactive pricing configurator with 4 steps, live summary panel (German only)
 - `/kio-oekosystem` - KIO Plattform overview with hero, how-it-works, architecture, updates teaser, security
 - `/kio-oekosystem/updates` - Filterable product development log (data from updates.json)
