@@ -161,7 +161,7 @@ export default function Home() {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className={`glass-card glass-card-hover rounded-md p-8 transition-all duration-500 group ${card.link ? "cursor-pointer" : "cursor-default"}`}
+                className={`glass-card glass-card-hover rounded-md p-8 transition-all duration-500 group flex flex-col ${card.link ? "cursor-pointer" : "cursor-default"}`}
                 data-testid={`card-target-${idx}`}
                 onClick={() => card.link && navigate(card.link)}
               >
@@ -169,10 +169,10 @@ export default function Home() {
                   {card.icon}
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`text-target-title-${idx}`}>{card.title}</h3>
-                <p className="text-foreground/60 leading-relaxed text-sm mb-6" data-testid={`text-target-desc-${idx}`}>
+                <p className="text-foreground/60 leading-relaxed text-sm mb-6 flex-1" data-testid={`text-target-desc-${idx}`}>
                   {card.desc}
                 </p>
-                <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 transition-all" data-testid={`link-learn-more-${idx}`}>
+                <span className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 transition-all mt-auto" data-testid={`link-learn-more-${idx}`}>
                   {t.targets.cta} <ArrowRight className="w-4 h-4" />
                 </span>
               </motion.div>
