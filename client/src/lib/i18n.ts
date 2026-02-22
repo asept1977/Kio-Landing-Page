@@ -20,7 +20,7 @@ export const translations = {
     targets: {
       sectionTitle: "Solutions for Decision Makers",
       sectionDesc: "Three verticals. One intelligent platform.",
-      card1Title: "KIO for Public Affairs",
+      card1Title: "KIO for Professional Advocacy",
       card1Desc: "Automated monitoring of legislation, stakeholder analysis and position paper alignment. Integrates parliamentary data (DIP), lobby registers, internal documents and knowledge graphs.",
       card2Title: "KIO for Associations",
       card2Desc: "Connect federal structures, policy positions and member knowledge into one intelligent AI layer. Hierarchical document structures across federal, regional and specialist associations.",
@@ -122,7 +122,7 @@ export const translations = {
     targets: {
       sectionTitle: "Mehrwert für Entscheider",
       sectionDesc: "KIO arbeitet in verschiedenen Branchen mit unterschiedlichem Wissen und unterschiedlichen Anforderungen.",
-      card1Title: "KIO f\u00fcr Public Affairs",
+      card1Title: "KIO für Professionelle Interessenvertretung",
       card1Desc: "Beobachtet Gesetzgebung, analysiert Stakeholder und gleicht Positionen ab. Bindet Parlamentsdaten (DIP), Lobbyregister und interne Dokumente ein und unterstützt bei Briefings, Positionspapieren und Stellungnahmen.",
       card2Title: "KIO f\u00fcr Verb\u00e4nde",
       card2Desc: "Verbinden Sie Bundesstrukturen, Positionen und Mitgliederwissen in einer intelligenten KI-Schicht. Hierarchische Dokumentstrukturen \u00fcber Bundes-, Landes- und Fachverb\u00e4nde.",
