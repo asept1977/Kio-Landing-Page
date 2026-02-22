@@ -42,7 +42,7 @@ export default function Home() {
       title: t.targets.card1Title,
       desc: t.targets.card1Desc,
       iconBg: "bg-[#ff6a00]/10 text-[#ff6a00]",
-      link: "/public-affairs",
+      link: "/interessenvertretung",
     },
     {
       icon: <Users className="w-7 h-7" />,

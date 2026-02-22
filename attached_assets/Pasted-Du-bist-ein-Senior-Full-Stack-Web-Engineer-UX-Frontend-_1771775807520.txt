@@ -1,0 +1,101 @@
+Du bist ein Senior Full-Stack Web Engineer (UX + Frontend). Arbeite in diesem Replit-Projekt:
+https://replit.com/@andresept1/Kio-Landing-Page
+
+Ziel:
+Erstelle eine neue, konsolidierte Landingpage „Professionelle Interessenvertretung“ und integriere sie sauber in die bestehende Website – im exakt gleichen Design/Stil wie die aktuellen Seiten (gleiche Navbar, Footer, Containerbreiten, Typografie, Card-Design, Buttons, Spacing, Farben). Keine neuen Design-Patterns einführen – vorhandene Komponenten/Styles wiederverwenden.
+
+WICHTIG:
+- Die bisherigen Unterseiten „Verbände“ und „Politikberatung“ sollen NICHT gelöscht werden.
+- Stattdessen sollen sie als Vertiefungsseiten dienen und von der neuen Hauptseite aus verlinkt werden.
+- Es darf keine Duplicate-Content-Konkurrenz geben: Passe die bestehenden Seiten so an, dass die neue Hauptseite die Segment-Übersicht ist und die Unterseiten deutlich spezifischer/vertiefender sind.
+- Wenn das Projekt Routing/Framework anders als Next.js nutzt (z. B. React Router), setze es im bestehenden Stil um. NICHT das Framework wechseln.
+
+Aufgaben (in dieser Reihenfolge):
+
+1) Neue Seite anlegen
+- Route/URL: /interessenvertretung (oder falls Routing-Konvention anders: /professionelle-interessenvertretung – wähle die passendste vorhandene Namenslogik)
+- Seitentitel (H1): „Professionelle Interessenvertretung“
+- Hero-Text:
+  Headline: „KI-Infrastruktur für professionelle Interessenvertretung“
+  Subline: „KIO strukturiert politische und regulatorische Entwicklungen, gleicht sie systematisch mit bestehenden Positionslinien ab und schafft belastbare Entscheidungsgrundlagen – mandantenfähig und auditierbar.“
+- Hero-CTAs:
+  Primary: „Architekturgespräch vereinbaren“ -> /kontakt (oder vorhandener CTA-Pfad)
+  Secondary: „Sicherheit ansehen“ -> /sicherheit (oder vorhandener Pfad)
+
+2) Landingpage-Inhalt strukturieren (mit bestehenden Section-/Card-Komponenten)
+A) Abschnitt „Warum Struktur entscheidend ist“
+- Bulletpoints (max. 4):
+  • Früherkennung politischer & regulatorischer Entwicklungen
+  • Konsistente Positionslinien & Abgleich mit Beschlusslagen
+  • Nachvollziehbare Entscheidungsgrundlagen für Gremien
+  • Dokumentation & Auditfähigkeit
+
+B) Abschnitt „Drei Organisationsformen – drei Schwerpunkte“
+- 3 gleich große Cards (Desktop: 3 Spalten, Mobile: untereinander), jeweils mit kurzer Beschreibung + 3–4 Kriterien + CTA-Link:
+  1) „Verbände“
+     Kurztext: „Mitgliederbasierte Organisationen mit Fachreferaten und Beschlussstrukturen.“
+     Kriterien:
+       - Positionspapiere & Beschlusslagen integrieren
+       - Stellungnahmen konsistent ableiten
+       - Mitgliederkommunikation beschleunigen
+     CTA: „Mehr zu Verbänden“ -> bestehende Verbände-Seite (Pfad ermitteln und nutzen)
+
+  2) „Politikberatung & Public Affairs“
+     Kurztext: „Mandatsbasierte Beratung mit strikter Vertraulichkeit.“
+     Kriterien:
+       - Strikte Mandatstrennung / Wissensräume
+       - Issue- & Stakeholder-Monitoring
+       - Zeitkritische Briefings & Argumentationslinien
+     CTA: „Mehr zur Politikberatung“ -> bestehende Politikberatung-Seite (Pfad ermitteln und nutzen)
+
+  3) „IHK“
+     Kurztext: „Organisationen mit gesetzlichem Auftrag und hohen Governance-Anforderungen.“
+     Kriterien:
+       - Nachvollziehbarkeit & Dokumentation
+       - Audit-Logging optional
+       - Public-Sector-taugliche Architektur
+     CTA: „Mehr zur IHK“ -> entweder (a) neue Ankersektion auf gleicher Seite (#ihk) oder (b) neue Unterseite /interessenvertretung/ihk (im gleichen Stil). Wähle die minimal-invasive Variante, die am besten in die bestehende Seitenstruktur passt.
+
+C) Abschnitt „Architektur & Sicherheit“
+- Zeige 3 Sicherheitsstufen als Cards: Shared / Mandantenisoliert / Dediziert
+- Jeweils 2–3 kurze Sätze, nicht technisch überladen.
+- Ergänze 3 kurze Trust-Statements darunter:
+  - EU-Hosting (sofern im Projekt bereits so kommuniziert)
+  - Keine Nutzung von Kundendaten für Modelltraining (nur wenn bereits eure Policy)
+  - Dokumentierte Governance- und Zugriffskontrollen
+
+D) Abschnitt „Einführung & Projektumfang“
+- Kurzer Text + 3 Facts:
+  - Typisch 20–120 Nutzer
+  - Einführung in Fachbereichen oder organisationsweit
+  - Strukturierte Onboarding-Phase
+
+E) Abschnitt „Preismodell“
+- Kein konkreter Preis.
+- Text:
+  „KIO wird als Organisationslösung bereitgestellt. Das Modell richtet sich nach Nutzerzahl, Sicherheitsstufe und Integrationsanforderungen. Gerne erstellen wir ein individuelles Angebot.“
+- CTA: „Sicherheitsgespräch vereinbaren“ -> /kontakt
+
+3) Navigation aktualisieren
+- Füge in der Navbar einen Menüpunkt „Interessenvertretung“ hinzu, der auf die neue Hauptseite zeigt.
+- Achte auf Active-State wie bei bestehenden Menüpunkten.
+
+4) Bestehende Unterseiten anpassen (Verbände & Politikberatung)
+- Behalte URL/Route unverändert.
+- Kürze Einleitungstexte, damit sie nicht mehr wie Segment-Hauptseiten wirken.
+- Mache sie jeweils klar „vertiefend“:
+  - Verbände-Seite: Fokus auf Positionsentwicklung, Beschlusslagen, Mitgliederkommunikation, Gremienarbeit.
+  - Politikberatung-Seite: Fokus auf Mandantenfähigkeit, Mandatstrennung, Monitoring, Vertraulichkeit, Geschwindigkeit.
+- Jede Unterseite erhält oben einen kleinen „Zurück“-Link zur neuen Hauptseite:
+  „← Zur Übersicht Interessenvertretung“
+
+5) Konsistenz & Qualität
+- Kein Lorem Ipsum.
+- Texte auf Deutsch, „du“ NICHT verwenden (Website-Ansprache neutral/Sie-Form oder neutral ohne Pronomen – orientiere dich am bisherigen Stil).
+- Spacing/Typografie exakt im Stil des Projekts.
+- Mobile Layout prüfen.
+- Interne Links müssen funktionieren.
+
+Liefere:
+- Commit/Änderungen im Projekt (Dateien anlegen/ändern)
+- Kurze Liste: Welche Dateien du geändert/neu angelegt hast und welche Routen jetzt existieren.

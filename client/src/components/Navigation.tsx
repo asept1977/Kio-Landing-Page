@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
@@ -13,6 +13,7 @@ interface NavigationProps {
 }
 
 const branchLinks = [
+  { href: "/interessenvertretung", labelDe: "Interessenvertretung", labelEn: "Professional Advocacy", descDe: "Politische & regulatorische Positionierung", descEn: "Political & regulatory positioning", icon: Briefcase },
   { href: "/public-affairs", labelDe: "Public Affairs", labelEn: "Public Affairs", descDe: "Gesetzgebung, Stakeholder & Positionen", descEn: "Legislation, stakeholders & positions", icon: Landmark },
   { href: "/verbaende", labelDe: "Verbände", labelEn: "Associations", descDe: "Bundesstrukturen & Mitgliederwissen", descEn: "Federal structures & member knowledge", icon: Users },
   { href: "/industrie", labelDe: "Industrie & Mittelstand", labelEn: "Industry & SME", descDe: "ERP, CRM & technische Dokumentation", descEn: "ERP, CRM & technical documentation", icon: Factory },

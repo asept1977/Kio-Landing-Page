@@ -4,6 +4,8 @@
 Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design with orange (#ff6a00) and deep blue (#003366) accents. Bilingual (EN/DE) support with language toggle.
 
 ## Recent Changes
+- 2026-02-22: New consolidated "Interessenvertretung" overview page with IHK section, security tiers, onboarding, pricing model
+- 2026-02-22: Navigation updated with Interessenvertretung in Branchen dropdown; Verbände/PublicAffairs now serve as deep-dive subpages
 - 2026-02-20: Rebuilt pricing page (/preise) with interactive configurator: 4-step left panel + sticky live summary, animated price transitions
 - 2026-02-11: Built enterprise landing page with all sections
 - 2026-02-11: Bilingual DE/EN support via i18n system
@@ -18,8 +20,9 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 
 ### Key Files
 - `client/src/pages/Home.tsx` - Main landing page with all sections
-- `client/src/pages/Verbaende.tsx` - "KIO für Verbände" subpage (German)
-- `client/src/pages/PublicAffairs.tsx` - "KIO für Public Affairs" subpage (German)
+- `client/src/pages/Interessenvertretung.tsx` - "Professionelle Interessenvertretung" overview page (German)
+- `client/src/pages/Verbaende.tsx` - "KIO für Verbände" deep-dive subpage (German)
+- `client/src/pages/PublicAffairs.tsx` - "KIO für Public Affairs" deep-dive subpage (German)
 - `client/src/pages/KioOekosystem.tsx` - KIO Plattform overview page (German)
 - `client/src/pages/KioUpdates.tsx` - Filterable product updates page (German)
 - `client/src/data/updates.json` - Product update entries (add new updates here without code changes)
@@ -33,18 +36,29 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 
 ### Routes
 - `/` - Main landing page (bilingual EN/DE)
-- `/verbaende` - "KIO für Verbände" subpage (German only)
-- `/public-affairs` - "KIO für Public Affairs" subpage (German only)
+- `/interessenvertretung` - Consolidated overview: Interessenvertretung (Verbände, Public Affairs, IHK) with security tiers, onboarding, pricing
+- `/verbaende` - "KIO für Verbände" deep-dive subpage (German only, links back to /interessenvertretung)
+- `/public-affairs` - "KIO für Public Affairs" deep-dive subpage (German only, links back to /interessenvertretung)
 - `/preise` - Interactive pricing configurator with 4 steps, live summary panel (German only)
 - `/kio-oekosystem` - KIO Plattform overview with hero, how-it-works, architecture, updates teaser, security
 - `/kio-oekosystem/updates` - Filterable product development log (data from updates.json)
 
 ### Home Page Sections
 1. Hero: "Enterprise Knowledge. Orchestrated."
-2. Target Groups: Public Affairs, Associations (links to /verbaende), Industry & Mittelstand
+2. Target Groups: Professionelle Interessenvertretung (links to /interessenvertretung), Regulierte Branchen & Beratung (links to /verbaende), Industry & Mittelstand
 3. Architecture: KIO Agent Mesh diagram
 4. Digital Sovereignty: GDPR, EU hosting, access control
 5. CTA: Contact form for executive briefings
+
+### Interessenvertretung Overview Sections
+1. Hero: Dark blue background, "KI-Infrastruktur für professionelle Interessenvertretung"
+2. Why Structure: "Warum Struktur entscheidend ist" with 4 bullet points
+3. Drei Organisationsformen: 3 cards (Verbände → /verbaende, Politikberatung → /public-affairs, IHK → #ihk)
+4. Architektur & Sicherheit: 3 security tiers (Shared/Mandantenisoliert/Dediziert) + 3 trust statements
+5. IHK deep-dive: 3 features (Nachvollziehbarkeit, Audit-Logging, Public-Sector-Architektur) + CTA
+6. Einführung & Projektumfang: 3 fact cards (Erstgespräch, Pilotgruppe, Knowledge-Basis)
+7. Preismodell: CTA linking to pricing page
+8. Final CTA: "Fundierte Positionen entstehen nicht schneller – aber besser."
 
 ### Verbände Subpage Sections
 1. Hero: "Strategische Handlungsfähigkeit."

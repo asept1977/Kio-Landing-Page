@@ -11,6 +11,7 @@ import Industrie from "@/pages/Industrie";
 import Preise from "@/pages/Preise";
 import KioOekosystem from "@/pages/KioOekosystem";
 import KioUpdates from "@/pages/KioUpdates";
+import Interessenvertretung from "@/pages/Interessenvertretung";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/preise" component={Preise} />
         <Route path="/kio-oekosystem" component={KioOekosystem} />
         <Route path="/kio-oekosystem/updates" component={KioUpdates} />
+        <Route path="/interessenvertretung" component={Interessenvertretung} />
         <Route component={NotFound} />
       </Switch>
     </>

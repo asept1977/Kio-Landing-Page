@@ -81,12 +81,19 @@ export default function PublicAffairs() {
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-white/50 mb-10" data-testid="breadcrumb-pa">
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-white/50 mb-4" data-testid="breadcrumb-pa">
               <Link href="/"><span className="cursor-pointer hover:text-white/70 transition-colors">KIO</span></Link>
               <span>/</span>
-              <span>Branchen</span>
+              <Link href="/interessenvertretung"><span className="cursor-pointer hover:text-white/70 transition-colors">Interessenvertretung</span></Link>
               <span>/</span>
               <span className="text-[#ff6a00] font-medium">Public Affairs</span>
+            </motion.div>
+            <motion.div variants={fadeUp} className="mb-10">
+              <Link href="/interessenvertretung">
+                <span className="text-sm text-[#ff6a00] font-medium flex items-center gap-1.5 cursor-pointer hover:text-[#e55f00] transition-colors" data-testid="link-back-iv-pa">
+                  <ArrowRight className="w-3.5 h-3.5 rotate-180" /> Zur Übersicht Interessenvertretung
+                </span>
+              </Link>
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 leading-[1.1] text-white text-center" data-testid="text-hero-title-pa">
@@ -97,7 +104,7 @@ export default function PublicAffairs() {
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-base md:text-lg text-white/60 mb-12 max-w-xl leading-relaxed text-center mx-auto" data-testid="text-hero-subtitle-pa">
-              KIO verbindet politische Quellen, Mandate und Dokumente zu nutzbarem Arbeitswissen.
+              Vertiefung: Mandantenfähigkeit, Mandatstrennung, Monitoring und vertrauliche Beratungsarbeit mit KIO.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex justify-center">
