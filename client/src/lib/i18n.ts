@@ -125,7 +125,7 @@ export const translations = {
       card1Title: "KIO für Professionelle Interessenvertretung",
       card1Desc: "Verknüpft externe Entwicklungen mit internen Positionen und schafft eine belastbare Grundlage für Entscheidungen und Stellungnahmen.",
       card2Title: "KIO für Regulierte Branchen & Beratung",
-      card2Desc: "Verbinden Sie Bundesstrukturen, Positionen und Mitgliederwissen in einer intelligenten KI-Schicht. Hierarchische Dokumentstrukturen \u00fcber Bundes-, Landes- und Fachverb\u00e4nde.",
+      card2Desc: "Integriert regulatorische Anforderungen, interne Standards und Berichtswesen in eine auditierbare KI-Infrastruktur.",
       card3Title: "KIO f\u00fcr Industrie & Mittelstand",
       card3Desc: "Sichere KI-Integration \u00fcber ERP, CRM, SharePoint und technische Dokumentation. Beschleunigung von Zertifizierungsprozessen, Compliance-Workflows und Sales Intelligence.",
       cta: "Mehr erfahren",
