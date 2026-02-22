@@ -102,102 +102,108 @@ const techFeatures = [
 ];
 
 type ModuleCategory = "all" | "go-to-market" | "operations" | "governance";
+type ModuleTier = "core" | "enterprise";
 
-interface ModuleCard {
+interface ModuleDef {
   slug: string;
   title: string;
-  desc: string;
+  claim: string;
   bullets: string[];
   icon: typeof Megaphone;
   category: ModuleCategory[];
-  enterprise?: boolean;
+  tier: ModuleTier;
 }
 
-const modules: ModuleCard[] = [
+const modules: ModuleDef[] = [
   {
     slug: "marketing",
     title: "KIO-Marketing",
-    desc: "Markt- und Wettbewerbsintelligenz plus Content-Operations – aus Signalen werden Kampagnen, aus Daten wird Positionierung.",
-    bullets: ["Wettbewerbsradar", "Kampagnen-ROI", "Messe- & Event-Intelligence"],
+    claim: "Aus Signalen werden Kampagnen.",
+    bullets: ["Wettbewerbsradar", "Kampagnen-ROI", "Messe-Intelligence"],
     icon: Megaphone,
     category: ["go-to-market"],
+    tier: "core",
   },
   {
     slug: "sales",
     title: "KIO-Sales",
-    desc: "Automatisierte Termin- und Kundenbriefings, Deal-Insights und CRM-Updates – direkt im Kalender und in Teams.",
-    bullets: ["Briefing im Kalender", "Teams-Copilot", "CRM-Updates nach Terminen"],
+    claim: "Jeder Termin vorbereitet.",
+    bullets: ["Briefing im Kalender", "Teams-Copilot", "CRM-Updates"],
     icon: Handshake,
     category: ["go-to-market"],
+    tier: "core",
   },
   {
     slug: "service",
     title: "KIO-Service",
-    desc: "Serviceeinsätze, Tickets und Maschinenhistorie werden zu einem lernenden System – für schnellere Lösungen und höhere Service-Margen.",
-    bullets: ["Service-Briefings", "After-Service-Doku", "Ersatzteil- & Upgrade-Potenziale"],
+    claim: "Service wird zum lernenden System.",
+    bullets: ["Einsatz-Briefings", "After-Service-Doku", "Upgrade-Potenziale"],
     icon: Headset,
     category: ["operations"],
+    tier: "core",
   },
   {
     slug: "products",
     title: "KIO-Products",
-    desc: "Produkt- und Engineering-Wissen zentral nutzbar machen – Stücklisten, Änderungen und Qualitätsfeedback in einem Produktgedächtnis.",
-    bullets: ["BOM/Varianten-Analyse", "Change-Impact", "Qualitätscluster"],
+    claim: "Produktwissen. Versioniert. Nutzbar.",
+    bullets: ["BOM/Varianten", "Change-Impact", "Qualitätscluster"],
     icon: Cog,
     category: ["operations"],
+    tier: "core",
   },
   {
     slug: "hr",
     title: "KIO-HR",
-    desc: "HR-Self-Service und Prozessunterstützung – Urlaubsstand, Onboarding, Arbeitszeiten und Dokumentation automatisiert.",
-    bullets: ["Personio/Clockodo", "On-/Offboarding", "Richtlinien & Nachweise"],
+    claim: "HR Self-Service, der wirklich entlastet.",
+    bullets: ["Urlaub & Abwesenheit", "On-/Offboarding", "Richtlinien & Nachweise"],
     icon: UserCheck,
     category: ["operations"],
+    tier: "core",
   },
   {
     slug: "esg",
     title: "KIO-ESG",
-    desc: "CSRD/ESRS- und Lieferkettenanforderungen strukturieren, Daten zusammenführen und auditfähig dokumentieren.",
-    bullets: ["CSRD-Intelligence", "Lieferketten-Risiken", "Audit-Trail & Nachweis"],
+    claim: "Auditfähig statt Excel.",
+    bullets: ["CSRD/ESRS", "Lieferketten-Risiken", "Nachweis-Trail"],
     icon: Leaf,
     category: ["governance"],
-    enterprise: true,
+    tier: "enterprise",
   },
   {
     slug: "finance",
     title: "KIO-Finance",
-    desc: "Forecasting, Deckungsbeiträge und Cashflow als Steuerungssystem – mit Szenarien statt Excel-Schleifen.",
-    bullets: ["Rolling Forecast", "DB-Analysen", "Working-Capital Radar"],
+    claim: "Steuerung in Szenarien.",
+    bullets: ["Rolling Forecast", "DB-Analysen", "Cashflow-Radar"],
     icon: BarChart3,
     category: ["governance"],
-    enterprise: true,
+    tier: "enterprise",
   },
   {
     slug: "procurement",
     title: "KIO-Procurement",
-    desc: "Lieferanten-, Preis- und Vertragsintelligenz – Risiken früh erkennen und Kosten nachhaltig optimieren.",
-    bullets: ["Supplier Risk Radar", "Preis-/Index-Checks", "Fristen & Verträge"],
+    claim: "Lieferanten & Kosten im Griff.",
+    bullets: ["Supplier-Risk", "Preis-Checks", "Vertragsfristen"],
     icon: Truck,
     category: ["operations"],
-    enterprise: true,
+    tier: "enterprise",
   },
   {
     slug: "operations",
     title: "KIO-Operations",
-    desc: "Produktions- und Prozessintelligenz – Engpässe, Qualität und Kosten transparent steuern, optional mit IoT/MES.",
-    bullets: ["Bottleneck-Analyse", "Ausschuss/Qualität", "Predictive Patterns"],
+    claim: "Engpässe sehen, bevor sie passieren.",
+    bullets: ["Bottlenecks", "Qualität/Ausschuss", "Predictive Patterns"],
     icon: Factory,
     category: ["operations"],
-    enterprise: true,
+    tier: "enterprise",
   },
   {
     slug: "executive",
     title: "KIO-Executive",
-    desc: "Vorstands- und Geschäftsführungs-Layer – KPI-Verdichtung, Risikoampel und Frühwarnsystem über alle Module hinweg.",
-    bullets: ["Risiko-Matrix", "Strategie-Szenarien", "Executive Dashboard"],
+    claim: "Vorstandsblick auf alles.",
+    bullets: ["Risikoampel", "KPI-Verdichtung", "Frühwarnradar"],
     icon: LayoutDashboard,
     category: ["governance"],
-    enterprise: true,
+    tier: "enterprise",
   },
 ];
 
@@ -208,6 +214,78 @@ const filterChips: { label: string; value: ModuleCategory }[] = [
   { label: "Governance", value: "governance" },
 ];
 
+function ModuleCard({ mod }: { mod: ModuleDef }) {
+  const Icon = mod.icon;
+  const isEnterprise = mod.tier === "enterprise";
+
+  return (
+    <Link href={`/module/${mod.slug}`}>
+      <div
+        className={`group relative rounded-2xl p-6 cursor-pointer transition-all duration-300 hover-elevate flex flex-col min-h-[280px] ${
+          isEnterprise
+            ? "bg-[#0f172a] border border-white/[0.06] shadow-sm"
+            : "bg-white border border-border/60 shadow-sm"
+        }`}
+        data-testid={`module-card-${mod.slug}`}
+      >
+        <div className={`absolute top-0 left-6 right-6 h-[3px] rounded-b-full ${
+          isEnterprise
+            ? "bg-gradient-to-r from-[#ff6a00] via-[#ff8533] to-[#ff6a00]/60"
+            : "bg-[#ff6a00]"
+        }`} />
+
+        {isEnterprise && (
+          <span
+            className="absolute top-4 right-4 text-[9px] font-bold tracking-[0.15em] uppercase text-[#ff6a00] bg-[#ff6a00]/10 border border-[#ff6a00]/15 px-2 py-0.5 rounded-full"
+            data-testid={`badge-enterprise-${mod.slug}`}
+          >
+            Enterprise
+          </span>
+        )}
+
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors ${
+          isEnterprise
+            ? "bg-[#ff6a00]/10 group-hover:bg-[#ff6a00]/20"
+            : "bg-[#ff6a00]/[0.06] group-hover:bg-[#ff6a00]/[0.12]"
+        }`}>
+          <Icon className={`w-6 h-6 ${isEnterprise ? "text-[#ff6a00]" : "text-[#ff6a00]"}`} />
+        </div>
+
+        <h3 className={`text-[15px] font-bold mb-1.5 leading-snug ${
+          isEnterprise ? "text-white" : "text-foreground"
+        }`} data-testid={`text-module-title-${mod.slug}`}>
+          {mod.title}
+        </h3>
+
+        <p className={`text-sm leading-relaxed mb-4 ${
+          isEnterprise ? "text-white/50" : "text-foreground/45"
+        }`} data-testid={`text-module-desc-${mod.slug}`}>
+          {mod.claim}
+        </p>
+
+        <ul className="space-y-1.5 mb-5 flex-1">
+          {mod.bullets.map((b, i) => (
+            <li key={i} className={`text-xs flex items-center gap-2 ${
+              isEnterprise ? "text-white/40" : "text-foreground/40"
+            }`}>
+              <span className={`w-1 h-1 rounded-full shrink-0 ${
+                isEnterprise ? "bg-[#ff6a00]/50" : "bg-[#ff6a00]/40"
+              }`} />
+              {b}
+            </li>
+          ))}
+        </ul>
+
+        <span className={`text-xs font-semibold flex items-center gap-1.5 mt-auto group-hover:gap-2.5 transition-all ${
+          isEnterprise ? "text-[#ff6a00]" : "text-[#ff6a00]"
+        }`} data-testid={`link-module-${mod.slug}`}>
+          Mehr erfahren <ArrowRight className="w-3.5 h-3.5" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export default function Industrie() {
   const [lang, setLang] = useState<Lang>('de');
   const [, navigate] = useLocation();
@@ -216,6 +294,9 @@ export default function Industrie() {
   const filteredModules = activeFilter === "all"
     ? modules
     : modules.filter(m => m.category.includes(activeFilter));
+
+  const coreModules = filteredModules.filter(m => m.tier === "core");
+  const enterpriseModules = filteredModules.filter(m => m.tier === "enterprise");
 
   const handleContact = () => {
     navigate("/");
@@ -350,8 +431,15 @@ export default function Industrie() {
               KIO Module für Industrie & Mittelstand
             </motion.h2>
             <motion.p variants={fadeUp} className="text-foreground/50 max-w-2xl mx-auto leading-relaxed" data-testid="text-module-grid-subtitle">
-              Aktiviere genau die Bausteine, die du brauchst – integriert in Teams, verbunden mit ERP/CRM, aufgebaut für messbare Effizienzgewinne.
+              Aktiviere genau die Bausteine, die du brauchst – integriert in Teams, verbunden mit ERP/CRM, gebaut für messbare Effizienzgewinne.
             </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-3 mt-6" data-testid="module-tags">
+              {["Teams", "ERP/CRM", "Governance", "EU-Hosting"].map((tag) => (
+                <span key={tag} className="text-[11px] font-medium tracking-wide text-foreground/35 bg-muted/50 border border-border/50 px-3 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -380,58 +468,48 @@ export default function Industrie() {
             ))}
           </motion.div>
 
-          <motion.div
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"
-            data-testid="module-grid"
-          >
-            {filteredModules.map((mod) => {
-              const Icon = mod.icon;
-              return (
+          <div data-testid="module-grid">
+            {coreModules.length > 0 && (
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={stagger}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+              >
+                {coreModules.map((mod) => (
+                  <motion.div key={mod.slug} variants={fadeUp}>
+                    <ModuleCard mod={mod} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
+            {enterpriseModules.length > 0 && (
+              <>
+                {coreModules.length > 0 && (
+                  <div className="flex items-center gap-4 my-10" data-testid="divider-enterprise">
+                    <div className="flex-1 h-px bg-border" />
+                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/30">Enterprise Module</span>
+                    <div className="flex-1 h-px bg-border" />
+                  </div>
+                )}
                 <motion.div
-                  key={mod.slug}
-                  layout
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 16 }}
-                  transition={{ duration: 0.3 }}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={stagger}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
                 >
-                  <Link href={`/module/${mod.slug}`}>
-                    <div
-                      className="group bg-card border border-border rounded-lg p-5 cursor-pointer transition-all duration-200 hover-elevate flex flex-col h-full relative"
-                      data-testid={`module-card-${mod.slug}`}
-                    >
-                      {mod.enterprise && (
-                        <span className="absolute top-3 right-3 text-[9px] font-bold tracking-wider uppercase text-[#ff6a00]/70 bg-[#ff6a00]/8 px-1.5 py-0.5 rounded" data-testid={`badge-enterprise-${mod.slug}`}>
-                          Enterprise
-                        </span>
-                      )}
-                      <div className="w-10 h-10 rounded-md bg-[#ff6a00]/8 flex items-center justify-center mb-4 group-hover:bg-[#ff6a00]/15 transition-colors">
-                        <Icon className="w-5 h-5 text-[#ff6a00]" />
-                      </div>
-                      <h3 className="text-sm font-bold text-foreground mb-2 leading-snug" data-testid={`text-module-title-${mod.slug}`}>
-                        {mod.title}
-                      </h3>
-                      <p className="text-xs text-foreground/50 leading-relaxed mb-3 flex-1" data-testid={`text-module-desc-${mod.slug}`}>
-                        {mod.desc}
-                      </p>
-                      <ul className="space-y-1 mb-4">
-                        {mod.bullets.map((b, i) => (
-                          <li key={i} className="text-[11px] text-foreground/40 flex items-center gap-1.5">
-                            <span className="w-1 h-1 rounded-full bg-[#ff6a00]/40 shrink-0" />
-                            {b}
-                          </li>
-                        ))}
-                      </ul>
-                      <span className="text-[#ff6a00] text-xs font-semibold flex items-center gap-1 mt-auto group-hover:gap-2 transition-all" data-testid={`link-module-${mod.slug}`}>
-                        Mehr erfahren <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </Link>
+                  {enterpriseModules.map((mod) => (
+                    <motion.div key={mod.slug} variants={fadeUp}>
+                      <ModuleCard mod={mod} />
+                    </motion.div>
+                  ))}
                 </motion.div>
-              );
-            })}
-          </motion.div>
+              </>
+            )}
+          </div>
 
           <motion.div
             initial="hidden"

@@ -1,0 +1,143 @@
+REPLIT PROMPT (Redesign: Modul-Kacheln „Industrie & Mittelstand“ – Premium, klare Hierarchie)
+
+Ziel
+Überarbeite den bestehenden Modul-Kachelbereich auf der Landingpage „Industrie & Mittelstand“, sodass er moderner, hochwertiger und „Plattform“ statt „Feature-Grid“ wirkt.
+Fokus: visuelle Hierarchie, bessere Lesbarkeit, weniger „grau“, mehr Premium-Feeling.
+
+Design-Vorgaben
+- Stil: modern B2B, clean, viel Weißraum, subtiler Schatten, klare Typo
+- Kacheln: weich (rounded-2xl), leichte Tiefe (shadow-sm, hover:shadow-md), hover-lift (translate-y-1/-2)
+- Oben an jeder Kachel: dünne Akzentlinie (2–3px) in KIO-Orange (oder CI-Akzent)
+- Iconbereich größer und konsistenter (48–64px); Icons in Akzentfarbe, optional in einem dezenten Icon-Container (bg-muted/5)
+- Text: kürzer und prägnanter, max. 1–2 Zeilen Beschreibung + 3 Micro-Bullets (2–3 Wörter)
+- CTA: „Mehr erfahren →“ als Link mit Hover-Underline; gesamte Card optional clickable
+- Einheitliche Höhe der Cards (min-h), damit Grid sauber wirkt
+
+Hierarchie (wichtig)
+- „Core“-Module (Marketing, Sales, Service, Products, HR) = normale helle Cards
+- „Enterprise“-Module (ESG, Finance, Procurement, Operations, Executive) = Premium Cards:
+  - dunkler Hintergrund (z.B. slate-900 / neutral-900) ODER „glass“-Variante auf hellem Hintergrund
+  - hellere Typo (text-white/80)
+  - klarer Badge oben rechts „ENTERPRISE“
+  - optional: subtiler Glow/Gradient-Rand (very subtle)
+
+Struktur des Abschnitts
+1) Section Header
+- Headline: „KIO Module für Industrie & Mittelstand“
+- Subheadline: „Aktiviere genau die Bausteine, die du brauchst – integriert in Teams, verbunden mit ERP/CRM, gebaut für messbare Effizienzgewinne.“
+- Optional: kleine Zeile mit Icons/Tags: „Teams • ERP/CRM • Governance • EU-Hosting“
+
+2) Grid Layout
+- Desktop: 3 Spalten, bei Bedarf 4 (abhängig von Breite)
+- Tablet: 2 Spalten
+- Mobile: 1 Spalte
+- Cards in folgender Reihenfolge (Core zuerst, Enterprise danach):
+  Core: Marketing, Sales, Service, Products, HR
+  Enterprise: ESG, Finance, Procurement, Operations, Executive
+
+Copy (neu, kürzer + stärker)
+Bitte ersetze die Texte auf den Cards durch diese Formulierungen:
+
+CORE MODULES
+1) KIO-Marketing
+Claim: „Aus Signalen werden Kampagnen.“
+Bullets:
+- Wettbewerbsradar
+- Kampagnen-ROI
+- Messe-Intelligence
+Link: /module/marketing
+
+2) KIO-Sales
+Claim: „Jeder Termin vorbereitet.“
+Bullets:
+- Briefing im Kalender
+- Teams-Copilot
+- CRM-Updates
+Link: /module/sales
+
+3) KIO-Service
+Claim: „Service wird zum lernenden System.“
+Bullets:
+- Einsatz-Briefings
+- After-Service-Doku
+- Upgrade-Potenziale
+Link: /module/service
+
+4) KIO-Products
+Claim: „Produktwissen. Versioniert. Nutzbar.“
+Bullets:
+- BOM/Varianten
+- Change-Impact
+- Qualitätscluster
+Link: /module/products
+
+5) KIO-HR
+Claim: „HR Self-Service, der wirklich entlastet.“
+Bullets:
+- Urlaub & Abwesenheit
+- On-/Offboarding
+- Richtlinien & Nachweise
+Link: /module/hr
+
+ENTERPRISE MODULES (Premium Cards)
+6) KIO-ESG
+Claim: „Auditfähig statt Excel.“
+Bullets:
+- CSRD/ESRS
+- Lieferketten-Risiken
+- Nachweis-Trail
+Badge: ENTERPRISE
+Link: /module/esg
+
+7) KIO-Finance
+Claim: „Steuerung in Szenarien.“
+Bullets:
+- Rolling Forecast
+- DB-Analysen
+- Cashflow-Radar
+Badge: ENTERPRISE
+Link: /module/finance
+
+8) KIO-Procurement
+Claim: „Lieferanten & Kosten im Griff.“
+Bullets:
+- Supplier-Risk
+- Preis-Checks
+- Vertragsfristen
+Badge: ENTERPRISE
+Link: /module/procurement
+
+9) KIO-Operations
+Claim: „Engpässe sehen, bevor sie passieren.“
+Bullets:
+- Bottlenecks
+- Qualität/Ausschuss
+- Predictive Patterns
+Badge: ENTERPRISE
+Link: /module/operations
+
+10) KIO-Executive
+Claim: „Vorstandsblick auf alles.“
+Bullets:
+- Risikoampel
+- KPI-Verdichtung
+- Frühwarnradar
+Badge: ENTERPRISE
+Link: /module/executive
+
+Interaktionen (UX)
+- Hover: Card leicht anheben + Akzentlinie etwas heller + CTA animiert
+- Optional: Klick auf Card öffnet die Detailseite
+- Optional: „Enterprise“-Cards haben einen subtilen Gradient-Glow am Rand (sehr dezent)
+
+Technische Umsetzung
+- Extrahiere eine wiederverwendbare Komponente: <ModuleCard />
+- Datengetrieben: Module als Array (title, claim, bullets, href, tier, icon)
+- Tier = "core" | "enterprise" steuert Styles
+- Achte auf gleiche Höhen (flex-col, mt-auto für CTA)
+- Wenn Routes fehlen, lege placeholder Seiten an, die später befüllt werden (nur minimal: Titel, kurze Beschreibung, CTA „Demo anfragen“)
+
+Ergebnis
+- Modernes, hochwertiges Grid mit klarer Core/Enterprise-Hierarchie
+- Kürzere, prägnantere Copy
+- Sichtbar „KIO Plattform“ statt „Liste von Features“
