@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -9,27 +10,34 @@ import {
   Leaf, BarChart3, Truck, Factory, LayoutDashboard,
 } from "lucide-react";
 
-type ModuleTier = "core" | "enterprise";
+type ModuleCategory = "all" | "go-to-market" | "operations" | "governance";
 
 interface ModuleDef {
   slug: string;
   title: string;
   claim: string;
   icon: LucideIcon;
-  tier: ModuleTier;
+  category: ModuleCategory[];
 }
 
 const modules: ModuleDef[] = [
-  { slug: "marketing", title: "KIO-Marketing", claim: "Marktsignale in Wirkung übersetzen.", icon: Megaphone, tier: "core" },
-  { slug: "sales", title: "KIO-Sales", claim: "Jeden Kundentermin datenbasiert führen.", icon: Handshake, tier: "core" },
-  { slug: "service", title: "KIO-Service", claim: "Serviceprozesse intelligent steuern.", icon: Headset, tier: "core" },
-  { slug: "products", title: "KIO-Products", claim: "Produktwissen strukturiert nutzbar machen.", icon: Cog, tier: "core" },
-  { slug: "hr", title: "KIO-HR", claim: "HR-Prozesse automatisiert unterstützen.", icon: UserCheck, tier: "core" },
-  { slug: "esg", title: "KIO-ESG", claim: "Regulatorik strukturiert und auditfähig managen.", icon: Leaf, tier: "enterprise" },
-  { slug: "finance", title: "KIO-Finance", claim: "Unternehmenssteuerung mit Szenarien absichern.", icon: BarChart3, tier: "enterprise" },
-  { slug: "procurement", title: "KIO-Procurement", claim: "Lieferkettenrisiken frühzeitig erkennen.", icon: Truck, tier: "enterprise" },
-  { slug: "operations", title: "KIO-Operations", claim: "Produktionsprozesse transparent optimieren.", icon: Factory, tier: "enterprise" },
-  { slug: "executive", title: "KIO-Executive", claim: "Gesamtunternehmens-Risiken im Blick behalten.", icon: LayoutDashboard, tier: "enterprise" },
+  { slug: "marketing", title: "KIO-Marketing", claim: "Marktsignale in Wirkung übersetzen.", icon: Megaphone, category: ["go-to-market"] },
+  { slug: "sales", title: "KIO-Sales", claim: "Jeden Kundentermin datenbasiert führen.", icon: Handshake, category: ["go-to-market"] },
+  { slug: "service", title: "KIO-Service", claim: "Serviceprozesse intelligent steuern.", icon: Headset, category: ["operations"] },
+  { slug: "products", title: "KIO-Products", claim: "Produktwissen strukturiert nutzbar machen.", icon: Cog, category: ["operations"] },
+  { slug: "hr", title: "KIO-HR", claim: "HR-Prozesse automatisiert unterstützen.", icon: UserCheck, category: ["operations"] },
+  { slug: "esg", title: "KIO-ESG", claim: "Regulatorik strukturiert und auditfähig managen.", icon: Leaf, category: ["governance"] },
+  { slug: "finance", title: "KIO-Finance", claim: "Unternehmenssteuerung mit Szenarien absichern.", icon: BarChart3, category: ["governance"] },
+  { slug: "procurement", title: "KIO-Procurement", claim: "Lieferkettenrisiken frühzeitig erkennen.", icon: Truck, category: ["operations"] },
+  { slug: "operations", title: "KIO-Operations", claim: "Produktionsprozesse transparent optimieren.", icon: Factory, category: ["operations"] },
+  { slug: "executive", title: "KIO-Executive", claim: "Gesamtunternehmens-Risiken im Blick behalten.", icon: LayoutDashboard, category: ["governance"] },
+];
+
+const filterChips: { label: string; value: ModuleCategory }[] = [
+  { label: "Alle", value: "all" },
+  { label: "Go-to-Market", value: "go-to-market" },
+  { label: "Operations", value: "operations" },
+  { label: "Governance", value: "governance" },
 ];
 
 const fadeUp = {
@@ -44,7 +52,6 @@ const stagger = {
 
 function CompactCard({ mod }: { mod: ModuleDef }) {
   const Icon = mod.icon;
-  const isEnterprise = mod.tier === "enterprise";
 
   return (
     <Link href={`/module/${mod.slug}`}>
@@ -52,16 +59,6 @@ function CompactCard({ mod }: { mod: ModuleDef }) {
         className="group relative glass-card glass-card-hover rounded-2xl cursor-pointer transition-all duration-200 h-full min-h-[170px] shadow-sm hover:shadow-md hover:-translate-y-0.5"
         data-testid={`module-card-${mod.slug}`}
       >
-        {isEnterprise && (
-          <Badge
-            variant="outline"
-            className="absolute top-3.5 right-4 text-[8px] font-bold tracking-[0.15em] uppercase text-[#ff6a00] bg-[#ff6a00]/[0.08] border-[#ff6a00]/15 px-1.5 py-0 h-5 rounded-full"
-            data-testid={`badge-enterprise-${mod.slug}`}
-          >
-            Enterprise
-          </Badge>
-        )}
-
         <CardHeader className="pb-0 pt-5 px-5">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-[#ff6a00]/[0.07]">
@@ -88,8 +85,11 @@ function CompactCard({ mod }: { mod: ModuleDef }) {
 }
 
 export default function ModuleGridCompact() {
-  const coreModules = modules.filter(m => m.tier === "core");
-  const enterpriseModules = modules.filter(m => m.tier === "enterprise");
+  const [activeFilter, setActiveFilter] = useState<ModuleCategory>("all");
+
+  const filteredModules = activeFilter === "all"
+    ? modules
+    : modules.filter(m => m.category.includes(activeFilter));
 
   return (
     <section id="module" className="py-16 lg:py-24 relative border-t border-border" data-testid="section-module-grid">
@@ -113,23 +113,28 @@ export default function ModuleGridCompact() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
-          data-testid="module-grid-core"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="flex flex-wrap justify-center gap-2 mb-10"
+          data-testid="module-filter-chips"
         >
-          {coreModules.map((mod) => (
-            <motion.div key={mod.slug} variants={fadeUp}>
-              <CompactCard mod={mod} />
-            </motion.div>
+          {filterChips.map((chip) => (
+            <Button
+              key={chip.value}
+              variant={activeFilter === chip.value ? "default" : "outline"}
+              size="sm"
+              onClick={() => setActiveFilter(chip.value)}
+              className={`rounded-full ${
+                activeFilter === chip.value
+                  ? "bg-[#ff6a00] border-[#ff6a00] text-white"
+                  : ""
+              }`}
+              data-testid={`chip-filter-${chip.value}`}
+            >
+              {chip.label}
+            </Button>
           ))}
         </motion.div>
-
-        <div className="flex items-center gap-4 my-10" data-testid="divider-enterprise">
-          <div className="flex-1 h-px bg-border" />
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/25">Enterprise</span>
-          <div className="flex-1 h-px bg-border" />
-        </div>
 
         <motion.div
           initial="hidden"
@@ -137,9 +142,9 @@ export default function ModuleGridCompact() {
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
-          data-testid="module-grid-enterprise"
+          data-testid="module-grid"
         >
-          {enterpriseModules.map((mod) => (
+          {filteredModules.map((mod) => (
             <motion.div key={mod.slug} variants={fadeUp}>
               <CompactCard mod={mod} />
             </motion.div>
