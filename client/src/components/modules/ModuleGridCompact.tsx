@@ -52,8 +52,6 @@ function CompactCard({ mod }: { mod: ModuleDef }) {
         className="group relative glass-card glass-card-hover rounded-2xl cursor-pointer transition-all duration-200 h-full min-h-[170px] shadow-sm hover:shadow-md hover:-translate-y-0.5"
         data-testid={`module-card-${mod.slug}`}
       >
-        <div className="absolute top-0 left-5 right-5 h-[3px] rounded-b-full bg-[#ff6a00]" />
-
         {isEnterprise && (
           <Badge
             variant="outline"
