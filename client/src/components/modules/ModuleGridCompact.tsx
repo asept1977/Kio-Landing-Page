@@ -21,16 +21,16 @@ interface ModuleDef {
 }
 
 const modules: ModuleDef[] = [
-  { slug: "marketing", title: "KIO-Marketing", claim: "Marktsignale in Wirkung übersetzen.", icon: Megaphone, category: ["go-to-market"] },
-  { slug: "sales", title: "KIO-Sales", claim: "Jeden Kundentermin datenbasiert führen.", icon: Handshake, category: ["go-to-market"] },
-  { slug: "service", title: "KIO-Service", claim: "Serviceprozesse intelligent steuern.", icon: Headset, category: ["operations"] },
-  { slug: "products", title: "KIO-Products", claim: "Produktwissen strukturiert nutzbar machen.", icon: Cog, category: ["operations"] },
-  { slug: "hr", title: "KIO-HR", claim: "HR-Prozesse automatisiert unterstützen.", icon: UserCheck, category: ["operations"] },
-  { slug: "esg", title: "KIO-ESG", claim: "Regulatorik strukturiert und auditfähig managen.", icon: Leaf, category: ["governance"] },
-  { slug: "finance", title: "KIO-Finance", claim: "Unternehmenssteuerung mit Szenarien absichern.", icon: BarChart3, category: ["governance"] },
-  { slug: "procurement", title: "KIO-Procurement", claim: "Lieferkettenrisiken frühzeitig erkennen.", icon: Truck, category: ["operations"] },
-  { slug: "operations", title: "KIO-Operations", claim: "Produktionsprozesse transparent optimieren.", icon: Factory, category: ["operations"] },
-  { slug: "executive", title: "KIO-Executive", claim: "Gesamtunternehmens-Risiken im Blick behalten.", icon: LayoutDashboard, category: ["governance"] },
+  { slug: "marketing", title: "Marketing", claim: "Marktsignale in Wirkung übersetzen.", icon: Megaphone, category: ["go-to-market"] },
+  { slug: "sales", title: "Sales", claim: "Jeden Kundentermin datenbasiert führen.", icon: Handshake, category: ["go-to-market"] },
+  { slug: "service", title: "Service", claim: "Serviceprozesse intelligent steuern.", icon: Headset, category: ["operations"] },
+  { slug: "products", title: "Products", claim: "Produktwissen strukturiert nutzbar machen.", icon: Cog, category: ["operations"] },
+  { slug: "hr", title: "HR", claim: "HR-Prozesse automatisiert unterstützen.", icon: UserCheck, category: ["operations"] },
+  { slug: "esg", title: "ESG", claim: "Regulatorik strukturiert und auditfähig managen.", icon: Leaf, category: ["governance"] },
+  { slug: "finance", title: "Finance", claim: "Unternehmenssteuerung mit Szenarien absichern.", icon: BarChart3, category: ["governance"] },
+  { slug: "procurement", title: "Procurement", claim: "Lieferkettenrisiken frühzeitig erkennen.", icon: Truck, category: ["operations"] },
+  { slug: "operations", title: "Operations", claim: "Produktionsprozesse transparent optimieren.", icon: Factory, category: ["operations"] },
+  { slug: "executive", title: "Executive", claim: "Gesamtunternehmens-Risiken im Blick behalten.", icon: LayoutDashboard, category: ["governance"] },
 ];
 
 const filterChips: { label: string; value: ModuleCategory }[] = [
