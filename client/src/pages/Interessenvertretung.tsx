@@ -43,18 +43,6 @@ const whyBullets = [
 
 const orgCards = [
   {
-    icon: Users,
-    title: "Verbände",
-    desc: "Mitgliederbasierte Organisationen mit Fachreferaten und Beschlussstrukturen.",
-    criteria: [
-      "Positionspapiere & Beschlusslagen integrieren",
-      "Stellungnahmen konsistent ableiten",
-      "Mitgliederkommunikation beschleunigen",
-    ],
-    cta: "Mehr erfahren",
-    href: "/verbaende",
-  },
-  {
     icon: Landmark,
     title: "Politikberatungsagenturen",
     desc: "Mandatsbasierte Beratung mit strikter Vertraulichkeit.",
@@ -65,6 +53,18 @@ const orgCards = [
     ],
     cta: "Mehr erfahren",
     href: "/public-affairs",
+  },
+  {
+    icon: Users,
+    title: "Verbände",
+    desc: "Mitgliederbasierte Organisationen mit Fachreferaten und Beschlussstrukturen.",
+    criteria: [
+      "Positionspapiere & Beschlusslagen integrieren",
+      "Stellungnahmen konsistent ableiten",
+      "Mitgliederkommunikation beschleunigen",
+    ],
+    cta: "Mehr erfahren",
+    href: "/verbaende",
   },
   {
     icon: Building2,
