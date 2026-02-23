@@ -56,14 +56,14 @@ const orgCards = [
   },
   {
     icon: Landmark,
-    title: "Politikberatung & Public Affairs",
+    title: "Politikberatungsagenturen",
     desc: "Mandatsbasierte Beratung mit strikter Vertraulichkeit.",
     criteria: [
       "Strikte Mandatstrennung / Wissensräume",
       "Issue- & Stakeholder-Monitoring",
       "Zeitkritische Briefings & Argumentationslinien",
     ],
-    cta: "Mehr zur Politikberatung",
+    cta: "Mehr zu Politikberatungsagenturen",
     href: "/public-affairs",
   },
   {
