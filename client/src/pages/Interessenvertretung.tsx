@@ -63,7 +63,7 @@ const orgCards = [
       "Issue- & Stakeholder-Monitoring",
       "Zeitkritische Briefings & Argumentationslinien",
     ],
-    cta: "Mehr zu Politikberatungsagenturen",
+    cta: "Mehr erfahren",
     href: "/public-affairs",
   },
   {
