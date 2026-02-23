@@ -51,7 +51,7 @@ const orgCards = [
       "Stellungnahmen konsistent ableiten",
       "Mitgliederkommunikation beschleunigen",
     ],
-    cta: "Mehr zu Verbänden",
+    cta: "Mehr erfahren",
     href: "/verbaende",
   },
   {
