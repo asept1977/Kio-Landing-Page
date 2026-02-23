@@ -68,7 +68,7 @@ const orgCards = [
   },
   {
     icon: Building2,
-    title: "Innungs- und Handels- und Handwerkskammern",
+    title: "Innungen, IHK und Handwerkskammern",
     desc: "Organisationen mit gesetzlichem Auftrag und hohen Governance-Anforderungen.",
     criteria: [
       "Nachvollziehbarkeit & Dokumentation",
@@ -359,7 +359,7 @@ export default function Interessenvertretung() {
           >
             <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-ihk-title-iv">
-              KIO für Innungs- und Handels- und Handwerkskammern
+              KIO für Innungen, IHK und Handwerkskammern
             </motion.h2>
             <motion.p variants={fadeUp} className="text-foreground/50 mb-8 max-w-xl leading-relaxed" data-testid="text-ihk-desc-iv">
               Industrie- und Handelskammern tragen einen gesetzlichen Auftrag und arbeiten unter hohen Anforderungen an Transparenz, Dokumentation und Governance. KIO unterstützt diese Anforderungen durch eine auditierbare Architektur.
