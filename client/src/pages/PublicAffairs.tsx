@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, CalendarCheck, UserSearch, MessageSquareQuote, Radio, BookOpenCheck, Lightbulb, TrendingUp, Award, ShieldCheck } from "lucide-react";
+import { ArrowRight, CalendarCheck, UserSearch, MessageSquareQuote, Radio, BookOpenCheck, Lightbulb, TrendingUp, Award, ShieldCheck, FolderOpen, HardDrive, Database, Mail } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import type { Lang } from "@/lib/i18n";
 import aixLogoPath from "@assets/image6.png";
@@ -342,6 +342,55 @@ export default function PublicAffairs() {
                 <span className="text-xs text-foreground/40 font-medium tracking-wide">PUBLIC AFFAIRS</span>
               </div>
             </motion.a>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-integrations-pa">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-12"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-integrations-title-pa">
+              Integrationen
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-md mx-auto" data-testid="text-integrations-desc-pa">
+              KIO verbindet sich mit Ihren bestehenden Arbeitsumgebungen.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+          >
+            <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4 flex items-center gap-2" data-testid="text-doc-label-pa">
+              <FolderOpen className="w-4 h-4" /> Dokumente & Dateisysteme
+            </motion.p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { name: "SharePoint", icon: <FolderOpen className="w-6 h-6" /> },
+                { name: "OneDrive", icon: <HardDrive className="w-6 h-6" /> },
+                { name: "Filesystem", icon: <Database className="w-6 h-6" /> },
+                { name: "Outlook", icon: <Mail className="w-6 h-6" /> },
+              ].map((logo, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
+                  data-testid={`doc-logo-pa-${idx}`}
+                >
+                  <div className="text-foreground/50">{logo.icon}</div>
+                  <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>

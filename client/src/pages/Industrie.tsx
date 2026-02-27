@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Database, Users, Mail, Share2, Shield } from "lucide-react";
+import { ArrowRight, Database, Users, Mail, Share2, Shield, FolderOpen, HardDrive } from "lucide-react";
 import { SiSap, SiHubspot, SiSalesforce } from "react-icons/si";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -104,8 +104,14 @@ const crmLogos = [
   { name: "Pipedrive", icon: <span className="text-[15px] font-bold tracking-tight">Pipedrive</span> },
 ];
 
+const docLogos = [
+  { name: "SharePoint", icon: <FolderOpen className="w-6 h-6" /> },
+  { name: "OneDrive", icon: <HardDrive className="w-6 h-6" /> },
+  { name: "Filesystem", icon: <Database className="w-6 h-6" /> },
+  { name: "Outlook", icon: <Mail className="w-6 h-6" /> },
+];
+
 const additionalIntegrations = [
-  { icon: <Mail className="w-5 h-5" />, label: "E-Mail & Dokumente" },
   { icon: <Share2 className="w-5 h-5" />, label: "Knowledge Graph" },
   { icon: <Shield className="w-5 h-5" />, label: "DSGVO-konform" },
 ];
@@ -308,7 +314,31 @@ export default function Industrie() {
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
               variants={stagger}
-              className="grid grid-cols-3 gap-3"
+            >
+              <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4 flex items-center gap-2" data-testid="text-doc-label">
+                <FolderOpen className="w-4 h-4" /> Dokumente & Dateisysteme
+              </motion.p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {docLogos.map((logo, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={fadeUp}
+                    className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
+                    data-testid={`doc-logo-${idx}`}
+                  >
+                    <div className="text-foreground/50">{logo.icon}</div>
+                    <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="grid grid-cols-2 gap-3"
             >
               {additionalIntegrations.map((feat, idx) => (
                 <motion.div
