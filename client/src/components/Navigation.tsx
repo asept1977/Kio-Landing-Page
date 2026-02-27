@@ -278,17 +278,6 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
               </AnimatePresence>
             </div>
 
-            <Link href="/preise">
-              <span
-                data-testid="button-nav-preise"
-                className={`px-3 py-2 text-sm font-medium transition-colors cursor-pointer rounded-md ${
-                  isActive("/preise") ? textBase : `${textMuted} ${textHover}`
-                }`}
-              >
-                {lang === "de" ? "Preise" : "Pricing"}
-              </span>
-            </Link>
-
             <div className={`flex items-center gap-2 ml-4 pl-4 border-l ${scrolled ? "border-border" : "border-white/20"}`}>
               <button
                 onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
@@ -448,20 +437,6 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
                   )}
                 </AnimatePresence>
               </div>
-
-              <Link href="/preise">
-                <div
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-md cursor-pointer transition-colors ${
-                    isActive("/preise") ? "bg-[#ff6a00]/8" : "hover:bg-muted/50"
-                  }`}
-                  data-testid="button-mobile-preise"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className={`text-sm font-semibold ${isActive("/preise") ? "text-foreground" : "text-foreground/80"}`}>
-                    {lang === "de" ? "Preise" : "Pricing"}
-                  </span>
-                </div>
-              </Link>
 
               <div className="pt-3 px-1">
                 <Button

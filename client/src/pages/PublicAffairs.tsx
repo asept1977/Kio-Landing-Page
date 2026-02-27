@@ -360,13 +360,16 @@ export default function PublicAffairs() {
               <br />
               <span className="text-foreground/40">wenn sie verfügbar ist.</span>
             </motion.h2>
-            <motion.div variants={fadeUp} className="mt-10">
+            <motion.p variants={fadeUp} className="text-foreground/50 mt-4 mb-10 max-w-lg mx-auto leading-relaxed" data-testid="text-cta-desc-pa">
+              Sprechen Sie mit uns über Ihre Anforderungen — wir zeigen Ihnen, wie KIO in Ihrem Beratungsumfeld konkret eingesetzt werden kann. Unverbindlich und vertraulich.
+            </motion.p>
+            <motion.div variants={fadeUp}>
               <Button
                 onClick={() => navigate("/")}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
                 data-testid="button-demo-cta-pa"
               >
-                Demo anfragen <ArrowRight className="ml-2 w-4 h-4" />
+                Gespräch vereinbaren <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
           </motion.div>

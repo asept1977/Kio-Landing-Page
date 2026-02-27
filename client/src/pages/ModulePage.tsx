@@ -215,14 +215,6 @@ export default function ModulePage({ slug }: ModulePageProps) {
               >
                 Demo anfragen <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button
-                variant="outline"
-                onClick={() => navigate("/preise")}
-                className="font-semibold"
-                data-testid={`button-pricing-module-${slug}`}
-              >
-                Preise ansehen
-              </Button>
             </motion.div>
           </motion.div>
         </div>

@@ -7,7 +7,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - 2026-02-22: New consolidated "Interessenvertretung" overview page with IHK section, security tiers, onboarding, pricing model
 - 2026-02-22: Industrie page rebuilt with KIO Module grid (10 modules, filter chips, responsive cards, enterprise badges, placeholder detail pages)
 - 2026-02-22: Navigation updated with Interessenvertretung in Branchen dropdown; Verbände/PublicAffairs now serve as deep-dive subpages
-- 2026-02-20: Rebuilt pricing page (/preise) with interactive configurator: 4-step left panel + sticky live summary, animated price transitions
+- 2026-02-27: Removed Preise page; added contact CTA sections to all industry subpages
 - 2026-02-11: Built enterprise landing page with all sections
 - 2026-02-11: Bilingual DE/EN support via i18n system
 - 2026-02-11: Contact form with email, company, interest, message fields
@@ -42,7 +42,6 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `/verbaende` - "KIO für Verbände" deep-dive subpage (German only, links back to /interessenvertretung)
 - `/public-affairs` - "KIO für Public Affairs" deep-dive subpage (German only, links back to /interessenvertretung)
 - `/module/:slug` - Dynamic module detail pages (marketing, sales, service, products, hr, esg, finance, procurement, operations, executive)
-- `/preise` - Interactive pricing configurator with 4 steps, live summary panel (German only)
 - `/kio-oekosystem` - KIO Plattform overview with hero, how-it-works, architecture, updates teaser, security
 - `/kio-oekosystem/updates` - Filterable product development log (data from updates.json)
 
@@ -74,16 +73,6 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 2. Use Cases: 3 vertical timeline cards (Legislative Monitoring, Stakeholder-Intelligence, Positionspapiere)
 3. Referenzen: Miller & Meier Consulting, 365Sherpas
 4. Final CTA: "Strategiegespräch vereinbaren"
-
-### Pricing Configurator (/preise)
-Layout: Left panel (config) + Right panel (sticky live summary)
-1. Step 1 – Users: Slider 1–500, default 10, base price 49€/user
-2. Step 2 – Working Mode: Daily Assistance (49€/user) or Knowledge Work (119€/user)
-3. Step 3 – Company Knowledge: 7-step slider (100MB=0€ to 1TB=399€/month flat)
-4. Step 4 – Additional Sources: Checkboxes (Company data +19€/user, Market data +29€/user, Monitoring +39€/user)
-Formula: (users × mode_price) + knowledge_price + (users × addon_sum)
-Summary: Dynamic text paragraph + price breakdown + animated total
-FAQ accordion at bottom
 
 ## Saved Concepts
 - **KIO Data Flow SVG**: Three.js/Canvas visualization with KIO core in center, internal tools (ERP, CRM, Miro, Outlook, SharePoint, Teams, Atlassian, Database) on the left in blue, external sources (North Data, Statista, DIP, Lobbyregister, Dun & Bradstreet) on the right in violet. Bezier cables connect nodes to KIO core with animated pulses. Includes brand logos (Microsoft, Miro, Atlassian, Statista SVG paths). Component at `client/src/components/HeroAnimation.tsx`. Currently NOT used on homepage but kept for future use.
