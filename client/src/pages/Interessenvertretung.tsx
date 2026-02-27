@@ -527,6 +527,8 @@ export default function Interessenvertretung() {
                 { name: "North Data", icon: <span className="text-[14px] font-bold tracking-tight">North Data</span> },
                 { name: "Dun & Bradstreet", icon: <span className="text-[13px] font-bold tracking-tight">D&B</span> },
                 { name: "Statista", icon: <span className="text-[14px] font-bold tracking-tight">Statista</span> },
+                { name: "DIP", icon: <span className="text-[15px] font-bold tracking-tight">DIP</span> },
+                { name: "Lobbyregister", icon: <span className="text-[13px] font-bold tracking-tight">Lobbyregister</span> },
               ].map((logo, idx) => (
                 <motion.div
                   key={idx}
