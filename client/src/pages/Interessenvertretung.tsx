@@ -26,6 +26,7 @@ import {
   HardDrive,
   Database,
   Mail,
+  Globe,
 } from "lucide-react";
 
 const fadeUp = {
@@ -503,6 +504,35 @@ export default function Interessenvertretung() {
                   variants={fadeUp}
                   className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
                   data-testid={`doc-logo-iv-${idx}`}
+                >
+                  <div className="text-foreground/50">{logo.icon}</div>
+                  <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mt-10"
+          >
+            <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4 flex items-center gap-2" data-testid="text-external-label-iv">
+              <Globe className="w-4 h-4" /> Externe Datenquellen
+            </motion.p>
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { name: "North Data", icon: <span className="text-[14px] font-bold tracking-tight">North Data</span> },
+                { name: "Dun & Bradstreet", icon: <span className="text-[13px] font-bold tracking-tight">D&B</span> },
+                { name: "Statista", icon: <span className="text-[14px] font-bold tracking-tight">Statista</span> },
+              ].map((logo, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
+                  data-testid={`external-logo-iv-${idx}`}
                 >
                   <div className="text-foreground/50">{logo.icon}</div>
                   <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>

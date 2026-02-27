@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, MessageCircleQuestion, CalendarCheck, RefreshCw, TrendingUp, Award, ShieldCheck, FolderOpen, HardDrive, Database, Mail } from "lucide-react";
+import { ArrowRight, FileText, MessageCircleQuestion, CalendarCheck, RefreshCw, TrendingUp, Award, ShieldCheck, FolderOpen, HardDrive, Database, Mail, Globe } from "lucide-react";
 import aixLogoPath from "@assets/image6.png";
 import bvsBayernLogoPath from "@assets/image_1770791016833.png";
 import { useState } from "react";
@@ -422,6 +422,35 @@ export default function Verbaende() {
                   variants={fadeUp}
                   className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
                   data-testid={`doc-logo-verbaende-${idx}`}
+                >
+                  <div className="text-foreground/50">{logo.icon}</div>
+                  <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mt-10"
+          >
+            <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4 flex items-center gap-2" data-testid="text-external-label-verbaende">
+              <Globe className="w-4 h-4" /> Externe Datenquellen
+            </motion.p>
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { name: "North Data", icon: <span className="text-[14px] font-bold tracking-tight">North Data</span> },
+                { name: "Dun & Bradstreet", icon: <span className="text-[13px] font-bold tracking-tight">D&B</span> },
+                { name: "Statista", icon: <span className="text-[14px] font-bold tracking-tight">Statista</span> },
+              ].map((logo, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
+                  data-testid={`external-logo-verbaende-${idx}`}
                 >
                   <div className="text-foreground/50">{logo.icon}</div>
                   <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
