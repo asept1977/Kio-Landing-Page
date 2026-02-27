@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Database, Users, Mail, Share2, Shield } from "lucide-react";
+import { SiSap, SiHubspot, SiSalesforce } from "react-icons/si";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import ModuleGridCompact from "@/components/modules/ModuleGridCompact";
@@ -90,12 +91,23 @@ const useCases: UseCaseStep[] = [
   },
 ];
 
-const techFeatures = [
-  { icon: <Database className="w-6 h-6" />, label: "ERP Integration" },
-  { icon: <Users className="w-6 h-6" />, label: "CRM Integration" },
-  { icon: <Mail className="w-6 h-6" />, label: "E-Mail & Dokumente" },
-  { icon: <Share2 className="w-6 h-6" />, label: "Knowledge Graph" },
-  { icon: <Shield className="w-6 h-6" />, label: "DSGVO-konform" },
+const erpLogos = [
+  { name: "SAP", icon: <SiSap className="w-8 h-8" /> },
+  { name: "proALPHA", icon: <span className="text-[15px] font-bold tracking-tight">proALPHA</span> },
+  { name: "Xentral", icon: <span className="text-[15px] font-bold tracking-tight">Xentral</span> },
+];
+
+const crmLogos = [
+  { name: "HubSpot", icon: <SiHubspot className="w-7 h-7" /> },
+  { name: "Salesforce", icon: <SiSalesforce className="w-8 h-8" /> },
+  { name: "SAP CRM", icon: <SiSap className="w-7 h-7" /> },
+  { name: "Pipedrive", icon: <span className="text-[15px] font-bold tracking-tight">Pipedrive</span> },
+];
+
+const additionalIntegrations = [
+  { icon: <Mail className="w-5 h-5" />, label: "E-Mail & Dokumente" },
+  { icon: <Share2 className="w-5 h-5" />, label: "Knowledge Graph" },
+  { icon: <Shield className="w-5 h-5" />, label: "DSGVO-konform" },
 ];
 
 
@@ -231,36 +243,86 @@ export default function Industrie() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-10"
+            className="text-center mb-12"
           >
             <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-tech-title">
-              Technologie
+              Integrationen
             </motion.h2>
             <motion.p variants={fadeUp} className="text-foreground/50 max-w-md mx-auto" data-testid="text-tech-desc">
               KIO integriert sich nahtlos in Ihre bestehende Systemlandschaft.
             </motion.p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
-          >
-            {techFeatures.map((feat, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeUp}
-                className="glass-card rounded-md p-6 flex flex-col items-center gap-3 text-center"
-                data-testid={`tech-feature-${idx}`}
-              >
-                <div className="text-[#ff6a00]/60">{feat.icon}</div>
-                <span className="text-xs font-bold text-foreground/50 tracking-wide uppercase">{feat.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="space-y-10">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+            >
+              <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4 flex items-center gap-2" data-testid="text-erp-label">
+                <Database className="w-4 h-4" /> ERP-Systeme
+              </motion.p>
+              <div className="grid grid-cols-3 gap-3">
+                {erpLogos.map((logo, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={fadeUp}
+                    className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
+                    data-testid={`erp-logo-${idx}`}
+                  >
+                    <div className="text-foreground/50">{logo.icon}</div>
+                    <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+            >
+              <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/40 mb-4 flex items-center gap-2" data-testid="text-crm-label">
+                <Users className="w-4 h-4" /> CRM-Systeme
+              </motion.p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {crmLogos.map((logo, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={fadeUp}
+                    className="glass-card rounded-md p-5 flex flex-col items-center justify-center gap-2 text-center min-h-[90px]"
+                    data-testid={`crm-logo-${idx}`}
+                  >
+                    <div className="text-foreground/50">{logo.icon}</div>
+                    <span className="text-[10px] font-semibold text-foreground/35 tracking-wide uppercase">{logo.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="grid grid-cols-3 gap-3"
+            >
+              {additionalIntegrations.map((feat, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
+                  className="glass-card rounded-md p-5 flex flex-col items-center gap-2 text-center"
+                  data-testid={`tech-feature-${idx}`}
+                >
+                  <div className="text-[#ff6a00]/50">{feat.icon}</div>
+                  <span className="text-[10px] font-bold text-foreground/40 tracking-wide uppercase">{feat.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
