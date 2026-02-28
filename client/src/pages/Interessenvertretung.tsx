@@ -175,18 +175,19 @@ export default function Interessenvertretung() {
       </section>
 
       <section className="py-14 lg:py-20 relative" data-testid="section-warum-iv">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-warum-title-iv">
               Warum Struktur entscheidend ist
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-foreground/50 mb-10 max-w-xl" data-testid="text-warum-desc-iv">
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-xl mx-auto" data-testid="text-warum-desc-iv">
               Professionelle Interessenvertretung lebt von Nachvollziehbarkeit, Konsistenz und Geschwindigkeit.
             </motion.p>
           </motion.div>
@@ -196,7 +197,7 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="space-y-5"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto"
           >
             {whyBullets.map((item, idx) => {
               const Icon = item.icon;
@@ -210,7 +211,7 @@ export default function Interessenvertretung() {
                   <div className="w-10 h-10 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <p className="text-base text-foreground/70 leading-relaxed pt-2">{item.text}</p>
+                  <p className="text-sm text-foreground/70 leading-relaxed pt-2">{item.text}</p>
                 </motion.div>
               );
             })}
@@ -218,7 +219,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-organisationen-iv">
+      <section className="py-14 lg:py-20 relative" data-testid="section-organisationen-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -297,7 +298,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section id="sicherheit" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-sicherheit-iv">
+      <section id="sicherheit" className="py-14 lg:py-20 relative" data-testid="section-sicherheit-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -320,7 +321,7 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15 mb-12"
           >
             {securityTiers.map((tier, idx) => {
               const Icon = tier.icon;
@@ -328,7 +329,7 @@ export default function Interessenvertretung() {
                 <motion.div
                   key={idx}
                   variants={fadeUp}
-                  className="glass-card rounded-md p-8 text-center"
+                  className="flex-1 px-8 py-4 text-center"
                   data-testid={`iv-security-card-${idx}`}
                 >
                   <div className="w-14 h-14 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-5 mx-auto">
@@ -360,19 +361,20 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section id="ihk" className="py-14 lg:py-20 relative border-t border-border" data-testid="section-ihk-iv">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="ihk" className="py-14 lg:py-20 relative" data-testid="section-ihk-iv">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-ihk-title-iv">
               KIO für Wirtschaftsvertretungen
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-foreground/50 mb-8 max-w-xl leading-relaxed" data-testid="text-ihk-desc-iv">
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-xl mx-auto leading-relaxed" data-testid="text-ihk-desc-iv">
               Industrie- und Handelskammern tragen einen gesetzlichen Auftrag und arbeiten unter hohen Anforderungen an Transparenz, Dokumentation und Governance. KIO unterstützt diese Anforderungen durch eine auditierbare Architektur.
             </motion.p>
           </motion.div>
@@ -382,7 +384,7 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="space-y-4"
+            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15 mb-10"
           >
             {[
               { title: "Nachvollziehbarkeit", desc: "Jede Empfehlung und Analyse ist dokumentiert und jederzeit reproduzierbar." },
@@ -392,14 +394,12 @@ export default function Interessenvertretung() {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="glass-card rounded-md p-6 flex items-start gap-4"
+                className="flex-1 px-8 py-4 text-center"
                 data-testid={`iv-ihk-feature-${idx}`}
               >
-                <Check className="w-5 h-5 text-[#ff6a00] shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold text-foreground mb-1">{item.title}</p>
-                  <p className="text-sm text-foreground/50 leading-relaxed">{item.desc}</p>
-                </div>
+                <Check className="w-5 h-5 text-[#ff6a00] mx-auto mb-3" />
+                <p className="font-bold text-foreground mb-1">{item.title}</p>
+                <p className="text-sm text-foreground/50 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -409,7 +409,7 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mt-8"
+            className="text-center"
           >
             <Button
               onClick={handleContact}
@@ -422,19 +422,20 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-einfuehrung-iv">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 lg:py-20 relative" data-testid="section-einfuehrung-iv">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
+            className="text-center mb-10"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-einfuehrung-title-iv">
               Einführung & Projektumfang
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-foreground/50 mb-10 max-w-xl" data-testid="text-einfuehrung-desc-iv">
+            <motion.p variants={fadeUp} className="text-foreground/50 max-w-xl mx-auto" data-testid="text-einfuehrung-desc-iv">
               KIO wird als Organisationslösung eingeführt — strukturiert und begleitet.
             </motion.p>
           </motion.div>
@@ -444,7 +445,7 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15"
           >
             {[
               { icon: UsersRound, title: "20 – 120 Nutzer", desc: "Typischer Projektumfang für die professionelle Interessenvertretung." },
@@ -456,7 +457,7 @@ export default function Interessenvertretung() {
                 <motion.div
                   key={idx}
                   variants={fadeUp}
-                  className="glass-card rounded-md p-8 text-center"
+                  className="flex-1 px-8 py-4 text-center"
                   data-testid={`iv-fact-card-${idx}`}
                 >
                   <div className="w-14 h-14 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-5 mx-auto">
@@ -471,8 +472,8 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-integrations-iv">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 lg:py-20 relative" data-testid="section-integrations-iv">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -551,19 +552,20 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative border-t border-border" data-testid="section-preismodell-iv">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 lg:py-20 relative" data-testid="section-preismodell-iv">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
+            className="text-center"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-preismodell-title-iv">
               Preismodell
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-foreground/50 mb-8 max-w-xl leading-relaxed" data-testid="text-preismodell-desc-iv">
+            <motion.p variants={fadeUp} className="text-foreground/50 mb-8 max-w-xl mx-auto leading-relaxed" data-testid="text-preismodell-desc-iv">
               KIO wird als Organisationslösung bereitgestellt. Das Modell richtet sich nach Nutzerzahl, Sicherheitsstufe und Integrationsanforderungen. Gerne erstellen wir ein individuelles Angebot.
             </motion.p>
             <motion.div variants={fadeUp}>
@@ -579,9 +581,9 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 relative border-t border-border" data-testid="section-cta-iv">
+      <section className="py-20 lg:py-28 relative" data-testid="section-cta-iv">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             initial="hidden"
             whileInView="show"
