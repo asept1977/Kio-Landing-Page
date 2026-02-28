@@ -174,9 +174,9 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0">
-                    <ArrowRight className="w-4 h-4 text-[#ff6a00]" />
-                  </div>
+                  <span className="shrink-0 text-[#ff6a00] text-sm font-semibold flex items-center gap-1.5 opacity-70 group-hover:opacity-100 transition-all" data-testid={`link-learn-more-${idx}`}>
+                    {t.targets.cta} <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </motion.div>
             ))}
