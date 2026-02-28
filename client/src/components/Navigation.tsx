@@ -289,8 +289,6 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
               </button>
               <a
                 href="https://www.kio-space.de"
-                target="_blank"
-                rel="noopener noreferrer"
                 className={`px-2.5 py-1.5 text-xs font-semibold rounded-md transition-colors ${textMuted} ${textHover}`}
                 data-testid="link-login"
               >
@@ -450,8 +448,6 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
               <div className="pt-3 px-1 space-y-2">
                 <a
                   href="https://www.kio-space.de"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block w-full text-center py-2 text-sm font-semibold text-foreground/60 hover:text-foreground border border-border rounded-md transition-colors"
                   data-testid="link-login-mobile"
                 >
