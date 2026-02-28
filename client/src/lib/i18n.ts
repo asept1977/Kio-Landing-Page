@@ -19,7 +19,7 @@ export const translations = {
     },
     targets: {
       sectionTitle: "Solutions for Decision Makers",
-      sectionDesc: "Industry-specific AI assistants — pre-configured for your requirements, data sources and decision processes.",
+      sectionDesc: "KIO delivers ready-to-use AI assistants that understand your industry — with the right knowledge, the right sources and ready to go.",
       card1Title: "Professional Advocacy",
       card1Desc: "Automated monitoring of legislation, stakeholder analysis and position paper alignment. Integrates parliamentary data (DIP), lobby registers, internal documents and knowledge graphs.",
       card2Title: "Regulated Industries & Consulting",
@@ -121,7 +121,7 @@ export const translations = {
     },
     targets: {
       sectionTitle: "Mehrwert für Entscheider",
-      sectionDesc: "Branchenspezifische KI-Assistenten — fertig konfiguriert für Ihre Anforderungen, Datenquellen und Entscheidungsprozesse.",
+      sectionDesc: "KIO liefert fertige KI-Assistenten, die Ihre Branche verstehen — mit dem richtigen Wissen, den richtigen Quellen und sofort einsatzbereit.",
       card1Title: "Professionelle Interessenvertretung",
       card1Desc: "Verknüpft externe Entwicklungen mit internen Positionen und schafft eine belastbare Grundlage für Entscheidungen und Stellungnahmen.",
       card2Title: "Regulierte Branchen & Beratung",
