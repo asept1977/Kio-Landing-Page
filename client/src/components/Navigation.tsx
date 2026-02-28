@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw, Briefcase } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw, Briefcase, UserCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
@@ -287,13 +287,6 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
                 <Globe className="w-3.5 h-3.5" />
                 {lang === 'en' ? 'DE' : 'EN'}
               </button>
-              <a
-                href="https://www.kio-space.de"
-                className={`px-2.5 py-1.5 text-xs font-semibold rounded-md transition-colors ${textMuted} ${textHover}`}
-                data-testid="link-login"
-              >
-                Login
-              </a>
               <Button
                 onClick={handleContact}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-medium text-sm"
@@ -301,6 +294,14 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
               >
                 {t.contact}
               </Button>
+              <a
+                href="https://www.kio-space.de"
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-md transition-colors ${textMuted} ${textHover}`}
+                data-testid="link-login"
+              >
+                <UserCircle className="w-4 h-4" />
+                Login
+              </a>
             </div>
           </div>
 
