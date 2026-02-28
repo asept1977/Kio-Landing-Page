@@ -42,7 +42,7 @@ export const translations = {
       layer6Items: "ERP \u00b7 CRM \u00b7 SharePoint \u00b7 Email \u00b7 Knowledge Graph",
     },
     sovereignty: {
-      title: "Built for European Digital Sovereignty",
+      title: "Built for European\nDigital Sovereignty",
       desc: "KIO is designed from the ground up for European enterprises that demand control over their data and AI infrastructure.",
       points: [
         "GDPR-compliant by design",
@@ -144,7 +144,7 @@ export const translations = {
       layer6Items: "ERP \u00b7 CRM \u00b7 SharePoint \u00b7 E-Mail \u00b7 Wissensgraph",
     },
     sovereignty: {
-      title: "Entwickelt f\u00fcr europ\u00e4ische digitale Souver\u00e4nit\u00e4t",
+      title: "Entwickelt für europäische\ndigitale Souveränität",
       desc: "KIO wurde von Grund auf f\u00fcr europ\u00e4ische Unternehmen entwickelt, die volle Kontrolle \u00fcber ihre Daten und KI-Infrastruktur fordern.",
       points: [
         "DSGVO-konform by Design",

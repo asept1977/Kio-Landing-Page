@@ -188,7 +188,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight" data-testid="text-sovereignty-title">
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight whitespace-pre-line" data-testid="text-sovereignty-title">
               {t.sovereignty.title}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed" data-testid="text-sovereignty-desc">
