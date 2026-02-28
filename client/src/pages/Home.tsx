@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { RoiCalculator } from "@/components/RoiCalculator";
+import { KioArchitectureDiagram } from "@/components/KioArchitectureDiagram";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -186,6 +187,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <KioArchitectureDiagram lang={lang} />
 
       <RoiCalculator lang={lang} />
 
