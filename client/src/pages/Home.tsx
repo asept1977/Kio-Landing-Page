@@ -178,7 +178,7 @@ export default function Home() {
 
       <RoiCalculator lang={lang} />
 
-      <section id="sovereignty" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-sovereignty">
+      <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -235,7 +235,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-contact">
+      <section id="contact" className="py-24 lg:py-32 relative" data-testid="section-contact">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.03] via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
