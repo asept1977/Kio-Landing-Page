@@ -74,7 +74,7 @@ export default function Home() {
             <motion.div initial="hidden" animate="show" variants={stagger}>
               <motion.div variants={fadeUp}>
                 <span className="inline-block py-1.5 px-4 rounded-full bg-[#ff6a00]/20 text-[#ff6a00] font-semibold text-xs tracking-widest mb-8 border border-[#ff6a00]/30 uppercase" data-testid="text-hero-badge">
-                  Enterprise KI-Ökosystem
+                  Secure Enterprise KI-Ökosystem
                 </span>
               </motion.div>
 
