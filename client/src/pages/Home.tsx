@@ -170,13 +170,12 @@ export default function Home() {
                       {entry.title}
                     </h3>
                     <p className="text-foreground/50 text-sm leading-relaxed" data-testid={`text-target-desc-${idx}`}>
-                      {entry.desc}
+                      {entry.desc}{" "}
+                      <span className="inline-flex items-center gap-1 text-[#ff6a00] font-semibold whitespace-nowrap" data-testid={`link-learn-more-${idx}`}>
+                        {t.targets.cta} <ArrowRight className="w-3.5 h-3.5 inline" />
+                      </span>
                     </p>
                   </div>
-
-                  <span className="shrink-0 text-[#ff6a00] text-sm font-semibold flex items-center gap-1.5 opacity-70 group-hover:opacity-100 transition-all" data-testid={`link-learn-more-${idx}`}>
-                    {t.targets.cta} <ArrowRight className="w-4 h-4" />
-                  </span>
                 </div>
               </motion.div>
             ))}
