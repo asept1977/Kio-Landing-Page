@@ -238,7 +238,7 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15"
           >
             {orgCards.map((card, idx) => {
               const Icon = card.icon;
@@ -246,7 +246,7 @@ export default function Interessenvertretung() {
                 <motion.div
                   key={idx}
                   variants={fadeUp}
-                  className="glass-card rounded-md p-8 flex flex-col"
+                  className="flex-1 px-8 py-6 flex flex-col items-center text-center"
                   data-testid={`iv-org-card-${idx}`}
                 >
                   <div className="w-14 h-14 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-6">
