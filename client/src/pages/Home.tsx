@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
-import { RoiCalculator } from "@/components/RoiCalculator";
+import { ReturnOnIntelligenceSection } from "@/components/ReturnOnIntelligenceSection";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -187,7 +187,7 @@ export default function Home() {
         </div>
       </section>
 
-      <RoiCalculator lang={lang} />
+      <ReturnOnIntelligenceSection />
 
       <section id="sovereignty" className="py-24 lg:py-32 relative border-t border-border" data-testid="section-sovereignty">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

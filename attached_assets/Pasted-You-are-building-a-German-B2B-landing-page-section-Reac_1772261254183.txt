@@ -1,0 +1,50 @@
+You are building a German B2B landing page section (React + Vite, Tailwind CSS + shadcn/ui). Create a compact “Calculator/Simulator” hero section that replaces “Berechnen Sie Ihren ROI” with a differentiated message.
+
+SECTION GOAL
+A modern, credible value-calculator section for KIO that fits the positioning: “Effizienzgewinn verpflichtet – nicht zur Einsparung, sondern zur Befähigung”.
+
+COPY (use exactly, you may improve punctuation but not meaning)
+- Eyebrow/Label (small): "Wirkungsanalyse"
+- H2 headline: "Return on Intelligence"
+- Subheadline: "Vom Effizienzgewinn zur nachhaltigen Organisationsentwicklung."
+- Supporting text (1–2 lines): "Sehen Sie, wie schnell sich KIO durch Effizienzsteigerung amortisiert – und wie viel Kapazität dadurch für wertschöpfende Arbeit frei wird."
+
+UI REQUIREMENTS
+- Layout: Two-column on desktop, stacked on mobile.
+- Left column: copy + 3 bullet benefits with icons:
+  1) "Zeitgewinn pro Team" 
+  2) "Bessere Entscheidungen durch Organisationswissen" 
+  3) "Weniger Routine, mehr Wirkung"
+- Right column: a compact calculator card with:
+  - Inputs (shadcn/ui):
+    * "Anzahl Nutzer" (number, default 50)
+    * "Ø Stundenersparnis pro Nutzer/Woche" (number, default 1.5)
+    * "Interner Stundensatz (€)" (number, default 85)
+    * "KIO Preis pro Nutzer/Monat (€)" (number, default 125)
+  - Outputs (computed live):
+    * "Monatlicher Wertbeitrag (€)"
+    * "Monatliche KIO-Kosten (€)"
+    * "Netto-Wertbeitrag (€)"
+    * "Amortisation" (in months; if negative, show "noch nicht erreicht")
+  - A primary CTA button: "Wirkung berechnen"
+  - A secondary text link: "Methodik & Annahmen"
+- Add a small disclaimer under outputs:
+  "Hinweis: Ergebnis ist eine Näherung basierend auf Ihren Annahmen."
+
+CALCULATION LOGIC
+- Monthly value contribution = users * hours_saved_per_week * 4.33 * hourly_rate
+- Monthly KIO cost = users * kio_price_per_month
+- Net value = contribution - cost
+- Payback months = if net value > 0 then (monthly_kio_cost / net_value) else null
+
+DESIGN
+- Use KIO brand feel: clean, serious, not flashy. 
+- Subtle background gradient, rounded card, minimal shadows.
+- Ensure spacing is compact; do not create a long page.
+- Use accessible labels, helper text for each input, and proper number formatting (de-DE locale with thousands separators).
+
+DELIVERABLE
+- Implement as a reusable React component: `ReturnOnIntelligenceSection.tsx`
+- Include all UI + state + calculations in the component (no external state management).
+- Use TypeScript, functional components, and shadcn/ui components (Card, Input, Label, Button, Separator).
+- Provide the full code for the component and any small helper functions inside the same file.
