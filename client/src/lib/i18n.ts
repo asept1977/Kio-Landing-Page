@@ -111,7 +111,7 @@ export const translations = {
       contact: "Strategiegespr\u00e4ch",
     },
     hero: {
-      badge: "ENTERPRISE KI-\u00d6KOSYSTEM",
+      badge: "SECURE ENTERPRISE KI-\u00d6KOSYSTEM",
       title1Word1: "Knowledge",
       title2Word2: "Intelligence",
       title2: "Orchestrated.",
