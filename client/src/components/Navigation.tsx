@@ -287,6 +287,15 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
                 <Globe className="w-3.5 h-3.5" />
                 {lang === 'en' ? 'DE' : 'EN'}
               </button>
+              <a
+                href="https://www.kio-space.de/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-2.5 py-1.5 text-xs font-semibold rounded-md transition-colors ${textMuted} ${textHover}`}
+                data-testid="link-login"
+              >
+                Login
+              </a>
               <Button
                 onClick={handleContact}
                 className="bg-[#ff6a00] border-[#ff6a00] text-white font-medium text-sm"
@@ -438,7 +447,16 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
                 </AnimatePresence>
               </div>
 
-              <div className="pt-3 px-1">
+              <div className="pt-3 px-1 space-y-2">
+                <a
+                  href="https://www.kio-space.de/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-2 text-sm font-semibold text-foreground/60 hover:text-foreground border border-border rounded-md transition-colors"
+                  data-testid="link-login-mobile"
+                >
+                  Login
+                </a>
                 <Button
                   onClick={handleContact}
                   className="w-full bg-[#ff6a00] border-[#ff6a00] text-white font-medium"
