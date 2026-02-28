@@ -143,9 +143,11 @@ export default function Interessenvertretung() {
               Professionelle Interessenvertretung
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-xl md:text-2xl font-semibold text-white mb-8 max-w-3xl leading-snug" data-testid="text-hero-tagline-iv">
-              Organisationswissen aktivieren. Positionen stärken. Handlungsfähigkeit sichern.
-            </motion.p>
+            <motion.div variants={fadeUp} className="mb-8 space-y-1" data-testid="text-hero-tagline-iv">
+              <p className="text-xl md:text-2xl font-semibold text-white leading-snug">Organisationswissen aktivieren.</p>
+              <p className="text-xl md:text-2xl font-semibold text-white leading-snug">Positionen stärken.</p>
+              <p className="text-xl md:text-2xl font-semibold text-white leading-snug">Handlungsfähigkeit sichern.</p>
+            </motion.div>
 
             <motion.p variants={fadeUp} className="text-base md:text-lg text-white/60 mb-12 max-w-3xl leading-relaxed" data-testid="text-hero-subtitle-iv">
               KIO verbindet internes Wissen, Positionsmanagement und kontinuierliches Monitoring zu einer belastbaren Entscheidungsgrundlage — mit höchster Governance- und Sicherheitskonformität.
