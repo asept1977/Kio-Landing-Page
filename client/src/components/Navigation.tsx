@@ -21,7 +21,7 @@ const branchLinks = [
 
 const oekosystemLinks = [
   { href: "/kio-oekosystem", labelDe: "Plattform-Übersicht", labelEn: "Platform Overview", descDe: "KIO Architektur & Funktionen", descEn: "KIO architecture & features", icon: LayoutGrid },
-  { href: "/kio-oekosystem#architecture", labelDe: "Architektur", labelEn: "Architecture", descDe: "Agent Mesh & Multi-Agent-System", descEn: "Agent Mesh & multi-agent system", icon: Layers },
+  { href: "/plattformarchitektur", labelDe: "Architektur", labelEn: "Architecture", descDe: "Internes & externes Wissen, Security", descEn: "Internal & external data, security", icon: Layers },
   { href: "/kio-oekosystem#security", labelDe: "Sicherheit", labelEn: "Security", descDe: "DSGVO, EU-Hosting & Zugriffskontrolle", descEn: "GDPR, EU hosting & access control", icon: Shield },
   { href: "/kio-oekosystem/updates", labelDe: "Produkt-Updates", labelEn: "Product Updates", descDe: "Neueste Entwicklungen & Features", descEn: "Latest developments & features", icon: RefreshCw },
 ];
