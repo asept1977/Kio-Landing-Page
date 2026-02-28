@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="solutions" className="py-24 lg:py-32 relative" data-testid="section-solutions">
+      <section id="solutions" className="py-12 lg:py-16 relative" data-testid="section-solutions">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -178,7 +178,7 @@ export default function Home() {
 
       <RoiCalculator lang={lang} />
 
-      <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
+      <section id="sovereignty" className="py-12 lg:py-16 relative" data-testid="section-sovereignty">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -235,7 +235,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 lg:py-32 relative" data-testid="section-contact">
+      <section id="contact" className="py-12 lg:py-16 relative" data-testid="section-contact">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.03] via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
