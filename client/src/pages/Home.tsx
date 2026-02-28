@@ -2,7 +2,6 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { RoiCalculator } from "@/components/RoiCalculator";
-import { KioArchitectureDiagram } from "@/components/KioArchitectureDiagram";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -188,7 +187,38 @@ export default function Home() {
         </div>
       </section>
 
-      <KioArchitectureDiagram lang={lang} />
+      <section className="py-16 lg:py-20 relative border-t border-border" data-testid="section-architecture-teaser">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.p variants={fadeUp} className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#ff6a00]/60 mb-3">
+              {lang === "de" ? "Plattformarchitektur" : "Platform Architecture"}
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="text-2xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-arch-teaser-title">
+              {lang === "de" ? "Ein Ökosystem. Alle Daten. Volle Kontrolle." : "One Ecosystem. All Data. Full Control."}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-base text-foreground/50 max-w-lg mx-auto mb-8" data-testid="text-arch-teaser-desc">
+              {lang === "de"
+                ? "KIO verbindet internes Organisationswissen mit externen Datenquellen — souverän, auditierbar und sicher."
+                : "KIO connects internal organizational knowledge with external data sources — sovereign, auditable and secure."}
+            </motion.p>
+            <motion.div variants={fadeUp}>
+              <Button
+                variant="outline"
+                onClick={() => navigate("/plattformarchitektur")}
+                className="border-[#ff6a00]/30 text-[#ff6a00] hover:bg-[#ff6a00]/5 font-semibold"
+                data-testid="button-arch-details"
+              >
+                {lang === "de" ? "Architektur ansehen" : "View Architecture"} <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       <RoiCalculator lang={lang} />
 

@@ -13,6 +13,7 @@ import KioOekosystem from "@/pages/KioOekosystem";
 import KioUpdates from "@/pages/KioUpdates";
 import Interessenvertretung from "@/pages/Interessenvertretung";
 import ModulePage from "@/pages/ModulePage";
+import Plattformarchitektur from "@/pages/Plattformarchitektur";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -36,6 +37,7 @@ function Router() {
         <Route path="/kio-oekosystem" component={KioOekosystem} />
         <Route path="/kio-oekosystem/updates" component={KioUpdates} />
         <Route path="/interessenvertretung" component={Interessenvertretung} />
+        <Route path="/plattformarchitektur" component={Plattformarchitektur} />
         <Route path="/module/:slug">
           {(params: { slug: string }) => <ModulePage slug={params.slug} />}
         </Route>
