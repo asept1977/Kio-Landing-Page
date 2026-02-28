@@ -80,7 +80,7 @@ export default function Home() {
 
               <motion.div variants={fadeUp} className="inline-block text-center">
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2 leading-[1.05] text-white" data-testid="text-hero-title">
-                  KIO
+                  KIO<sup className="text-lg md:text-xl lg:text-2xl align-super ml-1 font-semibold opacity-60">™</sup>
                 </h1>
                 <span className="inline-flex items-center gap-3 py-1.5 px-5 rounded-full bg-white/10 font-semibold text-xs md:text-sm tracking-widest border border-white/20 mt-4 backdrop-blur-sm" data-testid="text-hero-subheadline">
                   <span className="text-[#5b9bd5]">Knowledge</span>
