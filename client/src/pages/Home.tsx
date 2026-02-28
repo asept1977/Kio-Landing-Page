@@ -145,13 +145,13 @@ export default function Home() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15"
           >
             {targetEntries.map((entry, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="group cursor-pointer relative rounded-xl border border-border hover:border-[#ff6a00]/30 bg-background hover:shadow-lg transition-all duration-300 p-6 flex flex-col"
+                className="group cursor-pointer flex-1 px-8 py-6 flex flex-col items-center text-center"
                 data-testid={`card-target-${idx}`}
                 onClick={() => navigate(entry.link)}
               >
