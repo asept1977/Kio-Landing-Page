@@ -95,11 +95,6 @@ export default function Home() {
                     ? "KIO verbindet internes und externes Wissen mit Systemen und Aufgaben, damit Entscheidungen schneller und sicherer getroffen werden."
                     : "KIO connects internal and external knowledge with systems and tasks so decisions are made faster and with greater confidence."}
                 </p>
-                <p className="text-sm text-white/50 mt-2" data-testid="text-hero-definition-sub">
-                  {lang === "de"
-                    ? "KIO wirkt im Hintergrund – damit Mitarbeitende im Alltag weniger suchen und mehr entscheiden können."
-                    : "KIO works in the background – so employees spend less time searching and more time deciding."}
-                </p>
               </motion.div>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
