@@ -148,7 +148,7 @@ export default function Interessenvertretung() {
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-base md:text-lg text-white/60 mb-10 max-w-3xl leading-relaxed" data-testid="text-hero-subtitle-iv">
-              KIO verbindet internes Wissen, Positionsmanagement und kontinuierliches Monitoring zu einer belastbaren, auditierbaren Entscheidungsarchitektur — mit höchster Governance- und Sicherheitskonformität.
+              KIO verbindet internes Wissen, Positionsmanagement und kontinuierliches Monitoring zu einer belastbaren Entscheidungsgrundlage — mit höchster Governance- und Sicherheitskonformität.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
