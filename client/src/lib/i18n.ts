@@ -121,7 +121,7 @@ export const translations = {
     },
     targets: {
       sectionTitle: "Mehrwert für Entscheider",
-      sectionDesc: "KIO liefert fertige KI-Assistenten, die Ihre Branche verstehen — mit dem richtigen Wissen, den richtigen Quellen und sofort einsatzbereit.",
+      sectionDesc: "KIO-Assistenten verstehen Ihre Branche — mit dem richtigen Wissen, den richtigen Quellen und sofort einsatzbereit.",
       card1Title: "Professionelle Interessenvertretung",
       card1Desc: "Verknüpft externe Entwicklungen mit internen Positionen und schafft eine belastbare Grundlage für Entscheidungen und Stellungnahmen.",
       card2Title: "Regulierte Branchen & Beratung",
