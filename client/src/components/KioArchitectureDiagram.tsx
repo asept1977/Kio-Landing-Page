@@ -68,19 +68,19 @@ function OrbitDiagram() {
 
       <circle cx={cx} cy={cy} r="395" fill="url(#bgGlow)" />
 
-      <circle cx={cx} cy={cy} r={outerR} fill="none" stroke="#ff6a00" strokeWidth="1" strokeOpacity="0.12" strokeDasharray="6 4" />
-      <circle cx={cx} cy={cy} r={innerR} fill="none" stroke="#5b9bd5" strokeWidth="1" strokeOpacity="0.15" strokeDasharray="6 4" />
+      <circle cx={cx} cy={cy} r={outerR} fill="none" stroke="#ff6a00" strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="6 4" />
+      <circle cx={cx} cy={cy} r={innerR} fill="none" stroke="#5b9bd5" strokeWidth="1.5" strokeOpacity="0.35" strokeDasharray="6 4" />
 
       {outerSources.map((src, i) => {
         const pos = polarToXY(cx, cy, outerR, src.angle);
         return (
-          <line key={`ol-${i}`} x1={cx} y1={cy} x2={pos.x} y2={pos.y} stroke="#ff6a00" strokeWidth="0.5" strokeOpacity="0.08" />
+          <line key={`ol-${i}`} x1={cx} y1={cy} x2={pos.x} y2={pos.y} stroke="#ff6a00" strokeWidth="0.8" strokeOpacity="0.15" />
         );
       })}
       {innerSources.map((src, i) => {
         const pos = polarToXY(cx, cy, innerR, src.angle);
         return (
-          <line key={`il-${i}`} x1={cx} y1={cy} x2={pos.x} y2={pos.y} stroke="#5b9bd5" strokeWidth="0.5" strokeOpacity="0.1" />
+          <line key={`il-${i}`} x1={cx} y1={cy} x2={pos.x} y2={pos.y} stroke="#5b9bd5" strokeWidth="0.8" strokeOpacity="0.18" />
         );
       })}
 
@@ -111,23 +111,23 @@ function OrbitDiagram() {
         );
       })}
 
-      <g opacity="0.2">
+      <g opacity="0.35">
         <path
           d={`M${cx} ${cy - shieldR} 
               C${cx + shieldR * 0.85} ${cy - shieldR * 0.7} ${cx + shieldR * 0.9} ${cy + shieldR * 0.1} ${cx + shieldR * 0.6} ${cy + shieldR * 0.7}
               L${cx} ${cy + shieldR}
               L${cx - shieldR * 0.6} ${cy + shieldR * 0.7}
               C${cx - shieldR * 0.9} ${cy + shieldR * 0.1} ${cx - shieldR * 0.85} ${cy - shieldR * 0.7} ${cx} ${cy - shieldR} Z`}
-          fill="#003366"
+          fill="#0a3a6b"
           stroke="#5b9bd5"
-          strokeWidth="1.5"
-          strokeOpacity="0.3"
+          strokeWidth="2"
+          strokeOpacity="0.5"
         />
       </g>
 
       <circle cx={cx} cy={cy} r="50" fill="url(#coreGlow)" />
-      <circle cx={cx} cy={cy} r="36" fill="#05284F" stroke="#ff6a00" strokeWidth="2" strokeOpacity="0.5" filter="url(#softGlow)" />
-      <text x={cx} y={cy + 2} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize="18" fontWeight="800" letterSpacing="2">
+      <circle cx={cx} cy={cy} r="38" fill="#0a3a6b" stroke="#ff6a00" strokeWidth="2.5" strokeOpacity="0.8" filter="url(#softGlow)" />
+      <text x={cx} y={cy + 2} textAnchor="middle" dominantBaseline="middle" fill="white" fontSize="20" fontWeight="800" letterSpacing="3">
         KIO
       </text>
 
@@ -135,8 +135,8 @@ function OrbitDiagram() {
         const pos = polarToXY(cx, cy, innerR, src.angle);
         return (
           <g key={`in-${i}`} data-testid={`arch-inner-${i}`}>
-            <circle cx={pos.x} cy={pos.y} r="22" fill="#05284F" stroke="#5b9bd5" strokeWidth="1.5" strokeOpacity="0.4" />
-            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="#5b9bd5" fontSize="9" fontWeight="700" letterSpacing="0.5">
+            <circle cx={pos.x} cy={pos.y} r="24" fill="#0a3a6b" stroke="#5b9bd5" strokeWidth="2" strokeOpacity="0.6" />
+            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="#a8d4f5" fontSize="10" fontWeight="700" letterSpacing="0.5">
               {src.label}
             </text>
           </g>
@@ -149,18 +149,18 @@ function OrbitDiagram() {
         const rw = Math.max(30, labelLen * 4.5 + 12);
         return (
           <g key={`ex-${i}`} data-testid={`arch-outer-${i}`}>
-            <rect x={pos.x - rw} y={pos.y - 14} width={rw * 2} height={28} rx="14" fill="#05284F" stroke="#ff6a00" strokeWidth="1.5" strokeOpacity="0.35" />
-            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="#ff6a00" fontSize="10" fontWeight="700" letterSpacing="0.3">
+            <rect x={pos.x - rw} y={pos.y - 15} width={rw * 2} height={30} rx="15" fill="#1a1a2e" stroke="#ff6a00" strokeWidth="2" strokeOpacity="0.6" />
+            <text x={pos.x} y={pos.y + 1} textAnchor="middle" dominantBaseline="middle" fill="#ffb366" fontSize="11" fontWeight="700" letterSpacing="0.3">
               {src.label}
             </text>
           </g>
         );
       })}
 
-      <text x={cx} y={55} textAnchor="middle" fill="#5b9bd5" fontSize="10" fontWeight="700" opacity="0.5" letterSpacing="3">
+      <text x={cx} y={55} textAnchor="middle" fill="#a8d4f5" fontSize="11" fontWeight="700" opacity="0.7" letterSpacing="3">
         ORGANISATIONSWISSEN
       </text>
-      <text x={cx} y={35} textAnchor="middle" fill="#ff6a00" fontSize="10" fontWeight="700" opacity="0.4" letterSpacing="3">
+      <text x={cx} y={32} textAnchor="middle" fill="#ffb366" fontSize="11" fontWeight="700" opacity="0.6" letterSpacing="3">
         EXTERNE QUELLEN
       </text>
     </svg>
