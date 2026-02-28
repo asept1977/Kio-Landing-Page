@@ -143,10 +143,10 @@ export default function Interessenvertretung() {
               Professionelle Interessenvertretung
             </motion.h1>
 
-            <motion.div variants={fadeUp} className="mb-8 space-y-1" data-testid="text-hero-tagline-iv">
-              <p className="text-xl md:text-2xl font-semibold text-white leading-snug">Organisationswissen aktivieren.</p>
-              <p className="text-xl md:text-2xl font-semibold text-white leading-snug">Positionen stärken.</p>
-              <p className="text-xl md:text-2xl font-semibold text-white leading-snug">Handlungsfähigkeit sichern.</p>
+            <motion.div variants={fadeUp} className="mb-8 space-y-2.5" data-testid="text-hero-tagline-iv">
+              <p className="text-xl md:text-2xl font-semibold text-white leading-snug flex items-center gap-3"><ArrowRight className="w-4 h-4 text-[#ff6a00]/70 shrink-0" /> Organisationswissen aktivieren.</p>
+              <p className="text-xl md:text-2xl font-semibold text-white leading-snug flex items-center gap-3"><ArrowRight className="w-4 h-4 text-[#ff6a00]/70 shrink-0" /> Positionen stärken.</p>
+              <p className="text-xl md:text-2xl font-semibold text-white leading-snug flex items-center gap-3"><ArrowRight className="w-4 h-4 text-[#ff6a00]/70 shrink-0" /> Handlungsfähigkeit sichern.</p>
             </motion.div>
 
             <motion.p variants={fadeUp} className="text-base md:text-lg text-white/60 mb-12 max-w-3xl leading-relaxed" data-testid="text-hero-subtitle-iv">
