@@ -179,59 +179,59 @@ export default function Home() {
       <RoiCalculator lang={lang} />
 
       <section id="sovereignty" className="py-24 lg:py-32 relative" data-testid="section-sovereignty">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={stagger}
-            >
-              <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
-              <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight" data-testid="text-sovereignty-title">
-                {t.sovereignty.title}
-              </motion.h2>
-              <motion.p variants={fadeUp} className="text-lg text-foreground/60 mb-10 leading-relaxed" data-testid="text-sovereignty-desc">
-                {t.sovereignty.desc}
-              </motion.p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center mb-12"
+          >
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight" data-testid="text-sovereignty-title">
+              {t.sovereignty.title}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed" data-testid="text-sovereignty-desc">
+              {t.sovereignty.desc}
+            </motion.p>
+          </motion.div>
 
-              <motion.ul variants={stagger} className="space-y-4">
-                {t.sovereignty.points.map((point, i) => (
-                  <motion.li key={i} variants={fadeUp} className="flex items-start gap-4 text-foreground/80" data-testid={`text-sovereignty-point-${i}`}>
-                    <div className="w-6 h-6 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-[#ff6a00]" />
-                    </div>
-                    <span className="text-sm font-medium">{point}</span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+          >
+            {[
+              { icon: <Shield className="w-8 h-8" />, label: "GDPR" },
+              { icon: <Globe2 className="w-8 h-8" />, label: "EU Hosted" },
+              { icon: <Lock className="w-8 h-8" />, label: "Access Control" },
+              { icon: <Database className="w-8 h-8" />, label: "Data Isolation" },
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp} className="glass-card rounded-lg p-6 flex flex-col items-center gap-3" data-testid={`sovereignty-icon-${i}`}>
+                <div className="text-[#ff6a00]/60">{item.icon}</div>
+                <span className="text-xs font-bold text-foreground/50 tracking-widest uppercase">{item.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="glass-card rounded-md p-10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/10 via-transparent to-[#ff6a00]/5" />
-                <div className="relative z-10 grid grid-cols-2 gap-6">
-                  {[
-                    { icon: <Shield className="w-8 h-8" />, label: "GDPR" },
-                    { icon: <Globe2 className="w-8 h-8" />, label: "EU Hosted" },
-                    { icon: <Lock className="w-8 h-8" />, label: "Access Control" },
-                    { icon: <Database className="w-8 h-8" />, label: "Data Isolation" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex flex-col items-center gap-3 py-6" data-testid={`sovereignty-icon-${i}`}>
-                      <div className="text-[#ff6a00]/60">{item.icon}</div>
-                      <span className="text-xs font-bold text-foreground/50 tracking-widest uppercase">{item.label}</span>
-                    </div>
-                  ))}
+          <motion.ul
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto"
+          >
+            {t.sovereignty.points.map((point, i) => (
+              <motion.li key={i} variants={fadeUp} className="flex items-start gap-3 text-foreground/80" data-testid={`text-sovereignty-point-${i}`}>
+                <div className="w-5 h-5 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]" />
                 </div>
-              </div>
-            </motion.div>
-          </div>
+                <span className="text-sm font-medium">{point}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
       </section>
 
