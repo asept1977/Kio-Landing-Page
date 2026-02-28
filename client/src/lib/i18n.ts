@@ -53,8 +53,8 @@ export const translations = {
       ],
     },
     roi: {
-      sectionTitle: "Calculate Your ROI",
-      sectionDesc: "See how quickly KIO pays for itself through efficiency gains.",
+      sectionTitle: "Return on Intelligence",
+      sectionDesc: "From efficiency gains to sustainable organizational development.",
       license: "License",
       licensePerUser: "/user/month",
       users: "Number of Users",
@@ -155,8 +155,8 @@ export const translations = {
       ],
     },
     roi: {
-      sectionTitle: "Berechnen Sie Ihren ROI",
-      sectionDesc: "Sehen Sie, wie schnell sich KIO durch Effizienzsteigerung amortisiert.",
+      sectionTitle: "Return on Intelligence",
+      sectionDesc: "Vom Effizienzgewinn zur nachhaltigen Organisationsentwicklung.",
       license: "Lizenz",
       licensePerUser: "/Nutzer/Monat",
       users: "Anzahl Anwender",
