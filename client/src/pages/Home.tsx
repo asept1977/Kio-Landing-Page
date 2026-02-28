@@ -150,31 +150,35 @@ export default function Home() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="space-y-0 divide-y divide-border"
+            className="space-y-4"
           >
             {targetEntries.map((entry, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="group cursor-pointer"
+                className="group cursor-pointer relative rounded-lg border border-transparent hover:border-border transition-all duration-300 pl-5 hover:bg-[#fafbfc]"
                 data-testid={`card-target-${idx}`}
                 onClick={() => navigate(entry.link)}
               >
-                <div className="flex items-center gap-5 py-7 transition-all duration-300 group-hover:pl-2">
-                  <div className="text-foreground/30 group-hover:text-[#ff6a00] transition-colors shrink-0">
-                    {entry.icon}
-                  </div>
+                <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-foreground/10 group-hover:bg-[#ff6a00] transition-colors duration-300" />
 
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-foreground mb-1 leading-snug" data-testid={`text-target-title-${idx}`}>
-                      {entry.title}
-                    </h3>
-                    <p className="text-foreground/50 text-sm leading-relaxed" data-testid={`text-target-desc-${idx}`}>
-                      {entry.desc}{" "}
-                      <span className="inline-flex items-center gap-1 text-[#ff6a00] font-semibold whitespace-nowrap" data-testid={`link-learn-more-${idx}`}>
-                        {t.targets.cta} <ArrowRight className="w-3.5 h-3.5 inline" />
+                <div className="py-6 pr-5">
+                  <div className="flex items-start gap-4">
+                    <div className="text-foreground/25 group-hover:text-[#ff6a00] transition-colors mt-0.5 shrink-0">
+                      {entry.icon}
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-bold text-foreground mb-1.5 leading-snug group-hover:text-[#ff6a00] transition-colors" data-testid={`text-target-title-${idx}`}>
+                        {entry.title}
+                      </h3>
+                      <p className="text-foreground/50 text-sm leading-relaxed mb-3" data-testid={`text-target-desc-${idx}`}>
+                        {entry.desc}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-[#ff6a00] text-sm font-semibold group-hover:gap-2.5 transition-all" data-testid={`link-learn-more-${idx}`}>
+                        {t.targets.cta} <ArrowRight className="w-3.5 h-3.5" />
                       </span>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
