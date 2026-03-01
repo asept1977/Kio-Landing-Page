@@ -239,60 +239,53 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5"
           >
             {orgCards.map((card, idx) => {
               const Icon = card.icon;
-              return (
+              const cardContent = (
                 <motion.div
                   key={idx}
                   variants={fadeUp}
-                  className="flex-1 px-8 py-6 flex flex-col items-center text-center"
+                  whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(0,0,0,0.06)" }}
+                  transition={{ duration: 0.2 }}
+                  className="group cursor-pointer rounded-xl border border-border hover:border-[#ff6a00]/30 bg-background p-6 flex flex-col"
                   data-testid={`iv-org-card-${idx}`}
                 >
-                  <div className="w-14 h-14 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7" />
+                  <div className="w-10 h-10 rounded-lg bg-[#ff6a00]/8 flex items-center justify-center mb-4 group-hover:bg-[#ff6a00]/15 transition-colors">
+                    <Icon className="w-5 h-5 text-[#ff6a00]/60 group-hover:text-[#ff6a00] transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2" data-testid={`text-iv-org-title-${idx}`}>
+                  <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-[#ff6a00] transition-colors" data-testid={`text-iv-org-title-${idx}`}>
                     {card.title}
                   </h3>
-                  <p className="text-sm text-foreground/50 mb-5">{card.desc}</p>
-                  <ul className="space-y-2.5 mb-6 flex-1">
+                  <p className="text-sm text-foreground/50 mb-4">{card.desc}</p>
+                  <ul className="space-y-2 mb-5 flex-1">
                     {card.criteria.map((c, ci) => (
-                      <li key={ci} className="flex items-start gap-2.5 text-sm text-foreground/60">
+                      <li key={ci} className="flex items-start gap-2 text-sm text-foreground/60">
                         <Check className="w-4 h-4 text-[#ff6a00]/60 shrink-0 mt-0.5" />
                         {c}
                       </li>
                     ))}
                   </ul>
-                  {card.href?.startsWith("#") ? (
-                    <span
-                      className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 cursor-pointer mt-auto"
-                      data-testid={`link-iv-org-cta-${idx}`}
-                      onClick={() => document.getElementById(card.href!.slice(1))?.scrollIntoView({ behavior: "smooth" })}
-                    >
-                      {card.cta} <ArrowRight className="w-4 h-4" />
-                    </span>
-                  ) : card.href ? (
-                    <Link href={card.href}>
-                      <span
-                        className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 cursor-pointer mt-auto"
-                        data-testid={`link-iv-org-cta-${idx}`}
-                      >
-                        {card.cta} <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </Link>
-                  ) : (
-                    <span
-                      className="text-[#ff6a00] text-sm font-semibold flex items-center gap-2 cursor-pointer mt-auto"
-                      data-testid={`link-iv-org-cta-${idx}`}
-                      onClick={handleContact}
-                    >
-                      {card.cta} <ArrowRight className="w-4 h-4" />
-                    </span>
-                  )}
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[#ff6a00] text-sm font-semibold group-hover:gap-2.5 transition-all mt-auto"
+                    data-testid={`link-iv-org-cta-${idx}`}
+                  >
+                    {card.cta} <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
                 </motion.div>
               );
+
+              if (card.href?.startsWith("#")) {
+                return (
+                  <div key={idx} onClick={() => document.getElementById(card.href!.slice(1))?.scrollIntoView({ behavior: "smooth" })}>
+                    {cardContent}
+                  </div>
+                );
+              } else if (card.href) {
+                return <Link key={idx} href={card.href}>{cardContent}</Link>;
+              }
+              return <div key={idx} onClick={handleContact}>{cardContent}</div>;
             })}
           </motion.div>
         </div>
