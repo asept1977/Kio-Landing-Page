@@ -146,23 +146,6 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
           })}
         </motion.div>
 
-        <motion.ul
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mt-10"
-        >
-          {t.points.map((point, i) => (
-            <motion.li key={i} variants={fadeUp} className="flex items-start gap-3 text-foreground/80" data-testid={`text-sovereignty-point-${i}`}>
-              <div className="w-5 h-5 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]" />
-              </div>
-              <span className="text-sm font-medium">{point}</span>
-            </motion.li>
-          ))}
-        </motion.ul>
-
         <motion.div
           initial="hidden"
           whileInView="show"
