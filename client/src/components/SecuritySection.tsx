@@ -109,7 +109,7 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
           >
             {t.title}
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-base text-foreground/60 max-w-3xl leading-relaxed" data-testid="text-security-desc">
+          <motion.p variants={fadeUp} className="text-base text-foreground/60 leading-relaxed" data-testid="text-security-desc">
             {t.desc}
           </motion.p>
         </motion.div>
