@@ -127,12 +127,13 @@ export default function Home() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-16"
+            className="mb-12"
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-solutions-title">
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight" data-testid="text-solutions-title">
               {t.targets.sectionTitle}
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-solutions-desc">
+            <motion.p variants={fadeUp} className="text-base text-foreground/60 leading-relaxed" data-testid="text-solutions-desc">
               {t.targets.sectionDesc}
             </motion.p>
           </motion.div>

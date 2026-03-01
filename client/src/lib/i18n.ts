@@ -19,7 +19,7 @@ export const translations = {
     },
     targets: {
       sectionTitle: "Solutions for Decision Makers",
-      sectionDesc: "KIO delivers ready-to-use AI assistants that understand your industry — with the right knowledge, the right sources and ready to go.",
+      sectionDesc: "KIO provides ready-to-use AI assistants for your organization. They access internal knowledge, external sources and existing systems — supporting your teams where time is lost today: in research, analysis and decision preparation.",
       card1Title: "Professional Advocacy",
       card1Desc: "Automated monitoring of legislation, stakeholder analysis and position paper alignment. Integrates parliamentary data (DIP), lobby registers, internal documents and knowledge graphs.",
       card2Title: "Regulated Industries & Consulting",
@@ -121,7 +121,7 @@ export const translations = {
     },
     targets: {
       sectionTitle: "Mehrwert für Entscheider",
-      sectionDesc: "KIO-Assistenten verstehen Ihre Branche — mit dem richtigen Wissen, den richtigen Quellen und sofort einsatzbereit.",
+      sectionDesc: "KIO liefert sofort einsatzfähige KI-Assistenten für Ihre Organisation. Sie greifen auf internes Wissen, externe Quellen und bestehende Systeme zu — und unterstützen Ihre Teams dort, wo heute Zeit verloren geht: bei Recherche, Analyse und der Vorbereitung von Entscheidungen.",
       card1Title: "Professionelle Interessenvertretung",
       card1Desc: "Verknüpft externe Entwicklungen mit internen Positionen und schafft eine belastbare Grundlage für Entscheidungen und Stellungnahmen.",
       card2Title: "Regulierte Branchen & Beratung",
