@@ -54,7 +54,7 @@ export const translations = {
     },
     roi: {
       sectionTitle: "Return on Intelligence",
-      sectionDesc: "From efficiency gains to sustainable organizational development.",
+      sectionDesc: "Deploying KIO has a direct impact on your organization: employees gain time for high-value tasks, decisions are made faster and with better foundations, and operational costs decrease measurably. Calculate the concrete value contribution for your organization here.",
       license: "License",
       licensePerUser: "/user/month",
       users: "Number of Users",
@@ -156,7 +156,7 @@ export const translations = {
     },
     roi: {
       sectionTitle: "Return on Intelligence",
-      sectionDesc: "Vom Effizienzgewinn zur nachhaltigen Organisationsentwicklung.",
+      sectionDesc: "Der Einsatz von KIO wirkt sich direkt auf Ihre Organisation aus: Mitarbeitende gewinnen Zeit für wertschöpfende Aufgaben, Entscheidungen werden schneller und fundierter getroffen, und operative Kosten sinken messbar. Berechnen Sie hier den konkreten Wertbeitrag für Ihre Organisation.",
       license: "Lizenz",
       licensePerUser: "/Nutzer/Monat",
       users: "Anzahl Anwender",

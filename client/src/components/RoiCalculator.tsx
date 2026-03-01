@@ -117,13 +117,13 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight" data-testid="text-roi-title">
+          <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight" data-testid="text-roi-title">
             {t.sectionTitle}
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-xl mx-auto" data-testid="text-roi-desc">
+          <motion.p variants={fadeUp} className="text-base text-foreground/60 leading-relaxed" data-testid="text-roi-desc">
             {t.sectionDesc}
           </motion.p>
         </motion.div>
