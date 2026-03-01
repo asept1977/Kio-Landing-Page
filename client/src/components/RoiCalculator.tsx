@@ -358,8 +358,8 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
           className="mt-10"
         >
           <motion.div variants={fadeUp}>
-            <div className="glass-card rounded-md p-5" data-testid="roi-summary">
-              <p className="text-sm text-foreground/70 leading-relaxed">
+            <div className="border-t border-b border-foreground/10 py-5" data-testid="roi-summary">
+              <p className="text-sm text-foreground/70 leading-relaxed text-center max-w-3xl mx-auto">
                 {lang === "de" ? (
                   <>Bei <span className="font-bold text-foreground">{numUsers} Mitarbeitenden</span> erzeugt der Einsatz von KIO einen monatlichen Wertbeitrag von <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Hochgerechnet ergibt sich ein jährlicher Ergebnisbeitrag von <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>. Die Wirkung beginnt ab dem ersten Monat.</>
                 ) : (
@@ -375,37 +375,37 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="mt-16"
+          className="mt-14"
         >
-          <motion.div variants={fadeUp}>
-            <p className="text-sm font-bold text-foreground mb-1" data-testid="text-roi-strategy-title">
+          <motion.div variants={fadeUp} className="text-center mb-8">
+            <p className="text-lg font-bold text-foreground mb-1" data-testid="text-roi-strategy-title">
               {lang === "de"
                 ? "Warum sich KI langfristig rechnet"
                 : "Why AI pays off in the long run"}
             </p>
-            <p className="text-xs text-foreground/50 mb-6" data-testid="text-roi-strategy-sub">
+            <p className="text-sm text-foreground/50" data-testid="text-roi-strategy-sub">
               {lang === "de"
                 ? "Nicht nur Kosten sparen — sondern Unternehmen stabiler machen."
                 : "Not just saving costs — making businesses more resilient."}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-1">
-                <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
+          </motion.div>
+          <motion.div variants={fadeUp}>
+            <div className="flex flex-col md:flex-row md:items-start md:divide-x md:divide-foreground/15">
+              <div className="flex-1 px-8 py-4 text-center" data-testid="roi-strategy-card-1">
+                <p className="text-sm font-bold text-foreground mb-3">
                   {lang === "de" ? "KI spart Zeit – Menschen bleiben wichtig" : "AI saves time – people remain essential"}
                 </p>
-                <p className="text-xs text-foreground/50 leading-relaxed">
+                <p className="text-sm text-foreground/50 leading-relaxed">
                   {lang === "de"
                     ? "KI übernimmt Routinearbeit und schafft freie Zeit. Diese Zeit wird genutzt, um Mitarbeitende weiterzubilden und mehr Verantwortung zu geben. So entsteht kein Abbau, sondern bessere Arbeit."
                     : "AI takes over routine work and creates free time. This time is used to upskill employees and give them more responsibility. The result is not downsizing, but better work."}
                 </p>
               </div>
-              <div className="glass-card rounded-md p-5" data-testid="roi-strategy-card-2">
-                <p className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#ff6a00] shrink-0" />
+              <div className="flex-1 px-8 py-4 text-center" data-testid="roi-strategy-card-2">
+                <p className="text-sm font-bold text-foreground mb-3">
                   {lang === "de" ? "Preise sinken – Gewinn bleibt" : "Prices drop – profit stays"}
                 </p>
-                <p className="text-xs text-foreground/50 leading-relaxed">
+                <p className="text-sm text-foreground/50 leading-relaxed">
                   {lang === "de"
                     ? "Durch KI wird die Leistung günstiger zu erstellen. Der Markt senkt irgendwann den Preis. Weil die Kosten schneller sinken, bleibt der Gewinn erhalten oder wächst."
                     : "AI makes services cheaper to deliver. The market will eventually lower prices. Because costs fall faster, profit is preserved or grows."}
