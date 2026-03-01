@@ -110,7 +110,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
   }, [calc, numUsers, selectedLicense, lang, t]);
 
   return (
-    <section id="roi" className="py-12 lg:py-16 relative" data-testid="section-roi">
+    <section id="roi" className="py-8 lg:py-10 relative" data-testid="section-roi">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
