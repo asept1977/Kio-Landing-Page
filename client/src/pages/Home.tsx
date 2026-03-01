@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { RoiCalculator } from "@/components/RoiCalculator";
+import { SecuritySection } from "@/components/SecuritySection";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
@@ -122,6 +123,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SecuritySection lang={lang} onContact={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} />
 
       <section id="solutions" className="py-8 lg:py-10 relative" data-testid="section-solutions">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

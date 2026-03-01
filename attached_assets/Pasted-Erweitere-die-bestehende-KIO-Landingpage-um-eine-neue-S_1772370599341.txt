@@ -1,0 +1,93 @@
+Erweitere die bestehende KIO Landingpage um eine neue Section:
+
+Titel der Section:
+"Security & Trust – Enterprise Ready"
+
+Positionierung:
+Nach der Hero-Section und vor der Feature-Section einfügen.
+
+Design-Vorgaben:
+- React (Vite)
+- Tailwind CSS
+- shadcn/ui Cards
+- Framer Motion Animation (fade-in + slight upward motion)
+- CI Farben:
+  Primary Blue: #0F172A
+  Accent Orange: #F97316
+  Light Background: #F8FAFC
+- Modern, ruhig, Enterprise
+- Keine verspielten Icons – minimalistische Outline-Icons (lucide-react)
+
+Layout:
+- Section mit max-w-7xl mx-auto px-6 py-24
+- Grid mit 4 Spalten auf Desktop (lg:grid-cols-4)
+- 2 Spalten auf Tablet
+- 1 Spalte auf Mobile
+- Jede Kachel als Card mit:
+    - Icon oben
+    - Headline
+    - Kurzbeschreibung (max 2 Zeilen)
+    - Hover-Effekt (subtle shadow + slight scale 1.02)
+
+Inhalt der 8 Security-Kacheln:
+
+1. GDPR by Design
+   Beschreibung:
+   Datenschutz ist integraler Bestandteil der Architektur – nicht nachträglich ergänzt.
+
+2. EU Hosted
+   Beschreibung:
+   Ausschließlich in europäischen Rechenzentren betrieben – keine Drittstaaten-Transfers.
+
+3. End-to-End Encryption
+   Beschreibung:
+   Verschlüsselung in Transit und at Rest nach modernsten Standards (TLS 1.3 / AES-256).
+
+4. Access Control
+   Beschreibung:
+   Granulare Rollen- und Rechteverwaltung für vollständige Zugriffskontrolle.
+
+5. Data Isolation
+   Beschreibung:
+   Mandantenfähige Architektur mit klarer logischer oder physischer Trennung.
+
+6. Audit & Compliance
+   Beschreibung:
+   Vollständige Audit-Trails, Logging und exportierbare Compliance-Reports.
+
+7. AI Governance
+   Beschreibung:
+   Kein Training mit Kundendaten. Validierungs- und Kontrollmechanismen gegen Halluzinationen.
+
+8. Sovereign Infrastructure
+   Beschreibung:
+   Option auf dedizierte oder isolierte Infrastruktur für regulierte Branchen.
+
+Animation:
+- Cards erscheinen mit staggered animation (Framer Motion)
+- whileHover subtle elevation
+
+Zusätzlich:
+Unterhalb des Grids eine zentrierte Call-to-Action Box:
+
+Text:
+"Bereit für regulierte Branchen, Mittelstand und Institutionen."
+
+Button:
+"Security Whitepaper anfordern"
+
+Button Design:
+- Orange Background
+- White Text
+- Rounded-xl
+- Hover Darker Orange
+
+Code-Anforderungen:
+- Alles als eigenständige React-Komponente: <SecuritySection />
+- Clean Component Structure
+- Keine Inline Styles
+- Keine externen CSS-Dateien
+- Vollständig lauffähig im bestehenden Stack
+
+Optional:
+Icons aus lucide-react passend auswählen (Shield, Globe, Lock, Database, FileCheck, etc.)
