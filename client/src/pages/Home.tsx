@@ -143,13 +143,15 @@ export default function Home() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="flex flex-col md:flex-row md:items-stretch md:divide-x md:divide-foreground/15"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5"
           >
             {targetEntries.map((entry, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="group cursor-pointer flex-1 px-8 py-6 flex flex-col items-center text-center"
+                whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(0,0,0,0.06)" }}
+                transition={{ duration: 0.2 }}
+                className="group cursor-pointer rounded-xl border border-border hover:border-[#ff6a00]/30 bg-background p-6 flex flex-col"
                 data-testid={`card-target-${idx}`}
                 onClick={() => navigate(entry.link)}
               >
@@ -162,10 +164,10 @@ export default function Home() {
                 <h3 className="text-base font-bold text-foreground mb-2 leading-snug group-hover:text-[#ff6a00] transition-colors" data-testid={`text-target-title-${idx}`}>
                   {entry.title}
                 </h3>
-                <p className="text-foreground/50 text-sm leading-relaxed mb-4 flex-1" data-testid={`text-target-desc-${idx}`}>
+                <p className="text-foreground/50 text-sm leading-relaxed mb-5 flex-1" data-testid={`text-target-desc-${idx}`}>
                   {entry.desc}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-[#ff6a00] text-sm font-semibold group-hover:gap-2.5 transition-all" data-testid={`link-learn-more-${idx}`}>
+                <span className="inline-flex items-center gap-1.5 text-[#ff6a00] text-sm font-semibold group-hover:gap-2.5 transition-all mt-auto" data-testid={`link-learn-more-${idx}`}>
                   {t.targets.cta} <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </motion.div>
