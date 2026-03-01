@@ -119,7 +119,7 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5"
         >
           {tiles.map((tile, idx) => {
             const Icon = tile.icon;
@@ -129,16 +129,16 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
                 variants={fadeUp}
                 whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(0,0,0,0.06)" }}
                 transition={{ duration: 0.2 }}
-                className="rounded-xl border border-border bg-background p-6 cursor-default"
+                className="rounded-xl border border-border bg-background p-4 lg:p-6 cursor-default"
                 data-testid={`card-security-${idx}`}
               >
-                <div className="w-10 h-10 rounded-lg bg-[#ff6a00]/8 flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-[#ff6a00]/70" />
+                <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-[#ff6a00]/8 flex items-center justify-center mb-3">
+                  <Icon className="w-4 h-4 lg:w-5 lg:h-5 text-[#ff6a00]/70" />
                 </div>
-                <h3 className="text-sm font-bold text-foreground mb-1.5" data-testid={`text-security-title-${idx}`}>
+                <h3 className="text-xs lg:text-sm font-bold text-foreground mb-1" data-testid={`text-security-title-${idx}`}>
                   {de ? tile.titleDe : tile.titleEn}
                 </h3>
-                <p className="text-xs text-foreground/50 leading-relaxed" data-testid={`text-security-desc-${idx}`}>
+                <p className="text-[11px] lg:text-xs text-foreground/50 leading-relaxed" data-testid={`text-security-desc-${idx}`}>
                   {de ? tile.descDe : tile.descEn}
                 </p>
               </motion.div>
