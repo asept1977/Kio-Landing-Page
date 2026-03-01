@@ -99,17 +99,17 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
-          className="text-center mb-12"
+          className="mb-12"
         >
-          <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
+          <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full" />
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight whitespace-pre-line"
+            className="text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight whitespace-pre-line"
             data-testid="text-security-title"
           >
             {t.title}
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed" data-testid="text-security-desc">
+          <motion.p variants={fadeUp} className="text-base text-foreground/60 max-w-3xl leading-relaxed" data-testid="text-security-desc">
             {t.desc}
           </motion.p>
         </motion.div>
