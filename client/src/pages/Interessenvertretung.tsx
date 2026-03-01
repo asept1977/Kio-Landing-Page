@@ -28,7 +28,7 @@ import {
   Mail,
   Globe,
 } from "lucide-react";
-import dataflowImg from "@assets/139074BF-795C-47FC-9B9D-B84819B87A0D_1772399614197.jpeg";
+import dataflowImg from "@assets/78B2D6D0-873E-4774-9DB1-0EF85D3DFFCC_1772401026461.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
