@@ -174,7 +174,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative" data-testid="section-warum-iv">
+      <section className="py-8 lg:py-10 relative" data-testid="section-warum-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -219,7 +219,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative" data-testid="section-organisationen-iv">
+      <section className="py-8 lg:py-10 relative" data-testid="section-organisationen-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -298,7 +298,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section id="sicherheit" className="py-14 lg:py-20 relative" data-testid="section-sicherheit-iv">
+      <section id="sicherheit" className="py-8 lg:py-10 relative" data-testid="section-sicherheit-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -361,7 +361,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section id="ihk" className="py-14 lg:py-20 relative" data-testid="section-ihk-iv">
+      <section id="ihk" className="py-8 lg:py-10 relative" data-testid="section-ihk-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -422,7 +422,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative" data-testid="section-einfuehrung-iv">
+      <section className="py-8 lg:py-10 relative" data-testid="section-einfuehrung-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -472,7 +472,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative" data-testid="section-integrations-iv">
+      <section className="py-8 lg:py-10 relative" data-testid="section-integrations-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -552,7 +552,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-14 lg:py-20 relative" data-testid="section-preismodell-iv">
+      <section className="py-8 lg:py-10 relative" data-testid="section-preismodell-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -581,7 +581,7 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 relative" data-testid="section-cta-iv">
+      <section className="py-10 lg:py-14 relative" data-testid="section-cta-iv">
         <div className="absolute inset-0 bg-gradient-to-t from-[#ff6a00]/[0.015] via-transparent to-transparent" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
