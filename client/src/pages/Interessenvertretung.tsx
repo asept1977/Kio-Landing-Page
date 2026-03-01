@@ -28,6 +28,7 @@ import {
   Mail,
   Globe,
 } from "lucide-react";
+import dataflowImg from "@assets/139074BF-795C-47FC-9B9D-B84819B87A0D_1772399614197.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -169,6 +170,26 @@ export default function Interessenvertretung() {
               >
                 Sicherheit ansehen
               </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-8 lg:py-10 relative" data-testid="section-dataflow-iv">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="rounded-xl overflow-hidden border border-border bg-white shadow-sm">
+              <img
+                src={dataflowImg}
+                alt="KIO Datenfluss – Externe Daten (DIP, Lobbyregister, Medienrecherche) und Interne Daten (SharePoint, Outlook, Dateisystem) fließen in KIO zusammen"
+                className="w-full h-auto"
+                data-testid="img-dataflow-iv"
+              />
             </motion.div>
           </motion.div>
         </div>
