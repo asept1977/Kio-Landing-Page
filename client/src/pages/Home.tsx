@@ -120,8 +120,6 @@ export default function Home() {
         </div>
       </section>
 
-      <SecuritySection lang={lang} onContact={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} />
-
       <section id="solutions" className="py-8 lg:py-10 relative" data-testid="section-solutions">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -174,6 +172,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <SecuritySection lang={lang} onContact={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} />
 
       <RoiCalculator lang={lang} />
 
