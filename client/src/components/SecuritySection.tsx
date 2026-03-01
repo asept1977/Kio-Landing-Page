@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { Lang } from "@/lib/i18n";
+import { translations, type Lang } from "@/lib/i18n";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -89,6 +89,7 @@ interface SecuritySectionProps {
 
 export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
   const de = lang === "de";
+  const t = translations[lang].sovereignty;
 
   return (
     <section className="py-8 lg:py-10 relative" data-testid="section-security">
@@ -103,13 +104,14 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
           <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-8 rounded-full mx-auto" />
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight"
+            className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight whitespace-pre-line"
             data-testid="text-security-title"
           >
-            Security & Trust
-            <br />
-            <span className="text-foreground/40">Enterprise Ready</span>
+            {t.title}
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed" data-testid="text-security-desc">
+            {t.desc}
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -143,6 +145,23 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
             );
           })}
         </motion.div>
+
+        <motion.ul
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mt-10"
+        >
+          {t.points.map((point, i) => (
+            <motion.li key={i} variants={fadeUp} className="flex items-start gap-3 text-foreground/80" data-testid={`text-sovereignty-point-${i}`}>
+              <div className="w-5 h-5 rounded-full bg-[#ff6a00]/10 flex items-center justify-center mt-0.5 shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#ff6a00]" />
+              </div>
+              <span className="text-sm font-medium">{point}</span>
+            </motion.li>
+          ))}
+        </motion.ul>
 
         <motion.div
           initial="hidden"
