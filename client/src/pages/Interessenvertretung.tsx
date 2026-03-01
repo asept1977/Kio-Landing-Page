@@ -182,7 +182,7 @@ export default function Interessenvertretung() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative rounded-2xl overflow-hidden shadow-lg"
+            className="relative rounded-2xl overflow-hidden"
           >
             <img
               src={dataflowImg}
