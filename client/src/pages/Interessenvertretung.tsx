@@ -175,26 +175,6 @@ export default function Interessenvertretung() {
         </div>
       </section>
 
-      <section className="py-8 lg:py-10 relative" data-testid="section-dataflow-iv">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp} className="rounded-xl overflow-hidden border border-border bg-white shadow-sm">
-              <img
-                src={dataflowImg}
-                alt="KIO Datenfluss – Externe Daten (DIP, Lobbyregister, Medienrecherche) und Interne Daten (SharePoint, Outlook, Dateisystem) fließen in KIO zusammen"
-                className="w-full h-auto"
-                data-testid="img-dataflow-iv"
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
       <section className="py-8 lg:py-10 relative" data-testid="section-warum-iv">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -202,40 +182,46 @@ export default function Interessenvertretung() {
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="text-center mb-10"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
           >
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full mx-auto" />
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-warum-title-iv">
-              Warum Struktur entscheidend ist
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-foreground/50 max-w-xl mx-auto" data-testid="text-warum-desc-iv">
-              Professionelle Interessenvertretung lebt von Nachvollziehbarkeit, Konsistenz und Geschwindigkeit.
-            </motion.p>
-          </motion.div>
+            <div>
+              <motion.div variants={fadeUp} className="w-12 h-1 bg-[#ff6a00] mb-6 rounded-full" />
+              <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="text-warum-title-iv">
+                Warum Struktur entscheidend ist
+              </motion.h2>
+              <motion.p variants={fadeUp} className="text-foreground/50 mb-8" data-testid="text-warum-desc-iv">
+                Professionelle Interessenvertretung lebt von Nachvollziehbarkeit, Konsistenz und Geschwindigkeit.
+              </motion.p>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto"
-          >
-            {whyBullets.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  variants={fadeUp}
-                  className="flex items-start gap-4"
-                  data-testid={`iv-warum-bullet-${idx}`}
-                >
-                  <div className="w-10 h-10 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <p className="text-sm text-foreground/70 leading-relaxed pt-2">{item.text}</p>
-                </motion.div>
-              );
-            })}
+              <div className="space-y-4">
+                {whyBullets.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      variants={fadeUp}
+                      className="flex items-start gap-4"
+                      data-testid={`iv-warum-bullet-${idx}`}
+                    >
+                      <div className="w-9 h-9 rounded-md bg-[#ff6a00]/10 text-[#ff6a00] flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <p className="text-sm text-foreground/70 leading-relaxed pt-1.5">{item.text}</p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <motion.div variants={fadeUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#ff6a00]/5 via-transparent to-[#003366]/5 rounded-2xl blur-xl" />
+              <img
+                src={dataflowImg}
+                alt="KIO Datenfluss – Externe Daten (DIP, Lobbyregister, Medienrecherche) und Interne Daten (SharePoint, Outlook, Dateisystem) fließen in KIO zusammen"
+                className="relative w-full h-auto rounded-xl"
+                data-testid="img-dataflow-iv"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
