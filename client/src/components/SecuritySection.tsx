@@ -138,7 +138,7 @@ export function SecuritySection({ lang, onContact }: SecuritySectionProps) {
                 <h3 className="text-sm font-bold text-foreground mb-1.5" data-testid={`text-security-title-${idx}`}>
                   {de ? tile.titleDe : tile.titleEn}
                 </h3>
-                <p className="text-xs text-foreground/50 leading-relaxed line-clamp-2" data-testid={`text-security-desc-${idx}`}>
+                <p className="text-xs text-foreground/50 leading-relaxed" data-testid={`text-security-desc-${idx}`}>
                   {de ? tile.descDe : tile.descEn}
                 </p>
               </motion.div>

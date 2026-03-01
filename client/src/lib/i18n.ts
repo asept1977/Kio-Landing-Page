@@ -43,7 +43,7 @@ export const translations = {
     },
     sovereignty: {
       title: "Built for European\nDigital Sovereignty",
-      desc: "KIO is designed from the ground up for European enterprises that demand control over their data and AI infrastructure.",
+      desc: "KIO meets the highest standards for data privacy and data security. The platform is designed so that even highly sensitive data — including social data — can be processed. All data remains in European data centers, access is strictly controlled, and every processing step is fully traceable.",
       points: [
         "GDPR-compliant by design",
         "Hosted exclusively in Europe",
@@ -145,7 +145,7 @@ export const translations = {
     },
     sovereignty: {
       title: "Entwickelt für europäische\ndigitale Souveränität",
-      desc: "KIO wurde von Grund auf f\u00fcr europ\u00e4ische Unternehmen entwickelt, die volle Kontrolle \u00fcber ihre Daten und KI-Infrastruktur fordern.",
+      desc: "KIO erfüllt höchste Anforderungen an Datenschutz und Datensicherheit. Die Plattform ist so konzipiert, dass auch besonders schützenswerte Daten — einschließlich Sozialdaten — verarbeitet werden dürfen. Alle Daten verbleiben in europäischen Rechenzentren, der Zugriff ist strikt kontrolliert und jede Verarbeitung ist vollständig nachvollziehbar.",
       points: [
         "DSGVO-konform by Design",
         "Ausschlie\u00dflich in Europa gehostet",
