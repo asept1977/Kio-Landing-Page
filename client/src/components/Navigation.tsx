@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw, Briefcase, UserCircle } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw, Briefcase, UserCircle, Handshake } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
@@ -278,6 +278,18 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
               </AnimatePresence>
             </div>
 
+            <Link href="/partnerprogramm">
+              <span
+                className={`px-3 py-2 text-sm font-medium transition-colors flex items-center gap-1.5 rounded-md ${
+                  isActive("/partnerprogramm") ? textBase : `${textMuted} ${textHover}`
+                }`}
+                data-testid="link-nav-partnerprogramm"
+              >
+                <Handshake className="w-3.5 h-3.5" />
+                {lang === "de" ? "Partner" : "Partners"}
+              </span>
+            </Link>
+
             <div className={`flex items-center gap-2 ml-4 pl-4 border-l ${scrolled ? "border-border" : "border-white/20"}`}>
               <button
                 onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
@@ -445,6 +457,25 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
                   )}
                 </AnimatePresence>
               </div>
+
+              <Link href="/partnerprogramm">
+                <div
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-md cursor-pointer transition-colors ${
+                    isActive("/partnerprogramm") ? "bg-[#ff6a00]/8" : "hover:bg-muted/50"
+                  }`}
+                  data-testid="link-mobile-partnerprogramm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <div className={`w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 ${
+                    isActive("/partnerprogramm") ? "bg-[#ff6a00]/15 text-[#ff6a00]" : "bg-muted text-foreground/40"
+                  }`}>
+                    <Handshake className="w-3.5 h-3.5" />
+                  </div>
+                  <div className={`text-sm font-semibold ${isActive("/partnerprogramm") ? "text-foreground" : "text-foreground/70"}`}>
+                    {lang === "de" ? "Partnerprogramm" : "Partner Program"}
+                  </div>
+                </div>
+              </Link>
 
               <div className="pt-3 px-1 space-y-2">
                 <a
