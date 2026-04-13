@@ -1,0 +1,91 @@
+Erstelle eine neue Unterseite „Partnerprogramm“ in meiner bestehenden React-Webanwendung.
+
+WICHTIG:
+- Verwende vorhandene Layout-Komponenten (Header, Footer, Navigation)
+- Verändere KEINE bestehenden Seiten oder Komponenten
+- Integriere die Seite sauber in das bestehende Routing-System
+- Erstelle eine neue Route: /partnerprogramm
+- Nutze vorhandene UI-Komponenten, falls vorhanden (Cards, Tables, Sections)
+
+TECH STACK:
+- React (Vite)
+- Tailwind CSS
+- sauberes, modernes Enterprise-Design
+- responsive (Desktop + Mobile)
+
+DESIGN-VORGABEN:
+- Stil: modern, reduziert, Enterprise (ähnlich McKinsey / SaaS B2B)
+- Farben: Slate / Weiß / dezente Gradients
+- großzügige Abstände
+- klare Typografie
+- Fokus auf Tabellen + strukturierte Inhalte
+
+SEITENSTRUKTUR:
+
+1. Hero Section
+- Titel: „KIO Partnerprogramm“
+- Subline: Aufbau eines skalierbaren AI-Geschäfts für Systemhäuser und Beratungen
+- 2 CTA Buttons (z. B. „Partner werden“, „Vergütung ansehen“)
+
+2. Überblick (3 Karten)
+- Wiederkehrende Umsätze
+- Servicegeschäft
+- Klare Governance
+
+3. Partnerstufen (WICHTIG: als Tabelle darstellen)
+Spalten:
+- Partnerstufe
+- Year 1 Provision
+- Recurring
+- Fokus
+- Leistungsprofil
+- Typischer Fit
+
+Inhalte:
+- Referral: 20 %, 0 %
+- Sales: 25 %, 7,5 %
+- Strategic: 30 %, 12 %
+
+4. Leistungsmodell (Cards oder Liste)
+- Einführung
+- Integration
+- Optimierung
+- Weiterentwicklung
+
+5. Wirtschaftlichkeitsbeispiel (70 User)
+Tabellarisch darstellen:
+
+- 70 User
+- 69 € pro User / Monat
+- 57.960 € Jahresumsatz
+- 17.388 € Provision Jahr 1
+- 6.955 € Recurring
+- 20.000 – 50.000 € Setup
+- 8.000 – 15.000 € Folgejahr Services
+
+6. Programmgrundsätze (4 Boxen)
+- Transparente Vergütung
+- Deal Registration
+- Serviceorientierung
+- Partnerschaft
+
+7. FAQ Bereich (3 Fragen)
+
+8. CTA Bereich (am Ende)
+- „Partner werden“
+- Kontaktmöglichkeit
+
+TECHNISCHE ANFORDERUNGEN:
+- Verwende funktionale React-Komponenten
+- Saubere Struktur (Sections)
+- Keine Inline-Styles, nur Tailwind
+- Tabellen sauber responsive machen
+- Keine externen Libraries hinzufügen
+
+AUSGABE:
+- Erstelle eine neue Komponente (z. B. PartnerProgramPage.jsx)
+- Integriere sie direkt in das Routing
+- Stelle sicher, dass die Seite unter /partnerprogramm erreichbar ist
+
+Hier ist der Seiteninhalt als Basis:
+[HIER DEN CODE EINFÜGEN]

@@ -44,6 +44,7 @@ Enterprise landing page for KIO, an AI assistant ecosystem. Dark, premium design
 - `/module/:slug` - Dynamic module detail pages (marketing, sales, service, products, hr, esg, finance, procurement, operations, executive)
 - `/kio-oekosystem` - KIO Plattform overview with hero, how-it-works, architecture, updates teaser, security
 - `/kio-oekosystem/updates` - Filterable product development log (data from updates.json)
+- `/partnerprogramm` - Partner program page (tiers, compensation tables, economics example, FAQ, CTA)
 
 ### Home Page Sections
 1. Hero: "Enterprise Knowledge. Orchestrated."
