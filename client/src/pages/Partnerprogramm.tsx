@@ -460,7 +460,7 @@ export default function Partnerprogramm() {
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 }
