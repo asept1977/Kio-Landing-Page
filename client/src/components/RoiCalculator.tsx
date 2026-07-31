@@ -361,9 +361,9 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
             <div className="glass-card rounded-md p-6" data-testid="roi-summary">
               <p className="text-sm text-foreground/70 leading-relaxed text-center max-w-3xl mx-auto">
                 {lang === "de" ? (
-                  <>Bei <span className="font-bold text-foreground">{numUsers} Mitarbeitenden</span> erzeugt der Einsatz von KIO einen monatlichen Wertbeitrag von <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Hochgerechnet ergibt sich ein jährlicher Ergebnisbeitrag von <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>. Die Wirkung beginnt ab dem ersten Monat.</>
+                  <>Bei <span className="font-bold text-foreground">{numUsers} Mitarbeitenden</span> erzielen Sie monatliche Effizienz­einsparungen von <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Nach Abzug der monatlichen KIO-Lizenzkosten von <span className="font-bold text-foreground">{formatCurrency(calc.monthlyKioCost)}</span> ergibt sich ein jährlicher Nettoertrag von <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>.</>
                 ) : (
-                  <>With <span className="font-bold text-foreground">{numUsers} employees</span>, KIO generates a monthly value contribution of <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. Projected annually, this results in a yearly contribution of <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>. The impact starts from month one.</>
+                  <>With <span className="font-bold text-foreground">{numUsers} employees</span>, you achieve monthly efficiency savings of <span className="font-bold text-foreground">{formatCurrency(calc.monthlySavings)}</span>. After deducting the monthly KIO license cost of <span className="font-bold text-foreground">{formatCurrency(calc.monthlyKioCost)}</span>, the annual net return is <span className="font-bold text-foreground">{formatCurrency(calc.netAnnual)}</span>.</>
                 )}
               </p>
             </div>
