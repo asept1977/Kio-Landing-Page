@@ -15,7 +15,6 @@ import {
 import { TrendingUp } from "lucide-react";
 
 const LICENSE_OPTIONS = [69, 89, 119] as const;
-const WORKING_HOURS_PER_MONTH = 160;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -36,12 +35,11 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
   const [selectedLicense, setSelectedLicense] = useState<number>(89);
   const [numUsers, setNumUsers] = useState(120);
   const [personnelCost, setPersonnelCost] = useState(50);
-  const [efficiencyPct, setEfficiencyPct] = useState(5);
+  const [hoursSaved, setHoursSaved] = useState(8);
 
   const calc = useMemo(() => {
     const monthlyKioCost = selectedLicense * numUsers;
-    const monthlyPersonnelCost = personnelCost * WORKING_HOURS_PER_MONTH * numUsers;
-    const monthlySavings = monthlyPersonnelCost * (efficiencyPct / 100);
+    const monthlySavings = personnelCost * hoursSaved * numUsers;
     const netMonthly = monthlySavings - monthlyKioCost;
     const netAnnual = netMonthly * 12;
 
@@ -71,7 +69,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
       breakEvenPoint,
       chartData,
     };
-  }, [selectedLicense, numUsers, personnelCost, efficiencyPct]);
+  }, [selectedLicense, numUsers, personnelCost, hoursSaved]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat("de-DE", {
@@ -212,22 +210,22 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
 
             <div>
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-bold text-foreground/70 tracking-wide uppercase" data-testid="label-efficiency">
-                  {t.efficiency}
+                <label className="text-sm font-bold text-foreground/70 tracking-wide uppercase" data-testid="label-hours-saved">
+                  {t.hoursSaved}
                 </label>
-                <span className="text-sm font-bold text-[#ff6a00]" data-testid="value-efficiency">{efficiencyPct} %</span>
+                <span className="text-sm font-bold text-[#ff6a00]" data-testid="value-hours-saved">{hoursSaved} {t.hoursSavedUnit}</span>
               </div>
               <Slider
-                value={[efficiencyPct]}
-                onValueChange={(v) => setEfficiencyPct(v[0])}
+                value={[hoursSaved]}
+                onValueChange={(v) => setHoursSaved(v[0])}
                 min={1}
-                max={30}
+                max={40}
                 step={1}
-                data-testid="slider-efficiency"
+                data-testid="slider-hours-saved"
               />
               <div className="flex justify-between mt-1.5 text-xs text-foreground/30">
-                <span>1 %</span>
-                <span>30 %</span>
+                <span>1 h</span>
+                <span>40 h</span>
               </div>
             </div>
           </motion.div>
