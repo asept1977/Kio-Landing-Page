@@ -15,6 +15,7 @@ import {
 import { TrendingUp } from "lucide-react";
 
 const LICENSE_OPTIONS = [69, 89, 119] as const;
+const WORKING_HOURS_PER_MONTH = 160;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -35,11 +36,14 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
   const [selectedLicense, setSelectedLicense] = useState<number>(89);
   const [numUsers, setNumUsers] = useState(120);
   const [personnelCost, setPersonnelCost] = useState(50);
-  const [hoursSaved, setHoursSaved] = useState(8);
+  const [efficiencyPct, setEfficiencyPct] = useState(5);
 
   const calc = useMemo(() => {
     const monthlyKioCost = selectedLicense * numUsers;
-    const monthlySavings = personnelCost * hoursSaved * numUsers;
+    const hoursPerUser = Math.round(WORKING_HOURS_PER_MONTH * (efficiencyPct / 100));
+    const totalHours = hoursPerUser * numUsers;
+    const monthlyPersonnelCost = personnelCost * WORKING_HOURS_PER_MONTH * numUsers;
+    const monthlySavings = monthlyPersonnelCost * (efficiencyPct / 100);
     const netMonthly = monthlySavings - monthlyKioCost;
     const netAnnual = netMonthly * 12;
 
@@ -66,10 +70,12 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
       monthlySavings,
       netMonthly,
       netAnnual,
+      hoursPerUser,
+      totalHours,
       breakEvenPoint,
       chartData,
     };
-  }, [selectedLicense, numUsers, personnelCost, hoursSaved]);
+  }, [selectedLicense, numUsers, personnelCost, efficiencyPct]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat("de-DE", {
@@ -210,22 +216,22 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
 
             <div>
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-bold text-foreground/70 tracking-wide uppercase" data-testid="label-hours-saved">
-                  {t.hoursSaved}
+                <label className="text-sm font-bold text-foreground/70 tracking-wide uppercase" data-testid="label-efficiency">
+                  {t.efficiency}
                 </label>
-                <span className="text-sm font-bold text-[#ff6a00]" data-testid="value-hours-saved">{hoursSaved} {t.hoursSavedUnit}</span>
+                <span className="text-sm font-bold text-[#ff6a00]" data-testid="value-efficiency">{efficiencyPct} %</span>
               </div>
               <Slider
-                value={[hoursSaved]}
-                onValueChange={(v) => setHoursSaved(v[0])}
+                value={[efficiencyPct]}
+                onValueChange={(v) => setEfficiencyPct(v[0])}
                 min={1}
-                max={40}
+                max={30}
                 step={1}
-                data-testid="slider-hours-saved"
+                data-testid="slider-efficiency"
               />
               <div className="flex justify-between mt-1.5 text-xs text-foreground/30">
-                <span>1 h</span>
-                <span>40 h</span>
+                <span>1 %</span>
+                <span>30 %</span>
               </div>
             </div>
           </motion.div>
@@ -257,6 +263,14 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                         ? calc.breakEvenPoint + " " + t.breakEvenMonths
                         : "> 12 " + t.breakEvenMonths}
                   </p>
+                </div>
+              </div>
+              <div className="glass-card rounded-md p-5 col-span-2" data-testid="roi-hours-saved">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40 mb-2">{t.aiHoursLabel}</p>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-xl font-bold text-[#ff6a00]">{calc.hoursPerUser} {t.hoursPerUserUnit}</span>
+                  <span className="text-sm text-foreground/50">{t.aiHoursSeparator}</span>
+                  <span className="text-xl font-bold text-foreground">{calc.totalHours.toLocaleString("de-DE")} {t.hoursTotalUnit}</span>
                 </div>
               </div>
             </div>
