@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 import { translations, type Lang } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 import {
   AreaChart,
   Area,
@@ -160,7 +161,10 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
                       name="license"
                       value={price}
                       checked={selectedLicense === price}
-                      onChange={() => setSelectedLicense(price)}
+                      onChange={() => {
+                        setSelectedLicense(price);
+                        trackEvent("roi_calculator_adjusted", { control: "license", value: price });
+                      }}
                       className="accent-[#ff6a00] w-4 h-4"
                       data-testid={`radio-license-${price}`}
                     />
@@ -182,6 +186,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               <Slider
                 value={[numUsers]}
                 onValueChange={(v) => setNumUsers(v[0])}
+                onValueCommit={(v) => trackEvent("roi_calculator_adjusted", { control: "users", value: v[0] })}
                 min={10}
                 max={500}
                 step={10}
@@ -203,6 +208,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               <Slider
                 value={[personnelCost]}
                 onValueChange={(v) => setPersonnelCost(v[0])}
+                onValueCommit={(v) => trackEvent("roi_calculator_adjusted", { control: "personnel_cost", value: v[0] })}
                 min={20}
                 max={150}
                 step={5}
@@ -224,6 +230,7 @@ export function RoiCalculator({ lang }: RoiCalculatorProps) {
               <Slider
                 value={[efficiencyPct]}
                 onValueChange={(v) => setEfficiencyPct(v[0])}
+                onValueCommit={(v) => trackEvent("roi_calculator_adjusted", { control: "efficiency_pct", value: v[0] })}
                 min={1}
                 max={30}
                 step={1}

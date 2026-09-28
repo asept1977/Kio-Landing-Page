@@ -1,4 +1,5 @@
 import { Link, useLocation } from "wouter";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Menu, X, Globe, ChevronDown, Landmark, Users, Factory, Layers, LayoutGrid, Shield, RefreshCw, Briefcase, UserCircle, Handshake } from "lucide-react";
@@ -106,6 +107,7 @@ export function Navigation({ lang, setLang, forceScrolled = false }: NavigationP
   };
 
   const handleContact = () => {
+    trackEvent("contact_cta_clicked", { location: "navigation" });
     handleSectionNav("contact");
   };
 

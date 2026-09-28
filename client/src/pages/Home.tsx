@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('de');
@@ -96,7 +97,10 @@ export default function Home() {
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
-                  onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => {
+                    trackEvent("hero_cta_clicked", { destination: "solutions" });
+                    document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="bg-[#ff6a00] border-[#ff6a00] text-white font-semibold"
                   data-testid="button-explore"
                 >
@@ -104,7 +108,10 @@ export default function Home() {
                 </Button>
                 <Button
                   variant="outline"
-                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => {
+                    trackEvent("contact_cta_clicked", { location: "homepage_hero" });
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="border-white/20 text-white/80 bg-white/5 backdrop-blur-sm"
                   data-testid="button-strategy"
                 >
@@ -153,7 +160,10 @@ export default function Home() {
                 transition={{ duration: 0.2 }}
                 className="group cursor-pointer rounded-xl border border-border hover:border-[#ff6a00]/30 bg-background p-6 flex flex-col"
                 data-testid={`card-target-${idx}`}
-                onClick={() => navigate(entry.link)}
+                onClick={() => {
+                  trackEvent("industry_card_clicked", { destination: entry.link });
+                  navigate(entry.link);
+                }}
               >
                 <div className="w-10 h-10 rounded-lg bg-[#ff6a00]/8 flex items-center justify-center mb-4 group-hover:bg-[#ff6a00]/15 transition-colors">
                   <div className="text-[#ff6a00]/60 group-hover:text-[#ff6a00] transition-colors">
@@ -176,7 +186,10 @@ export default function Home() {
         </div>
       </section>
 
-      <SecuritySection lang={lang} onContact={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} />
+      <SecuritySection lang={lang} onContact={() => {
+        trackEvent("contact_cta_clicked", { location: "homepage_security" });
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+      }} />
 
       <RoiCalculator lang={lang} />
 

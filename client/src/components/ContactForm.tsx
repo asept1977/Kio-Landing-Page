@@ -11,6 +11,7 @@ import { Loader2, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Lang } from "@/lib/i18n";
 import { translations } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 interface ContactFormProps {
   lang: Lang;
@@ -32,8 +33,12 @@ export function ContactForm({ lang }: ContactFormProps) {
   const { mutate, isPending, isSuccess } = useCreateLead();
 
   const onSubmit = (data: InsertLead) => {
+    trackEvent("contact_form_submitted", { location: "homepage" });
     mutate(data, {
-      onSuccess: () => form.reset(),
+      onSuccess: () => {
+        trackEvent("contact_form_success", { location: "homepage" });
+        form.reset();
+      },
     });
   };
 

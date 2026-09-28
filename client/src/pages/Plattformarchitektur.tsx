@@ -50,7 +50,7 @@ export default function Plattformarchitektur() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation lang={lang} onLangChange={setLang} forceScrolled />
+      <Navigation lang={lang} setLang={setLang} forceScrolled />
 
       <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden" data-testid="section-hero-arch">
         <div className="absolute inset-0 bg-gradient-to-b from-[#003366] via-[#05284F] to-[#030f1a]" />
